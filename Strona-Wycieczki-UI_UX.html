@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wycieczka - Magiczne Tatry</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#f59e0b'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Montserrat', sans-serif;
+color: #333;
+scroll-behavior: smooth;
+}
+.hover-scale {
+transition: transform 0.3s ease;
+}
+.hover-scale:hover {
+transform: scale(1.02);
+}
+.custom-scrollbar::-webkit-scrollbar {
+width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+background: #f1f1f1;
+border-radius: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+background: #3b82f6;
+border-radius: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+background: #2563eb;
+}
+.hero-gradient {
+background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7));
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+.tab-active {
+color: #3b82f6;
+border-bottom: 2px solid #3b82f6;
+}
+.custom-checkbox {
+appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #d1d5db;
+border-radius: 4px;
+position: relative;
+cursor: pointer;
+}
+.custom-checkbox:checked {
+background-color: #3b82f6;
+border-color: #3b82f6;
+}
+.custom-checkbox:checked::after {
+content: '';
+position: absolute;
+left: 6px;
+top: 2px;
+width: 6px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-radio {
+appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #d1d5db;
+border-radius: 50%;
+position: relative;
+cursor: pointer;
+}
+.custom-radio:checked {
+border-color: #3b82f6;
+}
+.custom-radio:checked::after {
+content: '';
+position: absolute;
+left: 4px;
+top: 4px;
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background-color: #3b82f6;
+}
+.switch {
+position: relative;
+display: inline-block;
+width: 48px;
+height: 24px;
+}
+.switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+transition: .4s;
+border-radius: 24px;
+}
+.slider:before {
+position: absolute;
+content: "";
+height: 18px;
+width: 18px;
+left: 3px;
+bottom: 3px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .slider {
+background-color: #3b82f6;
+}
+input:checked + .slider:before {
+transform: translateX(24px);
+}
+.range-slider {
+-webkit-appearance: none;
+width: 100%;
+height: 6px;
+border-radius: 5px;
+background: #d3d3d3;
+outline: none;
+}
+.range-slider::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background: #3b82f6;
+cursor: pointer;
+}
+.range-slider::-moz-range-thumb {
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background: #3b82f6;
+cursor: pointer;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Hero Section -->
+<div class="relative h-[85vh] w-full overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=Majestic%20panoramic%20view%20of%20Tatra%20Mountains%20at%20golden%20hour%2C%20dramatic%20lighting%20casting%20long%20shadows%20across%20snow-capped%20peaks%2C%20wispy%20clouds%20adding%20depth%2C%20pristine%20alpine%20landscape%20with%20hiking%20trail%20winding%20through%20foreground%2C%20perfect%20composition%20for%20adventure%20tourism%20marketing%2C%20ultra%20high%20quality%20professional%20photography&width=1920&height=1080&seq=1&orientation=landscape');"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/70"></div>
+<!-- Back Button -->
+<div class="absolute top-6 left-6 z-10">
+<button class="flex items-center gap-2 text-white bg-black/30 hover:bg-black/50 px-4 py-2 rounded-button transition">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-arrow-left-line"></i>
+</div>
+<span>Powrót</span>
+</button>
+</div>
+<!-- Rating -->
+<div class="absolute top-6 right-6 z-10">
+<div class="flex items-center gap-2 bg-black/30 px-4 py-2 rounded-button text-white">
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+<span class="font-medium">4.9</span>
+<span class="text-sm text-gray-200">(128 opinii)</span>
+</div>
+</div>
+<!-- Title -->
+<div class="absolute bottom-10 left-0 w-full px-6 md:px-10 z-10">
+<h1 class="text-4xl md:text-5xl font-bold text-white mb-2">Magiczne Tatry: Szlak Orlej Perci</h1>
+<div class="flex items-center gap-2 text-white">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-map-pin-line"></i>
+</div>
+<span>Tatry, Zakopane, Polska</span>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="max-w-7xl mx-auto px-4 py-8">
+<!-- Basic Info -->
+<div class="bg-white rounded-xl shadow-lg p-8 mb-8 transform hover:shadow-xl transition-all duration-300">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex flex-col md:flex-row gap-4 items-start md:items-center">
+<div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-primary">
+<i class="ri-time-line ri-xl"></i>
+</div>
+<div>
+<h3 class="text-sm text-gray-500">Czas trwania</h3>
+<p class="font-medium">2 dni (z noclegiem)</p>
+</div>
+</div>
+<div class="flex flex-col md:flex-row gap-4 items-start md:items-center">
+<div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-primary">
+<i class="ri-footprint-line ri-xl"></i>
+</div>
+<div>
+<h3 class="text-sm text-gray-500">Poziom trudności</h3>
+<p class="font-medium">Trudny (dla doświadczonych)</p>
+</div>
+</div>
+<div class="flex flex-col md:flex-row gap-4 items-start md:items-center">
+<div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-primary">
+<i class="ri-group-line ri-xl"></i>
+</div>
+<div>
+<h3 class="text-sm text-gray-500">Wielkość grupy</h3>
+<p class="font-medium">Max. 8 osób</p>
+</div>
+</div>
+</div>
+<div class="mt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div class="flex items-center gap-3">
+<div class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+Dostępne terminy
+</div>
+<span class="text-sm text-gray-500">Najbliższy: 15 czerwca 2025</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-bold">1 890 zł</span>
+<span class="text-gray-500">od osoby</span>
+</div>
+</div>
+</div>
+<!-- Tabs Section -->
+<div class="bg-white rounded-lg shadow-md mb-8">
+<div class="border-b">
+<div class="flex overflow-x-auto">
+<button id="tab-opis" class="tab-active px-6 py-4 font-medium whitespace-nowrap">Opis</button>
+<button id="tab-program" class="px-6 py-4 font-medium whitespace-nowrap">Program</button>
+<button id="tab-info" class="px-6 py-4 font-medium whitespace-nowrap">Informacje praktyczne</button>
+</div>
+</div>
+<!-- Tab Content -->
+<div id="content-opis" class="p-6">
+<div class="prose max-w-none">
+<p class="mb-4">Orla Perć to najbardziej spektakularny i wymagający szlak w polskich Tatrach, często nazywany "koroną polskich gór". Nasza dwudniowa wycieczka pozwoli Ci bezpiecznie przejść ten legendarny odcinek pod okiem doświadczonego przewodnika górskiego.</p>
+<p class="mb-4">Trasa prowadzi przez najbardziej malownicze partie Tatr Wysokich, oferując niesamowite widoki na polską i słowacką stronę gór. Przejście wymaga dobrej kondycji fizycznej oraz braku lęku wysokości, gdyż szlak obfituje w ekspozycje i odcinki wyposażone w łańcuchy oraz klamry.</p>
+<p class="mb-4">W cenie wycieczki zapewniamy nocleg w schronisku górskim, pełne wyżywienie oraz profesjonalną opiekę przewodnika z uprawnieniami UIAGM/IVBV, który zadba o Wasze bezpieczeństwo i podzieli się fascynującą wiedzą o Tatrach.</p>
+<div class="my-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+<img src="https://readdy.ai/api/search-image?query=Close-up%20view%20of%20mountain%20hiking%20trail%20in%20Tatra%20Mountains%20with%20metal%20chains%20and%20ladders%20for%20safety%20on%20steep%20rocky%20sections.%20Dramatic%20mountain%20landscape%20with%20hikers%20visible%20in%20the%20distance.%20Clear%20blue%20sky%20and%20panoramic%20views%20of%20mountain%20ranges.%20Natural%20lighting%20highlighting%20the%20rugged%20terrain%20and%20safety%20equipment&width=600&height=400&seq=2&orientation=landscape" alt="Orla Perć - łańcuchy" class="rounded-lg w-full h-64 object-cover object-top">
+<img src="https://readdy.ai/api/search-image?query=Mountain%20shelter%20hut%20in%20Tatra%20Mountains%20surrounded%20by%20alpine%20meadows%20and%20rocky%20peaks.%20Traditional%20wooden%20mountain%20refuge%20with%20hikers%20resting%20outside.%20Stunning%20mountain%20panorama%20in%20background%20with%20dramatic%20clouds.%20Warm%20evening%20light%20creating%20cozy%20atmosphere%20around%20the%20mountain%20shelter&width=600&height=400&seq=3&orientation=landscape" alt="Schronisko w Tatrach" class="rounded-lg w-full h-64 object-cover object-top">
+</div>
+<h3 class="text-xl font-semibold mb-3">Dlaczego warto wybrać naszą wycieczkę:</h3>
+<ul class="list-disc pl-6 mb-4">
+<li class="mb-2">Małe grupy (maksymalnie 8 osób) zapewniające indywidualne podejście</li>
+<li class="mb-2">Przewodnicy z wieloletnim doświadczeniem i pasją do gór</li>
+<li class="mb-2">Kompleksowa organizacja (transport, nocleg, wyżywienie)</li>
+<li class="mb-2">Sprzęt asekuracyjny w cenie wycieczki</li>
+<li>Pamiątkowe zdjęcia i certyfikat przejścia Orlej Perci</li>
+</ul>
+</div>
+</div>
+<div id="content-program" class="p-6 hidden">
+<div class="prose max-w-none">
+<h3 class="text-xl font-semibold mb-4">Dzień 1: Przełęcz Zawrat - Kozi Wierch</h3>
+<p class="mb-4">Spotykamy się o 7:00 rano w Kuźnicach, skąd wyruszymy szlakiem przez Dolinę Gąsienicową na Przełęcz Zawrat (2159 m n.p.m.). Stąd rozpoczniemy właściwą część trasy Orlej Perci, kierując się w stronę Koziego Wierchu (2291 m n.p.m.) - najwyższego szczytu Polski położonego w całości na jej terytorium.</p>
+<div class="flex items-center gap-4 my-4 p-4 bg-blue-50 rounded-lg">
+<div class="min-w-12 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-primary">
+<i class="ri-time-line ri-xl"></i>
+</div>
+<div>
+<p class="font-medium">Czas przejścia: około 7-8 godzin</p>
+<p class="text-sm text-gray-600">Dystans: 12 km | Przewyższenie: 1200 m</p>
+</div>
+</div>
+<p class="mb-4">Po dotarciu na Kozi Wierch zrobimy dłuższą przerwę na podziwianie panoramy i odpoczynek. Następnie zejdziemy do Schroniska w Dolinie Pięciu Stawów Polskich, gdzie spędzimy noc.</p>
+<div class="my-6">
+<img src="https://readdy.ai/api/search-image?query=Panoramic%20view%20from%20Kozi%20Wierch%20summit%20in%20Tatra%20Mountains%20with%20hikers%20resting%20and%20enjoying%20the%20view.%20Vast%20mountain%20landscape%20with%20multiple%20peaks%20visible%20in%20distance.%20Clear%20blue%20sky%20with%20few%20clouds.%20Rocky%20terrain%20in%20foreground%20with%20mountain%20trail%20markers.%20Natural%20lighting%20highlighting%20the%20majestic%20mountain%20scenery&width=800&height=400&seq=4&orientation=landscape" alt="Widok z Koziego Wierchu" class="rounded-lg w-full h-72 object-cover object-top">
+</div>
+<h3 class="text-xl font-semibold mb-4">Dzień 2: Kozi Wierch - Krzyżne</h3>
+<p class="mb-4">Po śniadaniu w schronisku (około 8:00) wrócimy na szlak Orlej Perci, kontynuując trasę przez Zamarłą Turnię, Kozi Wierch (tym razem od drugiej strony), Granaty aż do Przełęczy Krzyżne. Ten odcinek oferuje jedne z najpiękniejszych widoków w Tatrach i zawiera najbardziej wymagające technicznie fragmenty szlaku.</p>
+<div class="flex items-center gap-4 my-4 p-4 bg-blue-50 rounded-lg">
+<div class="min-w-12 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-primary">
+<i class="ri-time-line ri-xl"></i>
+</div>
+<div>
+<p class="font-medium">Czas przejścia: około 6-7 godzin</p>
+<p class="text-sm text-gray-600">Dystans: 10 km | Przewyższenie: 800 m</p>
+</div>
+</div>
+<p class="mb-4">Z Przełęczy Krzyżne zejdziemy przez Dolinę Pańszczycy do Murowańca, a stamtąd do Kuźnic, gdzie zakończymy naszą wycieczkę (przewidywany powrót około 17:00-18:00).</p>
+</div>
+</div>
+<div id="content-info" class="p-6 hidden">
+<div class="prose max-w-none">
+<h3 class="text-xl font-semibold mb-4">Informacje praktyczne</h3>
+<h4 class="text-lg font-medium mt-6 mb-3">Wymagania</h4>
+<ul class="list-disc pl-6 mb-4">
+<li class="mb-2">Dobra kondycja fizyczna - możliwość chodzenia 8-9 godzin dziennie w terenie górskim</li>
+<li class="mb-2">Brak lęku wysokości</li>
+<li class="mb-2">Podstawowe doświadczenie w turystyce górskiej</li>
+<li>Minimalny wiek uczestnika: 16 lat (osoby niepełnoletnie tylko pod opieką rodziców)</li>
+</ul>
+<h4 class="text-lg font-medium mt-6 mb-3">Pogoda i sezonowość</h4>
+<p class="mb-4">Wycieczka dostępna jest od połowy czerwca do końca września, w zależności od warunków śniegowych w wyższych partiach gór. W przypadku niekorzystnych prognoz pogody (burze, silny wiatr, opady) trasa może zostać zmieniona lub wycieczka przełożona na inny termin.</p>
+<div class="my-6 bg-gray-50 p-4 rounded-lg">
+<h4 class="text-lg font-medium mb-3">Średnie temperatury w sezonie:</h4>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="bg-white p-3 rounded shadow-sm">
+<p class="text-sm text-gray-500">Czerwiec</p>
+<p class="font-medium">10-18°C</p>
+</div>
+<div class="bg-white p-3 rounded shadow-sm">
+<p class="text-sm text-gray-500">Lipiec</p>
+<p class="font-medium">12-22°C</p>
+</div>
+<div class="bg-white p-3 rounded shadow-sm">
+<p class="text-sm text-gray-500">Sierpień</p>
+<p class="font-medium">12-22°C</p>
+</div>
+<div class="bg-white p-3 rounded shadow-sm">
+<p class="text-sm text-gray-500">Wrzesień</p>
+<p class="font-medium">8-16°C</p>
+</div>
+</div>
+<p class="mt-3 text-sm text-gray-500">Uwaga: w wyższych partiach gór temperatura może być o 5-10°C niższa</p>
+</div>
+<h4 class="text-lg font-medium mt-6 mb-3">Transport</h4>
+<p class="mb-4">Miejscem zbiórki są Kuźnice (parking). Dojazd we własnym zakresie. Z Zakopanego można dotrzeć do Kuźnic komunikacją miejską (busy kursują co 15 minut) lub taksówką.</p>
+</div>
+</div>
+</div>
+<!-- Details Section -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+<!-- What's Included -->
+<div class="bg-white rounded-lg shadow-md p-6">
+<h3 class="text-xl font-semibold mb-4">Co zawiera cena</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<div class="min-w-5 w-5 h-5 flex items-center justify-center text-green-500 mt-0.5">
+<i class="ri-check-line"></i>
+</div>
+<span>Opieka licencjonowanego przewodnika górskiego</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="min-w-5 w-5 h-5 flex items-center justify-center text-green-500 mt-0.5">
+<i class="ri-check-line"></i>
+</div>
+<span>Nocleg w schronisku (pokoje wieloosobowe)</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="min-w-5 w-5 h-5 flex items-center justify-center text-green-500 mt-0.5">
+<i class="ri-check-line"></i>
+</div>
+<span>Pełne wyżywienie (2× śniadanie, 2× obiad, 1× kolacja)</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="min-w-5 w-5 h-5 flex items-center justify-center text-green-500 mt-0.5">
+<i class="ri-check-line"></i>
+</div>
+<span>Sprzęt asekuracyjny (kask, uprząż)</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="min-w-5 w-5 h-5 flex items-center justify-center text-green-500 mt-0.5">
+<i class="ri-check-line"></i>
+</div>
+<span>Ubezpieczenie NNW</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="min-w-5 w-5 h-5 flex items-center justify-center text-green-500 mt-0.5">
+<i class="ri-check-line"></i>
+</div>
+<span>Pamiątkowy certyfikat przejścia Orlej Perci</span>
+</li>
+</ul>
+<div class="mt-6 pt-6 border-t">
+<h4 class="font-medium mb-3">Nie zawiera:</h4>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<div class="min-w-5 w-5 h-5 flex items-center justify-center text-red-500 mt-0.5">
+<i class="ri-close-line"></i>
+</div>
+<span>Transportu do/z Kuźnic</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="min-w-5 w-5 h-5 flex items-center justify-center text-red-500 mt-0.5">
+<i class="ri-close-line"></i>
+</div>
+<span>Biletu wstępu do TPN (30 zł/os)</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="min-w-5 w-5 h-5 flex items-center justify-center text-red-500 mt-0.5">
+<i class="ri-close-line"></i>
+</div>
+<span>Napojów i przekąsek poza wyżywieniem</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- What to Bring -->
+<div class="bg-white rounded-lg shadow-md p-6">
+<h3 class="text-xl font-semibold mb-4">Co należy zabrać</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<div class="min-w-5 w-5 h-5 flex items-center justify-center text-blue-500 mt-0.5">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Buty trekkingowe z twardą podeszwą</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="min-w-5 w-5 h-5 flex items-center justify-center text-blue-500 mt-0.5">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Kurtka przeciwdeszczowa i przeciwwiatrowa</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="min-w-5 w-5 h-5 flex items-center justify-center text-blue-500 mt-0.5">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Ciepły polar lub sweter</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="min-w-5 w-5 h-5 flex items-center justify-center text-blue-500 mt-0.5">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Spodnie trekkingowe (długie)</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="min-w-5 w-5 h-5 flex items-center justify-center text-blue-500 mt-0.5">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Czapka, rękawiczki, szalik (nawet latem)</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="min-w-5 w-5 h-5 flex items-center justify-center text-blue-500 mt-0.5">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Plecak (30-40 litrów)</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="min-w-5 w-5 h-5 flex items-center justify-center text-blue-500 mt-0.5">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Bidon lub termos (min. 1,5 litra)</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="min-w-5 w-5 h-5 flex items-center justify-center text-blue-500 mt-0.5">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Okulary przeciwsłoneczne</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="min-w-5 w-5 h-5 flex items-center justify-center text-blue-500 mt-0.5">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Krem z filtrem UV</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="min-w-5 w-5 h-5 flex items-center justify-center text-blue-500 mt-0.5">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Latarka czołowa</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="min-w-5 w-5 h-5 flex items-center justify-center text-blue-500 mt-0.5">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Osobiste leki i apteczka</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="min-w-5 w-5 h-5 flex items-center justify-center text-blue-500 mt-0.5">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Ręcznik i przybory toaletowe</span>
+</li>
+</ul>
+</div>
+<!-- Guide Info and Map -->
+<div class="space-y-8">
+<div class="bg-white rounded-lg shadow-md p-6">
+<h3 class="text-xl font-semibold mb-4">Przewodnik</h3>
+<div class="flex items-center gap-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20male%20mountain%20guide%20portrait%2C%20mid-30s%2C%20weathered%20face%20with%20friendly%20smile%2C%20outdoor%20setting%20with%20mountains%20in%20background%2C%20wearing%20technical%20mountain%20clothing%20and%20equipment%2C%20natural%20lighting%2C%20professional%20headshot%20style&width=150&height=150&seq=5&orientation=squarish" alt="Przewodnik Marek Kowalski" class="w-20 h-20 rounded-full object-cover">
+<div>
+<h4 class="font-medium">Marek Kowalski</h4>
+<p class="text-sm text-gray-500 mb-1">Przewodnik tatrzański UIAGM/IVBV</p>
+<div class="flex items-center gap-1 text-yellow-400">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<span class="text-gray-500 text-sm">(56 wycieczek)</span>
+</div>
+</div>
+</div>
+<p class="mt-4 text-sm">Marek to doświadczony przewodnik z 15-letnim stażem w Tatrach. Posiada międzynarodowe uprawnienia UIAGM/IVBV oraz jest ratownikiem TOPR. Specjalizuje się w trudnych szlakach wysokogórskich i ma na koncie ponad 200 przejść Orlej Perci.</p>
+</div>
+<div class="bg-white rounded-lg shadow-md p-6">
+<h3 class="text-xl font-semibold mb-4">Trasa wycieczki</h3>
+<div class="w-full h-64 rounded-lg overflow-hidden bg-cover bg-center" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png');"></div>
+</div>
+</div>
+</div>
+<!-- Reviews Section -->
+<div class="bg-white rounded-lg shadow-md p-6 mb-8">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-xl font-semibold">Opinie uczestników (128)</h3>
+<div class="flex items-center gap-1">
+<div class="flex items-center gap-0.5 text-yellow-400">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-half-fill"></i>
+</div>
+<span class="font-medium ml-1">4.9</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+<div class="bg-gray-50 p-3 rounded">
+<p class="text-sm text-gray-500">Organizacja</p>
+<div class="flex items-center gap-2 mt-1">
+<div class="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 98%"></div>
+</div>
+<span class="text-sm font-medium">4.9</span>
+</div>
+</div>
+<div class="bg-gray-50 p-3 rounded">
+<p class="text-sm text-gray-500">Atrakcje</p>
+<div class="flex items-center gap-2 mt-1">
+<div class="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 100%"></div>
+</div>
+<span class="text-sm font-medium">5.0</span>
+</div>
+</div>
+<div class="bg-gray-50 p-3 rounded">
+<p class="text-sm text-gray-500">Przewodnik</p>
+<div class="flex items-center gap-2 mt-1">
+<div class="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 96%"></div>
+</div>
+<span class="text-sm font-medium">4.8</span>
+</div>
+</div>
+<div class="bg-gray-50 p-3 rounded">
+<p class="text-sm text-gray-500">Stosunek jakości do ceny</p>
+<div class="flex items-center gap-2 mt-1">
+<div class="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 94%"></div>
+</div>
+<span class="text-sm font-medium">4.7</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 mb-6">
+<button class="px-4 py-2 bg-primary text-white rounded-button whitespace-nowrap">Wszystkie opinie</button>
+<button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-button whitespace-nowrap">5 gwiazdek (112)</button>
+<button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-button whitespace-nowrap">4 gwiazdki (14)</button>
+<button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-button whitespace-nowrap">3 gwiazdki (2)</button>
+</div>
+<div class="space-y-6">
+<!-- Review 1 -->
+<div class="border-b pb-6">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<img src="https://readdy.ai/api/search-image?query=Portrait%20of%20a%20young%20woman%20with%20long%20brown%20hair%2C%20casual%20outdoor%20clothing%2C%20natural%20smile%2C%20mountains%20in%20background%2C%20candid%20style%2C%20natural%20lighting&width=50&height=50&seq=6&orientation=squarish" alt="Karolina Nowak" class="w-10 h-10 rounded-full object-cover">
+<div>
+<h4 class="font-medium">Karolina Nowak</h4>
+<p class="text-sm text-gray-500">Czerwiec 2024</p>
+</div>
+</div>
+<div class="flex items-center text-yellow-400">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<p class="mb-4">Absolutnie niesamowita wycieczka! Orla Perć to wyzwanie, ale z przewodnikiem Markiem czułam się bezpiecznie przez cały czas. Widoki są nie do opisania, a atmosfera w grupie była świetna. Schronisko w Dolinie Pięciu Stawów ma pyszne jedzenie i przytulne pokoje. Zdecydowanie polecam każdemu, kto chce przeżyć prawdziwą górską przygodę!</p>
+<div class="grid grid-cols-3 gap-2">
+<img src="https://readdy.ai/api/search-image?query=Group%20of%20hikers%20on%20mountain%20ridge%20trail%20with%20safety%20equipment%2C%20smiling%20and%20posing%20for%20photo%2C%20Tatra%20Mountains%20in%20background%2C%20sunny%20day%2C%20rocky%20terrain%20visible%2C%20natural%20candid%20group%20photo&width=150&height=150&seq=7&orientation=squarish" alt="" class="w-full h-24 object-cover object-top rounded">
+<img src="https://readdy.ai/api/search-image?query=Mountain%20shelter%20interior%20with%20wooden%20tables%20and%20benches%2C%20hikers%20eating%20dinner%2C%20cozy%20atmosphere%2C%20warm%20lighting%2C%20traditional%20mountain%20hut%20dining%20area&width=150&height=150&seq=8&orientation=squarish" alt="" class="w-full h-24 object-cover object-top rounded">
+<img src="https://readdy.ai/api/search-image?query=Panoramic%20mountain%20view%20from%20high%20ridge%20in%20Tatra%20Mountains%2C%20multiple%20peaks%20visible%2C%20clear%20blue%20sky%2C%20dramatic%20landscape%20photographed%20from%20hiking%20trail&width=150&height=150&seq=9&orientation=squarish" alt="" class="w-full h-24 object-cover object-top rounded">
+</div>
+</div>
+<!-- Review 2 -->
+<div class="border-b pb-6">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<img src="https://readdy.ai/api/search-image?query=Portrait%20of%20middle-aged%20man%20with%20short%20gray%20hair%20and%20beard%2C%20outdoor%20clothing%2C%20friendly%20expression%2C%20natural%20outdoor%20setting%2C%20candid%20style&width=50&height=50&seq=10&orientation=squarish" alt="Tomasz Wiśniewski" class="w-10 h-10 rounded-full object-cover">
+<div>
+<h4 class="font-medium">Tomasz Wiśniewski</h4>
+<p class="text-sm text-gray-500">Sierpień 2024</p>
+</div>
+</div>
+<div class="flex items-center text-yellow-400">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<p>Profesjonalna organizacja od A do Z. Marek to skarbnica wiedzy o Tatrach i świetny przewodnik, który dostosowuje tempo do możliwości grupy. Sprzęt asekuracyjny był wysokiej jakości, a jedzenie w schronisku pyszne i obfite. Certyfikat przejścia Orlej Perci to miły dodatek. Jedyne co bym zmienił to dodał więcej czasu na odpoczynek na szczytach - widoki są tak piękne, że chciałoby się je podziwiać dłużej.</p>
+</div>
+<!-- Review 3 -->
+<div>
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<img src="https://readdy.ai/api/search-image?query=Portrait%20of%20young%20couple%20in%20hiking%20gear%2C%20smiling%20at%20camera%2C%20outdoor%20setting%20with%20mountains%2C%20casual%20pose%2C%20natural%20lighting&width=50&height=50&seq=11&orientation=squarish" alt="Anna i Michał Kowalscy" class="w-10 h-10 rounded-full object-cover">
+<div>
+<h4 class="font-medium">Anna i Michał Kowalscy</h4>
+<p class="text-sm text-gray-500">Lipiec 2024</p>
+</div>
+</div>
+<div class="flex items-center text-yellow-400">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-line"></i>
+</div>
+</div>
+<p class="mb-4">Wycieczka była fantastyczna, choć bardzo wymagająca fizycznie - opis nie kłamie mówiąc o wysokim poziomie trudności! Przewodnik Marek był niezwykle pomocny i cierpliwy. Jedyny minus to dość zatłoczone schronisko i konieczność dzielenia pokoju z innymi uczestnikami (choć było to jasno zaznaczone w opisie). Widoki z Orlej Perci są absolutnie warte każdej kropli potu. Polecamy!</p>
+<div class="grid grid-cols-2 gap-2">
+<img src="https://readdy.ai/api/search-image?query=Couple%20taking%20selfie%20on%20mountain%20peak%20with%20panoramic%20view%20of%20Tatra%20Mountains%20in%20background%2C%20smiling%20faces%2C%20sunny%20day%2C%20natural%20candid%20moment&width=200&height=150&seq=12&orientation=landscape" alt="" class="w-full h-32 object-cover object-top rounded">
+<img src="https://readdy.ai/api/search-image?query=Mountain%20trail%20with%20metal%20chains%20for%20safety%20on%20steep%20rocky%20section%2C%20dramatic%20mountain%20landscape%20in%20background%2C%20hiking%20path%20visible%20winding%20through%20rocky%20terrain&width=200&height=150&seq=13&orientation=landscape" alt="" class="w-full h-32 object-cover object-top rounded">
+</div>
+</div>
+</div>
+<div class="mt-6 text-center">
+<button class="px-6 py-2 border border-primary text-primary hover:bg-blue-50 rounded-button whitespace-nowrap">Zobacz więcej opinii</button>
+</div>
+</div>
+<!-- Similar Tours -->
+<div class="mb-8">
+<h3 class="text-xl font-semibold mb-6">Podobne wycieczki</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover-scale">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Rysy%20mountain%20peak%20in%20Tatra%20Mountains%20with%20hiking%20trail%20visible%2C%20dramatic%20mountain%20landscape%20with%20lake%20visible%20in%20valley%20below%2C%20sunny%20day%20with%20few%20clouds%2C%20rocky%20terrain%20in%20foreground&width=400&height=250&seq=14&orientation=landscape" alt="Rysy - najwyższy szczyt Polski" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-medium">Rysy - najwyższy szczyt Polski</h4>
+<div class="flex items-center gap-1 text-yellow-400">
+<i class="ri-star-fill"></i>
+<span class="text-gray-700 text-sm">4.8</span>
+</div>
+</div>
+<p class="text-sm text-gray-500 mb-3">Jednodniowa wycieczka na najwyższy szczyt Polski (2499 m n.p.m.)</p>
+<div class="flex justify-between items-center">
+<span class="font-medium">890 zł / osoba</span>
+<button class="px-4 py-1.5 bg-primary text-white text-sm rounded-button whitespace-nowrap">Szczegóły</button>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Morskie%20Oko%20lake%20in%20Tatra%20Mountains%20with%20mountain%20peaks%20reflected%20in%20crystal%20clear%20water%2C%20surrounded%20by%20pine%20forest%2C%20sunny%20day%2C%20beautiful%20alpine%20scenery&width=400&height=250&seq=15&orientation=landscape" alt="Dolina Pięciu Stawów i Morskie Oko" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-medium">Dolina Pięciu Stawów i Morskie Oko</h4>
+<div class="flex items-center gap-1 text-yellow-400">
+<i class="ri-star-fill"></i>
+<span class="text-gray-700 text-sm">4.9</span>
+</div>
+</div>
+<p class="text-sm text-gray-500 mb-3">Dwudniowa wycieczka do najpiękniejszych dolin tatrzańskich</p>
+<div class="flex justify-between items-center">
+<span class="font-medium">1 290 zł / osoba</span>
+<button class="px-4 py-1.5 bg-primary text-white text-sm rounded-button whitespace-nowrap">Szczegóły</button>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Giewont%20mountain%20peak%20in%20Tatra%20Mountains%20with%20distinctive%20cross%20on%20summit%2C%20viewed%20from%20hiking%20trail%2C%20dramatic%20clouds%20around%20peak%2C%20rocky%20terrain%20in%20foreground&width=400&height=250&seq=16&orientation=landscape" alt="Giewont - symbol Zakopanego" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-medium">Giewont - symbol Zakopanego</h4>
+<div class="flex items-center gap-1 text-yellow-400">
+<i class="ri-star-fill"></i>
+<span class="text-gray-700 text-sm">4.7</span>
+</div>
+</div>
+<p class="text-sm text-gray-500 mb-3">Jednodniowa wycieczka na najbardziej rozpoznawalny szczyt Tatr</p>
+<div class="flex justify-between items-center">
+<span class="font-medium">590 zł / osoba</span>
+<button class="px-4 py-1.5 bg-primary text-white text-sm rounded-button whitespace-nowrap">Szczegóły</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Booking Section -->
+<div class="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] p-4 z-20">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold">1 890 zł</span>
+<span class="text-gray-500">od osoby</span>
+</div>
+<div class="flex items-center gap-4">
+<button id="book-now" class="px-5 py-2.5 bg-primary text-white hover:bg-primary/90 rounded-button whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-shopping-cart-line"></i>
+</div>
+<span>Zarezerwuj teraz</span>
+</div>
+</button>
+</div>
+</div>
+</div>
+<!-- Booking Modal -->
+<div id="booking-modal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center">
+<div class="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto custom-scrollbar">
+<div class="p-6 border-b sticky top-0 bg-white z-10 flex justify-between items-center">
+<h3 class="text-xl font-semibold">Rezerwacja wycieczki</h3>
+<button id="close-modal" class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-700">
+<i class="ri-close-line ri-lg"></i>
+</button>
+</div>
+<div class="p-6">
+<div class="mb-6">
+<h4 class="font-medium mb-3">Wybierz termin</h4>
+<div class="grid grid-cols-3 gap-2">
+<button class="p-3 border border-gray-200 rounded hover:border-primary text-center">
+<p class="font-medium">15-16 czerwca</p>
+<p class="text-sm text-gray-500">2025</p>
+<p class="text-sm text-green-600 mt-1">Dostępne</p>
+</button>
+<button class="p-3 border border-gray-200 rounded hover:border-primary text-center">
+<p class="font-medium">29-30 czerwca</p>
+<p class="text-sm text-gray-500">2025</p>
+<p class="text-sm text-green-600 mt-1">Dostępne</p>
+</button>
+<button class="p-3 border border-primary rounded text-center">
+<p class="font-medium">13-14 lipca</p>
+<p class="text-sm text-gray-500">2025</p>
+<p class="text-sm text-green-600 mt-1">Dostępne</p>
+</button>
+<button class="p-3 border border-gray-200 rounded hover:border-primary text-center">
+<p class="font-medium">27-28 lipca</p>
+<p class="text-sm text-gray-500">2025</p>
+<p class="text-sm text-green-600 mt-1">Dostępne</p>
+</button>
+<button class="p-3 border border-gray-200 rounded hover:border-primary text-center">
+<p class="font-medium">10-11 sierpnia</p>
+<p class="text-sm text-gray-500">2025</p>
+<p class="text-sm text-green-600 mt-1">Dostępne</p>
+</button>
+<button class="p-3 border border-gray-200 rounded hover:border-primary text-center">
+<p class="font-medium">24-25 sierpnia</p>
+<p class="text-sm text-gray-500">2025</p>
+<p class="text-sm text-green-600 mt-1">Dostępne</p>
+</button>
+</div>
+</div>
+<div class="mb-6">
+<h4 class="font-medium mb-3">Liczba uczestników</h4>
+<div class="flex items-center gap-4">
+<div class="flex items-center">
+<button id="decrease-participants" class="w-10 h-10 flex items-center justify-center border border-gray-200 rounded-l-lg text-gray-500">
+<i class="ri-subtract-line"></i>
+</button>
+<input type="number" id="participants-count" value="2" min="1" max="8" class="w-16 h-10 border-y border-gray-200 text-center" readonly>
+<button id="increase-participants" class="w-10 h-10 flex items-center justify-center border border-gray-200 rounded-r-lg text-gray-500">
+<i class="ri-add-line"></i>
+</button>
+</div>
+<span class="text-sm text-gray-500">Max. 8 osób</span>
+</div>
+</div>
+<div class="mb-6">
+<h4 class="font-medium mb-3">Dodatkowe opcje</h4>
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<input type="checkbox" id="transport" class="custom-checkbox">
+<label for="transport">Transport z/do Zakopanego</label>
+</div>
+<span>+150 zł / osoba</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<input type="checkbox" id="private-room" class="custom-checkbox">
+<label for="private-room">Pokój prywatny w schronisku (2-os.)</label>
+</div>
+<span>+200 zł / pokój</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<input type="checkbox" id="photo-package" class="custom-checkbox">
+<label for="photo-package">Pakiet zdjęć z wycieczki</label>
+</div>
+<span>+100 zł</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<input type="checkbox" id="equipment" class="custom-checkbox">
+<label for="equipment">Wypożyczenie sprzętu (kijki, plecak)</label>
+</div>
+<span>+80 zł / osoba</span>
+</div>
+</div>
+</div>
+<div class="mb-6 bg-gray-50 p-4 rounded-lg">
+<h4 class="font-medium mb-3">Podsumowanie</h4>
+<div class="space-y-2">
+<div class="flex justify-between">
+<span>Wycieczka podstawowa (2 osoby)</span>
+<span>3 780 zł</span>
+</div>
+<div class="flex justify-between text-gray-500">
+<span>1 890 zł × 2 osoby</span>
+<span></span>
+</div>
+<div class="flex justify-between">
+<span>Transport z/do Zakopanego</span>
+<span>300 zł</span>
+</div>
+<div class="flex justify-between">
+<span>Pakiet zdjęć</span>
+<span>100 zł</span>
+</div>
+<div class="pt-2 mt-2 border-t flex justify-between font-bold">
+<span>Razem</span>
+<span>4 180 zł</span>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<h4 class="font-medium mb-3">Dane kontaktowe</h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label for="name" class="block text-sm text-gray-600 mb-1">Imię i nazwisko</label>
+<input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+</div>
+<div>
+<label for="email" class="block text-sm text-gray-600 mb-1">Email</label>
+<input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+</div>
+<div>
+<label for="phone" class="block text-sm text-gray-600 mb-1">Telefon</label>
+<input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+</div>
+<div>
+<label for="country" class="block text-sm text-gray-600 mb-1">Kraj</label>
+<div class="relative">
+<select id="country" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary appearance-none pr-8">
+<option>Polska</option>
+<option>Niemcy</option>
+<option>Czechy</option>
+<option>Słowacja</option>
+<option>Ukraina</option>
+<option>Inne</option>
+</select>
+<div class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<div class="flex items-start gap-2">
+<input type="checkbox" id="terms" class="custom-checkbox mt-1">
+<label for="terms" class="text-sm">Zapoznałem/am się i akceptuję <a href="#" class="text-primary">regulamin</a> oraz <a href="#" class="text-primary">politykę prywatności</a>. Wyrażam zgodę na przetwarzanie moich danych osobowych w celu realizacji rezerwacji.</label>
+</div>
+</div>
+<div class="flex justify-end">
+<button class="px-6 py-3 bg-primary text-white hover:bg-primary/90 rounded-button whitespace-nowrap">
+Rezerwuj i przejdź do płatności
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Share Modal -->
+<div id="share-modal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center">
+<div class="bg-white rounded-lg max-w-md w-full">
+<div class="p-6 border-b flex justify-between items-center">
+<h3 class="text-xl font-semibold">Udostępnij wycieczkę</h3>
+<button id="close-share-modal" class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-700">
+<i class="ri-close-line ri-lg"></i>
+</button>
+</div>
+<div class="p-6">
+<div class="grid grid-cols-4 gap-4 mb-6">
+<a href="#" class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+<i class="ri-facebook-fill ri-lg"></i>
+</div>
+<span class="text-sm">Facebook</span>
+</a>
+<a href="#" class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-400">
+<i class="ri-twitter-x-fill ri-lg"></i>
+</div>
+<span class="text-sm">Twitter</span>
+</a>
+<a href="#" class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+<i class="ri-whatsapp-fill ri-lg"></i>
+</div>
+<span class="text-sm">WhatsApp</span>
+</a>
+<a href="#" class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-700">
+<i class="ri-messenger-fill ri-lg"></i>
+</div>
+<span class="text-sm">Messenger</span>
+</a>
+</div>
+<div>
+<p class="text-sm text-gray-500 mb-2">Link do wycieczki</p>
+<div class="flex items-center gap-2">
+<input type="text" value="https://wycieczki-tatry.pl/orla-perc" class="flex-1 px-4 py-2 border border-gray-300 rounded-l focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" readonly>
+<button class="px-4 py-2 bg-primary text-white rounded-r-button whitespace-nowrap">Kopiuj</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="fixed left-6 bottom-24 flex flex-col gap-2 z-10">
+<button id="share-button" class="h-10 bg-gray-100 shadow-lg rounded-lg flex items-center px-4 text-gray-700 hover:bg-gray-200 transition-all">
+<span>Udostępnij</span>
+</button>
+<button id="favorite-button" class="h-10 bg-gray-100 shadow-lg rounded-lg flex items-center px-4 text-gray-700 hover:bg-gray-200 transition-all">
+<span>Polub</span>
+</button>
+</div>
+<script id="tab-switcher">
+document.addEventListener('DOMContentLoaded', function() {
+const tabs = ['opis', 'program', 'info'];
+tabs.forEach(tab => {
+const tabButton = document.getElementById(`tab-${tab}`);
+const contentDiv = document.getElementById(`content-${tab}`);
+tabButton.addEventListener('click', function() {
+// Hide all content divs
+tabs.forEach(t => {
+document.getElementById(`content-${t}`).classList.add('hidden');
+document.getElementById(`tab-${t}`).classList.remove('tab-active');
+});
+// Show selected content
+contentDiv.classList.remove('hidden');
+tabButton.classList.add('tab-active');
+});
+});
+});
+</script>
+<script id="booking-modal-handler">
+document.addEventListener('DOMContentLoaded', function() {
+const bookingModal = document.getElementById('booking-modal');
+const bookNowButton = document.getElementById('book-now');
+const closeModalButton = document.getElementById('close-modal');
+function openModal() {
+bookingModal.classList.remove('hidden');
+bookingModal.classList.add('flex');
+document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+bookingModal.classList.add('hidden');
+bookingModal.classList.remove('flex');
+document.body.style.overflow = '';
+}
+bookNowButton.addEventListener('click', openModal);
+closeModalButton.addEventListener('click', closeModal);
+bookingModal.addEventListener('click', function(e) {
+if (e.target === bookingModal) {
+closeModal();
+}
+});
+// Participants counter
+const decreaseButton = document.getElementById('decrease-participants');
+const increaseButton = document.getElementById('increase-participants');
+const participantsInput = document.getElementById('participants-count');
+decreaseButton.addEventListener('click', function() {
+let value = parseInt(participantsInput.value);
+if (value > 1) {
+participantsInput.value = value - 1;
+}
+});
+increaseButton.addEventListener('click', function() {
+let value = parseInt(participantsInput.value);
+if (value < 8) {
+participantsInput.value = value + 1;
+}
+});
+});
+</script>
+<script id="share-modal-handler">
+document.addEventListener('DOMContentLoaded', function() {
+const shareModal = document.getElementById('share-modal');
+const shareButton = document.getElementById('share-button');
+const closeShareModalButton = document.getElementById('close-share-modal');
+function openShareModal() {
+shareModal.classList.remove('hidden');
+shareModal.classList.add('flex');
+document.body.style.overflow = 'hidden';
+}
+function closeShareModal() {
+shareModal.classList.add('hidden');
+shareModal.classList.remove('flex');
+document.body.style.overflow = '';
+}
+shareButton.addEventListener('click', openShareModal);
+closeShareModalButton.addEventListener('click', closeShareModal);
+shareModal.addEventListener('click', function(e) {
+if (e.target === shareModal) {
+closeShareModal();
+}
+});
+});
+</script>
+<script id="favorite-button-handler">
+document.addEventListener('DOMContentLoaded', function() {
+const favoriteButton = document.getElementById('favorite-button');
+let isFavorite = false;
+favoriteButton.addEventListener('click', function() {
+isFavorite = !isFavorite;
+const tooltip = favoriteButton.querySelector('span');
+if (isFavorite) {
+tooltip.textContent = 'Usuń z ulubionych';
+} else {
+tooltip.textContent = 'Dodaj do ulubionych';
+}
+});
+});
+</script>
+</body>
+</html>
