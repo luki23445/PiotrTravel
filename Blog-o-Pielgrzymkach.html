@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=375px, initial-scale=1.0">
+<title>PiotrTravel - Blog</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#f59e0b'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Montserrat', sans-serif;
+width: 375px;
+margin: 0 auto;
+overflow-x: hidden;
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Nav Bar -->
+<nav class="fixed w-full bg-white shadow-md z-50">
+<div class="flex justify-between items-center px-4 py-3">
+<a href="https://readdy.ai/home/89d82bd7-a718-463c-bf3f-7e0b89b5dc58/d5580cdf-139f-45ee-acfb-7a9493797e18" data-readdy="true" class="w-8 h-8 flex items-center justify-center cursor-pointer">
+<i class="ri-arrow-left-line ri-lg"></i>
+</a>
+<h1 class="text-lg font-semibold">Blog</h1>
+<div class="w-8 h-8 flex items-center justify-center cursor-pointer" id="searchButton">
+<i class="ri-search-line ri-lg"></i>
+</div>
+</div>
+</nav>
+<!-- Search and Categories Section -->
+<section class="pt-[60px] px-4 pb-3 bg-white shadow-sm">
+<div class="relative mb-4">
+<input type="text" placeholder="Szukaj artykułów..." class="w-full py-2 pl-10 pr-4 bg-gray-50 rounded-lg text-sm border-none">
+<div class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-search-line"></i>
+</div>
+</div>
+<div class="overflow-x-auto pb-2">
+<div class="flex space-x-2 w-max">
+<button class="bg-primary bg-opacity-10 text-primary px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap cursor-pointer">Wszystkie</button>
+<button class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap cursor-pointer">Duchowość</button>
+<button class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap cursor-pointer">Miejsca święte</button>
+<button class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap cursor-pointer">Relacje z pielgrzymek</button>
+<button class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap cursor-pointer">Historia</button>
+<button class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap cursor-pointer">Porady</button>
+</div>
+</div>
+</section>
+<!-- Blog Articles List -->
+<section class="px-4 py-4 pb-[80px]">
+<div class="space-y-5">
+<!-- Article 1 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 cursor-pointer">
+<div class="h-[180px] overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Jerusalem%2520Via%2520Dolorosa%2520street%2520with%2520pilgrims%2520walking%252C%2520historical%2520path%2520of%2520Jesus%2520Christ%252C%2520religious%2520journey%252C%2520stone%2520architecture%252C%2520spiritual%2520atmosphere%252C%2520people%2520praying%252C%2520professional%2520photography&width=375&height=180&seq=11&orientation=landscape" alt="Via Dolorosa w Jerozolimie" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex items-center mb-2">
+<span class="bg-primary bg-opacity-10 text-primary text-xs font-medium px-2 py-1 rounded-full">Miejsca święte</span>
+<div class="flex items-center ml-auto text-xs text-gray-500">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-time-line"></i>
+</div>
+<span>5 min czytania</span>
+</div>
+</div>
+<h3 class="font-semibold text-lg mb-2">Via Dolorosa - podążaj śladami Chrystusa</h3>
+<p class="text-xs text-gray-600 mb-3">Odkryj historię i znaczenie drogi krzyżowej w Jerozolimie. Przewodnik po stacjach i praktyczne wskazówki dla pielgrzymów odwiedzających to święte miejsce.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-6 h-6 rounded-full overflow-hidden bg-gray-200 mr-2">
+<img src="https://readdy.ai/api/search-image?query=professional%2520headshot%2520of%2520middle-aged%2520polish%2520man%2520with%2520glasses%252C%2520friendly%2520smile%252C%2520neutral%2520background%252C%2520portrait%2520photography&width=40&height=40&seq=20&orientation=squarish" alt="Autor" class="w-full h-full object-cover">
+</div>
+<span class="text-xs text-gray-700">Ks. Marek Nowak</span>
+</div>
+<span class="text-xs text-gray-500">8 czerwca 2025</span>
+</div>
+</div>
+</div>
+<!-- Article 2 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 cursor-pointer">
+<div class="h-[180px] overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Pilgrims%2520praying%2520at%2520Fatima%2520Sanctuary%2520in%2520Portugal%252C%2520evening%2520candle%2520procession%252C%2520spiritual%2520atmosphere%252C%2520religious%2520devotion%252C%2520professional%2520photography%252C%2520soft%2520lighting&width=375&height=180&seq=12&orientation=landscape" alt="Procesja w Fatimie" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex items-center mb-2">
+<span class="bg-secondary bg-opacity-10 text-secondary text-xs font-medium px-2 py-1 rounded-full">Duchowość</span>
+<div class="flex items-center ml-auto text-xs text-gray-500">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-time-line"></i>
+</div>
+<span>8 min czytania</span>
+</div>
+</div>
+<h3 class="font-semibold text-lg mb-2">Modlitwa różańcowa w tradycji fatimskiej</h3>
+<p class="text-xs text-gray-600 mb-3">Znaczenie objawień fatimskich i rola różańca w duchowości katolickiej. Jak praktykować nabożeństwo pierwszych sobót miesiąca i czerpać z niego duchowe owoce.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-6 h-6 rounded-full overflow-hidden bg-gray-200 mr-2">
+<img src="https://readdy.ai/api/search-image?query=professional%2520headshot%2520of%2520polish%2520woman%2520in%2520her%252040s%252C%2520warm%2520smile%252C%2520neutral%2520background%252C%2520portrait%2520photography&width=40&height=40&seq=21&orientation=squarish" alt="Autor" class="w-full h-full object-cover">
+</div>
+<span class="text-xs text-gray-700">Anna Kowalska</span>
+</div>
+<span class="text-xs text-gray-500">5 czerwca 2025</span>
+</div>
+</div>
+</div>
+<!-- Article 3 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 cursor-pointer">
+<div class="h-[180px] overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Group%2520of%2520pilgrims%2520hiking%2520on%2520Camino%2520de%2520Santiago%2520trail%252C%2520beautiful%2520countryside%2520landscape%252C%2520spiritual%2520journey%252C%2520backpacks%2520with%2520scallop%2520shells%252C%2520professional%2520photography&width=375&height=180&seq=13&orientation=landscape" alt="Camino de Santiago" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex items-center mb-2">
+<span class="bg-gray-100 text-gray-600 text-xs font-medium px-2 py-1 rounded-full">Relacje z pielgrzymek</span>
+<div class="flex items-center ml-auto text-xs text-gray-500">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-time-line"></i>
+</div>
+<span>12 min czytania</span>
+</div>
+</div>
+<h3 class="font-semibold text-lg mb-2">Moja droga do Santiago - 30 dni na Camino</h3>
+<p class="text-xs text-gray-600 mb-3">Osobista relacja z pielgrzymki Drogą św. Jakuba. Wyzwania, spotkania i duchowe odkrycia podczas miesięcznej wędrówki przez Hiszpanię do grobu Apostoła.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-6 h-6 rounded-full overflow-hidden bg-gray-200 mr-2">
+<img src="https://readdy.ai/api/search-image?query=professional%2520headshot%2520of%2520young%2520polish%2520man%2520in%2520his%252030s%252C%2520outdoor%2520portrait%252C%2520natural%2520light%252C%2520friendly%2520expression&width=40&height=40&seq=22&orientation=squarish" alt="Autor" class="w-full h-full object-cover">
+</div>
+<span class="text-xs text-gray-700">Piotr Wiśniewski</span>
+</div>
+<span class="text-xs text-gray-500">1 czerwca 2025</span>
+</div>
+</div>
+</div>
+<!-- Article 4 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 cursor-pointer">
+<div class="h-[180px] overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Detailed%2520view%2520of%2520pilgrim%2520backpack%2520with%2520essential%2520items%252C%2520water%2520bottle%252C%2520comfortable%2520shoes%252C%2520map%252C%2520hat%252C%2520organized%2520packing%252C%2520travel%2520preparation%252C%2520professional%2520photography&width=375&height=180&seq=14&orientation=landscape" alt="Ekwipunek pielgrzyma" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex items-center mb-2">
+<span class="bg-gray-100 text-gray-600 text-xs font-medium px-2 py-1 rounded-full">Porady</span>
+<div class="flex items-center ml-auto text-xs text-gray-500">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-time-line"></i>
+</div>
+<span>7 min czytania</span>
+</div>
+</div>
+<h3 class="font-semibold text-lg mb-2">Co spakować na pielgrzymkę? Kompletny przewodnik</h3>
+<p class="text-xs text-gray-600 mb-3">Praktyczne wskazówki dotyczące niezbędnego ekwipunku na różne rodzaje pielgrzymek. Lista rzeczy, które warto zabrać i tych, które lepiej zostawić w domu.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-6 h-6 rounded-full overflow-hidden bg-gray-200 mr-2">
+<img src="https://readdy.ai/api/search-image?query=professional%2520headshot%2520of%2520polish%2520woman%2520in%2520her%252030s%252C%2520outdoor%2520enthusiast%252C%2520casual%2520style%252C%2520natural%2520light%2520portrait&width=40&height=40&seq=23&orientation=squarish" alt="Autor" class="w-full h-full object-cover">
+</div>
+<span class="text-xs text-gray-700">Magdalena Dąbrowska</span>
+</div>
+<span class="text-xs text-gray-500">30 maja 2025</span>
+</div>
+</div>
+</div>
+<!-- Article 5 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 cursor-pointer">
+<div class="h-[180px] overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Interior%2520of%2520Church%2520of%2520the%2520Holy%2520Sepulchre%2520in%2520Jerusalem%252C%2520ornate%2520architecture%252C%2520religious%2520artifacts%252C%2520soft%2520lighting%2520from%2520candles%252C%2520spiritual%2520atmosphere%252C%2520professional%2520photography&width=375&height=180&seq=15&orientation=landscape" alt="Bazylika Grobu Pańskiego" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex items-center mb-2">
+<span class="bg-primary bg-opacity-10 text-primary text-xs font-medium px-2 py-1 rounded-full">Miejsca święte</span>
+<div class="flex items-center ml-auto text-xs text-gray-500">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-time-line"></i>
+</div>
+<span>10 min czytania</span>
+</div>
+</div>
+<h3 class="font-semibold text-lg mb-2">Bazylika Grobu Pańskiego - serce chrześcijaństwa</h3>
+<p class="text-xs text-gray-600 mb-3">Historia i znaczenie najważniejszej świątyni chrześcijaństwa. Przewodnik po kaplicach i miejscach związanych z męką, śmiercią i zmartwychwstaniem Jezusa.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-6 h-6 rounded-full overflow-hidden bg-gray-200 mr-2">
+<img src="https://readdy.ai/api/search-image?query=professional%2520headshot%2520of%2520middle-aged%2520polish%2520man%2520with%2520beard%252C%2520scholarly%2520appearance%252C%2520glasses%252C%2520neutral%2520background&width=40&height=40&seq=24&orientation=squarish" alt="Autor" class="w-full h-full object-cover">
+</div>
+<span class="text-xs text-gray-700">Dr Tomasz Adamski</span>
+</div>
+<span class="text-xs text-gray-500">25 maja 2025</span>
+</div>
+</div>
+</div>
+<!-- Article 6 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 cursor-pointer">
+<div class="h-[180px] overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Pilgrims%2520climbing%2520Krizevac%2520hill%2520in%2520Medjugorje%252C%2520large%2520white%2520cross%2520on%2520top%252C%2520people%2520praying%252C%2520spiritual%2520journey%252C%2520rocky%2520path%252C%2520beautiful%2520landscape%252C%2520professional%2520photography&width=375&height=180&seq=16&orientation=landscape" alt="Góra Kriżevac" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex items-center mb-2">
+<span class="bg-gray-100 text-gray-600 text-xs font-medium px-2 py-1 rounded-full">Relacje z pielgrzymek</span>
+<div class="flex items-center ml-auto text-xs text-gray-500">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-time-line"></i>
+</div>
+<span>9 min czytania</span>
+</div>
+</div>
+<h3 class="font-semibold text-lg mb-2">Medjugorje - moje spotkanie z Królową Pokoju</h3>
+<p class="text-xs text-gray-600 mb-3">Osobiste świadectwo z pielgrzymki do Medjugorje. Doświadczenia duchowe podczas modlitwy na Górze Objawień i Kriżevac oraz uczestnictwa w wieczornym programie modlitewnym.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-6 h-6 rounded-full overflow-hidden bg-gray-200 mr-2">
+<img src="https://readdy.ai/api/search-image?query=professional%2520headshot%2520of%2520polish%2520woman%2520in%2520her%252050s%252C%2520warm%2520smile%252C%2520spiritual%2520look%252C%2520neutral%2520background%252C%2520portrait%2520photography&width=40&height=40&seq=25&orientation=squarish" alt="Autor" class="w-full h-full object-cover">
+</div>
+<span class="text-xs text-gray-700">Krystyna Jankowska</span>
+</div>
+<span class="text-xs text-gray-500">20 maja 2025</span>
+</div>
+</div>
+</div>
+<!-- Article 7 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 cursor-pointer">
+<div class="h-[180px] overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Ancient%2520manuscript%2520with%2520medieval%2520pilgrimage%2520routes%2520map%252C%2520historical%2520document%252C%2520old%2520parchment%2520with%2520Latin%2520text%252C%2520detailed%2520illustration%252C%2520professional%2520photography%252C%2520museum%2520artifact&width=375&height=180&seq=17&orientation=landscape" alt="Średniowieczne szlaki pielgrzymkowe" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex items-center mb-2">
+<span class="bg-gray-100 text-gray-600 text-xs font-medium px-2 py-1 rounded-full">Historia</span>
+<div class="flex items-center ml-auto text-xs text-gray-500">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-time-line"></i>
+</div>
+<span>15 min czytania</span>
+</div>
+</div>
+<h3 class="font-semibold text-lg mb-2">Średniowieczne szlaki pielgrzymkowe w Europie</h3>
+<p class="text-xs text-gray-600 mb-3">Historia pielgrzymowania w średniowiecznej Europie. Najważniejsze szlaki, motywacje pątników i wpływ ruchu pielgrzymkowego na kulturę, sztukę i architekturę.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-6 h-6 rounded-full overflow-hidden bg-gray-200 mr-2">
+<img src="https://readdy.ai/api/search-image?query=professional%2520headshot%2520of%2520polish%2520woman%2520professor%2520in%2520her%252060s%252C%2520academic%2520appearance%252C%2520glasses%252C%2520neutral%2520background&width=40&height=40&seq=26&orientation=squarish" alt="Autor" class="w-full h-full object-cover">
+</div>
+<span class="text-xs text-gray-700">Prof. Barbara Lewandowska</span>
+</div>
+<span class="text-xs text-gray-500">15 maja 2025</span>
+</div>
+</div>
+</div>
+<!-- Article 8 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 cursor-pointer">
+<div class="h-[180px] overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Person%2520meditating%2520in%2520peaceful%2520monastery%2520garden%252C%2520spiritual%2520retreat%252C%2520quiet%2520contemplation%252C%2520beautiful%2520nature%2520setting%252C%2520soft%2520morning%2520light%252C%2520professional%2520photography&width=375&height=180&seq=18&orientation=landscape" alt="Rekolekcje w ciszy" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex items-center mb-2">
+<span class="bg-secondary bg-opacity-10 text-secondary text-xs font-medium px-2 py-1 rounded-full">Duchowość</span>
+<div class="flex items-center ml-auto text-xs text-gray-500">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-time-line"></i>
+</div>
+<span>11 min czytania</span>
+</div>
+</div>
+<h3 class="font-semibold text-lg mb-2">Rekolekcje ignacjańskie - droga do wewnętrznej wolności</h3>
+<p class="text-xs text-gray-600 mb-3">Czym są rekolekcje ignacjańskie i jak mogą pomóc w pogłębieniu życia duchowego. Praktyczne wskazówki dotyczące przygotowania i uczestnictwa w ćwiczeniach duchowych.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-6 h-6 rounded-full overflow-hidden bg-gray-200 mr-2">
+<img src="https://readdy.ai/api/search-image?query=professional%2520headshot%2520of%2520polish%2520jesuit%2520priest%252C%2520middle-aged%2520man%2520with%2520calm%2520expression%252C%2520clerical%2520collar%252C%2520neutral%2520background&width=40&height=40&seq=27&orientation=squarish" alt="Autor" class="w-full h-full object-cover">
+</div>
+<span class="text-xs text-gray-700">O. Jakub Szymański SJ</span>
+</div>
+<span class="text-xs text-gray-500">10 maja 2025</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Load More Button -->
+<div class="text-center mt-8">
+<button id="loadMoreButton" class="border border-primary text-primary py-2 px-6 !rounded-button cursor-pointer">Załaduj więcej</button>
+</div>
+</section>
+<!-- Search Modal -->
+<div id="searchModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+<div class="absolute top-0 left-0 right-0 bg-white p-5 transform transition-transform duration-300" id="searchModalContent">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-semibold text-lg">Szukaj artykułów</h3>
+<button id="closeSearchModal" class="w-8 h-8 flex items-center justify-center cursor-pointer">
+<i class="ri-close-line ri-lg"></i>
+</button>
+</div>
+<div class="relative mb-4">
+<input type="text" placeholder="Wpisz słowo kluczowe..." class="w-full py-2 pl-10 pr-4 bg-gray-50 rounded-lg text-sm border-none">
+<div class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-search-line"></i>
+</div>
+</div>
+<div class="mb-4">
+<h4 class="text-sm font-medium mb-2">Popularne wyszukiwania:</h4>
+<div class="flex flex-wrap gap-2">
+<button class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-medium cursor-pointer">Jerozolima</button>
+<button class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-medium cursor-pointer">Camino de Santiago</button>
+<button class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-medium cursor-pointer">Medjugorje</button>
+<button class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-medium cursor-pointer">Różaniec</button>
+<button class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-medium cursor-pointer">Fatima</button>
+</div>
+</div>
+<div>
+<h4 class="text-sm font-medium mb-2">Ostatnie wyszukiwania:</h4>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<span class="text-xs text-gray-700">Ziemia Święta przewodnik</span>
+<div class="w-5 h-5 flex items-center justify-center text-gray-400 cursor-pointer">
+<i class="ri-close-line"></i>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-gray-700">Modlitwa w podróży</span>
+<div class="w-5 h-5 flex items-center justify-center text-gray-400 cursor-pointer">
+<i class="ri-close-line"></i>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-gray-700">Sanktuaria maryjne</span>
+<div class="w-5 h-5 flex items-center justify-center text-gray-400 cursor-pointer">
+<i class="ri-close-line"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab Bar -->
+<div class="fixed bottom-0 w-full bg-white shadow-[0_-2px_10px_rgba(0,0,0,0.1)] border-t border-gray-100">
+<div class="grid grid-cols-4 h-[60px]">
+<a href="#" class="flex flex-col items-center justify-center cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-home-line"></i>
+</div>
+<span class="text-[10px] mt-1">Strona główna</span>
+</a>
+<a href="https://readdy.ai/home/89d82bd7-a718-463c-bf3f-7e0b89b5dc58/d5580cdf-139f-45ee-acfb-7a9493797e18" data-readdy="true" class="flex flex-col items-center justify-center cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-[10px] mt-1">Pielgrzymki</span>
+</a>
+<a href="#" class="flex flex-col items-center justify-center cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center text-primary">
+<i class="ri-article-fill"></i>
+</div>
+<span class="text-[10px] mt-1 text-primary font-medium">Blog</span>
+</a>
+<a href="https://readdy.ai/home/89d82bd7-a718-463c-bf3f-7e0b89b5dc58/1a1e2478-59b6-4437-bc93-adc267c0b823" data-readdy="true" class="flex flex-col items-center justify-center cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-user-line"></i>
+</div>
+<span class="text-[10px] mt-1">Konto</span>
+</a>
+</div>
+</div>
+<!-- Floating Action Button -->
+<div class="fixed right-5 bottom-[70px] w-12 h-12 bg-primary rounded-full shadow-lg flex items-center justify-center cursor-pointer">
+<i class="ri-message-3-fill ri-lg text-white"></i>
+</div>
+<script id="searchModalScript">
+document.addEventListener('DOMContentLoaded', function() {
+const searchButton = document.getElementById('searchButton');
+const searchModal = document.getElementById('searchModal');
+const searchModalContent = document.getElementById('searchModalContent');
+const closeSearchModal = document.getElementById('closeSearchModal');
+searchButton.addEventListener('click', function() {
+searchModal.classList.remove('hidden');
+setTimeout(() => {
+searchModalContent.classList.add('translate-y-0');
+}, 10);
+searchModalContent.classList.remove('-translate-y-full');
+});
+function closeModal() {
+searchModalContent.classList.add('-translate-y-full');
+setTimeout(() => {
+searchModal.classList.add('hidden');
+}, 300);
+}
+closeSearchModal.addEventListener('click', closeModal);
+searchModal.addEventListener('click', function(e) {
+if (e.target === searchModal) {
+closeModal();
+}
+});
+});
+</script>
+<script id="categoryFilterScript">
+document.addEventListener('DOMContentLoaded', function() {
+const categoryButtons = document.querySelectorAll('section:nth-child(2) .flex.space-x-2.w-max button');
+categoryButtons.forEach(button => {
+button.addEventListener('click', function() {
+// Remove active class from all buttons
+categoryButtons.forEach(btn => {
+btn.classList.remove('bg-primary', 'bg-opacity-10', 'text-primary');
+btn.classList.add('bg-gray-100', 'text-gray-700');
+});
+// Add active class to clicked button
+this.classList.remove('bg-gray-100', 'text-gray-700');
+this.classList.add('bg-primary', 'bg-opacity-10', 'text-primary');
+// Filter articles logic would go here
+console.log('Filtering by:', this.textContent);
+});
+});
+});
+</script>
+<script id="articleCardScript">
+document.addEventListener('DOMContentLoaded', function() {
+const articleCards = document.querySelectorAll('.bg-white.rounded-lg.overflow-hidden.shadow-sm');
+articleCards.forEach(card => {
+card.addEventListener('click', function() {
+console.log('Navigating to article details page');
+// Navigation logic would go here
+});
+// Add hover effect
+card.addEventListener('mouseenter', function() {
+this.classList.add('shadow-md');
+});
+card.addEventListener('mouseleave', function() {
+this.classList.remove('shadow-md');
+});
+});
+});
+</script>
+<script id="loadMoreScript">
+document.addEventListener('DOMContentLoaded', function() {
+const loadMoreButton = document.getElementById('loadMoreButton');
+let clickCount = 0;
+loadMoreButton.addEventListener('click', function() {
+// Change button text to show loading state
+loadMoreButton.innerHTML = '<span class="inline-block mr-2">Ładowanie</span><i class="ri-loader-4-line animate-spin"></i>';
+// Simulate loading delay
+setTimeout(() => {
+clickCount++;
+if (clickCount === 1) {
+// Reset button text
+loadMoreButton.textContent = 'Załaduj więcej';
+// Add more articles logic would go here
+console.log('Loading more articles');
+} else {
+// Show message that no more results are available
+const message = document.createElement('p');
+message.className = 'text-sm text-gray-500 text-center mt-2';
+message.textContent = 'Nie znaleziono więcej artykułów';
+loadMoreButton.parentNode.appendChild(message);
+// Disable button
+loadMoreButton.disabled = true;
+loadMoreButton.classList.add('opacity-50');
+}
+}, 1500);
+});
+});
+</script>
+<script id="searchFunctionalityScript">
+document.addEventListener('DOMContentLoaded', function() {
+const searchInputs = document.querySelectorAll('input[placeholder*="Szukaj"]');
+searchInputs.forEach(input => {
+input.addEventListener('keypress', function(e) {
+if (e.key === 'Enter') {
+console.log('Searching for:', this.value);
+// Search logic would go here
+}
+});
+});
+const popularSearchButtons = document.querySelectorAll('#searchModal .flex.flex-wrap.gap-2 button');
+popularSearchButtons.forEach(button => {
+button.addEventListener('click', function() {
+console.log('Searching for popular term:', this.textContent);
+// Popular search term logic would go here
+});
+});
+const recentSearchRemoveButtons = document.querySelectorAll('#searchModal .space-y-2 .w-5.h-5');
+recentSearchRemoveButtons.forEach(button => {
+button.addEventListener('click', function(e) {
+e.stopPropagation();
+const searchItem = this.parentNode;
+console.log('Removing recent search:', searchItem.querySelector('span').textContent);
+searchItem.remove();
+});
+});
+});
+</script>
+</body>
+</html>

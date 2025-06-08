@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=375px, initial-scale=1.0">
+<title>PiotrTravel - Pielgrzymki</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#f59e0b'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Montserrat', sans-serif;
+width: 375px;
+margin: 0 auto;
+overflow-x: hidden;
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Nav Bar -->
+<nav class="fixed w-full bg-white shadow-md z-50">
+<div class="flex justify-between items-center px-4 py-3">
+<a href="https://readdy.ai/home/89d82bd7-a718-463c-bf3f-7e0b89b5dc58/88874594-23f1-4420-9cdb-338932a2bea8" data-readdy="true" class="w-8 h-8 flex items-center justify-center cursor-pointer">
+<i class="ri-arrow-left-line ri-lg"></i>
+</a>
+<h1 class="text-lg font-semibold">Pielgrzymki</h1>
+<div class="w-8 h-8 flex items-center justify-center cursor-pointer" id="filterButton">
+<i class="ri-filter-3-line ri-lg"></i>
+</div>
+</div>
+</nav>
+<!-- Search and Filters Section -->
+<section class="pt-[60px] px-4 pb-3 bg-white shadow-sm">
+<div class="relative mb-4">
+<input type="text" placeholder="Szukaj pielgrzymki..." class="w-full py-2 pl-10 pr-4 bg-gray-50 rounded-lg text-sm border-none">
+<div class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-search-line"></i>
+</div>
+</div>
+<div class="overflow-x-auto pb-2">
+<div class="flex space-x-2 w-max">
+<button class="bg-primary bg-opacity-10 text-primary px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap cursor-pointer">Wszystkie</button>
+<button class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap cursor-pointer">Cena: 1000-3000 zł</button>
+<button class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap cursor-pointer">Czas: 5-7 dni</button>
+<button class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap cursor-pointer">Europa</button>
+<button class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap cursor-pointer">Ziemia Święta</button>
+<button class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap cursor-pointer">Czerwiec 2025</button>
+</div>
+</div>
+<div class="flex justify-between items-center mt-3">
+<p class="text-sm text-gray-600">Znaleziono 12 pielgrzymek</p>
+<div class="relative">
+<button id="sortButton" class="flex items-center text-sm text-gray-700 cursor-pointer">
+<span>Sortuj</span>
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</button>
+<div id="sortDropdown" class="absolute right-0 mt-2 bg-white shadow-lg rounded-lg py-2 w-48 z-10 hidden">
+<a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Od najniższej ceny</a>
+<a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Od najwyższej ceny</a>
+<a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Najkrótsze</a>
+<a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Najdłuższe</a>
+<a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Najbliższe terminy</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Pilgrimage List -->
+<section class="px-4 py-4 pb-[80px]">
+<div class="space-y-5">
+<!-- Pielgrzymka 1 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
+<div class="h-[180px] overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Jerusalem%2520old%2520city%2520panorama%2520with%2520Temple%2520Mount%2520and%2520Dome%2520of%2520the%2520Rock%252C%2520holy%2520city%252C%2520pilgrimage%2520destination%252C%2520golden%2520sunset%2520light%252C%2520clear%2520sky%252C%2520historical%2520architecture&width=375&height=180&seq=2&orientation=landscape" alt="Ziemia Święta" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-semibold text-lg">Ziemia Święta</h3>
+<span class="bg-primary bg-opacity-10 text-primary text-xs font-medium px-2 py-1 rounded-full">Popularne</span>
+</div>
+<p class="text-xs text-gray-600 mb-3">8-dniowa pielgrzymka śladami Jezusa. Odwiedź Jerozolimę, Betlejem, Nazaret i inne święte miejsca. Wyjątkowe duchowe doświadczenie z przewodnikiem.</p>
+<div class="flex items-center text-xs text-gray-500 mb-3">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-calendar-line"></i>
+</div>
+<span>15-22 czerwca 2025</span>
+<div class="w-4 h-4 flex items-center justify-center mx-2">
+<i class="ri-time-line"></i>
+</div>
+<span>8 dni</span>
+</div>
+<div class="flex justify-between items-center">
+<p class="font-bold text-primary text-lg">3 950 zł</p>
+<button class="bg-primary text-white py-1.5 px-4 !rounded-button text-sm cursor-pointer">Szczegóły</button>
+</div>
+</div>
+</div>
+<!-- Pielgrzymka 2 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
+<div class="h-[180px] overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=St.%2520Peters%2520Basilica%2520in%2520Vatican%252C%2520Rome%252C%2520Italy%252C%2520Catholic%2520pilgrimage%2520destination%252C%2520beautiful%2520architecture%252C%2520blue%2520sky%252C%2520religious%2520landmark&width=375&height=180&seq=3&orientation=landscape" alt="Rzym i Watykan" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-semibold text-lg">Rzym i Watykan</h3>
+<span class="bg-secondary bg-opacity-10 text-secondary text-xs font-medium px-2 py-1 rounded-full">Promocja</span>
+</div>
+<p class="text-xs text-gray-600 mb-3">5-dniowa pielgrzymka do serca Kościoła Katolickiego. Zwiedzanie Watykanu, Bazyliki św. Piotra i audiencja papieska. Zakwaterowanie w centrum Rzymu.</p>
+<div class="flex items-center text-xs text-gray-500 mb-3">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-calendar-line"></i>
+</div>
+<span>10-14 lipca 2025</span>
+<div class="w-4 h-4 flex items-center justify-center mx-2">
+<i class="ri-time-line"></i>
+</div>
+<span>5 dni</span>
+</div>
+<div class="flex justify-between items-center">
+<div>
+<p class="text-xs text-gray-500 line-through">2 650 zł</p>
+<p class="font-bold text-primary text-lg">2 450 zł</p>
+</div>
+<button class="bg-primary text-white py-1.5 px-4 !rounded-button text-sm cursor-pointer">Szczegóły</button>
+</div>
+</div>
+</div>
+<!-- Pielgrzymka 3 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
+<div class="h-[180px] overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Medjugorje%2520pilgrimage%2520site%2520in%2520Bosnia%2520and%2520Herzegovina%252C%2520church%2520on%2520hill%252C%2520religious%2520destination%252C%2520peaceful%2520atmosphere%252C%2520spiritual%2520journey&width=375&height=180&seq=4&orientation=landscape" alt="Medjugorje" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-semibold text-lg">Medjugorje</h3>
+<span class="bg-gray-100 text-gray-600 text-xs font-medium px-2 py-1 rounded-full">Ostatnie miejsca</span>
+</div>
+<p class="text-xs text-gray-600 mb-3">6-dniowa pielgrzymka do miejsca objawień Matki Bożej. Modlitwa, wspinaczka na Górę Objawień i Kriżevac. Duchowe rekolekcje w drodze.</p>
+<div class="flex items-center text-xs text-gray-500 mb-3">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-calendar-line"></i>
+</div>
+<span>5-10 sierpnia 2025</span>
+<div class="w-4 h-4 flex items-center justify-center mx-2">
+<i class="ri-time-line"></i>
+</div>
+<span>6 dni</span>
+</div>
+<div class="flex justify-between items-center">
+<p class="font-bold text-primary text-lg">1 750 zł</p>
+<button class="bg-primary text-white py-1.5 px-4 !rounded-button text-sm cursor-pointer">Szczegóły</button>
+</div>
+</div>
+</div>
+<!-- Pielgrzymka 4 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
+<div class="h-[180px] overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Fatima%2520sanctuary%2520in%2520Portugal%252C%2520religious%2520pilgrimage%2520site%252C%2520evening%2520prayer%2520with%2520candles%252C%2520spiritual%2520atmosphere%252C%2520beautiful%2520architecture&width=375&height=180&seq=8&orientation=landscape" alt="Fatima" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-semibold text-lg">Fatima i Santiago</h3>
+</div>
+<p class="text-xs text-gray-600 mb-3">10-dniowa pielgrzymka do sanktuarium w Fatimie i Santiago de Compostela. Zwiedzanie miejsc objawień i przejście fragmentu Camino de Santiago.</p>
+<div class="flex items-center text-xs text-gray-500 mb-3">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-calendar-line"></i>
+</div>
+<span>20-29 września 2025</span>
+<div class="w-4 h-4 flex items-center justify-center mx-2">
+<i class="ri-time-line"></i>
+</div>
+<span>10 dni</span>
+</div>
+<div class="flex justify-between items-center">
+<p class="font-bold text-primary text-lg">3 250 zł</p>
+<button class="bg-primary text-white py-1.5 px-4 !rounded-button text-sm cursor-pointer">Szczegóły</button>
+</div>
+</div>
+</div>
+<!-- Pielgrzymka 5 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
+<div class="h-[180px] overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Lourdes%2520sanctuary%2520in%2520France%252C%2520religious%2520pilgrimage%2520site%252C%2520evening%2520procession%2520with%2520candles%252C%2520spiritual%2520atmosphere%252C%2520beautiful%2520mountains%2520backdrop&width=375&height=180&seq=9&orientation=landscape" alt="Lourdes" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-semibold text-lg">Lourdes</h3>
+<span class="bg-primary bg-opacity-10 text-primary text-xs font-medium px-2 py-1 rounded-full">Popularne</span>
+</div>
+<p class="text-xs text-gray-600 mb-3">7-dniowa pielgrzymka do sanktuarium w Lourdes. Uczestnictwo w procesji ze świecami, możliwość kąpieli w cudownym źródle i zwiedzanie miejsc związanych ze św. Bernadettą.</p>
+<div class="flex items-center text-xs text-gray-500 mb-3">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-calendar-line"></i>
+</div>
+<span>12-18 października 2025</span>
+<div class="w-4 h-4 flex items-center justify-center mx-2">
+<i class="ri-time-line"></i>
+</div>
+<span>7 dni</span>
+</div>
+<div class="flex justify-between items-center">
+<p class="font-bold text-primary text-lg">2 850 zł</p>
+<button class="bg-primary text-white py-1.5 px-4 !rounded-button text-sm cursor-pointer">Szczegóły</button>
+</div>
+</div>
+</div>
+<!-- Pielgrzymka 6 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
+<div class="h-[180px] overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Czestochowa%2520Jasna%2520Gora%2520monastery%2520in%2520Poland%252C%2520religious%2520pilgrimage%2520site%252C%2520Black%2520Madonna%2520icon%252C%2520spiritual%2520atmosphere%252C%2520beautiful%2520architecture&width=375&height=180&seq=10&orientation=landscape" alt="Częstochowa" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-semibold text-lg">Sanktuaria Polski</h3>
+<span class="bg-secondary bg-opacity-10 text-secondary text-xs font-medium px-2 py-1 rounded-full">Promocja</span>
+</div>
+<p class="text-xs text-gray-600 mb-3">5-dniowa pielgrzymka do najważniejszych sanktuariów w Polsce: Częstochowa, Licheń, Łagiewniki, Kalwaria Zebrzydowska i Wadowice.</p>
+<div class="flex items-center text-xs text-gray-500 mb-3">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-calendar-line"></i>
+</div>
+<span>5-9 listopada 2025</span>
+<div class="w-4 h-4 flex items-center justify-center mx-2">
+<i class="ri-time-line"></i>
+</div>
+<span>5 dni</span>
+</div>
+<div class="flex justify-between items-center">
+<div>
+<p class="text-xs text-gray-500 line-through">1 450 zł</p>
+<p class="font-bold text-primary text-lg">1 250 zł</p>
+</div>
+<button class="bg-primary text-white py-1.5 px-4 !rounded-button text-sm cursor-pointer">Szczegóły</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Load More Button -->
+<div class="text-center mt-8">
+<button id="loadMoreButton" class="border border-primary text-primary py-2 px-6 !rounded-button cursor-pointer">Załaduj więcej</button>
+</div>
+</section>
+<!-- Filter Modal -->
+<div id="filterModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+<div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-xl p-5 transform transition-transform duration-300" id="filterModalContent">
+<div class="flex justify-between items-center mb-5">
+<h3 class="font-semibold text-lg">Filtry</h3>
+<button id="closeFilterModal" class="w-8 h-8 flex items-center justify-center cursor-pointer">
+<i class="ri-close-line ri-lg"></i>
+</button>
+</div>
+<div class="space-y-5">
+<!-- Price Range -->
+<div>
+<h4 class="font-medium text-sm mb-3">Zakres cenowy</h4>
+<div class="flex items-center space-x-3">
+<input type="text" placeholder="Od" class="w-full py-2 px-3 bg-gray-50 rounded-lg text-sm border-none">
+<span>-</span>
+<input type="text" placeholder="Do" class="w-full py-2 px-3 bg-gray-50 rounded-lg text-sm border-none">
+<span>zł</span>
+</div>
+</div>
+<!-- Duration -->
+<div>
+<h4 class="font-medium text-sm mb-3">Czas trwania</h4>
+<div class="grid grid-cols-3 gap-2">
+<button class="bg-gray-100 text-gray-700 py-2 !rounded-button text-sm cursor-pointer">1-4 dni</button>
+<button class="bg-primary bg-opacity-10 text-primary py-2 !rounded-button text-sm cursor-pointer">5-7 dni</button>
+<button class="bg-gray-100 text-gray-700 py-2 !rounded-button text-sm cursor-pointer">8+ dni</button>
+</div>
+</div>
+<!-- Destination -->
+<div>
+<h4 class="font-medium text-sm mb-3">Destynacja</h4>
+<div class="grid grid-cols-2 gap-2">
+<button class="bg-gray-100 text-gray-700 py-2 !rounded-button text-sm cursor-pointer">Polska</button>
+<button class="bg-primary bg-opacity-10 text-primary py-2 !rounded-button text-sm cursor-pointer">Europa</button>
+<button class="bg-primary bg-opacity-10 text-primary py-2 !rounded-button text-sm cursor-pointer">Ziemia Święta</button>
+<button class="bg-gray-100 text-gray-700 py-2 !rounded-button text-sm cursor-pointer">Azja</button>
+</div>
+</div>
+<!-- Date -->
+<div>
+<h4 class="font-medium text-sm mb-3">Termin</h4>
+<input type="month" value="2025-06" class="w-full py-2 px-3 bg-gray-50 rounded-lg text-sm border-none">
+</div>
+<!-- Apply Filters -->
+<div class="pt-3">
+<button class="bg-primary text-white py-3 w-full !rounded-button cursor-pointer">Zastosuj filtry</button>
+<button class="text-gray-500 py-2 w-full mt-2 cursor-pointer">Wyczyść wszystkie</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab Bar -->
+<div class="fixed bottom-0 w-full bg-white shadow-[0_-2px_10px_rgba(0,0,0,0.1)] border-t border-gray-100">
+<div class="grid grid-cols-4 h-[60px]">
+<a href="https://readdy.ai/home/89d82bd7-a718-463c-bf3f-7e0b89b5dc58/88874594-23f1-4420-9cdb-338932a2bea8" data-readdy="true" class="flex flex-col items-center justify-center cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-home-line"></i>
+</div>
+<span class="text-[10px] mt-1">Strona główna</span>
+</a>
+<a href="#" class="flex flex-col items-center justify-center cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center text-primary">
+<i class="ri-map-pin-fill"></i>
+</div>
+<span class="text-[10px] mt-1 text-primary font-medium">Pielgrzymki</span>
+</a>
+<a href="https://readdy.ai/home/89d82bd7-a718-463c-bf3f-7e0b89b5dc58/64587ea9-fea2-47ad-979e-f39075ddbd34" data-readdy="true" class="flex flex-col items-center justify-center cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-article-line"></i>
+</div>
+<span class="text-[10px] mt-1">Blog</span>
+</a>
+<a href="#" class="flex flex-col items-center justify-center cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-user-line"></i>
+</div>
+<span class="text-[10px] mt-1">Konto</span>
+</a>
+</div>
+</div>
+<!-- Floating Action Button -->
+<div class="fixed right-5 bottom-[70px] w-12 h-12 bg-primary rounded-full shadow-lg flex items-center justify-center cursor-pointer">
+<i class="ri-message-3-fill ri-lg text-white"></i>
+</div>
+<script id="sortDropdownScript">
+document.addEventListener('DOMContentLoaded', function() {
+const sortButton = document.getElementById('sortButton');
+const sortDropdown = document.getElementById('sortDropdown');
+sortButton.addEventListener('click', function() {
+sortDropdown.classList.toggle('hidden');
+});
+document.addEventListener('click', function(event) {
+if (!sortButton.contains(event.target) && !sortDropdown.contains(event.target)) {
+sortDropdown.classList.add('hidden');
+}
+});
+const sortOptions = sortDropdown.querySelectorAll('a');
+sortOptions.forEach(option => {
+option.addEventListener('click', function(e) {
+e.preventDefault();
+sortDropdown.classList.add('hidden');
+// Implement sorting logic here
+});
+});
+});
+</script>
+<script id="filterModalScript">
+document.addEventListener('DOMContentLoaded', function() {
+const filterButton = document.getElementById('filterButton');
+const filterModal = document.getElementById('filterModal');
+const filterModalContent = document.getElementById('filterModalContent');
+const closeFilterModal = document.getElementById('closeFilterModal');
+filterButton.addEventListener('click', function() {
+filterModal.classList.remove('hidden');
+setTimeout(() => {
+filterModalContent.classList.add('translate-y-0');
+}, 10);
+filterModalContent.classList.remove('translate-y-full');
+});
+function closeModal() {
+filterModalContent.classList.add('translate-y-full');
+setTimeout(() => {
+filterModal.classList.add('hidden');
+}, 300);
+}
+closeFilterModal.addEventListener('click', closeModal);
+filterModal.addEventListener('click', function(e) {
+if (e.target === filterModal) {
+closeModal();
+}
+});
+});
+</script>
+<script id="loadMoreScript">
+document.addEventListener('DOMContentLoaded', function() {
+const loadMoreButton = document.getElementById('loadMoreButton');
+loadMoreButton.addEventListener('click', function() {
+// Change button text to show loading state
+loadMoreButton.innerHTML = '<span class="inline-block mr-2">Ładowanie</span><i class="ri-loader-4-line animate-spin"></i>';
+// Simulate loading delay
+setTimeout(() => {
+// Reset button text
+loadMoreButton.textContent = 'Załaduj więcej';
+// Show message that no more results are available
+const message = document.createElement('p');
+message.className = 'text-sm text-gray-500 text-center mt-2';
+message.textContent = 'Nie znaleziono więcej wyników';
+loadMoreButton.parentNode.appendChild(message);
+// Disable button
+loadMoreButton.disabled = true;
+loadMoreButton.classList.add('opacity-50');
+}, 1500);
+});
+});
+</script>
+<script id="pilgrimageCardsScript">
+document.addEventListener('DOMContentLoaded', function() {
+const pilgrimageCards = document.querySelectorAll('.bg-white.rounded-lg.overflow-hidden.shadow-sm');
+pilgrimageCards.forEach(card => {
+card.addEventListener('click', function(e) {
+// Only trigger if not clicking the button
+if (!e.target.closest('button')) {
+// Navigate to pilgrimage details page
+console.log('Navigating to pilgrimage details page');
+}
+});
+// Add hover effect
+card.classList.add('cursor-pointer', 'transition', 'duration-300');
+card.addEventListener('mouseenter', function() {
+this.classList.add('shadow-md');
+});
+card.addEventListener('mouseleave', function() {
+this.classList.remove('shadow-md');
+});
+});
+// Handle detail buttons
+const detailButtons = document.querySelectorAll('.bg-primary.text-white.py-1\\.5.px-4');
+detailButtons.forEach(button => {
+button.addEventListener('click', function(e) {
+e.stopPropagation();
+console.log('Navigating to pilgrimage details page from button');
+});
+});
+});
+</script>
+</body>
+</html>
