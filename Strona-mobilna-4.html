@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=375px, initial-scale=1.0">
+<title>PiotrTravel - Pielgrzymki i podróże duchowe</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#f59e0b'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Montserrat', sans-serif;
+width: 375px;
+margin: 0 auto;
+overflow-x: hidden;
+}
+.hero-section {
+background-image: url('https://readdy.ai/api/search-image?query=majestic%20cathedral%20interior%20with%20sunlight%20streaming%20through%20stained%20glass%20windows%2C%20creating%20ethereal%20atmosphere%2C%20spiritual%20and%20sacred%20space%2C%20golden%20light%20rays%2C%20architectural%20details&width=375&height=500&seq=8&orientation=portrait');
+background-size: cover;
+background-position: center;
+}
+.hero-overlay {
+background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Nav Bar -->
+<nav class="fixed w-full bg-white shadow-sm z-50">
+<div class="flex justify-between items-center px-4 py-3">
+<div class="flex items-center gap-2">
+<div class="font-['Pacifico'] text-primary text-2xl">logo</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-8 h-8 flex items-center justify-center bg-gray-50 !rounded-full">
+<i class="ri-search-line text-gray-600"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center bg-gray-50 !rounded-full">
+<i class="ri-menu-line text-gray-600"></i>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="hero-section w-full h-[500px] mt-[50px] relative">
+<div class="hero-overlay w-full h-full flex flex-col justify-end px-5 pb-16">
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-5">
+<h1 class="text-white text-3xl font-bold mb-4 leading-tight text-center">Wyrusz z nami w drogę wiary i odkryć</h1>
+<p class="text-white text-base mb-6 text-center opacity-90">Podróże duchowe i pielgrzymki do najważniejszych miejsc świętych na całym świecie</p>
+<div class="flex flex-col gap-3 items-center">
+<button class="bg-primary text-white py-3 px-6 !rounded-button w-[220px] font-medium shadow-lg hover:shadow-xl transition-shadow">
+Zaplanuj podróż
+</button>
+<button class="bg-white/20 backdrop-blur-sm text-white py-3 px-6 !rounded-button w-[220px] font-medium border border-white/30 hover:bg-white/30 transition-colors">
+Dowiedz się więcej
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- O nas Section -->
+<section class="px-6 py-12 bg-gradient-to-b from-white to-gray-50/50">
+<h2 class="text-2xl font-semibold text-center mb-3">O nas</h2>
+<p class="text-sm text-gray-600 mb-8 text-center leading-relaxed max-w-[300px] mx-auto">
+Jesteśmy firmą z wieloletnim doświadczeniem w organizacji pielgrzymek i podróży duchowych. Naszą misją jest łączenie ludzi poprzez wspólne doświadczenia religijne i kulturowe, oferując bezpieczne i niezapomniane podróże do najważniejszych miejsc świętych.
+</p>
+<div class="grid grid-cols-3 gap-3">
+<div class="bg-white p-3 rounded-xl shadow-sm text-center hover:shadow-md transition-shadow duration-300">
+<div class="w-10 h-10 mx-auto mb-2 flex items-center justify-center text-primary bg-primary/5 rounded-lg">
+<i class="ri-calendar-line ri-xl"></i>
+</div>
+<h3 class="text-lg font-bold text-primary mb-0.5 leading-none">12</h3>
+<p class="text-[10px] text-gray-600 leading-tight">lat doświadczenia</p>
+</div>
+<div class="bg-white p-3 rounded-xl shadow-sm text-center hover:shadow-md transition-shadow duration-300">
+<div class="w-10 h-10 mx-auto mb-2 flex items-center justify-center text-primary bg-primary/5 rounded-lg">
+<i class="ri-user-smile-line ri-xl"></i>
+</div>
+<h3 class="text-lg font-bold text-primary mb-0.5 leading-none">5120</h3>
+<p class="text-[10px] text-gray-600 leading-tight">zadowolonych klientów</p>
+</div>
+<div class="bg-white p-3 rounded-xl shadow-sm text-center hover:shadow-md transition-shadow duration-300">
+<div class="w-10 h-10 mx-auto mb-2 flex items-center justify-center text-primary bg-primary/5 rounded-lg">
+<i class="ri-road-map-line ri-xl"></i>
+</div>
+<h3 class="text-lg font-bold text-primary mb-0.5 leading-none">320</h3>
+<p class="text-[10px] text-gray-600 leading-tight">zorganizowanych pielgrzymek</p>
+</div>
+</div>
+</section>
+<!-- Wyjazdy pielgrzymkowe Section -->
+<section class="px-5 py-8 bg-gray-50">
+<h2 class="text-xl font-semibold text-center mb-2">Wyjazdy pielgrzymkowe</h2>
+<p class="text-sm text-gray-600 mb-6 text-center">
+Odkryj nasze starannie zaplanowane pielgrzymki do najważniejszych miejsc świętych na całym świecie
+</p>
+<div class="space-y-4">
+<!-- Pielgrzymka 1 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm">
+<div class="h-[150px] overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Jerusalem%20old%20city%20panorama%20with%20Temple%20Mount%20and%20Dome%20of%20the%20Rock%2C%20holy%20city%2C%20pilgrimage%20destination%2C%20golden%20sunset%20light%2C%20clear%20sky%2C%20historical%20architecture&width=375&height=150&seq=2&orientation=landscape" alt="Jerozolima" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-semibold">Ziemia Święta</h3>
+<div class="flex items-center gap-2">
+<span class="bg-red-50 text-red-600 text-[10px] px-2 py-0.5 rounded-full font-medium">Nowość</span>
+<button class="like-button w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-50">
+<i class="ri-heart-line text-gray-400"></i>
+</button>
+</div>
+</div>
+<p class="text-xs text-gray-600 mb-3">8-dniowa pielgrzymka śladami Jezusa. Odwiedź Jerozolimę, Betlejem, Nazaret i inne święte miejsca.</p>
+<div class="flex justify-between items-center">
+<div>
+<p class="font-bold text-primary">od 3 950 zł</p>
+<p class="text-[10px] text-gray-500">Termin: 15-22 lipca</p>
+</div>
+<button class="bg-primary text-white text-xs py-1.5 px-3 !rounded-button cursor-pointer">Dowiedz się więcej</button>
+</div>
+</div>
+</div>
+<!-- Pielgrzymka 2 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm">
+<div class="h-[150px] overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=St.%20Peters%20Basilica%20in%20Vatican%2C%20Rome%2C%20Italy%2C%20Catholic%20pilgrimage%20destination%2C%20beautiful%20architecture%2C%20blue%20sky%2C%20religious%20landmark&width=375&height=150&seq=3&orientation=landscape" alt="Rzym i Watykan" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-semibold">Rzym i Watykan</h3>
+<div class="flex items-center gap-2">
+<span class="bg-orange-50 text-orange-600 text-[10px] px-2 py-0.5 rounded-full font-medium">Ostatnie miejsca</span>
+<button class="like-button w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-50">
+<i class="ri-heart-line text-gray-400"></i>
+</button>
+</div>
+</div>
+<p class="text-xs text-gray-600 mb-3">5-dniowa pielgrzymka do serca Kościoła Katolickiego. Zwiedzanie Watykanu, Bazyliki św. Piotra i audiencja papieska.</p>
+<div class="flex justify-between items-center">
+<div>
+<p class="font-bold text-primary">od 2 450 zł</p>
+<p class="text-[10px] text-gray-500">Termin: 1-5 sierpnia</p>
+</div>
+<button class="bg-primary text-white text-xs py-1.5 px-3 !rounded-button cursor-pointer">Dowiedz się więcej</button>
+</div>
+</div>
+</div>
+<!-- Pielgrzymka 3 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm">
+<div class="h-[150px] overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Medjugorje%20pilgrimage%20site%20in%20Bosnia%20and%20Herzegovina%2C%20church%20on%20hill%2C%20religious%20destination%2C%20peaceful%20atmosphere%2C%20spiritual%20journey&width=375&height=150&seq=4&orientation=landscape" alt="Medjugorje" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-semibold">Medjugorje</h3>
+<div class="flex items-center gap-2">
+<span class="bg-green-50 text-green-600 text-[10px] px-2 py-0.5 rounded-full font-medium">Promocja</span>
+<button class="like-button w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-50">
+<i class="ri-heart-line text-gray-400"></i>
+</button>
+</div>
+</div>
+<p class="text-xs text-gray-600 mb-3">6-dniowa pielgrzymka do miejsca objawień Matki Bożej. Modlitwa, wspinaczka na Górę Objawień i Kriżevac.</p>
+<div class="flex justify-between items-center">
+<div>
+<p class="font-bold text-primary">od 1 750 zł</p>
+<p class="text-[10px] text-gray-500">Termin: 10-15 sierpnia</p>
+</div>
+<button class="bg-primary text-white text-xs py-1.5 px-3 !rounded-button cursor-pointer">Dowiedz się więcej</button>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center mt-6">
+<button class="border border-primary text-primary py-2 px-4 !rounded-button cursor-pointer">Zobacz wszystkie wyjazdy</button>
+</div>
+</section>
+<!-- Dlaczego warto z nami jechać Section -->
+<section class="px-5 py-8">
+<h2 class="text-xl font-semibold text-center mb-2">Dlaczego warto z nami jechać</h2>
+<p class="text-sm text-gray-600 mb-6 text-center">
+Oferujemy więcej niż tylko podróż - zapewniamy duchowe doświadczenie
+</p>
+<div class="grid grid-cols-2 gap-4">
+<div class="text-center">
+<div class="w-12 h-12 mx-auto mb-3 flex items-center justify-center text-primary">
+<i class="ri-user-star-line ri-2x"></i>
+</div>
+<h3 class="text-sm font-semibold mb-1">Profesjonalna obsługa</h3>
+<p class="text-xs text-gray-600">Doświadczeni przewodnicy i opieka duchowa podczas całej podróży</p>
+</div>
+<div class="text-center">
+<div class="w-12 h-12 mx-auto mb-3 flex items-center justify-center text-primary">
+<i class="ri-shield-check-line ri-2x"></i>
+</div>
+<h3 class="text-sm font-semibold mb-1">Bezpieczne podróże</h3>
+<p class="text-xs text-gray-600">Pełne ubezpieczenie i najwyższe standardy bezpieczeństwa</p>
+</div>
+<div class="text-center">
+<div class="w-12 h-12 mx-auto mb-3 flex items-center justify-center text-primary">
+<i class="ri-history-line ri-2x"></i>
+</div>
+<h3 class="text-sm font-semibold mb-1">Wieloletnie doświadczenie</h3>
+<p class="text-xs text-gray-600">12 lat organizacji pielgrzymek i podróży duchowych</p>
+</div>
+<div class="text-center">
+<div class="w-12 h-12 mx-auto mb-3 flex items-center justify-center text-primary">
+<i class="ri-money-dollar-circle-line ri-2x"></i>
+</div>
+<h3 class="text-sm font-semibold mb-1">Dostępne ceny</h3>
+<p class="text-xs text-gray-600">Różnorodne opcje cenowe dopasowane do potrzeb i możliwości</p>
+</div>
+</div>
+</section>
+<!-- Referencje uczestników Section -->
+<section class="px-5 py-8 bg-gray-50">
+<h2 class="text-xl font-semibold text-center mb-2">Referencje uczestników</h2>
+<p class="text-sm text-gray-600 mb-6 text-center">
+Co mówią o nas uczestnicy naszych pielgrzymek
+</p>
+<div class="space-y-4">
+<!-- Opinia 1 -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex text-yellow-400 mb-2">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+<p class="text-xs text-gray-600 mb-3">
+"Pielgrzymka do Ziemi Świętej z PiotrTravel była najlepszą decyzją w moim życiu. Profesjonalna organizacja, wspaniały przewodnik duchowy i niezapomniane przeżycia. Polecam każdemu, kto szuka głębokiego doświadczenia duchowego."
+</p>
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center mr-2">
+<i class="ri-user-line"></i>
+</div>
+<div>
+<p class="text-xs font-semibold">Anna Kowalska</p>
+<p class="text-[10px] text-gray-500">Pielgrzymka do Ziemi Świętej, maj 2025</p>
+</div>
+</div>
+</div>
+<!-- Opinia 2 -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex text-yellow-400 mb-2">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+<p class="text-xs text-gray-600 mb-3">
+"Wyjazd do Medjugorje przekroczył moje najśmielsze oczekiwania. Doskonała organizacja, wspaniali ludzie i atmosfera modlitwy, która zostanie ze mną na zawsze. Dziękuję PiotrTravel za to wyjątkowe doświadczenie."
+</p>
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center mr-2">
+<i class="ri-user-line"></i>
+</div>
+<div>
+<p class="text-xs font-semibold">Piotr Nowak</p>
+<p class="text-[10px] text-gray-500">Pielgrzymka do Medjugorje, kwiecień 2025</p>
+</div>
+</div>
+</div>
+<!-- Opinia 3 -->
+<div class="bg-white p-4 rounded-lg shadow-sm">
+<div class="flex text-yellow-400 mb-2">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+<p class="text-xs text-gray-600 mb-3">
+"Byłam na wielu pielgrzymkach, ale ta do Rzymu z PiotrTravel była wyjątkowa. Świetna organizacja, kompetentni przewodnicy i możliwość uczestnictwa w audiencji papieskiej. Polecam wszystkim poszukującym głębokich duchowych przeżyć."
+</p>
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center mr-2">
+<i class="ri-user-line"></i>
+</div>
+<div>
+<p class="text-xs font-semibold">Maria Wiśniewska</p>
+<p class="text-[10px] text-gray-500">Pielgrzymka do Rzymu, marzec 2025</p>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center mt-6">
+<button class="border border-primary text-primary py-2 px-4 !rounded-button cursor-pointer">Zobacz wszystkie opinie</button>
+</div>
+</section>
+<!-- Blog i aktualności Section -->
+<section class="px-5 py-8">
+<h2 class="text-xl font-semibold text-center mb-2">Blog i aktualności</h2>
+<p class="text-sm text-gray-600 mb-6 text-center">
+Najnowsze informacje i artykuły o miejscach pielgrzymkowych
+</p>
+<div class="space-y-4">
+<!-- Artykuł 1 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm">
+<div class="h-[120px] overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Jerusalem%20sunset%20over%20old%20city%2C%20golden%20dome%2C%20spiritual%20atmosphere%2C%20pilgrimage%20destination&width=375&height=120&seq=5&orientation=landscape" alt="Jerozolima o zachodzie słońca" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<h3 class="font-semibold text-sm mb-1">Jak przygotować się duchowo do pielgrzymki do Ziemi Świętej</h3>
+<p class="text-xs text-gray-600 mb-3">Praktyczne wskazówki i modlitwy, które pomogą w pełni przeżyć duchową podróż do miejsc związanych z życiem Jezusa.</p>
+<a href="#" class="text-primary text-xs font-medium cursor-pointer">Czytaj więcej</a>
+</div>
+</div>
+<!-- Artykuł 2 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm">
+<div class="h-[120px] overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Fatima%20sanctuary%20in%20Portugal%2C%20religious%20pilgrimage%20site%2C%20evening%20prayer%20with%20candles%2C%20spiritual%20atmosphere&width=375&height=120&seq=6&orientation=landscape" alt="Sanktuarium w Fatimie" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<h3 class="font-semibold text-sm mb-1">Nowa pielgrzymka do Fatimy - zapisy już otwarte!</h3>
+<p class="text-xs text-gray-600 mb-3">Zapraszamy na wyjątkową pielgrzymkę do Fatimy z okazji rocznicy objawień. Specjalny program duchowy i zwiedzanie Portugalii.</p>
+<a href="#" class="text-primary text-xs font-medium cursor-pointer">Czytaj więcej</a>
+</div>
+</div>
+<!-- Artykuł 3 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-sm">
+<div class="h-[120px] overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Pilgrims%20walking%20on%20Camino%20de%20Santiago%2C%20spiritual%20journey%2C%20backpacks%20with%20shells%2C%20sunset%20light%2C%20path%20through%20nature&width=375&height=120&seq=7&orientation=landscape" alt="Pielgrzymi na Camino de Santiago" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<h3 class="font-semibold text-sm mb-1">Co zabrać na pielgrzymkę? Praktyczny poradnik</h3>
+<p class="text-xs text-gray-600 mb-3">Lista niezbędnych rzeczy, które warto spakować na pielgrzymkę, aby podróż była komfortowa i pozwoliła skupić się na duchowych przeżyciach.</p>
+<a href="#" class="text-primary text-xs font-medium cursor-pointer">Czytaj więcej</a>
+</div>
+</div>
+</div>
+<div class="text-center mt-6">
+<button class="border border-primary text-primary py-2 px-4 !rounded-button cursor-pointer">Zobacz wszystkie wpisy</button>
+</div>
+</section>
+<!-- Newsletter Section -->
+<section class="px-5 py-8 bg-primary">
+<h2 class="text-xl font-semibold text-white text-center mb-2">Zapisz się do newslettera</h2>
+<p class="text-sm text-white opacity-80 mb-6 text-center">
+Otrzymuj informacje o nowych pielgrzymkach i promocjach
+</p>
+<div class="bg-white rounded-lg p-4">
+<input type="email" placeholder="Twój adres e-mail" class="w-full border-none mb-3 py-2 px-3 rounded bg-gray-50 text-sm">
+<button class="bg-primary text-white py-2 w-full !rounded-button cursor-pointer">Zapisz się</button>
+</div>
+</section>
+<!-- Footer Section -->
+<footer class="bg-gray-50 pt-8 pb-24">
+  <div class="px-5">
+    <div class="flex items-center justify-center mb-6">
+      <div class="font-['Pacifico'] text-primary text-2xl">logo</div>
+    </div>
+    
+    <div class="grid grid-cols-2 gap-6 mb-8">
+      <div>
+        <h3 class="text-sm font-semibold mb-3">Kontakt</h3>
+        <div class="space-y-2">
+          <a href="tel:+48123456789" class="flex items-center text-xs text-gray-600">
+            <i class="ri-phone-line w-4 h-4 mr-2"></i>
+            +48 123 456 789
+          </a>
+          <a href="mailto:info@piotrtravel.pl" class="flex items-center text-xs text-gray-600">
+            <i class="ri-mail-line w-4 h-4 mr-2"></i>
+            info@piotrtravel.pl
+          </a>
+          <p class="flex items-start text-xs text-gray-600">
+            <i class="ri-map-pin-line w-4 h-4 mr-2 mt-0.5"></i>
+            ul. Przykładowa 123, 00-001 Warszawa
+          </p>
+        </div>
+      </div>
+      
+      <div>
+        <h3 class="text-sm font-semibold mb-3">Social Media</h3>
+        <div class="flex space-x-3">
+          <a href="#" class="w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm">
+            <i class="ri-facebook-fill text-primary"></i>
+          </a>
+          <a href="#" class="w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm">
+            <i class="ri-instagram-fill text-primary"></i>
+          </a>
+          <a href="#" class="w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm">
+            <i class="ri-youtube-fill text-primary"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="border-t border-gray-200 pt-6">
+      <div class="flex flex-wrap gap-4 justify-center mb-4">
+        <a href="#" class="text-xs text-gray-600">O nas</a>
+        <a href="#" class="text-xs text-gray-600">Regulamin</a>
+        <a href="#" class="text-xs text-gray-600">Polityka prywatności</a>
+        <a href="#" class="text-xs text-gray-600">FAQ</a>
+      </div>
+      <p class="text-[10px] text-gray-500 text-center">
+        © 2025 PiotrTravel. Wszelkie prawa zastrzeżone.
+      </p>
+    </div>
+  </div>
+</footer>
+<!-- Tab Bar -->
+<div class="fixed bottom-0 w-full bg-white shadow-[0_-2px_10px_rgba(0,0,0,0.1)] border-t border-gray-100">
+<div id="toast" class="fixed bottom-[80px] left-1/2 -translate-x-1/2 bg-gray-800 text-white text-sm py-2 px-4 rounded-lg opacity-0 transition-opacity duration-300 pointer-events-none">
+Jesteś już na stronie głównej
+</div>
+<div class="grid grid-cols-4 h-[60px]">
+<a href="#" id="homeButton" class="flex flex-col items-center justify-center cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center text-primary">
+<i class="ri-home-line"></i>
+</div>
+<span class="text-[10px] mt-1">Strona główna</span>
+</a>
+<a href="https://readdy.ai/home/89d82bd7-a718-463c-bf3f-7e0b89b5dc58/d5580cdf-139f-45ee-acfb-7a9493797e18" data-readdy="true" class="flex flex-col items-center justify-center cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-[10px] mt-1">Pielgrzymki</span>
+</a>
+<a href="#" class="flex flex-col items-center justify-center cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-article-line"></i>
+</div>
+<span class="text-[10px] mt-1">Blog</span>
+</a>
+<a href="#" class="flex flex-col items-center justify-center cursor-pointer">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-user-line"></i>
+</div>
+<span class="text-[10px] mt-1">Konto</span>
+</a>
+</div>
+</div>
+<!-- Floating Action Button -->
+<div class="fixed right-5 bottom-[80px] w-14 h-14 bg-primary rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] flex items-center justify-center cursor-pointer">
+<i class="ri-message-3-fill ri-xl text-white"></i>
+</div>
+<script id="navigationScript">
+document.addEventListener('DOMContentLoaded', function() {
+const menuButton = document.querySelector('.ri-menu-line');
+menuButton.addEventListener('click', function() {
+// Menu functionality would go here
+console.log('Menu clicked');
+});
+const homeButton = document.getElementById('homeButton');
+const toast = document.getElementById('toast');
+let toastTimeout;
+homeButton.addEventListener('click', function(e) {
+e.preventDefault();
+clearTimeout(toastTimeout);
+toast.style.opacity = '1';
+toastTimeout = setTimeout(() => {
+toast.style.opacity = '0';
+}, 2000);
+});
+});
+</script>
+<script id="newsletterScript">
+document.addEventListener('DOMContentLoaded', function() {
+const newsletterForm = document.querySelector('input[type="email"]').parentElement;
+const newsletterButton = newsletterForm.querySelector('button');
+newsletterButton.addEventListener('click', function() {
+const emailInput = newsletterForm.querySelector('input[type="email"]');
+if (emailInput.value.trim() !== '') {
+// Create a success message
+const successMessage = document.createElement('div');
+successMessage.className = 'text-green-600 text-xs mt-2';
+successMessage.textContent = 'Dziękujemy za zapisanie się do newslettera!';
+// Remove any existing messages
+const existingMessage = newsletterForm.querySelector('.text-green-600');
+if (existingMessage) {
+existingMessage.remove();
+}
+// Add the success message
+newsletterForm.appendChild(successMessage);
+// Clear the input
+emailInput.value = '';
+}
+});
+});
+</script>
+<script id="pilgrimage-cards-script">
+document.addEventListener('DOMContentLoaded', function() {
+const pilgrimageCards = document.querySelectorAll('.bg-white.rounded-lg.overflow-hidden.shadow-sm');
+const likeButtons = document.querySelectorAll('.like-button');
+pilgrimageCards.forEach(card => {
+card.addEventListener('click', function(e) {
+if (!e.target.closest('button')) {
+console.log('Navigating to pilgrimage details page');
+}
+});
+card.classList.add('cursor-pointer', 'transition', 'duration-300');
+card.addEventListener('mouseenter', function() {
+this.classList.add('shadow-md');
+});
+card.addEventListener('mouseleave', function() {
+this.classList.remove('shadow-md');
+});
+});
+likeButtons.forEach(button => {
+button.addEventListener('click', function(e) {
+e.stopPropagation();
+const icon = this.querySelector('i');
+if (icon.classList.contains('ri-heart-line')) {
+icon.classList.remove('ri-heart-line', 'text-gray-400');
+icon.classList.add('ri-heart-fill', 'text-red-500');
+} else {
+icon.classList.remove('ri-heart-fill', 'text-red-500');
+icon.classList.add('ri-heart-line', 'text-gray-400');
+}
+});
+});
+});
+</script>
+</body>
+</html>
