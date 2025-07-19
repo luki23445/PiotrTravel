@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pełny program 13 dni - Meksyk z Cancun | PiotrTravel</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#ff6b35',secondary:'#004e89'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        .sticky-nav {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        .accordion-content.active {
+            max-height: 2000px;
+        }
+        .day-navigation {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 40;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            padding: 1rem;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        @media (max-width: 1024px) {
+            .day-navigation {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Sticky Navigation -->
+    <nav class="fixed top-0 w-full z-50 sticky-nav border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <a href="https://readdy.ai/home/89d82bd7-a718-463c-bf3f-7e0b89b5dc58/31105e51-b2f5-436a-8938-d76fa2595fac" data-readdy="true" class="flex items-center space-x-2 text-gray-600 hover:text-primary transition-colors">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="ri-arrow-left-line text-xl"></i>
+                        </div>
+                        <span>Powrót</span>
+                    </a>
+                    <div class="font-['Pacifico'] text-2xl text-primary">PiotrTravel</div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">
+                        Zarezerwuj
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Day Navigation Sidebar -->
+    <div class="day-navigation">
+        <h3 class="text-sm font-semibold text-gray-900 mb-3">Szybka nawigacja</h3>
+        <div class="space-y-1">
+            <a href="#day-1" class="block px-3 py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md transition-colors">Dzień 1</a>
+            <a href="#day-2" class="block px-3 py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md transition-colors">Dzień 2</a>
+            <a href="#day-3" class="block px-3 py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md transition-colors">Dzień 3</a>
+            <a href="#day-4" class="block px-3 py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md transition-colors">Dzień 4</a>
+            <a href="#day-5" class="block px-3 py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md transition-colors">Dzień 5</a>
+            <a href="#day-6" class="block px-3 py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md transition-colors">Dzień 6</a>
+            <a href="#day-7" class="block px-3 py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md transition-colors">Dzień 7</a>
+            <a href="#day-8" class="block px-3 py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md transition-colors">Dzień 8</a>
+            <a href="#day-9" class="block px-3 py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md transition-colors">Dzień 9</a>
+            <a href="#day-10" class="block px-3 py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md transition-colors">Dzień 10</a>
+            <a href="#day-11" class="block px-3 py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md transition-colors">Dzień 11</a>
+            <a href="#day-12" class="block px-3 py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md transition-colors">Dzień 12</a>
+            <a href="#day-13" class="block px-3 py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md transition-colors">Dzień 13</a>
+        </div>
+        <div class="mt-4 pt-3 border-t border-gray-200">
+            <button id="expand-all" class="w-full text-xs text-primary hover:text-secondary transition-colors">Rozwiń wszystkie</button>
+            <button id="collapse-all" class="w-full text-xs text-gray-600 hover:text-primary transition-colors mt-2">Zwiń wszystkie</button>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <section class="pt-24 pb-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                    Pełny program wycieczki do <span class="text-primary">Meksyku</span>
+                </h1>
+                <p class="text-xl text-gray-600 mb-8">Szczegółowy plan wszystkich 13 dni przygody</p>
+                <div class="flex justify-center space-x-6 text-sm text-gray-600">
+                    <div class="flex items-center space-x-2">
+                        <i class="ri-calendar-line text-primary"></i>
+                        <span>13 dni / 12 nocy</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="ri-map-pin-line text-primary"></i>
+                        <span>8 miast</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="ri-camera-line text-primary"></i>
+                        <span>15+ zabytków</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="space-y-6">
+                
+                <!-- Day 1 -->
+                <div id="day-1" class="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+                    <button class="w-full px-8 py-6 text-left hover:bg-gray-50 transition-colors accordion-trigger">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-6">
+                                <div class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full font-bold text-xl">1</div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900">Warszawa - Cancun</h3>
+                                    <p class="text-gray-600 mt-1">Wylot z Polski, podróż do Meksyku</p>
+                                </div>
+                            </div>
+                            <i class="ri-arrow-down-s-line text-3xl text-gray-400 accordion-icon transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content px-8 pb-8">
+                        <div class="grid lg:grid-cols-3 gap-8 mt-6">
+                            <div class="lg:col-span-2 space-y-6">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 mb-4">Program dnia</h4>
+                                    <ul class="space-y-3 text-gray-700">
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-time-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">06:00</span> - Zbiórka na lotnisku Chopina w Warszawie
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-flight-takeoff-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">09:15</span> - Wylot do Cancun z przesiadką w Amsterdamie
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-flight-land-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">19:30</span> - Przylot do Cancun (czas lokalny)
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-bus-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">20:30</span> - Transfer do hotelu w strefie hotelowej
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-hotel-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">21:30</span> - Zakwaterowanie, krótkie spotkanie organizacyjne
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="bg-blue-50 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-blue-900 mb-2">Informacje praktyczne</h5>
+                                    <ul class="text-sm text-blue-800 space-y-1">
+                                        <li>• Różnica czasu: -7 godzin względem Polski</li>
+                                        <li>• Temperatura: 26-30°C, wilgotność wysoka</li>
+                                        <li>• Waluta: peso meksykańskie (MXN), akceptowane USD</li>
+                                        <li>• Napiwki: 10-15% w restauracjach</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <img src="https://readdy.ai/api/search-image?query=modern%20international%20airport%20terminal%20with%20travelers%20waiting%20for%20flight%20to%20Mexico%2C%20bright%20departure%20lounge%2C%20airplane%20boarding%2C%20travel%20atmosphere%2C%20professional%20photography&width=400&height=250&seq=day1-departure&orientation=landscape" alt="Lotnisko - wylot" class="w-full h-48 object-cover rounded-lg">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-hotel-line text-primary"></i>
+                                        <span class="font-semibold">Noclegi</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Hotel Grand Oasis Cancun 4* - strefa hotelowa, pokoje z widokiem na morze</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-restaurant-line text-primary"></i>
+                                        <span class="font-semibold">Posiłki</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Kolacja we własnym zakresie - polecamy restauracje w strefie hotelowej</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 2 -->
+                <div id="day-2" class="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+                    <button class="w-full px-8 py-6 text-left hover:bg-gray-50 transition-colors accordion-trigger">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-6">
+                                <div class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full font-bold text-xl">2</div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900">Cancun - Chichen Itza - Merida</h3>
+                                    <p class="text-gray-600 mt-1">Jeden z siedmiu cudów świata</p>
+                                </div>
+                            </div>
+                            <i class="ri-arrow-down-s-line text-3xl text-gray-400 accordion-icon transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content px-8 pb-8">
+                        <div class="grid lg:grid-cols-3 gap-8 mt-6">
+                            <div class="lg:col-span-2 space-y-6">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 mb-4">Program dnia</h4>
+                                    <ul class="space-y-3 text-gray-700">
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-sun-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">07:00</span> - Śniadanie w hotelu, wymeldowanie
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-bus-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">08:30</span> - Wyjazd do Chichen Itza (180 km, 2,5h)
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-ancient-gate-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">11:30</span> - Zwiedzanie kompleksu Chichen Itza z przewodnikiem
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-restaurant-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">13:30</span> - Obiad w restauracji Mayaland z widokiem na piramidę
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-car-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">15:00</span> - Przejazd do Meridy (120 km, 1,5h)
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-building-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">17:00</span> - Spacer po centrum Meridy, Plaza Grande
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="bg-yellow-50 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-yellow-900 mb-2">Ciekawostki o Chichen Itza</h5>
+                                    <ul class="text-sm text-yellow-800 space-y-1">
+                                        <li>• Piramida El Castillo ma 365 stopni - po jednym na każdy dzień roku</li>
+                                        <li>• Podczas równonocy widać "węża" schodzącego po schodach</li>
+                                        <li>• Kompleks był największym miastem Maya na Jukatanie</li>
+                                        <li>• Boisko do gry w piłkę ma doskonałą akustykę</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <img src="https://readdy.ai/api/search-image?query=magnificent%20Chichen%20Itza%20pyramid%20El%20Castillo%20with%20tourists%20exploring%2C%20ancient%20Mayan%20stone%20architecture%20against%20blue%20sky%2C%20archaeological%20wonder%20Mexico%2C%20golden%20sunlight%2C%20world%20heritage%20site&width=400&height=250&seq=day2-chichen-main&orientation=landscape" alt="Chichen Itza - El Castillo" class="w-full h-48 object-cover rounded-lg">
+                                <img src="https://readdy.ai/api/search-image?query=colorful%20colonial%20buildings%20in%20Merida%20Mexico%20main%20square%20Plaza%20Grande%2C%20yellow%20cathedral%2C%20historic%20architecture%2C%20evening%20atmosphere%2C%20cultural%20heritage&width=400&height=200&seq=day2-merida&orientation=landscape" alt="Merida - centrum" class="w-full h-32 object-cover rounded-lg">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-restaurant-line text-primary"></i>
+                                        <span class="font-semibold">Posiłki</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Śniadanie, obiad - kuchnia jukateńska z elementami Maya</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-hotel-line text-primary"></i>
+                                        <span class="font-semibold">Noclegi</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Hotel Casa Lucia 4* - butikowy hotel w centrum Meridy</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 3 -->
+                <div id="day-3" class="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+                    <button class="w-full px-8 py-6 text-left hover:bg-gray-50 transition-colors accordion-trigger">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-6">
+                                <div class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full font-bold text-xl">3</div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900">Merida - Uxmal - Campeche</h3>
+                                    <p class="text-gray-600 mt-1">Piramida Wróżbity i kolonialne Campeche</p>
+                                </div>
+                            </div>
+                            <i class="ri-arrow-down-s-line text-3xl text-gray-400 accordion-icon transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content px-8 pb-8">
+                        <div class="grid lg:grid-cols-3 gap-8 mt-6">
+                            <div class="lg:col-span-2 space-y-6">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 mb-4">Program dnia</h4>
+                                    <ul class="space-y-3 text-gray-700">
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-sun-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">08:00</span> - Śniadanie w hotelu, wymeldowanie
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-car-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">09:30</span> - Przejazd do Uxmal (80 km, 1h)
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-ancient-pavilion-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">10:45</span> - Zwiedzanie ruin Uxmal - Piramida Wróżbity
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-camera-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">12:30</span> - Czas na zdjęcia i eksplorację Pałacu Gubernatora
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-car-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">13:30</span> - Przejazd do Campeche (150 km, 2h)
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-building-2-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">16:00</span> - Spacer po starówce UNESCO - kolorowe fasady
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-restaurant-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">19:00</span> - Kolacja w restauracji La Pigua - owoce morza
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="bg-green-50 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-green-900 mb-2">Campeche - miasto-forteca</h5>
+                                    <ul class="text-sm text-green-800 space-y-1">
+                                        <li>• Jedyne ufortyfikowane miasto kolonialne w Ameryce</li>
+                                        <li>• Kolorowe fasady domów - każdy kolor miał znaczenie</li>
+                                        <li>• Centrum handlu logwood (drewno kampeszowe)</li>
+                                        <li>• Chronione przez mury przed piratami</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <img src="https://readdy.ai/api/search-image?query=ancient%20Mayan%20Pyramid%20of%20the%20Magician%20in%20Uxmal%20Mexico%2C%20unique%20oval%20shape%2C%20stone%20architecture%2C%20jungle%20setting%2C%20archaeological%20site%2C%20golden%20sunlight&width=400&height=250&seq=day3-uxmal&orientation=landscape" alt="Uxmal - Piramida Wróżbity" class="w-full h-48 object-cover rounded-lg">
+                                <img src="https://readdy.ai/api/search-image?query=colorful%20colonial%20buildings%20in%20Campeche%20Mexico%20historic%20center%2C%20pastel%20pink%20yellow%20blue%20facades%2C%20cobblestone%20streets%2C%20UNESCO%20world%20heritage%20site%2C%20evening%20golden%20light&width=400&height=200&seq=day3-campeche-colors&orientation=landscape" alt="Campeche - kolorowe domy" class="w-full h-32 object-cover rounded-lg">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-restaurant-line text-primary"></i>
+                                        <span class="font-semibold">Posiłki</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Śniadanie, kolacja - specjalności z owoców morza</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-hotel-line text-primary"></i>
+                                        <span class="font-semibold">Noclegi</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Hotel Plaza Colonial 4* - w sercu historycznego centrum</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 4 -->
+                <div id="day-4" class="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+                    <button class="w-full px-8 py-6 text-left hover:bg-gray-50 transition-colors accordion-trigger">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-6">
+                                <div class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full font-bold text-xl">4</div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900">Campeche - Palenque</h3>
+                                    <p class="text-gray-600 mt-1">Podróż przez dżunglę Chiapas</p>
+                                </div>
+                            </div>
+                            <i class="ri-arrow-down-s-line text-3xl text-gray-400 accordion-icon transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content px-8 pb-8">
+                        <div class="grid lg:grid-cols-3 gap-8 mt-6">
+                            <div class="lg:col-span-2 space-y-6">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 mb-4">Program dnia</h4>
+                                    <ul class="space-y-3 text-gray-700">
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-sun-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">07:30</span> - Śniadanie w hotelu, wymeldowanie
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-car-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">08:30</span> - Długa podróż do Palenque (350 km, 5h)
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-restaurant-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">11:00</span> - Postój na obiad w Escarcega
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-leaf-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">12:30</span> - Kontynuacja podróży przez dżunglę Chiapas
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-hotel-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">14:30</span> - Przyjazd do Palenque, zakwaterowanie
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-walk-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">16:00</span> - Spacer po miasteczku Palenque
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-moon-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">18:00</span> - Odpoczynek, przygotowanie do zwiedzania
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="bg-purple-50 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-purple-900 mb-2">Chiapas - najbardziej różnorodny stan Meksyku</h5>
+                                    <ul class="text-sm text-purple-800 space-y-1">
+                                        <li>• Największa różnorodność biologiczna w Meksyku</li>
+                                        <li>• Dom dla 12 grup etnicznych rdzennych mieszkańców</li>
+                                        <li>• Ponad 3000 gatunków roślin w lasach tropikalnych</li>
+                                        <li>• Granica z Gwatemalą - wpływy kultur Maya</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <img src="https://readdy.ai/api/search-image?query=lush%20tropical%20jungle%20landscape%20in%20Chiapas%20Mexico%2C%20dense%20green%20vegetation%2C%20misty%20mountains%2C%20winding%20road%20through%20rainforest%2C%20biodiversity%20paradise&width=400&height=250&seq=day4-chiapas-jungle&orientation=landscape" alt="Dżungla Chiapas" class="w-full h-48 object-cover rounded-lg">
+                                <img src="https://readdy.ai/api/search-image?query=small%20tropical%20town%20Palenque%20Mexico%20with%20colorful%20buildings%2C%20palm%20trees%2C%20local%20market%2C%20authentic%20Mexican%20atmosphere%2C%20jungle%20surroundings&width=400&height=200&seq=day4-palenque-town&orientation=landscape" alt="Miasteczko Palenque" class="w-full h-32 object-cover rounded-lg">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-restaurant-line text-primary"></i>
+                                        <span class="font-semibold">Posiłki</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Śniadanie, obiad - kuchnia regionalna Chiapas</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-hotel-line text-primary"></i>
+                                        <span class="font-semibold">Noclegi</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Hotel Maya Tulipanes 4* - w otoczeniu tropikalnej roślinności</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 5 -->
+                <div id="day-5" class="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+                    <button class="w-full px-8 py-6 text-left hover:bg-gray-50 transition-colors accordion-trigger">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-6">
+                                <div class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full font-bold text-xl">5</div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900">Palenque - Agua Azul - San Cristobal</h3>
+                                    <p class="text-gray-600 mt-1">Ruiny w dżungli i turkusowe wodospady</p>
+                                </div>
+                            </div>
+                            <i class="ri-arrow-down-s-line text-3xl text-gray-400 accordion-icon transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content px-8 pb-8">
+                        <div class="grid lg:grid-cols-3 gap-8 mt-6">
+                            <div class="lg:col-span-2 space-y-6">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 mb-4">Program dnia</h4>
+                                    <ul class="space-y-3 text-gray-700">
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-sun-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">07:00</span> - Śniadanie w hotelu, wymeldowanie
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-ancient-gate-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">08:30</span> - Zwiedzanie ruin Palenque w dżungli
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-treasure-map-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">10:00</span> - Świątynia Inskrypcji i grobowiec Pakala
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-car-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">11:30</span> - Wyjazd do wodospadów Agua Azul (65 km)
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-water-flash-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">13:00</span> - Zwiedzanie kaskad Agua Azul, czas na kąpiel
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-restaurant-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">14:30</span> - Obiad przy wodospadach
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-car-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">16:00</span> - Przejazd do San Cristobal (200 km, 3h)
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="bg-cyan-50 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-cyan-900 mb-2">Palenque - perła architektury Maya</h5>
+                                    <ul class="text-sm text-cyan-800 space-y-1">
+                                        <li>• Najpiękniejsze ruiny Maya w Meksyku</li>
+                                        <li>• Grobowiec Pakala - najważniejsze odkrycie archeologiczne</li>
+                                        <li>• Hieroglify opowiadające historię dynastii</li>
+                                        <li>• Położone w sercu tropikalnej dżungli</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <img src="https://readdy.ai/api/search-image?query=ancient%20Mayan%20Temple%20of%20Inscriptions%20in%20Palenque%20Mexico%2C%20pyramid%20surrounded%20by%20lush%20jungle%2C%20mysterious%20stone%20architecture%2C%20archaeological%20wonder%2C%20tropical%20rainforest&width=400&height=250&seq=day5-palenque-temple&orientation=landscape" alt="Palenque - Świątynia Inskrypcji" class="w-full h-48 object-cover rounded-lg">
+                                <img src="https://readdy.ai/api/search-image?query=stunning%20turquoise%20blue%20waterfalls%20Agua%20Azul%20in%20Chiapas%20Mexico%2C%20cascading%20natural%20pools%2C%20tropical%20paradise%2C%20crystal%20clear%20water%2C%20lush%20green%20vegetation&width=400&height=200&seq=day5-agua-azul&orientation=landscape" alt="Agua Azul - wodospady" class="w-full h-32 object-cover rounded-lg">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-restaurant-line text-primary"></i>
+                                        <span class="font-semibold">Posiłki</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Śniadanie, obiad - lokalne specjalności Chiapas</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-hotel-line text-primary"></i>
+                                        <span class="font-semibold">Noclegi</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Hotel Casa Mexicana 4* - kolonialna architektura w centrum</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 6 -->
+                <div id="day-6" class="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+                    <button class="w-full px-8 py-6 text-left hover:bg-gray-50 transition-colors accordion-trigger">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-6">
+                                <div class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full font-bold text-xl">6</div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900">San Cristobal de las Casas</h3>
+                                    <p class="text-gray-600 mt-1">Kolonialne miasto w górach</p>
+                                </div>
+                            </div>
+                            <i class="ri-arrow-down-s-line text-3xl text-gray-400 accordion-icon transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content px-8 pb-8">
+                        <div class="grid lg:grid-cols-3 gap-8 mt-6">
+                            <div class="lg:col-span-2 space-y-6">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 mb-4">Program dnia</h4>
+                                    <ul class="space-y-3 text-gray-700">
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-sun-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">08:00</span> - Śniadanie w hotelu
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-walk-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">09:30</span> - Spacer po centrum - Plaza 31 de Marzo
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-building-2-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">10:30</span> - Katedra i kościół Santo Domingo
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-shopping-bag-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">11:30</span> - Targ rękodzieła - tekstylia Indian Tzotzil
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-car-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">14:00</span> - Wycieczka do wiosek San Juan Chamula
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-community-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">15:30</span> - Spotkanie z lokalną społecznością Tzotzil
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-restaurant-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">18:00</span> - Kolacja w restauracji El Fogon de Jovel
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="bg-orange-50 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-orange-900 mb-2">Kultura Tzotzil w San Cristobal</h5>
+                                    <ul class="text-sm text-orange-800 space-y-1">
+                                        <li>• Miasto założone przez Hiszpanów w 1528 roku</li>
+                                        <li>• Centrum kultury Indian Tzotzil i Tzeltal</li>
+                                        <li>• Tradycyjne tkactwo - każda wioska ma swoje wzory</li>
+                                        <li>• Synkretyzm religijny - połączenie chrześcijaństwa z wierzeniami Maya</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <img src="https://readdy.ai/api/search-image?query=beautiful%20colonial%20architecture%20in%20San%20Cristobal%20de%20las%20Casas%20Mexico%2C%20colorful%20buildings%2C%20cobblestone%20streets%2C%20central%20plaza%2C%20mountain%20town%20atmosphere%2C%20indigenous%20culture&width=400&height=250&seq=day6-san-cristobal&orientation=landscape" alt="San Cristobal - centrum" class="w-full h-48 object-cover rounded-lg">
+                                <img src="https://readdy.ai/api/search-image?query=traditional%20indigenous%20Tzotzil%20women%20in%20colorful%20textiles%20at%20market%20in%20San%20Cristobal%20Mexico%2C%20handwoven%20fabrics%2C%20cultural%20heritage%2C%20authentic%20crafts&width=400&height=200&seq=day6-tzotzil-market&orientation=landscape" alt="Targ rękodzieła Tzotzil" class="w-full h-32 object-cover rounded-lg">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-restaurant-line text-primary"></i>
+                                        <span class="font-semibold">Posiłki</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Śniadanie, kolacja - kuchnia regionalna z wpływami Indian</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-hotel-line text-primary"></i>
+                                        <span class="font-semibold">Noclegi</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Hotel Casa Mexicana 4* - druga noc w kolonialnym stylu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 7 -->
+                <div id="day-7" class="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+                    <button class="w-full px-8 py-6 text-left hover:bg-gray-50 transition-colors accordion-trigger">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-6">
+                                <div class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full font-bold text-xl">7</div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900">San Cristobal - Kanion Sumidero - Tuxtla</h3>
+                                    <p class="text-gray-600 mt-1">Spektakularny kanion i stolica Chiapas</p>
+                                </div>
+                            </div>
+                            <i class="ri-arrow-down-s-line text-3xl text-gray-400 accordion-icon transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content px-8 pb-8">
+                        <div class="grid lg:grid-cols-3 gap-8 mt-6">
+                            <div class="lg:col-span-2 space-y-6">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 mb-4">Program dnia</h4>
+                                    <ul class="space-y-3 text-gray-700">
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-sun-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">08:00</span> - Śniadanie w hotelu, wymeldowanie
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-car-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">09:30</span> - Przejazd do przystani Chiapa de Corzo
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-ship-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">10:30</span> - Rejs łodzią przez Kanion Sumidero
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-camera-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">12:00</span> - Obserwacja krokodyli i ptactwa wodnego
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-restaurant-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">13:30</span> - Obiad w Chiapa de Corzo
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-car-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">15:00</span> - Przejazd do Tuxtla Gutierrez
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-building-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">16:30</span> - Zwiedzanie centrum Tuxtla - Plaza Civica
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="bg-teal-50 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-teal-900 mb-2">Kanion Sumidero - cud natury</h5>
+                                    <ul class="text-sm text-teal-800 space-y-1">
+                                        <li>• Ściany kanionu sięgają 1000 metrów wysokości</li>
+                                        <li>• Długość kanionu to około 13 kilometrów</li>
+                                        <li>• Dom dla krokodyli, małp pająków i 300 gatunków ptaków</li>
+                                        <li>• Rzeka Grijalva - najważniejsza rzeka w Chiapas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <img src="https://readdy.ai/api/search-image?query=spectacular%20Sumidero%20Canyon%20in%20Chiapas%20Mexico%2C%20towering%20cliff%20walls%2C%20Grijalva%20river%2C%20boat%20tour%2C%20dramatic%20landscape%2C%20natural%20wonder%2C%20tropical%20vegetation&width=400&height=250&seq=day7-sumidero-canyon&orientation=landscape" alt="Kanion Sumidero" class="w-full h-48 object-cover rounded-lg">
+                                <img src="https://readdy.ai/api/search-image?query=modern%20city%20center%20of%20Tuxtla%20Gutierrez%20Mexico%2C%20Plaza%20Civica%2C%20government%20buildings%2C%20urban%20landscape%2C%20capital%20of%20Chiapas%2C%20contemporary%20architecture&width=400&height=200&seq=day7-tuxtla&orientation=landscape" alt="Tuxtla Gutierrez - centrum" class="w-full h-32 object-cover rounded-lg">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-restaurant-line text-primary"></i>
+                                        <span class="font-semibold">Posiłki</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Śniadanie, obiad - ryby rzeczne i specjalności regionalne</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-hotel-line text-primary"></i>
+                                        <span class="font-semibold">Noclegi</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Hotel Hilton Garden Inn 4* - nowoczesny hotel w centrum</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 8 -->
+                <div id="day-8" class="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+                    <button class="w-full px-8 py-6 text-left hover:bg-gray-50 transition-colors accordion-trigger">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-6">
+                                <div class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full font-bold text-xl">8</div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900">Tuxtla - Oaxaca</h3>
+                                    <p class="text-gray-600 mt-1">Podróż do kulturalnej stolicy Meksyku</p>
+                                </div>
+                            </div>
+                            <i class="ri-arrow-down-s-line text-3xl text-gray-400 accordion-icon transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content px-8 pb-8">
+                        <div class="grid lg:grid-cols-3 gap-8 mt-6">
+                            <div class="lg:col-span-2 space-y-6">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 mb-4">Program dnia</h4>
+                                    <ul class="space-y-3 text-gray-700">
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-sun-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">07:00</span> - Śniadanie w hotelu, wymeldowanie
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-flight-takeoff-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">09:00</span> - Lot z Tuxtla do Oaxaca (1h 15min)
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-car-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">11:30</span> - Transfer z lotniska do centrum Oaxaca
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-hotel-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">12:30</span> - Zakwaterowanie w hotelu
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-walk-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">14:00</span> - Pierwszy spacer po Zocalo - główny plac
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-building-2-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">15:30</span> - Katedra i Palacio de Gobierno
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-restaurant-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">18:00</span> - Kolacja w restauracji Casa Oaxaca
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="bg-red-50 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-red-900 mb-2">Oaxaca - serce kultury meksykańskiej</h5>
+                                    <ul class="text-sm text-red-800 space-y-1">
+                                        <li>• Stolica stanu o tej samej nazwie, centrum kultury Zapoteków</li>
+                                        <li>• Miasto UNESCO ze względu na kolonialną architekturę</li>
+                                        <li>• Słynne z kuchni - mole, chapulines, mezcal</li>
+                                        <li>• Centrum rzemiosła artystycznego - tekstylia, ceramika</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <img src="https://readdy.ai/api/search-image?query=beautiful%20colonial%20Zocalo%20main%20square%20in%20Oaxaca%20Mexico%2C%20historic%20cathedral%2C%20colorful%20buildings%2C%20cultural%20center%2C%20UNESCO%20world%20heritage%2C%20evening%20atmosphere&width=400&height=250&seq=day8-oaxaca-zocalo&orientation=landscape" alt="Oaxaca - Zocalo" class="w-full h-48 object-cover rounded-lg">
+                                <img src="https://readdy.ai/api/search-image?query=traditional%20Oaxacan%20cuisine%20mole%20dish%20with%20colorful%20ingredients%2C%20authentic%20Mexican%20food%2C%20cultural%20gastronomy%2C%20local%20restaurant%20atmosphere&width=400&height=200&seq=day8-oaxaca-food&orientation=landscape" alt="Kuchnia Oaxaca" class="w-full h-32 object-cover rounded-lg">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-restaurant-line text-primary"></i>
+                                        <span class="font-semibold">Posiłki</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Śniadanie, kolacja - wprowadzenie do kuchni oaxaqueña</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-hotel-line text-primary"></i>
+                                        <span class="font-semibold">Noclegi</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Hotel Casa Conzatti 4* - boutique hotel w centrum historycznym</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 9 -->
+                <div id="day-9" class="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+                    <button class="w-full px-8 py-6 text-left hover:bg-gray-50 transition-colors accordion-trigger">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-6">
+                                <div class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full font-bold text-xl">9</div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900">Oaxaca - Monte Alban - Mitla</h3>
+                                    <p class="text-gray-600 mt-1">Stolica Zapoteków i miasto zmarłych</p>
+                                </div>
+                            </div>
+                            <i class="ri-arrow-down-s-line text-3xl text-gray-400 accordion-icon transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content px-8 pb-8">
+                        <div class="grid lg:grid-cols-3 gap-8 mt-6">
+                            <div class="lg:col-span-2 space-y-6">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 mb-4">Program dnia</h4>
+                                    <ul class="space-y-3 text-gray-700">
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-sun-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">08:00</span> - Śniadanie w hotelu
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-car-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">09:30</span> - Wyjazd do Monte Alban (10 km, 30min)
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-ancient-gate-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">10:00</span> - Zwiedzanie Monte Alban - stolica Zapoteków
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-eye-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">12:00</span> - Panorama doliny Oaxaca z piramid
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-car-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">13:00</span> - Przejazd do Mitla (45 km, 1h)
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-restaurant-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">14:30</span> - Obiad w lokalnej restauracji
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-building-3-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">15:30</span> - Zwiedzanie Mitla - "miejsca zmarłych"
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-car-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">17:00</span> - Powrót do Oaxaca
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="bg-indigo-50 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-indigo-900 mb-2">Cywilizacja Zapoteków</h5>
+                                    <ul class="text-sm text-indigo-800 space-y-1">
+                                        <li>• Monte Alban - jedna z pierwszych stolic Mezoameryki</li>
+                                        <li>• Zapotekowie władali doliną Oaxaca przez 1300 lat</li>
+                                        <li>• Mitla - centrum religijne z unikalnymi mozaikami</li>
+                                        <li>• Geometryczne wzory bez użycia zaprawy murarskiej</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <img src="https://readdy.ai/api/search-image?query=ancient%20Zapotec%20ruins%20of%20Monte%20Alban%20in%20Oaxaca%20Mexico%2C%20pyramids%20and%20plazas%20on%20hilltop%2C%20archaeological%20site%2C%20panoramic%20valley%20view%2C%20pre-Columbian%20architecture&width=400&height=250&seq=day9-monte-alban&orientation=landscape" alt="Monte Alban - ruiny Zapoteków" class="w-full h-48 object-cover rounded-lg">
+                                <img src="https://readdy.ai/api/search-image?query=intricate%20geometric%20stone%20mosaics%20at%20Mitla%20archaeological%20site%20in%20Oaxaca%20Mexico%2C%20Zapotec%20architecture%2C%20detailed%20patterns%2C%20ancient%20craftsmanship&width=400&height=200&seq=day9-mitla&orientation=landscape" alt="Mitla - mozaiki kamienne" class="w-full h-32 object-cover rounded-lg">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-restaurant-line text-primary"></i>
+                                        <span class="font-semibold">Posiłki</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Śniadanie, obiad - lokalne specjalności zapoteckie</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-hotel-line text-primary"></i>
+                                        <span class="font-semibold">Noclegi</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Hotel Casa Conzatti 4* - druga noc w Oaxaca</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 10 -->
+                <div id="day-10" class="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+                    <button class="w-full px-8 py-6 text-left hover:bg-gray-50 transition-colors accordion-trigger">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-6">
+                                <div class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full font-bold text-xl">10</div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900">Oaxaca - Mexico City</h3>
+                                    <p class="text-gray-600 mt-1">Podróż do stolicy Meksyku</p>
+                                </div>
+                            </div>
+                            <i class="ri-arrow-down-s-line text-3xl text-gray-400 accordion-icon transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content px-8 pb-8">
+                        <div class="grid lg:grid-cols-3 gap-8 mt-6">
+                            <div class="lg:col-span-2 space-y-6">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 mb-4">Program dnia</h4>
+                                    <ul class="space-y-3 text-gray-700">
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-sun-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">08:00</span> - Śniadanie w hotelu, wymeldowanie
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-shopping-bag-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">09:30</span> - Ostatnie zakupy na targu rękodzieła
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-flight-takeoff-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">12:00</span> - Lot z Oaxaca do Mexico City (1h 20min)
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-car-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">15:00</span> - Transfer z lotniska do centrum
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-hotel-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">16:30</span> - Zakwaterowanie w hotelu w Zona Rosa
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-walk-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">17:30</span> - Pierwszy spacer po Zona Rosa
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-restaurant-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">19:00</span> - Kolacja w restauracji Pujol (opcjonalnie)
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="bg-pink-50 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-pink-900 mb-2">Mexico City - jedna z największych metropolii świata</h5>
+                                    <ul class="text-sm text-pink-800 space-y-1">
+                                        <li>• Ponad 21 milionów mieszkańców w obszarze metropolitalnym</li>
+                                        <li>• Zbudowane na ruinach azteckiej stolicy Tenochtitlan</li>
+                                        <li>• Wysokość 2240 m n.p.m. - może powodować problemy z oddychaniem</li>
+                                        <li>• Centrum polityczne, ekonomiczne i kulturalne Meksyku</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <img src="https://readdy.ai/api/search-image?query=vibrant%20Zona%20Rosa%20district%20in%20Mexico%20City%2C%20modern%20buildings%2C%20restaurants%2C%20shopping%20areas%2C%20urban%20atmosphere%2C%20cosmopolitan%20lifestyle%2C%20evening%20lights&width=400&height=250&seq=day10-zona-rosa&orientation=landscape" alt="Mexico City - Zona Rosa" class="w-full h-48 object-cover rounded-lg">
+                                <img src="https://readdy.ai/api/search-image?query=aerial%20view%20of%20massive%20Mexico%20City%20skyline%2C%20urban%20sprawl%2C%20modern%20skyscrapers%2C%20metropolitan%20area%2C%20one%20of%20worlds%20largest%20cities&width=400&height=200&seq=day10-mexico-city-aerial&orientation=landscape" alt="Mexico City - panorama" class="w-full h-32 object-cover rounded-lg">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-restaurant-line text-primary"></i>
+                                        <span class="font-semibold">Posiłki</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Śniadanie, kolacja - alta cocina mexicana</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-hotel-line text-primary"></i>
+                                        <span class="font-semibold">Noclegi</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Hotel Geneve 4* - luksusowy hotel w Zona Rosa</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 11 -->
+                <div id="day-11" class="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+                    <button class="w-full px-8 py-6 text-left hover:bg-gray-50 transition-colors accordion-trigger">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-6">
+                                <div class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full font-bold text-xl">11</div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900">Mexico City - Teotihuacan</h3>
+                                    <p class="text-gray-600 mt-1">Miasto Bogów i centrum stolicy</p>
+                                </div>
+                            </div>
+                            <i class="ri-arrow-down-s-line text-3xl text-gray-400 accordion-icon transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content px-8 pb-8">
+                        <div class="grid lg:grid-cols-3 gap-8 mt-6">
+                            <div class="lg:col-span-2 space-y-6">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 mb-4">Program dnia</h4>
+                                    <ul class="space-y-3 text-gray-700">
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-sun-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">07:00</span> - Śniadanie w hotelu
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-car-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">08:30</span> - Wyjazd do Teotihuacan (50 km, 1h)
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-ancient-gate-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">10:00</span> - Zwiedzanie Teotihuacan - Miasto Bogów
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-mountain-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">11:00</span> - Wspinaczka na Piramidę Słońca
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-road-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">12:30</span> - Spacer Aleją Zmarłych do Piramidy Księżyca
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-restaurant-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">13:30</span> - Obiad w restauracji La Gruta
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-car-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">15:00</span> - Powrót do Mexico City
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-building-2-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">17:00</span> - Zwiedzanie Zocalo - główny plac
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="bg-amber-50 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-amber-900 mb-2">Teotihuacan - tajemnicze miasto</h5>
+                                    <ul class="text-sm text-amber-800 space-y-1">
+                                        <li>• Największe miasto prekolumbijskiej Ameryki (200 tys. mieszkańców)</li>
+                                        <li>• Piramida Słońca - trzecia największa piramida na świecie</li>
+                                        <li>• Aleja Zmarłych - główna arteria długa na 2,5 km</li>
+                                        <li>• Nikt nie wie, kto zbudował to miasto - nie byli to Aztekowie</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <img src="https://readdy.ai/api/search-image?query=magnificent%20Pyramid%20of%20the%20Sun%20in%20Teotihuacan%20Mexico%2C%20ancient%20Mesoamerican%20architecture%2C%20Avenue%20of%20the%20Dead%2C%20archaeological%20wonder%2C%20tourists%20climbing%20steps&width=400&height=250&seq=day11-teotihuacan&orientation=landscape" alt="Teotihuacan - Piramida Słońca" class="w-full h-48 object-cover rounded-lg">
+                                <img src="https://readdy.ai/api/search-image?query=historic%20Zocalo%20main%20square%20in%20Mexico%20City%2C%20Metropolitan%20Cathedral%2C%20National%20Palace%2C%20colonial%20architecture%2C%20heart%20of%20the%20capital%2C%20cultural%20center&width=400&height=200&seq=day11-zocalo&orientation=landscape" alt="Mexico City - Zocalo" class="w-full h-32 object-cover rounded-lg">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-restaurant-line text-primary"></i>
+                                        <span class="font-semibold">Posiłki</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Śniadanie, obiad - kuchnia prehiszpańska w grocie</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-hotel-line text-primary"></i>
+                                        <span class="font-semibold">Noclegi</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Hotel Geneve 4* - druga noc w Mexico City</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 12 -->
+                <div id="day-12" class="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+                    <button class="w-full px-8 py-6 text-left hover:bg-gray-50 transition-colors accordion-trigger">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-6">
+                                <div class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full font-bold text-xl">12</div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900">Mexico City - Xochimilco - Coyoacan</h3>
+                                    <p class="text-gray-600 mt-1">Pływające ogrody i dzielnica artystów</p>
+                                </div>
+                            </div>
+                            <i class="ri-arrow-down-s-line text-3xl text-gray-400 accordion-icon transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content px-8 pb-8">
+                        <div class="grid lg:grid-cols-3 gap-8 mt-6">
+                            <div class="lg:col-span-2 space-y-6">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 mb-4">Program dnia</h4>
+                                    <ul class="space-y-3 text-gray-700">
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-sun-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">08:00</span> - Śniadanie w hotelu
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-car-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">09:30</span> - Wyjazd do Xochimilco (30 km, 45min)
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-ship-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">10:30</span> - Rejs trajinerą po kanałach Xochimilco
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-music-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">11:30</span> - Mariachi na wodzie i pływające targi
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-restaurant-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">13:00</span> - Obiad w restauracji na wodzie
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-car-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">15:00</span> - Przejazd do dzielnicy Coyoacan
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-home-heart-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">16:00</span> - Muzeum Fridy Kahlo - Casa Azul
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-walk-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">17:30</span> - Spacer po kolonialnym centrum Coyoacan
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="bg-emerald-50 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-emerald-900 mb-2">Xochimilco - ostatnie ślady Tenochtitlan</h5>
+                                    <ul class="text-sm text-emerald-800 space-y-1">
+                                        <li>• Pozostałość systemu kanałów azteckiej stolicy</li>
+                                        <li>• Chinampas - pływające ogrody UNESCO</li>
+                                        <li>• Trajineras - kolorowe łodzie z XVI wieku</li>
+                                        <li>• Coyoacan - dzielnica artystów i intelektualistów</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <img src="https://readdy.ai/api/search-image?query=colorful%20trajinera%20boats%20in%20Xochimilco%20canals%20Mexico%20City%2C%20floating%20gardens%2C%20mariachi%20musicians%2C%20traditional%20Mexican%20experience%2C%20UNESCO%20heritage%20site&width=400&height=250&seq=day12-xochimilco&orientation=landscape" alt="Xochimilco - trajineras" class="w-full h-48 object-cover rounded-lg">
+                                <img src="https://readdy.ai/api/search-image?query=famous%20blue%20house%20Casa%20Azul%20Frida%20Kahlo%20museum%20in%20Coyoacan%20Mexico%20City%2C%20colonial%20architecture%2C%20artistic%20heritage%2C%20cultural%20landmark&width=400&height=200&seq=day12-frida-kahlo&orientation=landscape" alt="Casa Azul - Frida Kahlo" class="w-full h-32 object-cover rounded-lg">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-restaurant-line text-primary"></i>
+                                        <span class="font-semibold">Posiłki</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Śniadanie, obiad - tradycyjna kuchnia na trajinerze</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-hotel-line text-primary"></i>
+                                        <span class="font-semibold">Noclegi</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Hotel Geneve 4* - ostatnia noc w Mexico City</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 13 -->
+                <div id="day-13" class="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+                    <button class="w-full px-8 py-6 text-left hover:bg-gray-50 transition-colors accordion-trigger">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-6">
+                                <div class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full font-bold text-xl">13</div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900">Mexico City - Warszawa</h3>
+                                    <p class="text-gray-600 mt-1">Pożegnanie z Meksykiem, powrót do Polski</p>
+                                </div>
+                            </div>
+                            <i class="ri-arrow-down-s-line text-3xl text-gray-400 accordion-icon transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content px-8 pb-8">
+                        <div class="grid lg:grid-cols-3 gap-8 mt-6">
+                            <div class="lg:col-span-2 space-y-6">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 mb-4">Program dnia</h4>
+                                    <ul class="space-y-3 text-gray-700">
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-sun-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">08:00</span> - Śniadanie w hotelu, wymeldowanie
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-shopping-bag-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">09:30</span> - Ostatnie zakupy w centrum handlowym
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-restaurant-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">12:00</span> - Pożegnalny obiad w restauracji Azul Historico
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-car-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">14:00</span> - Transfer na lotnisko Mexico City
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-flight-takeoff-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">17:30</span> - Wylot z Mexico City do Amsterdamu
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-time-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">+1 dzień</span> - Przesiadka w Amsterdamie
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="ri-flight-land-line text-primary mt-1"></i>
+                                            <div>
+                                                <span class="font-medium">19:45</span> - Przylot do Warszawy (następny dzień)
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="bg-violet-50 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-violet-900 mb-2">Pamiątki z Meksyku</h5>
+                                    <ul class="text-sm text-violet-800 space-y-1">
+                                        <li>• Tekstylia z Oaxaca - rebozos, huipiles</li>
+                                        <li>• Ceramika z Talavera de la Reina</li>
+                                        <li>• Mezcal i tequila - najlepsze gatunki</li>
+                                        <li>• Biżuteria ze srebra z Taxco</li>
+                                        <li>• Czekolada i wanilia - meksykańskie specjalności</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-gray-100 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-gray-900 mb-2">Podsumowanie podróży</h5>
+                                    <div class="grid grid-cols-2 gap-4 text-sm text-gray-700">
+                                        <div>
+                                            <p><strong>Odwiedzone miasta:</strong> 8</p>
+                                            <p><strong>Zabytki UNESCO:</strong> 6</p>
+                                            <p><strong>Przejechane kilometry:</strong> ~2500 km</p>
+                                        </div>
+                                        <div>
+                                            <p><strong>Kultury poznane:</strong> Maya, Zapotekowie, Aztekowie</p>
+                                            <p><strong>Stany Meksyku:</strong> 5</p>
+                                            <p><strong>Niezapomniane wspomnienia:</strong> ∞</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <img src="https://readdy.ai/api/search-image?query=travelers%20at%20Mexico%20City%20international%20airport%20departure%20lounge%2C%20saying%20goodbye%20to%20Mexico%2C%20luggage%20with%20souvenirs%2C%20end%20of%20vacation%2C%20emotional%20farewell&width=400&height=250&seq=day13-departure&orientation=landscape" alt="Lotnisko - pożegnanie" class="w-full h-48 object-cover rounded-lg">
+                                <img src="https://readdy.ai/api/search-image?query=collection%20of%20beautiful%20Mexican%20souvenirs%20and%20handicrafts%2C%20colorful%20textiles%2C%20pottery%2C%20silver%20jewelry%2C%20traditional%20crafts%2C%20travel%20memories&width=400&height=200&seq=day13-souvenirs&orientation=landscape" alt="Pamiątki z Meksyku" class="w-full h-32 object-cover rounded-lg">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-restaurant-line text-primary"></i>
+                                        <span class="font-semibold">Posiłki</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">Śniadanie, pożegnalny obiad - ostatnie smaki Meksyku</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex items-center space-x-3 mb-3">
+                                        <i class="ri-heart-line text-primary"></i>
+                                        <span class="font-semibold">Wspomnienia</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700">13 dni pełnych przygód, kultury i niezapomnianych doświadczeń</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="flex justify-center mt-12 space-x-4">
+                <a href="https://readdy.ai/home/89d82bd7-a718-463c-bf3f-7e0b89b5dc58/31105e51-b2f5-436a-8938-d76fa2595fac" data-readdy="true" class="bg-gray-600 text-white px-6 py-3 !rounded-button hover:bg-gray-700 transition-colors whitespace-nowrap">
+                    ← Powrót do głównej strony
+                </a>
+                <button class="bg-primary text-white px-8 py-3 !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">
+                    Zarezerwuj wycieczkę
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full shadow-lg hover:bg-opacity-90 transition-all opacity-0 pointer-events-none z-40">
+        <i class="ri-arrow-up-line text-xl"></i>
+    </button>
+
+    <script id="accordion-functionality">
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionTriggers = document.querySelectorAll('.accordion-trigger');
+            
+            accordionTriggers.forEach(trigger => {
+                trigger.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('.accordion-icon');
+                    
+                    if (content.classList.contains('active')) {
+                        content.classList.remove('active');
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        content.classList.add('active');
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script id="expand-collapse-all">
+        document.addEventListener('DOMContentLoaded', function() {
+            const expandAllBtn = document.getElementById('expand-all');
+            const collapseAllBtn = document.getElementById('collapse-all');
+            const accordionTriggers = document.querySelectorAll('.accordion-trigger');
+            
+            expandAllBtn.addEventListener('click', function() {
+                accordionTriggers.forEach(trigger => {
+                    const content = trigger.nextElementSibling;
+                    const icon = trigger.querySelector('.accordion-icon');
+                    content.classList.add('active');
+                    icon.style.transform = 'rotate(180deg)';
+                });
+            });
+            
+            collapseAllBtn.addEventListener('click', function() {
+                accordionTriggers.forEach(trigger => {
+                    const content = trigger.nextElementSibling;
+                    const icon = trigger.querySelector('.accordion-icon');
+                    content.classList.remove('active');
+                    icon.style.transform = 'rotate(0deg)';
+                });
+            });
+        });
+    </script>
+
+    <script id="smooth-scroll">
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 100;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script id="back-to-top">
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopBtn = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                    backToTopBtn.classList.add('opacity-100');
+                } else {
+                    backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                    backToTopBtn.classList.remove('opacity-100');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

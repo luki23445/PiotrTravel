@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PiotrTravel - Discover the world with faith</title>
+    <meta name="description" content="Experience spiritual journeys with PiotrTravel - Poland's leading pilgrimage and travel agency. Discover Rome, Fatima, Medjugorje and more with priest-guided tours.">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#d4af37',secondary:'#6b98c3'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        h1, h2, h3, h4, .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-section {
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.95) 30%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.5) 70%, rgba(255, 255, 255, 0) 100%), url('https://readdy.ai/api/search-image?query=Beautiful%20pilgrimage%20destination%20with%20a%20church%20or%20cathedral%20in%20Rome%20or%20Fatima%2C%20golden%20sunset%20light%2C%20peaceful%20atmosphere%2C%20spiritual%20journey%2C%20high%20quality%20professional%20travel%20photography%2C%20serene%20landscape%2C%20inspiring%20religious%20architecture&width=1920&height=1080&seq=123&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+        }
+        .newsletter-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://readdy.ai/api/search-image?query=Peaceful%20pilgrimage%20scene%20with%20people%20walking%20on%20a%20path%2C%20sunset%20light%2C%20spiritual%20journey%2C%20soft%20colors%2C%20inspirational%20travel%20moment%2C%20religious%20destination%20in%20the%20background%2C%20high%20quality%20professional%20photography&width=1920&height=600&seq=456&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+        }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .custom-checkbox {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #d4af37;
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+        }
+        .custom-checkbox:checked {
+            background-color: #d4af37;
+        }
+        .custom-checkbox:checked::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 6px;
+            width: 6px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        .testimonial-slider {
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+        }
+        .testimonial-slide {
+            scroll-snap-align: start;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="#" class="text-3xl font-['Pacifico'] text-primary">PiotrTravel</a>
+            
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#" class="text-gray-800 hover:text-primary font-medium">Home</a>
+                <a href="#destinations" class="text-gray-800 hover:text-primary font-medium">Destinations</a>
+                <a href="#about" class="text-gray-800 hover:text-primary font-medium">About Us</a>
+                <a href="#contact" class="text-gray-800 hover:text-primary font-medium">Contact</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <div class="hidden md:flex items-center space-x-2">
+                    <a href="#" class="text-sm text-gray-600 hover:text-primary">EN</a>
+                    <span class="text-gray-400">|</span>
+                    <a href="#" class="text-sm text-gray-600 hover:text-primary">PL</a>
+                </div>
+                
+                <a href="tel:+48123456789" class="hidden md:flex items-center text-gray-800 hover:text-primary">
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <i class="ri-phone-line"></i>
+                    </div>
+                    <span>+48 123 456 789</span>
+                </a>
+                
+                <a href="#book-now" class="bg-primary text-white px-5 py-2 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition-colors">
+                    Book Now
+                </a>
+                
+                <button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-800">
+                    <i class="ri-menu-line text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section pt-28 pb-16 md:pt-40 md:pb-24">
+        <div class="container mx-auto px-4 w-full">
+            <div class="max-w-2xl">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4">
+                    Discover the world with faith
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-700 mb-8">
+                    Travel with PiotrTravel – Poland's leading pilgrimage agency since 2005
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#destinations" class="bg-primary text-white px-6 py-3 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition-colors">
+                        View Trips
+                    </a>
+                    <a href="#contact" class="bg-transparent border-2 border-primary text-primary px-6 py-3 !rounded-button whitespace-nowrap font-medium hover:bg-primary hover:text-white transition-colors">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Travel With Us -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Why Travel With Us</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4">
+                        <i class="ri-history-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">20+ Years Experience</h3>
+                    <p class="text-gray-600">Two decades of organizing meaningful pilgrimages to sacred destinations worldwide.</p>
+                </div>
+                
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4">
+                        <i class="ri-user-star-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Priest-Guided Tours</h3>
+                    <p class="text-gray-600">Spiritual guidance from experienced priests who enhance your pilgrimage experience.</p>
+                </div>
+                
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4">
+                        <i class="ri-bus-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Comfortable Transport</h3>
+                    <p class="text-gray-600">Modern, air-conditioned vehicles with experienced drivers for your comfort.</p>
+                </div>
+                
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4">
+                        <i class="ri-money-dollar-circle-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Best Price Guarantee</h3>
+                    <p class="text-gray-600">Affordable pilgrimages without compromising quality, comfort or spiritual value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Trips Section -->
+    <section id="destinations" class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-6">Featured Pilgrimages</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">Explore our carefully curated selection of spiritual journeys to the world's most sacred destinations</p>
+            
+            <!-- Filters -->
+            <div class="bg-white p-4 rounded-lg shadow-sm mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Destination</label>
+                        <div class="relative">
+                            <button class="w-full bg-white border border-gray-300 rounded text-gray-700 py-2 px-4 flex items-center justify-between !rounded-button whitespace-nowrap">
+                                <span>All Destinations</span>
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-arrow-down-s-line"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Date</label>
+                        <div class="relative">
+                            <button class="w-full bg-white border border-gray-300 rounded text-gray-700 py-2 px-4 flex items-center justify-between !rounded-button whitespace-nowrap">
+                                <span>Any Date</span>
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-arrow-down-s-line"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Price Range</label>
+                        <div class="relative">
+                            <button class="w-full bg-white border border-gray-300 rounded text-gray-700 py-2 px-4 flex items-center justify-between !rounded-button whitespace-nowrap">
+                                <span>All Prices</span>
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-arrow-down-s-line"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Duration</label>
+                        <div class="relative">
+                            <button class="w-full bg-white border border-gray-300 rounded text-gray-700 py-2 px-4 flex items-center justify-between !rounded-button whitespace-nowrap">
+                                <span>Any Duration</span>
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-arrow-down-s-line"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Trips Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Trip 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-transform hover:shadow-lg hover:-translate-y-1">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=Vatican%20City%20with%20St.%20Peters%20Basilica%20in%20Rome%2C%20sunny%20day%2C%20beautiful%20architecture%2C%20religious%20pilgrimage%20destination%2C%20high%20quality%20professional%20travel%20photography%2C%20no%20people%2C%20clear%20blue%20sky&width=600&height=400&seq=trip1&orientation=landscape" alt="Rome Pilgrimage" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Rome & Vatican</h3>
+                            <span class="bg-primary bg-opacity-10 text-primary text-sm font-medium px-2 py-1 rounded">7 days</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Experience the heart of Catholicism with visits to St. Peter's Basilica, Vatican Museums, and ancient Christian sites.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-sm text-gray-500">July 15-21, 2025</p>
+                                <p class="text-lg font-bold text-primary">€899</p>
+                            </div>
+                            <a href="#" class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition-colors">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Trip 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-transform hover:shadow-lg hover:-translate-y-1">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=Fatima%20Sanctuary%20in%20Portugal%2C%20beautiful%20religious%20architecture%2C%20pilgrimage%20destination%2C%20peaceful%20atmosphere%2C%20high%20quality%20professional%20travel%20photography%2C%20spiritual%20journey%2C%20no%20people&width=600&height=400&seq=trip2&orientation=landscape" alt="Fatima Pilgrimage" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Fatima & Lourdes</h3>
+                            <span class="bg-primary bg-opacity-10 text-primary text-sm font-medium px-2 py-1 rounded">10 days</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Visit two of the most significant Marian apparition sites in Europe with time for prayer and reflection.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-sm text-gray-500">August 5-14, 2025</p>
+                                <p class="text-lg font-bold text-primary">€1,299</p>
+                            </div>
+                            <a href="#" class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition-colors">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Trip 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-transform hover:shadow-lg hover:-translate-y-1">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=Medjugorje%20church%20and%20landscape%20in%20Bosnia%20and%20Herzegovina%2C%20spiritual%20pilgrimage%20destination%2C%20peaceful%20atmosphere%2C%20religious%20architecture%2C%20high%20quality%20professional%20travel%20photography%2C%20no%20people&width=600&height=400&seq=trip3&orientation=landscape" alt="Medjugorje Pilgrimage" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Medjugorje</h3>
+                            <span class="bg-primary bg-opacity-10 text-primary text-sm font-medium px-2 py-1 rounded">5 days</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Experience the peace and spiritual renewal at this popular Marian pilgrimage site in Bosnia and Herzegovina.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-sm text-gray-500">September 10-14, 2025</p>
+                                <p class="text-lg font-bold text-primary">€649</p>
+                            </div>
+                            <a href="#" class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition-colors">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Trip 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-transform hover:shadow-lg hover:-translate-y-1">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=Holy%20Land%20Jerusalem%2C%20Western%20Wall%20and%20Dome%20of%20the%20Rock%2C%20religious%20pilgrimage%20destination%2C%20spiritual%20journey%2C%20high%20quality%20professional%20travel%20photography%2C%20beautiful%20architecture%2C%20no%20people&width=600&height=400&seq=trip4&orientation=landscape" alt="Holy Land Pilgrimage" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Holy Land</h3>
+                            <span class="bg-primary bg-opacity-10 text-primary text-sm font-medium px-2 py-1 rounded">12 days</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Walk in the footsteps of Jesus with visits to Jerusalem, Bethlehem, Nazareth, and the Sea of Galilee.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-sm text-gray-500">October 5-16, 2025</p>
+                                <p class="text-lg font-bold text-primary">€1,899</p>
+                            </div>
+                            <a href="#" class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition-colors">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Trip 5 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-transform hover:shadow-lg hover:-translate-y-1">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=Santiago%20de%20Compostela%20Cathedral%20in%20Spain%2C%20Camino%20pilgrimage%20destination%2C%20beautiful%20religious%20architecture%2C%20spiritual%20journey%2C%20high%20quality%20professional%20travel%20photography%2C%20no%20people&width=600&height=400&seq=trip5&orientation=landscape" alt="Camino de Santiago Pilgrimage" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Camino de Santiago</h3>
+                            <span class="bg-primary bg-opacity-10 text-primary text-sm font-medium px-2 py-1 rounded">8 days</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Walk the final 100km of this ancient pilgrimage route to Santiago de Compostela in Spain.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-sm text-gray-500">May 20-27, 2025</p>
+                                <p class="text-lg font-bold text-primary">€999</p>
+                            </div>
+                            <a href="#" class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition-colors">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Trip 6 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-transform hover:shadow-lg hover:-translate-y-1">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=Czestochowa%20Jasna%20Gora%20Monastery%20in%20Poland%2C%20Black%20Madonna%20pilgrimage%20site%2C%20beautiful%20religious%20architecture%2C%20spiritual%20journey%2C%20high%20quality%20professional%20travel%20photography%2C%20no%20people&width=600&height=400&seq=trip6&orientation=landscape" alt="Poland Pilgrimage" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Poland's Sacred Sites</h3>
+                            <span class="bg-primary bg-opacity-10 text-primary text-sm font-medium px-2 py-1 rounded">6 days</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Visit Czestochowa, Wadowice, Divine Mercy Sanctuary, and other important Polish religious sites.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-sm text-gray-500">June 10-15, 2025</p>
+                                <p class="text-lg font-bold text-primary">€749</p>
+                            </div>
+                            <a href="#" class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition-colors">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+                    View All Destinations
+                    <div class="w-5 h-5 flex items-center justify-center ml-1">
+                        <i class="ri-arrow-right-line"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="https://readdy.ai/api/search-image?query=Professional%20travel%20agency%20team%2C%20diverse%20group%20of%205-6%20people%20in%20office%20setting%2C%20friendly%20and%20welcoming%2C%20travel%20maps%20and%20brochures%20visible%2C%20warm%20lighting%2C%20professional%20business%20attire%2C%20high%20quality%20corporate%20photography&width=600&height=450&seq=about&orientation=landscape" alt="PiotrTravel Team" class="w-full h-auto rounded-lg shadow-md">
+                </div>
+                
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">About PiotrTravel</h2>
+                    
+                    <p class="text-gray-700 mb-4">
+                        Founded in 2005 by Piotr Nowak, PiotrTravel has grown to become Poland's leading pilgrimage and spiritual travel agency. Our mission is to create meaningful journeys that combine spiritual growth with cultural exploration.
+                    </p>
+                    
+                    <p class="text-gray-700 mb-6">
+                        With over 20 years of experience and more than 50,000 satisfied pilgrims, we specialize in creating thoughtfully planned itineraries to the world's most sacred destinations. Our team includes experienced guides, spiritual directors, and travel professionals dedicated to making your pilgrimage a transformative experience.
+                    </p>
+                    
+                    <blockquote class="italic text-gray-600 border-l-4 border-primary pl-4 mb-6">
+                        "We don't just organize trips – we create spiritual journeys that touch hearts and transform lives."
+                        <footer class="text-gray-500 mt-2">— Piotr Nowak, Founder</footer>
+                    </blockquote>
+                    
+                    <div class="flex flex-wrap gap-4 mb-6">
+                        <div class="bg-gray-100 px-3 py-2 rounded-lg flex items-center">
+                            <div class="w-6 h-6 flex items-center justify-center mr-2">
+                                <i class="ri-verified-badge-line text-primary"></i>
+                            </div>
+                            <span class="text-sm">Licensed Tour Operator</span>
+                        </div>
+                        
+                        <div class="bg-gray-100 px-3 py-2 rounded-lg flex items-center">
+                            <div class="w-6 h-6 flex items-center justify-center mr-2">
+                                <i class="ri-shield-check-line text-primary"></i>
+                            </div>
+                            <span class="text-sm">Insured & Bonded</span>
+                        </div>
+                        
+                        <div class="bg-gray-100 px-3 py-2 rounded-lg flex items-center">
+                            <div class="w-6 h-6 flex items-center justify-center mr-2">
+                                <i class="ri-award-line text-primary"></i>
+                            </div>
+                            <span class="text-sm">Award-Winning Service</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                        Read Our Full Story
+                        <div class="w-5 h-5 flex items-center justify-center ml-1">
+                            <i class="ri-arrow-right-line"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">What Our Pilgrims Say</h2>
+            
+            <div class="relative">
+                <div class="testimonial-slider flex overflow-x-auto pb-8 hide-scrollbar gap-6">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-slide flex-shrink-0 w-full md:w-1/2 lg:w-1/3">
+                        <div class="bg-white p-6 rounded-lg shadow-md h-full">
+                            <div class="flex items-center mb-4">
+                                <div class="text-primary">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                            </div>
+                            
+                            <blockquote class="text-gray-700 mb-6">
+                                "Our pilgrimage to Rome with PiotrTravel was truly life-changing. The spiritual guidance from Father Marek enhanced our experience, and every detail was perfectly organized. We'll definitely travel with them again!"
+                            </blockquote>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full overflow-hidden mr-4 bg-gray-200 flex items-center justify-center">
+                                    <div class="w-6 h-6 flex items-center justify-center">
+                                        <i class="ri-user-3-line text-gray-400"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Magdalena Kowalska</p>
+                                    <p class="text-sm text-gray-500">Rome & Vatican, April 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-slide flex-shrink-0 w-full md:w-1/2 lg:w-1/3">
+                        <div class="bg-white p-6 rounded-lg shadow-md h-full">
+                            <div class="flex items-center mb-4">
+                                <div class="text-primary">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                            </div>
+                            
+                            <blockquote class="text-gray-700 mb-6">
+                                "The Holy Land pilgrimage exceeded all expectations. Walking where Jesus walked was profound, and PiotrTravel's attention to detail made the journey smooth and meaningful. Highly recommended!"
+                            </blockquote>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full overflow-hidden mr-4 bg-gray-200 flex items-center justify-center">
+                                    <div class="w-6 h-6 flex items-center justify-center">
+                                        <i class="ri-user-3-line text-gray-400"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Tomasz Wiśniewski</p>
+                                    <p class="text-sm text-gray-500">Holy Land, November 2024</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-slide flex-shrink-0 w-full md:w-1/2 lg:w-1/3">
+                        <div class="bg-white p-6 rounded-lg shadow-md h-full">
+                            <div class="flex items-center mb-4">
+                                <div class="text-primary">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                            </div>
+                            
+                            <blockquote class="text-gray-700 mb-6">
+                                "Medjugorje was a beautiful spiritual experience. The accommodations were comfortable, the guides knowledgeable, and the priest who accompanied us provided wonderful spiritual direction. Thank you, PiotrTravel!"
+                            </blockquote>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full overflow-hidden mr-4 bg-gray-200 flex items-center justify-center">
+                                    <div class="w-6 h-6 flex items-center justify-center">
+                                        <i class="ri-user-3-line text-gray-400"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Anna Dąbrowska</p>
+                                    <p class="text-sm text-gray-500">Medjugorje, May 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slider Controls -->
+                <div class="flex justify-center mt-6 gap-2">
+                    <button class="w-3 h-3 rounded-full bg-primary" aria-label="Testimonial 1"></button>
+                    <button class="w-3 h-3 rounded-full bg-gray-300" aria-label="Testimonial 2"></button>
+                    <button class="w-3 h-3 rounded-full bg-gray-300" aria-label="Testimonial 3"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Book Section -->
+    <section id="book-now" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-6">How to Book Your Pilgrimage</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">Booking your spiritual journey with PiotrTravel is simple and straightforward</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full text-2xl font-bold mb-6">1</div>
+                    <h3 class="text-xl font-semibold mb-3">Choose Your Trip</h3>
+                    <p class="text-gray-600">Browse our selection of pilgrimages and select the destination that speaks to your spiritual journey.</p>
+                    <div class="w-10 h-10 flex items-center justify-center text-primary mt-4 md:rotate-90 md:absolute md:right-0 md:top-1/2 md:transform md:-translate-y-1/2 md:translate-x-1/2 hidden md:flex">
+                        <i class="ri-arrow-right-line text-2xl"></i>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full text-2xl font-bold mb-6">2</div>
+                    <h3 class="text-xl font-semibold mb-3">Contact Our Team</h3>
+                    <p class="text-gray-600">Reach out via phone, email, or visit our office. Our specialists will guide you through the booking process.</p>
+                    <div class="w-10 h-10 flex items-center justify-center text-primary mt-4 md:rotate-90 md:absolute md:right-0 md:top-1/2 md:transform md:-translate-y-1/2 md:translate-x-1/2 hidden md:flex">
+                        <i class="ri-arrow-right-line text-2xl"></i>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary text-white rounded-full text-2xl font-bold mb-6">3</div>
+                    <h3 class="text-xl font-semibold mb-3">Start Your Journey</h3>
+                    <p class="text-gray-600">Make your payment, receive your travel documents, and prepare for a transformative pilgrimage experience.</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#contact" class="bg-primary text-white px-6 py-3 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition-colors inline-flex items-center">
+                    <div class="w-5 h-5 flex items-center justify-center mr-2">
+                        <i class="ri-phone-line"></i>
+                    </div>
+                    Contact Us Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section py-16 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Stay Updated with Best Offers</h2>
+                <p class="mb-8">Subscribe to our newsletter and be the first to know about last-minute pilgrimages and special discounts</p>
+                
+                <form class="flex flex-col md:flex-row gap-4 mb-6">
+                    <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-lg border-none text-gray-800 focus:outline-none focus:ring-2 focus:ring-primary">
+                    <button type="submit" class="bg-primary text-white px-6 py-3 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition-colors">
+                        Subscribe
+                    </button>
+                </form>
+                
+                <div class="flex items-center justify-center">
+                    <input type="checkbox" id="consent" class="custom-checkbox">
+                    <label for="consent" class="ml-2 text-sm">I agree to receive marketing communications from PiotrTravel. You can unsubscribe at any time.</label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Company Info -->
+                <div>
+                    <a href="#" class="text-3xl font-['Pacifico'] text-primary mb-4 inline-block">PiotrTravel</a>
+                    <p class="text-gray-400 mb-6">Poland's leading pilgrimage and travel agency since 2005. Creating meaningful spiritual journeys worldwide.</p>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-youtube-line"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#destinations" class="text-gray-400 hover:text-white transition-colors">Destinations</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Testimonials</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-3">
+                        <li class="flex">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span class="text-gray-400">ul. Marszałkowska 45<br>00-648 Warsaw, Poland</span>
+                        </li>
+                        <li class="flex">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <a href="tel:+48123456789" class="text-gray-400 hover:text-white transition-colors">+48 123 456 789</a>
+                        </li>
+                        <li class="flex">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <a href="mailto:info@piotrtravel.pl" class="text-gray-400 hover:text-white transition-colors">info@piotrtravel.pl</a>
+                        </li>
+                        <li class="flex">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3">
+                                <i class="ri-time-line"></i>
+                            </div>
+                            <span class="text-gray-400">Mon-Fri: 9:00 - 17:00<br>Sat: 10:00 - 14:00</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Map -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Find Us</h3>
+                    <div class="h-48 bg-gray-800 rounded-lg overflow-hidden">
+                        <div class="w-full h-full" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png'); background-size: cover; background-position: center;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">© 2025 PiotrTravel. All rights reserved.</p>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-gray-500 hover:text-white text-sm">Privacy Policy</a>
+                    <a href="#" class="text-gray-500 hover:text-white text-sm">Terms & Conditions</a>
+                    <div class="flex items-center ml-4">
+                        <div class="w-6 h-6 flex items-center justify-center mr-2">
+                            <i class="ri-visa-line text-gray-400"></i>
+                        </div>
+                        <div class="w-6 h-6 flex items-center justify-center mr-2">
+                            <i class="ri-mastercard-line text-gray-400"></i>
+                        </div>
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="ri-paypal-line text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Fixed Contact Buttons -->
+    <div class="fixed bottom-4 right-4 flex flex-col gap-3 md:hidden z-40">
+        <a href="tel:+48123456789" class="w-12 h-12 flex items-center justify-center bg-primary text-white rounded-full shadow-lg">
+            <i class="ri-phone-line text-xl"></i>
+        </a>
+        <a href="mailto:info@piotrtravel.pl" class="w-12 h-12 flex items-center justify-center bg-white text-primary rounded-full shadow-lg border border-primary">
+            <i class="ri-mail-line text-xl"></i>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script id="testimonialSlider">
+        document.addEventListener('DOMContentLoaded', function() {
+            const sliderDots = document.querySelectorAll('.flex.justify-center.mt-6.gap-2 button');
+            const slides = document.querySelectorAll('.testimonial-slide');
+            
+            sliderDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    // Update active dot
+                    sliderDots.forEach(d => d.classList.remove('bg-primary'));
+                    sliderDots.forEach(d => d.classList.add('bg-gray-300'));
+                    dot.classList.remove('bg-gray-300');
+                    dot.classList.add('bg-primary');
+                    
+                    // Scroll to corresponding slide
+                    if (slides[index]) {
+                        slides[index].scrollIntoView({ behavior: 'smooth', inline: 'start' });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script id="customCheckbox">
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkbox = document.getElementById('consent');
+            if (checkbox) {
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        this.classList.add('bg-primary');
+                    } else {
+                        this.classList.remove('bg-primary');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapa Trasy - Cypr | PiotrTravel.pl</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#0ea5e9',secondary:'#06b6d4'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+.map-container {
+  background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png');
+  background-size: cover;
+  background-position: center;
+}
+.marker {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.marker:hover {
+  transform: scale(1.1);
+}
+.popup {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+}
+.zoom-controls {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9);
+}
+.location-info {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+}
+.marker-pulse {
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(14, 165, 233, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(14, 165, 233, 0);
+  }
+}
+</style>
+</head>
+<body class="bg-white">
+<header class="bg-white shadow-sm relative z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center gap-4">
+<a href="https://readdy.ai/home/89d82bd7-a718-463c-bf3f-7e0b89b5dc58/0b329d17-a040-4bcb-983c-b657978e2671" data-readdy="true" class="flex items-center gap-2 text-gray-700 hover:text-primary transition-colors">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-arrow-left-line text-xl"></i>
+</div>
+<span class="font-medium">Powrót do programu</span>
+</a>
+</div>
+<div class="flex items-center">
+<span class="text-2xl font-['Pacifico'] text-primary">PiotrTravel</span>
+</div>
+<div class="w-32"></div>
+</div>
+</div>
+</header>
+
+<div class="relative h-screen">
+<div class="map-container absolute inset-0">
+<div class="absolute inset-0 bg-black/10"></div>
+
+<div class="absolute top-4 right-4 zoom-controls rounded-lg shadow-lg">
+<div class="flex flex-col">
+<button class="w-10 h-10 flex items-center justify-center text-gray-700 hover:text-primary transition-colors border-b border-gray-200" onclick="zoomIn()">
+<i class="ri-add-line text-lg"></i>
+</button>
+<button class="w-10 h-10 flex items-center justify-center text-gray-700 hover:text-primary transition-colors" onclick="zoomOut()">
+<i class="ri-subtract-line text-lg"></i>
+</button>
+</div>
+</div>
+
+<div class="marker absolute marker-pulse" style="top: 45%; left: 72%; transform: translate(-50%, -50%);" onclick="showLocationInfo('larnaka')">
+<div class="w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center text-sm font-bold shadow-lg">
+1
+</div>
+<div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-white px-2 py-1 rounded text-xs font-medium shadow-md whitespace-nowrap">
+Larnaka
+</div>
+</div>
+
+<div class="marker absolute marker-pulse" style="top: 38%; left: 58%; transform: translate(-50%, -50%);" onclick="showLocationInfo('nikozja')">
+<div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold shadow-lg">
+2
+</div>
+<div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-white px-2 py-1 rounded text-xs font-medium shadow-md whitespace-nowrap">
+Nikozja
+</div>
+</div>
+
+<div class="marker absolute marker-pulse" style="top: 52%; left: 25%; transform: translate(-50%, -50%);" onclick="showLocationInfo('pafos')">
+<div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold shadow-lg">
+3
+</div>
+<div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-white px-2 py-1 rounded text-xs font-medium shadow-md whitespace-nowrap">
+Pafos
+</div>
+</div>
+
+<div class="marker absolute marker-pulse" style="top: 58%; left: 32%; transform: translate(-50%, -50%);" onclick="showLocationInfo('skaly')">
+<div class="w-6 h-6 bg-purple-500 text-white rounded-full flex items-center justify-center text-xs font-bold shadow-lg">
+<i class="ri-landscape-line"></i>
+</div>
+<div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-white px-2 py-1 rounded text-xs font-medium shadow-md whitespace-nowrap">
+Skały Afrodyty
+</div>
+</div>
+
+<div class="marker absolute marker-pulse" style="top: 28%; left: 45%; transform: translate(-50%, -50%);" onclick="showLocationInfo('troodos')">
+<div class="w-6 h-6 bg-orange-500 text-white rounded-full flex items-center justify-center text-xs font-bold shadow-lg">
+<i class="ri-mountain-line"></i>
+</div>
+<div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-white px-2 py-1 rounded text-xs font-medium shadow-md whitespace-nowrap">
+Troodos
+</div>
+</div>
+
+<div class="marker absolute marker-pulse" style="top: 62%; left: 48%; transform: translate(-50%, -50%);" onclick="showLocationInfo('limassol')">
+<div class="w-8 h-8 bg-cyan-500 text-white rounded-full flex items-center justify-center text-sm font-bold shadow-lg">
+5
+</div>
+<div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-white px-2 py-1 rounded text-xs font-medium shadow-md whitespace-nowrap">
+Limassol
+</div>
+</div>
+
+<div class="marker absolute marker-pulse" style="top: 25%; left: 78%; transform: translate(-50%, -50%);" onclick="showLocationInfo('famagusta')">
+<div class="w-8 h-8 bg-pink-500 text-white rounded-full flex items-center justify-center text-sm font-bold shadow-lg">
+6
+</div>
+<div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-white px-2 py-1 rounded text-xs font-medium shadow-md whitespace-nowrap">
+Famagusta
+</div>
+</div>
+
+<div class="marker absolute marker-pulse" style="top: 22%; left: 82%; transform: translate(-50%, -50%);" onclick="showLocationInfo('salamis')">
+<div class="w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-xs font-bold shadow-lg">
+<i class="ri-ancient-pavilion-line"></i>
+</div>
+<div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-white px-2 py-1 rounded text-xs font-medium shadow-md whitespace-nowrap">
+Salamis
+</div>
+</div>
+
+<div class="absolute top-4 left-4 location-info rounded-xl p-6 shadow-xl max-w-sm">
+<h2 class="text-xl font-bold text-gray-900 mb-2">Mapa Trasy Wycieczki</h2>
+<p class="text-gray-600 mb-4">Kliknij na markery, aby zobaczyć szczegóły każdego miejsca</p>
+<div class="flex items-center gap-2 text-sm text-gray-500">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-information-line"></i>
+</div>
+<span>8 dni zwiedzania • 8 lokalizacji</span>
+</div>
+</div>
+
+<div id="location-popup" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 popup rounded-xl p-6 shadow-xl max-w-md hidden">
+<div class="flex items-start justify-between mb-4">
+<div>
+<h3 id="popup-title" class="text-xl font-bold text-gray-900"></h3>
+<p id="popup-day" class="text-sm text-primary font-medium"></p>
+</div>
+<button onclick="closePopup()" class="w-6 h-6 flex items-center justify-center text-gray-400 hover:text-gray-600">
+<i class="ri-close-line"></i>
+</button>
+</div>
+<p id="popup-description" class="text-gray-700 mb-4"></p>
+<div id="popup-highlights" class="space-y-2"></div>
+<div class="mt-4 pt-4 border-t border-gray-200">
+<div class="flex items-center gap-2 text-sm text-gray-500">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-time-line"></i>
+</div>
+<span id="popup-duration"></span>
+</div>
+</div>
+</div>
+
+<div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg">
+<div class="text-xs text-gray-600 mb-2">Legenda:</div>
+<div class="space-y-1 text-xs">
+<div class="flex items-center gap-2">
+<div class="w-4 h-4 bg-red-500 rounded-full"></div>
+<span>Miasta główne</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-4 h-4 bg-purple-500 rounded-full flex items-center justify-center">
+<i class="ri-landscape-line text-xs text-white"></i>
+</div>
+<span>Atrakcje naturalne</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-4 h-4 bg-amber-500 rounded-full flex items-center justify-center">
+<i class="ri-ancient-pavilion-line text-xs text-white"></i>
+</div>
+<span>Stanowiska archeologiczne</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script id="map-interactions">
+const locations = {
+  larnaka: {
+    title: 'Larnaka',
+    day: 'Dzień 1 i 7',
+    description: 'Miasto przylotu i główna baza wycieczki. Larnaka to jedno z najstarszych miast Cypru z bogatą historią sięgającą starożytności.',
+    highlights: [
+      'Kościół św. Łazarza - miejsce pochówku biblijnego Łazarza',
+      'Promenada Finikoudes z palmami i restauracjami',
+      'Hala Sułtan Tekke - święte miejsce islamu',
+      'Jezioro Słone z flamingami (sezonowo)'
+    ],
+    duration: 'Czas zwiedzania: 4-5 godzin'
+  },
+  nikozja: {
+    title: 'Nikozja',
+    day: 'Dzień 2',
+    description: 'Ostatnia podzielona stolica Europy. Unikalne miasto łączące grecką i turecką kulturę, oddzielone "Zieloną Linią".',
+    highlights: [
+      'Stare Miasto z weneckimi murami obronnymi',
+      'Przejście przez "Zieloną Linię" do części tureckiej',
+      'Wielki Meczet Selimiye (dawna katedra św. Zofii)',
+      'Bazar Büyük Han - zabytkowy karawanseraj'
+    ],
+    duration: 'Czas zwiedzania: 6-7 godzin'
+  },
+  pafos: {
+    title: 'Pafos',
+    day: 'Dzień 3',
+    description: 'Starożytna stolica Cypru i miejsce kultu Afrodyty. Park Archeologiczny Pafos wpisany na Listę Światowego Dziedzictwa UNESCO.',
+    highlights: [
+      'Mozaiki rzymskie z domów Dionizosa i Tezeusza',
+      'Port w Pafos z średniowiecznym zamkiem',
+      'Grobowce Królów - nekropolia hellenistyczna',
+      'Kościół Chrysopolitissa z kolumną św. Pawła'
+    ],
+    duration: 'Czas zwiedzania: 5-6 godzin'
+  },
+  skaly: {
+    title: 'Skały Afrodyty',
+    day: 'Dzień 3',
+    description: 'Petra tou Romiou - mityczne miejsce narodzin bogini Afrodyty. Spektakularne formacje skalne wznoszące się z morza.',
+    highlights: [
+      'Legendarne miejsce narodzin Afrodyty',
+      'Dramatyczne formacje z białego wapienia',
+      'Piękne widoki na Morze Śródziemne',
+      'Możliwość kąpieli w krystalicznie czystej wodzie'
+    ],
+    duration: 'Czas zwiedzania: 1-2 godziny'
+  },
+  troodos: {
+    title: 'Góry Troodos',
+    day: 'Dzień 4',
+    description: 'Najwyższe pasmo górskie Cypru z tradycyjnymi wioskami, klasztorami i winnicami. Ucieczka od nadmorskiego upału.',
+    highlights: [
+      'Klasztor Kykkos - najsłynniejszy klasztor Cypru',
+      'Wioska Omodos z tradycyjną architekturą',
+      'Degustacja lokalnych win w winnicy',
+      'Lefkara - słynne koronki i wyroby ze srebra'
+    ],
+    duration: 'Czas zwiedzania: 8-9 godzin'
+  },
+  limassol: {
+    title: 'Limassol',
+    day: 'Dzień 5',
+    description: 'Drugie co do wielkości miasto Cypru, ważny port handlowy i centrum turystyczne z długą nadmorską promenadą.',
+    highlights: [
+      'Zamek Kolossi - twierdza krzyżowców',
+      'Kourion - starożytne miasto z teatrem greckim',
+      'Zamek średniowieczny w Limassol',
+      'Promenada nadmorska z restauracjami i sklepami'
+    ],
+    duration: 'Czas zwiedzania: 6-7 godzin'
+  },
+  famagusta: {
+    title: 'Famagusta',
+    day: 'Dzień 6',
+    description: 'Średniowieczne miasto-twierdza z najlepiej zachowanymi murami obronnymi na Cyprze. Perła architektury gotyckiej.',
+    highlights: [
+      'Mury obronne z XIV wieku',
+      'Katedra św. Mikołaja (Meczet Lala Mustafa Paszy)',
+      'Wieża Otella - legendarny zamek Otella',
+      'Stare Miasto z gotycką architekturą'
+    ],
+    duration: 'Czas zwiedzania: 4-5 godzin'
+  },
+  salamis: {
+    title: 'Salamis',
+    day: 'Dzień 6',
+    description: 'Najważniejsze stanowisko archeologiczne północnego Cypru. Ruiny starożytnego miasta-państwa z czasów greckich i rzymskich.',
+    highlights: [
+      'Teatr grecki na 15 000 widzów',
+      'Termy rzymskie z mozaikami',
+      'Gimnazjon z kolumnadą',
+      'Nekropolia z grobowcami królewskimi'
+    ],
+    duration: 'Czas zwiedzania: 3-4 godziny'
+  }
+};
+
+function showLocationInfo(locationKey) {
+  const location = locations[locationKey];
+  const popup = document.getElementById('location-popup');
+  
+  document.getElementById('popup-title').textContent = location.title;
+  document.getElementById('popup-day').textContent = location.day;
+  document.getElementById('popup-description').textContent = location.description;
+  document.getElementById('popup-duration').textContent = location.duration;
+  
+  const highlightsContainer = document.getElementById('popup-highlights');
+  highlightsContainer.innerHTML = '';
+  
+  location.highlights.forEach(highlight => {
+    const div = document.createElement('div');
+    div.className = 'flex items-start gap-2';
+    div.innerHTML = `
+      <div class="w-4 h-4 flex items-center justify-center mt-0.5">
+        <i class="ri-check-line text-primary text-sm"></i>
+      </div>
+      <span class="text-sm text-gray-700">${highlight}</span>
+    `;
+    highlightsContainer.appendChild(div);
+  });
+  
+  popup.classList.remove('hidden');
+}
+
+function closePopup() {
+  document.getElementById('location-popup').classList.add('hidden');
+}
+
+let zoomLevel = 1;
+
+function zoomIn() {
+  if (zoomLevel < 2) {
+    zoomLevel += 0.2;
+    updateZoom();
+  }
+}
+
+function zoomOut() {
+  if (zoomLevel > 0.6) {
+    zoomLevel -= 0.2;
+    updateZoom();
+  }
+}
+
+function updateZoom() {
+  const mapContainer = document.querySelector('.map-container');
+  mapContainer.style.transform = `scale(${zoomLevel})`;
+  mapContainer.style.transformOrigin = 'center center';
+}
+</script>
+
+<script id="map-controls">
+document.addEventListener('DOMContentLoaded', function() {
+  const markers = document.querySelectorAll('.marker');
+  
+  markers.forEach(marker => {
+    marker.addEventListener('mouseenter', function() {
+      this.style.zIndex = '100';
+    });
+    
+    marker.addEventListener('mouseleave', function() {
+      this.style.zIndex = '10';
+    });
+  });
+  
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closePopup();
+    }
+  });
+});
+</script>
+
+<script id="map-navigation">
+let isDragging = false;
+let startX, startY, currentX = 0, currentY = 0;
+
+document.addEventListener('DOMContentLoaded', function() {
+  const mapContainer = document.querySelector('.map-container');
+  
+  mapContainer.addEventListener('mousedown', function(e) {
+    if (e.target.closest('.marker') || e.target.closest('.popup') || e.target.closest('.zoom-controls')) return;
+    
+    isDragging = true;
+    startX = e.clientX - currentX;
+    startY = e.clientY - currentY;
+    mapContainer.style.cursor = 'grabbing';
+  });
+  
+  document.addEventListener('mousemove', function(e) {
+    if (!isDragging) return;
+    
+    e.preventDefault();
+    currentX = e.clientX - startX;
+    currentY = e.clientY - startY;
+    
+    currentX = Math.max(Math.min(currentX, 100), -100);
+    currentY = Math.max(Math.min(currentY, 100), -100);
+    
+    mapContainer.style.transform = `translate(${currentX}px, ${currentY}px) scale(${zoomLevel})`;
+  });
+  
+  document.addEventListener('mouseup', function() {
+    isDragging = false;
+    mapContainer.style.cursor = 'grab';
+  });
+  
+  mapContainer.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    if (e.deltaY < 0) {
+      zoomIn();
+    } else {
+      zoomOut();
+    }
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezerwacja Pielgrzymki - Medjugorje | PiotrTravel</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#2563eb',secondary:'#7c3aed'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        .step-indicator {
+            transition: all 0.3s ease;
+        }
+        .step-active {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+        }
+        .step-completed {
+            background: #10b981;
+        }
+        .step-inactive {
+            background: #e5e7eb;
+            color: #6b7280;
+        }
+        .form-section {
+            display: none;
+        }
+        .form-section.active {
+            display: block;
+        }
+        .custom-radio {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #d1d5db;
+            border-radius: 50%;
+            position: relative;
+            cursor: pointer;
+        }
+        .custom-radio:checked {
+            border-color: #2563eb;
+            background-color: #2563eb;
+        }
+        .custom-radio:checked::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            border-radius: 50%;
+        }
+        .custom-checkbox {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #d1d5db;
+            border-radius: 4px;
+            position: relative;
+            cursor: pointer;
+        }
+        .custom-checkbox:checked {
+            border-color: #2563eb;
+            background-color: #2563eb;
+        }
+        .custom-checkbox:checked::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 5px;
+            width: 6px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        .custom-switch {
+            appearance: none;
+            width: 48px;
+            height: 24px;
+            background-color: #e5e7eb;
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .custom-switch:checked {
+            background-color: #2563eb;
+        }
+        .custom-switch::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+        .custom-switch:checked::after {
+            transform: translateX(24px);
+        }
+        .summary-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <a href="https://readdy.ai/home/89d82bd7-a718-463c-bf3f-7e0b89b5dc58/f3a0116a-7954-4f16-ac2a-82b5788cc001" data-readdy="true" class="flex items-center space-x-2 text-gray-600 hover:text-primary transition-colors">
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-arrow-left-line"></i>
+                        </div>
+                        <span>Powrót do oferty</span>
+                    </a>
+                </div>
+                <div class="text-2xl font-['Pacifico'] text-primary">logo</div>
+                <div class="flex items-center space-x-2 text-sm text-gray-600">
+                    <div class="w-4 h-4 flex items-center justify-center">
+                        <i class="ri-phone-line"></i>
+                    </div>
+                    <span>+48 123 456 789</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-6 py-8">
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Rezerwacja Pielgrzymki</h1>
+            <p class="text-gray-600">Medjugorje - 19-27.07.2025 (9 dni)</p>
+        </div>
+
+        <div class="mb-8">
+            <div class="flex items-center justify-between">
+                <div class="step-indicator step-active flex items-center justify-center w-10 h-10 rounded-full text-white font-semibold text-sm">1</div>
+                <div class="flex-1 h-1 bg-gray-200 mx-2">
+                    <div class="h-full bg-primary w-0 transition-all duration-300" id="progress-bar"></div>
+                </div>
+                <div class="step-indicator step-inactive flex items-center justify-center w-10 h-10 rounded-full font-semibold text-sm">2</div>
+                <div class="flex-1 h-1 bg-gray-200 mx-2"></div>
+                <div class="step-indicator step-inactive flex items-center justify-center w-10 h-10 rounded-full font-semibold text-sm">3</div>
+                <div class="flex-1 h-1 bg-gray-200 mx-2"></div>
+                <div class="step-indicator step-inactive flex items-center justify-center w-10 h-10 rounded-full font-semibold text-sm">4</div>
+                <div class="flex-1 h-1 bg-gray-200 mx-2"></div>
+                <div class="step-indicator step-inactive flex items-center justify-center w-10 h-10 rounded-full font-semibold text-sm">5</div>
+            </div>
+            <div class="flex justify-between mt-3 text-sm text-gray-600">
+                <span>Termin</span>
+                <span>Uczestnicy</span>
+                <span>Pokoje</span>
+                <span>Usługi</span>
+                <span>Płatność</span>
+            </div>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2">
+                <div class="form-section active" id="step-1">
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h2 class="text-2xl font-bold mb-6">Wybór Terminu Pielgrzymki</h2>
+                        <div class="space-y-4">
+                            <div class="border rounded-lg p-4 hover:border-primary transition-colors cursor-pointer" onclick="selectDate(this, '19-27.07.2025')">
+                                <div class="flex items-center space-x-3">
+                                    <input type="radio" name="date" value="19-27.07.2025" class="custom-radio" checked>
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between">
+                                            <div>
+                                                <h3 class="font-semibold text-lg">19-27 lipca 2025</h3>
+                                                <p class="text-gray-600">Sobota - Niedziela (9 dni)</p>
+                                            </div>
+                                            <div class="text-right">
+                                                <div class="text-2xl font-bold text-primary">2690 zł</div>
+                                                <div class="text-sm text-gray-600">za osobę</div>
+                                            </div>
+                                        </div>
+                                        <div class="mt-3 flex items-center justify-between">
+                                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                                12 miejsc dostępnych
+                                            </span>
+                                            <div class="flex items-center space-x-4 text-sm text-gray-600">
+                                                <div class="flex items-center space-x-1">
+                                                    <div class="w-4 h-4 flex items-center justify-center">
+                                                        <i class="ri-bus-line"></i>
+                                                    </div>
+                                                    <span>Autokar</span>
+                                                </div>
+                                                <div class="flex items-center space-x-1">
+                                                    <div class="w-4 h-4 flex items-center justify-center">
+                                                        <i class="ri-restaurant-line"></i>
+                                                    </div>
+                                                    <span>Śniadania + obiady</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border rounded-lg p-4 hover:border-primary transition-colors cursor-pointer" onclick="selectDate(this, '16-24.08.2025')">
+                                <div class="flex items-center space-x-3">
+                                    <input type="radio" name="date" value="16-24.08.2025" class="custom-radio">
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between">
+                                            <div>
+                                                <h3 class="font-semibold text-lg">16-24 sierpnia 2025</h3>
+                                                <p class="text-gray-600">Sobota - Niedziela (9 dni)</p>
+                                            </div>
+                                            <div class="text-right">
+                                                <div class="text-2xl font-bold text-primary">2690 zł</div>
+                                                <div class="text-sm text-gray-600">za osobę</div>
+                                            </div>
+                                        </div>
+                                        <div class="mt-3 flex items-center justify-between">
+                                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                                5 miejsc dostępnych
+                                            </span>
+                                            <div class="flex items-center space-x-4 text-sm text-gray-600">
+                                                <div class="flex items-center space-x-1">
+                                                    <div class="w-4 h-4 flex items-center justify-center">
+                                                        <i class="ri-bus-line"></i>
+                                                    </div>
+                                                    <span>Autokar</span>
+                                                </div>
+                                                <div class="flex items-center space-x-1">
+                                                    <div class="w-4 h-4 flex items-center justify-center">
+                                                        <i class="ri-restaurant-line"></i>
+                                                    </div>
+                                                    <span>Śniadania + obiady</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section" id="step-2">
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h2 class="text-2xl font-bold mb-6">Dane Uczestników</h2>
+                        <div id="participants-container">
+                            <div class="participant-form border-b pb-6 mb-6">
+                                <h3 class="text-lg font-semibold mb-4 flex items-center">
+                                    <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">1</div>
+                                    Uczestnik 1 (Główny kontakt)
+                                </h3>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Imię *</label>
+                                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Nazwisko *</label>
+                                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">PESEL *</label>
+                                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Data urodzenia *</label>
+                                        <input type="date" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Telefon *</label>
+                                        <input type="tel" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                                        <input type="email" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                                    </div>
+                                    <div class="md:col-span-2">
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Adres zamieszkania *</label>
+                                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Ulica, numer domu/mieszkania" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Kod pocztowy *</label>
+                                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Miasto *</label>
+                                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" onclick="addParticipant()" class="flex items-center space-x-2 text-primary hover:text-blue-700 transition-colors">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-add-line"></i>
+                            </div>
+                            <span>Dodaj kolejnego uczestnika</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-section" id="step-3">
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h2 class="text-2xl font-bold mb-6">Wybór Zakwaterowania</h2>
+                        <div class="space-y-4">
+                            <div class="border rounded-lg p-4 hover:border-primary transition-colors cursor-pointer" onclick="selectRoom(this, 'double', 0)">
+                                <div class="flex items-center space-x-3">
+                                    <input type="radio" name="room" value="double" class="custom-radio" checked>
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between">
+                                            <div>
+                                                <h3 class="font-semibold text-lg">Pokój 2-osobowy</h3>
+                                                <p class="text-gray-600">Standardowe zakwaterowanie</p>
+                                            </div>
+                                            <div class="text-right">
+                                                <div class="text-lg font-bold">Bez dopłaty</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border rounded-lg p-4 hover:border-primary transition-colors cursor-pointer" onclick="selectRoom(this, 'triple', 0)">
+                                <div class="flex items-center space-x-3">
+                                    <input type="radio" name="room" value="triple" class="custom-radio">
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between">
+                                            <div>
+                                                <h3 class="font-semibold text-lg">Pokój 3-osobowy</h3>
+                                                <p class="text-gray-600">Ekonomiczne rozwiązanie</p>
+                                            </div>
+                                            <div class="text-right">
+                                                <div class="text-lg font-bold">Bez dopłaty</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border rounded-lg p-4 hover:border-primary transition-colors cursor-pointer" onclick="selectRoom(this, 'single', 200)">
+                                <div class="flex items-center space-x-3">
+                                    <input type="radio" name="room" value="single" class="custom-radio">
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between">
+                                            <div>
+                                                <h3 class="font-semibold text-lg">Pokój 1-osobowy</h3>
+                                                <p class="text-gray-600">Prywatność i komfort</p>
+                                            </div>
+                                            <div class="text-right">
+                                                <div class="text-lg font-bold text-primary">+200 zł</div>
+                                                <div class="text-sm text-gray-600">dopłata</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                            <h3 class="font-semibold mb-3">Preferencje zakwaterowania</h3>
+                            <textarea class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" rows="3" placeholder="Uwagi dotyczące zakwaterowania (np. parter, blisko recepcji, itp.)"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section" id="step-4">
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h2 class="text-2xl font-bold mb-6">Usługi Dodatkowe</h2>
+                        <div class="space-y-4">
+                            <div class="border rounded-lg p-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-3">
+                                        <input type="checkbox" class="custom-checkbox" onchange="updateService(this, 'insurance', 150)">
+                                        <div>
+                                            <h3 class="font-semibold">Ubezpieczenie od kosztów rezygnacji</h3>
+                                            <p class="text-gray-600 text-sm">Ochrona w przypadku konieczności rezygnacji z wyjazdu</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="font-bold text-primary">150 zł</div>
+                                        <div class="text-sm text-gray-600">za osobę</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border rounded-lg p-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-3">
+                                        <input type="checkbox" class="custom-checkbox" onchange="updateService(this, 'baggage', 80)">
+                                        <div>
+                                            <h3 class="font-semibold">Dodatkowy bagaż</h3>
+                                            <p class="text-gray-600 text-sm">Druga walizka do 20kg</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="font-bold text-primary">80 zł</div>
+                                        <div class="text-sm text-gray-600">za sztukę</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border rounded-lg p-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-3">
+                                        <input type="checkbox" class="custom-checkbox" onchange="updateService(this, 'seat', 50)">
+                                        <div>
+                                            <h3 class="font-semibold">Wybór miejsca w autokarze</h3>
+                                            <p class="text-gray-600 text-sm">Rezerwacja konkretnego miejsca</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="font-bold text-primary">50 zł</div>
+                                        <div class="text-sm text-gray-600">za osobę</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border rounded-lg p-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-3">
+                                        <input type="checkbox" class="custom-checkbox" onchange="updateService(this, 'dinner', 280)">
+                                        <div>
+                                            <h3 class="font-semibold">Kolacje w hotelu</h3>
+                                            <p class="text-gray-600 text-sm">7 kolacji w pensjonacie (40 zł/dzień)</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="font-bold text-primary">280 zł</div>
+                                        <div class="text-sm text-gray-600">za osobę</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section" id="step-5">
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h2 class="text-2xl font-bold mb-6">Płatność i Potwierdzenie</h2>
+                        
+                        <div class="mb-6">
+                            <h3 class="text-lg font-semibold mb-4">Sposób płatności</h3>
+                            <div class="space-y-3">
+                                <div class="border rounded-lg p-4 hover:border-primary transition-colors cursor-pointer" onclick="selectPayment(this, 'transfer')">
+                                    <div class="flex items-center space-x-3">
+                                        <input type="radio" name="payment" value="transfer" class="custom-radio" checked>
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-8 h-8 flex items-center justify-center bg-blue-100 rounded">
+                                                <i class="ri-bank-line text-blue-600"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-semibold">Przelew bankowy</h4>
+                                                <p class="text-gray-600 text-sm">Tradycyjny przelew na konto</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="border rounded-lg p-4 hover:border-primary transition-colors cursor-pointer" onclick="selectPayment(this, 'card')">
+                                    <div class="flex items-center space-x-3">
+                                        <input type="radio" name="payment" value="card" class="custom-radio">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-8 h-8 flex items-center justify-center bg-green-100 rounded">
+                                                <i class="ri-bank-card-line text-green-600"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-semibold">Płatność kartą</h4>
+                                                <p class="text-gray-600 text-sm">Visa, Mastercard, płatności online</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="border rounded-lg p-4 hover:border-primary transition-colors cursor-pointer" onclick="selectPayment(this, 'blik')">
+                                    <div class="flex items-center space-x-3">
+                                        <input type="radio" name="payment" value="blik" class="custom-radio">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-8 h-8 flex items-center justify-center bg-purple-100 rounded">
+                                                <i class="ri-smartphone-line text-purple-600"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-semibold">BLIK</h4>
+                                                <p class="text-gray-600 text-sm">Szybka płatność mobilna</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-5 h-5 flex items-center justify-center mt-0.5">
+                                    <i class="ri-information-line text-yellow-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-yellow-800">Warunki płatności</h4>
+                                    <p class="text-yellow-700 text-sm mt-1">Zaliczka w wysokości 500 zł na osobę wymagana w ciągu 3 dni od rezerwacji. Pozostała kwota do 30 dni przed wyjazdem.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <input type="checkbox" class="custom-checkbox mt-1" required>
+                                <label class="text-sm text-gray-700">
+                                    Akceptuję <a href="#" class="text-primary hover:underline">regulamin wycieczki</a> oraz <a href="#" class="text-primary hover:underline">warunki uczestnictwa</a> *
+                                </label>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <input type="checkbox" class="custom-checkbox mt-1" required>
+                                <label class="text-sm text-gray-700">
+                                    Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z <a href="#" class="text-primary hover:underline">polityką prywatności</a> *
+                                </label>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <input type="checkbox" class="custom-checkbox mt-1">
+                                <label class="text-sm text-gray-700">
+                                    Wyrażam zgodę na otrzymywanie informacji marketingowych
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-between mt-6">
+                    <button type="button" id="prev-btn" onclick="previousStep()" class="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors !rounded-button whitespace-nowrap" style="display: none;">
+                        Wstecz
+                    </button>
+                    <div class="flex-1"></div>
+                    <button type="button" id="next-btn" onclick="nextStep()" class="bg-primary text-white px-8 py-3 !rounded-button font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap">
+                        Dalej
+                    </button>
+                    <button type="button" id="submit-btn" onclick="submitReservation()" class="bg-green-600 text-white px-8 py-3 !rounded-button font-semibold hover:bg-green-700 transition-colors whitespace-nowrap" style="display: none;">
+                        Potwierdź Rezerwację
+                    </button>
+                </div>
+            </div>
+
+            <div class="lg:col-span-1">
+                <div class="sticky top-6">
+                    <div class="summary-card rounded-lg p-6">
+                        <h3 class="text-xl font-bold mb-4">Podsumowanie Rezerwacji</h3>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Termin:</span>
+                                <span class="font-semibold" id="summary-date">19-27.07.2025</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Liczba uczestników:</span>
+                                <span class="font-semibold" id="summary-participants">1 osoba</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Typ pokoju:</span>
+                                <span class="font-semibold" id="summary-room">Pokój 2-osobowy</span>
+                            </div>
+                        </div>
+
+                        <div class="border-t pt-4 mb-4">
+                            <h4 class="font-semibold mb-3">Koszty podstawowe</h4>
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Cena za osobę:</span>
+                                    <span>2690 zł</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600" id="participants-cost-label">1 × 2690 zł:</span>
+                                    <span id="participants-cost">2690 zł</span>
+                                </div>
+                                <div class="flex justify-between" id="room-cost-row" style="display: none;">
+                                    <span class="text-gray-600">Dopłata za pokój:</span>
+                                    <span id="room-cost">0 zł</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-t pt-4 mb-4" id="additional-services" style="display: none;">
+                            <h4 class="font-semibold mb-3">Usługi dodatkowe</h4>
+                            <div class="space-y-2" id="services-list">
+                            </div>
+                        </div>
+
+                        <div class="border-t pt-4">
+                            <div class="flex justify-between items-center text-lg font-bold">
+                                <span>Suma całkowita:</span>
+                                <span class="text-primary" id="total-cost">2690 zł</span>
+                            </div>
+                            <div class="text-sm text-gray-600 mt-1">
+                                Zaliczka: <span class="font-semibold" id="deposit-amount">500 zł</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+                            <div class="flex items-start space-x-2">
+                                <div class="w-5 h-5 flex items-center justify-center mt-0.5">
+                                    <i class="ri-information-line text-blue-600"></i>
+                                </div>
+                                <div class="text-sm text-blue-800">
+                                    <p class="font-semibold">Bezpieczna rezerwacja</p>
+                                    <p>Twoje dane są chronione. Płatność bezpieczna i szyfrowana.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-900 text-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="text-2xl font-['Pacifico'] mb-4">logo</div>
+                    <p class="text-gray-400 mb-4">Organizujemy pielgrzymki i wycieczki religijne od 2009 roku. Zaufało nam już ponad 15 000 pielgrzymów.</p>
+                    <div class="flex space-x-4">
+                        <div class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-facebook-fill"></i>
+                        </div>
+                        <div class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-instagram-line"></i>
+                        </div>
+                        <div class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-youtube-line"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold mb-4">Kontakt</h3>
+                    <div class="space-y-2 text-gray-400">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <span>+48 123 456 789</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <span>info@piotrtravel.pl</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <div class="w-4 h-4 flex items-center justify-center mt-1">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span>ul. Pielgrzymkowa 15<br>00-001 Warszawa</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold mb-4">Popularne kierunki</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Medjugorje</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Fatima</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Lourdes</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Ziemia Święta</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Rzym</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold mb-4">Informacje</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">O nas</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Regulamin</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Polityka prywatności</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Ubezpieczenia</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 PiotrTravel. Wszystkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script id="form-navigation">
+        let currentStep = 1;
+        let participantCount = 1;
+        let totalCost = 2690;
+        let roomCost = 0;
+        let servicesCost = 0;
+        let selectedServices = {};
+
+        function nextStep() {
+            if (currentStep < 5) {
+                document.getElementById(`step-${currentStep}`).classList.remove('active');
+                currentStep++;
+                document.getElementById(`step-${currentStep}`).classList.add('active');
+                updateStepIndicators();
+                updateButtons();
+                updateProgressBar();
+            }
+        }
+
+        function previousStep() {
+            if (currentStep > 1) {
+                document.getElementById(`step-${currentStep}`).classList.remove('active');
+                currentStep--;
+                document.getElementById(`step-${currentStep}`).classList.add('active');
+                updateStepIndicators();
+                updateButtons();
+                updateProgressBar();
+            }
+        }
+
+        function updateStepIndicators() {
+            for (let i = 1; i <= 5; i++) {
+                const indicator = document.querySelectorAll('.step-indicator')[i - 1];
+                if (i < currentStep) {
+                    indicator.className = 'step-indicator step-completed flex items-center justify-center w-10 h-10 rounded-full text-white font-semibold text-sm';
+                } else if (i === currentStep) {
+                    indicator.className = 'step-indicator step-active flex items-center justify-center w-10 h-10 rounded-full text-white font-semibold text-sm';
+                } else {
+                    indicator.className = 'step-indicator step-inactive flex items-center justify-center w-10 h-10 rounded-full font-semibold text-sm';
+                }
+            }
+        }
+
+        function updateButtons() {
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const submitBtn = document.getElementById('submit-btn');
+
+            if (currentStep === 1) {
+                prevBtn.style.display = 'none';
+            } else {
+                prevBtn.style.display = 'block';
+            }
+
+            if (currentStep === 5) {
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = 'block';
+            } else {
+                nextBtn.style.display = 'block';
+                submitBtn.style.display = 'none';
+            }
+        }
+
+        function updateProgressBar() {
+            const progressBar = document.getElementById('progress-bar');
+            const progress = ((currentStep - 1) / 4) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        function selectDate(element, date) {
+            document.querySelectorAll('input[name="date"]').forEach(radio => {
+                radio.checked = false;
+                radio.closest('.border').classList.remove('border-primary');
+            });
+            element.querySelector('input[name="date"]').checked = true;
+            element.classList.add('border-primary');
+            document.getElementById('summary-date').textContent = date;
+        }
+
+        function selectRoom(element, roomType, cost) {
+            document.querySelectorAll('input[name="room"]').forEach(radio => {
+                radio.checked = false;
+                radio.closest('.border').classList.remove('border-primary');
+            });
+            element.querySelector('input[name="room"]').checked = true;
+            element.classList.add('border-primary');
+            
+            roomCost = cost;
+            const roomNames = {
+                'double': 'Pokój 2-osobowy',
+                'triple': 'Pokój 3-osobowy',
+                'single': 'Pokój 1-osobowy'
+            };
+            document.getElementById('summary-room').textContent = roomNames[roomType];
+            
+            if (cost > 0) {
+                document.getElementById('room-cost-row').style.display = 'flex';
+                document.getElementById('room-cost').textContent = `${cost} zł`;
+            } else {
+                document.getElementById('room-cost-row').style.display = 'none';
+            }
+            
+            updateTotalCost();
+        }
+
+        function selectPayment(element, paymentType) {
+            document.querySelectorAll('input[name="payment"]').forEach(radio => {
+                radio.checked = false;
+                radio.closest('.border').classList.remove('border-primary');
+            });
+            element.querySelector('input[name="payment"]').checked = true;
+            element.classList.add('border-primary');
+        }
+
+        function addParticipant() {
+            participantCount++;
+            const container = document.getElementById('participants-container');
+            const newParticipant = document.createElement('div');
+            newParticipant.className = 'participant-form border-b pb-6 mb-6';
+            newParticipant.innerHTML = `
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold flex items-center">
+                        <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">${participantCount}</div>
+                        Uczestnik ${participantCount}
+                    </h3>
+                    <button type="button" onclick="removeParticipant(this)" class="text-red-600 hover:text-red-800 transition-colors">
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-delete-bin-line"></i>
+                        </div>
+                    </button>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Imię *</label>
+                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Nazwisko *</label>
+                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">PESEL *</label>
+                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Data urodzenia *</label>
+                        <input type="date" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Telefon</label>
+                        <input type="tel" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                        <input type="email" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                    </div>
+                </div>
+            `;
+            container.appendChild(newParticipant);
+            updateParticipantsSummary();
+        }
+
+        function removeParticipant(button) {
+            if (participantCount > 1) {
+                button.closest('.participant-form').remove();
+                participantCount--;
+                updateParticipantNumbers();
+                updateParticipantsSummary();
+            }
+        }
+
+        function updateParticipantNumbers() {
+            const participants = document.querySelectorAll('.participant-form');
+            participants.forEach((participant, index) => {
+                const number = participant.querySelector('.w-8.h-8');
+                const title = participant.querySelector('h3');
+                number.textContent = index + 1;
+                if (index === 0) {
+                    title.innerHTML = `<div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">${index + 1}</div>Uczestnik ${index + 1} (Główny kontakt)`;
+                } else {
+                    title.innerHTML = `<div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">${index + 1}</div>Uczestnik ${index + 1}`;
+                }
+            });
+        }
+
+        function updateParticipantsSummary() {
+            const text = participantCount === 1 ? '1 osoba' : `${participantCount} osób`;
+            document.getElementById('summary-participants').textContent = text;
+            document.getElementById('participants-cost-label').textContent = `${participantCount} × 2690 zł:`;
+            document.getElementById('participants-cost').textContent = `${participantCount * 2690} zł`;
+            document.getElementById('deposit-amount').textContent = `${participantCount * 500} zł`;
+            updateTotalCost();
+        }
+
+        function updateService(checkbox, serviceType, cost) {
+            if (checkbox.checked) {
+                selectedServices[serviceType] = cost;
+            } else {
+                delete selectedServices[serviceType];
+            }
+            updateServicesSummary();
+            updateTotalCost();
+        }
+
+        function updateServicesSummary() {
+            const servicesList = document.getElementById('services-list');
+            const additionalServices = document.getElementById('additional-services');
+            
+            servicesList.innerHTML = '';
+            servicesCost = 0;
+            
+            const serviceNames = {
+                'insurance': 'Ubezpieczenie od kosztów rezygnacji',
+                'baggage': 'Dodatkowy bagaż',
+                'seat': 'Wybór miejsca w autokarze',
+                'dinner': 'Kolacje w hotelu'
+            };
+            
+            for (const [service, cost] of Object.entries(selectedServices)) {
+                const serviceDiv = document.createElement('div');
+                serviceDiv.className = 'flex justify-between';
+                serviceDiv.innerHTML = `
+                    <span class="text-gray-600">${serviceNames[service]}:</span>
+                    <span>${cost * participantCount} zł</span>
+                `;
+                servicesList.appendChild(serviceDiv);
+                servicesCost += cost * participantCount;
+            }
+            
+            if (Object.keys(selectedServices).length > 0) {
+                additionalServices.style.display = 'block';
+            } else {
+                additionalServices.style.display = 'none';
+            }
+        }
+
+        function updateTotalCost() {
+            totalCost = (participantCount * 2690) + roomCost + servicesCost;
+            document.getElementById('total-cost').textContent = `${totalCost} zł`;
+        }
+
+        function submitReservation() {
+            const requiredCheckboxes = document.querySelectorAll('input[type="checkbox"][required]');
+            let allChecked = true;
+            
+            requiredCheckboxes.forEach(checkbox => {
+                if (!checkbox.checked) {
+                    allChecked = false;
+                }
+            });
+            
+            if (!allChecked) {
+                alert('Proszę zaakceptować wszystkie wymagane warunki.');
+                return;
+            }
+            
+            alert('Dziękujemy za rezerwację! Szczegóły zostały wysłane na podany adres email. Skontaktujemy się z Państwem w ciągu 24 godzin.');
+        }
+    </script>
+
+    <script id="form-interactions">
+        document.addEventListener('DOMContentLoaded', function() {
+            const radioInputs = document.querySelectorAll('input[type="radio"]');
+            radioInputs.forEach(input => {
+                input.addEventListener('change', function() {
+                    const name = this.name;
+                    document.querySelectorAll(`input[name="${name}"]`).forEach(radio => {
+                        radio.closest('.border').classList.remove('border-primary');
+                    });
+                    this.closest('.border').classList.add('border-primary');
+                });
+            });
+
+            const checkboxInputs = document.querySelectorAll('input[type="checkbox"]');
+            checkboxInputs.forEach(input => {
+                input.addEventListener('change', function() {
+                    if (this.closest('.border')) {
+                        if (this.checked) {
+                            this.closest('.border').classList.add('border-primary');
+                        } else {
+                            this.closest('.border').classList.remove('border-primary');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
