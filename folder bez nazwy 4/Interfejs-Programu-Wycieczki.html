@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalonia - Wycieczka 27.09-4.10.2025</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#f59e0b'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    },
+                    fontFamily: {
+                        'pacifico': ['Pacifico', 'serif'],
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body { font-family: 'Inter', sans-serif; }
+        .hero-bg {
+            background-image: url('https://readdy.ai/api/search-image?query=Beautiful%20panoramic%20view%20of%20Barcelona%20and%20Catalonia%20landscape%20with%20Mediterranean%20architecture%2C%20Gothic%20Quarter%20buildings%2C%20Sagrada%20Familia%20in%20distance%2C%20warm%20golden%20sunset%20lighting%2C%20vibrant%20colors%2C%20modern%20photography%20style%2C%20left%20side%20has%20soft%20gradient%20overlay%20for%20text%20readability%2C%20right%20side%20shows%20detailed%20cityscape&width=1920&height=800&seq=hero-catalonia&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .day-card { transition: all 0.3s ease; }
+        .day-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .timeline-dot { position: relative; }
+        .timeline-dot::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background: #1e40af;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.2);
+        }
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #1e40af, #f59e0b);
+            z-index: 9999;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-inter">
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-pacifico text-primary">logo</span>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#overview" class="text-gray-700 hover:text-primary transition-colors">Przegląd</a>
+                    <a href="#program" class="text-gray-700 hover:text-primary transition-colors">Program</a>
+                    <a href="#info" class="text-gray-700 hover:text-primary transition-colors">Informacje</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary transition-colors">Kontakt</a>
+                </nav>
+                <button class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-blue-700 transition-colors whitespace-nowrap">
+                    Rezerwuj teraz
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center relative">
+        <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-transparent"></div>
+        <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl">
+                <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                    Odkryj magię <span class="text-primary">Katalonii</span>
+                </h1>
+                <p class="text-xl text-gray-700 mb-8 leading-relaxed">
+                    Niezapomniana wycieczka przez najpiękniejsze zakątki Hiszpanii. Barcelona, Costa Brava, Girona i wiele więcej czeka na Ciebie.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                    <div class="flex items-center text-gray-600">
+                        <div class="w-5 h-5 flex items-center justify-center mr-3">
+                            <i class="ri-calendar-line text-primary"></i>
+                        </div>
+                        <span class="font-medium">27 września - 4 października 2025</span>
+                    </div>
+                    <div class="flex items-center text-gray-600">
+                        <div class="w-5 h-5 flex items-center justify-center mr-3">
+                            <i class="ri-map-pin-line text-primary"></i>
+                        </div>
+                        <span class="font-medium">Katalonia, Hiszpania</span>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="bg-primary text-white px-8 py-4 !rounded-button hover:bg-blue-700 transition-colors text-lg font-semibold whitespace-nowrap">
+                        Zobacz program
+                    </button>
+                    <button class="border-2 border-primary text-primary px-8 py-4 !rounded-button hover:bg-primary hover:text-white transition-colors text-lg font-semibold whitespace-nowrap">
+                        Pobierz PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Cards -->
+    <section id="overview" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Dlaczego warto wybrać tę wycieczkę?</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">8 dni pełnych niezapomnianych wrażeń w sercu Katalonii</p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center p-6 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full mx-auto mb-4">
+                        <i class="ri-building-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Zabytki UNESCO</h3>
+                    <p class="text-gray-600">Sagrada Familia, Park Güell i inne arcydzieła Gaudiego</p>
+                </div>
+                <div class="text-center p-6 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors">
+                    <div class="w-16 h-16 flex items-center justify-center bg-secondary/10 rounded-full mx-auto mb-4">
+                        <i class="ri-ship-line text-secondary text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Costa Brava</h3>
+                    <p class="text-gray-600">Przepiękne wybrzeże z malowniczymi miasteczkami</p>
+                </div>
+                <div class="text-center p-6 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full mx-auto mb-4">
+                        <i class="ri-restaurant-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Kuchnia katalońska</h3>
+                    <p class="text-gray-600">Degustacja lokalnych specjałów i win</p>
+                </div>
+                <div class="text-center p-6 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors">
+                    <div class="w-16 h-16 flex items-center justify-center bg-secondary/10 rounded-full mx-auto mb-4">
+                        <i class="ri-group-line text-secondary text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Mała grupa</h3>
+                    <p class="text-gray-600">Maksymalnie 25 osób dla lepszego komfortu</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Timeline -->
+    <section id="program" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Program wycieczki</h2>
+                <p class="text-xl text-gray-600">Szczegółowy plan każdego dnia podróży</p>
+            </div>
+
+            <!-- Day Navigation -->
+            <div class="flex flex-wrap justify-center gap-2 mb-12">
+                <button class="day-nav-btn bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium whitespace-nowrap" data-day="1">Dzień 1</button>
+                <button class="day-nav-btn bg-gray-200 text-gray-700 px-4 py-2 !rounded-button text-sm font-medium hover:bg-gray-300 transition-colors whitespace-nowrap" data-day="2">Dzień 2</button>
+                <button class="day-nav-btn bg-gray-200 text-gray-700 px-4 py-2 !rounded-button text-sm font-medium hover:bg-gray-300 transition-colors whitespace-nowrap" data-day="3">Dzień 3</button>
+                <button class="day-nav-btn bg-gray-200 text-gray-700 px-4 py-2 !rounded-button text-sm font-medium hover:bg-gray-300 transition-colors whitespace-nowrap" data-day="4">Dzień 4</button>
+                <button class="day-nav-btn bg-gray-200 text-gray-700 px-4 py-2 !rounded-button text-sm font-medium hover:bg-gray-300 transition-colors whitespace-nowrap" data-day="5">Dzień 5</button>
+                <button class="day-nav-btn bg-gray-200 text-gray-700 px-4 py-2 !rounded-button text-sm font-medium hover:bg-gray-300 transition-colors whitespace-nowrap" data-day="6">Dzień 6</button>
+                <button class="day-nav-btn bg-gray-200 text-gray-700 px-4 py-2 !rounded-button text-sm font-medium hover:bg-gray-300 transition-colors whitespace-nowrap" data-day="7">Dzień 7</button>
+                <button class="day-nav-btn bg-gray-200 text-gray-700 px-4 py-2 !rounded-button text-sm font-medium hover:bg-gray-300 transition-colors whitespace-nowrap" data-day="8">Dzień 8</button>
+            </div>
+
+            <!-- Day 1 -->
+            <div class="day-content" id="day-1">
+                <div class="day-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
+                    <div class="relative h-64">
+                        <img src="https://readdy.ai/api/search-image?query=Modern%20airplane%20taking%20off%20from%20airport%20runway%20during%20sunset%2C%20beautiful%20sky%20with%20clouds%2C%20departure%20gate%20in%20background%2C%20travel%20and%20aviation%20concept%2C%20professional%20photography%2C%20warm%20lighting&width=800&height=300&seq=day1-flight&orientation=landscape" 
+                             alt="Wylot z Polski" class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <div class="flex items-center mb-2">
+                                <span class="bg-primary px-3 py-1 rounded-full text-sm font-medium">Dzień 1</span>
+                                <span class="ml-3 text-sm opacity-90">Sobota, 27 września</span>
+                            </div>
+                            <h3 class="text-2xl font-bold">Wylot z Polski</h3>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="flex items-center text-gray-600">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-plane-line text-primary"></i>
+                                </div>
+                                <span class="text-sm">Transport</span>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-hotel-line text-primary"></i>
+                                </div>
+                                <span class="text-sm">Zakwaterowanie</span>
+                            </div>
+                        </div>
+                        <div class="prose max-w-none">
+                            <p class="text-gray-700 mb-4">
+                                Wylot z Warszawy o godzinie 06:30 rejsowym samolotem PLL LOT do Barcelony. 
+                                Przylot do Barcelony o godzinie 09:25 czasu lokalnego.
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Po przylocie transfer na lotnisko w Gironie, skąd o godzinie 12:30 wylecimy 
+                                rejsowym samolotem Ryanair do Rzymu. Przylot do Rzymu o godzinie 14:15.
+                            </p>
+                            <p class="text-gray-700 mb-6">
+                                Transfer do hotelu i zakwaterowanie. Wieczorem spacer po centrum Rzymu 
+                                z przewodnikiem. Kolacja w lokalnej restauracji.
+                            </p>
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Ważne informacje:</h4>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Zbiórka na lotnisku 2 godziny przed wylotem</li>
+                                    <li>• Pamiętaj o ważnym paszporcie lub dowodzie osobistym</li>
+                                    <li>• Kolacja we własnym zakresie</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 2 -->
+            <div class="day-content hidden" id="day-2">
+                <div class="day-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
+                    <div class="relative h-64">
+                        <img src="https://readdy.ai/api/search-image?query=Beautiful%20Barcelona%20cityscape%20with%20Sagrada%20Familia%20cathedral%20in%20morning%20light%2C%20Gothic%20Quarter%20medieval%20streets%2C%20Mediterranean%20architecture%2C%20tourists%20walking%2C%20vibrant%20colors%2C%20professional%20travel%20photography&width=800&height=300&seq=day2-barcelona&orientation=landscape" 
+                             alt="Barcelona - Sagrada Familia" class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <div class="flex items-center mb-2">
+                                <span class="bg-primary px-3 py-1 rounded-full text-sm font-medium">Dzień 2</span>
+                                <span class="ml-3 text-sm opacity-90">Niedziela, 28 września</span>
+                            </div>
+                            <h3 class="text-2xl font-bold">Barcelona - Sagrada Familia i Dzielnica Gotycka</h3>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="flex items-center text-gray-600">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-restaurant-line text-secondary"></i>
+                                </div>
+                                <span class="text-sm">Śniadanie</span>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-building-line text-primary"></i>
+                                </div>
+                                <span class="text-sm">Zwiedzanie</span>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-walk-line text-primary"></i>
+                                </div>
+                                <span class="text-sm">Spacer</span>
+                            </div>
+                        </div>
+                        <div class="prose max-w-none">
+                            <p class="text-gray-700 mb-4">
+                                Śniadanie w hotelu. Wyjazd do Barcelony - stolicy Katalonii. Po przyjeździe 
+                                zwiedzanie najsłynniejszego dzieła Antoniego Gaudiego - bazyliki Sagrada Familia. 
+                                Wejście do wnętrza tego niezwykłego kościoła, który od 1882 roku jest w budowie.
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Następnie spacer po Dzielnicy Gotyckiej (Barrio Gótico) - najstarszej części 
+                                Barcelony z wąskimi uliczkami, średniowiecznymi budowlami i licznymi sklepami 
+                                z pamiątkami. Zwiedzanie katedry św. Eulalii.
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Po południu czas wolny na Las Ramblas - najsłynniejszym deptaku Barcelony, 
+                                pełnym artystów ulicznych, kwiaciarni i kawiarni. Możliwość zakupów 
+                                i degustacji lokalnych specjałów.
+                            </p>
+                            <p class="text-gray-700 mb-6">
+                                Wieczorem powrót do hotelu. Kolacja i nocleg.
+                            </p>
+                            <div class="bg-amber-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Highlights dnia:</h4>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Wejście do Sagrada Familia (wliczone w cenę)</li>
+                                    <li>• Przewodnik po Dzielnicy Gotyckiej</li>
+                                    <li>• Czas wolny na Las Ramblas</li>
+                                    <li>• Możliwość degustacji tapas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="day-content hidden" id="day-3">
+                <div class="day-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
+                    <div class="relative h-64">
+                        <img src="https://readdy.ai/api/search-image?query=Park%20G%C3%BCell%20Barcelona%20colorful%20mosaic%20architecture%20by%20Antoni%20Gaudi%2C%20curved%20benches%20with%20ceramic%20tiles%2C%20panoramic%20view%20of%20Barcelona%20city%2C%20tourists%20admiring%20the%20artistic%20details%2C%20Mediterranean%20landscape%2C%20sunny%20day&width=800&height=300&seq=day3-parkguell&orientation=landscape" 
+                             alt="Park Güell" class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <div class="flex items-center mb-2">
+                                <span class="bg-primary px-3 py-1 rounded-full text-sm font-medium">Dzień 3</span>
+                                <span class="ml-3 text-sm opacity-90">Poniedziałek, 29 września</span>
+                            </div>
+                            <h3 class="text-2xl font-bold">Park Güell i Montjuïc</h3>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="flex items-center text-gray-600">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-restaurant-line text-secondary"></i>
+                                </div>
+                                <span class="text-sm">Śniadanie</span>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-landscape-line text-primary"></i>
+                                </div>
+                                <span class="text-sm">Park</span>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-mountain-line text-primary"></i>
+                                </div>
+                                <span class="text-sm">Wzgórze</span>
+                            </div>
+                        </div>
+                        <div class="prose max-w-none">
+                            <p class="text-gray-700 mb-4">
+                                Śniadanie w hotelu. Wyjazd do Parku Güell - jednego z najpiękniejszych 
+                                parków na świecie, zaprojektowanego przez Antoniego Gaudiego. Spacer 
+                                po parku z przewodnikiem, podziwianie kolorowych mozaik, fantazyjnych 
+                                ławek i niezwykłej architektury.
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Z tarasu głównego rozpościera się wspaniały widok na całą Barcelonę 
+                                i Morze Śródziemne. Czas na pamiątkowe zdjęcia przy słynnej mozaikowej 
+                                salamandrze - symbolu parku.
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Po południu wyjazd na wzgórze Montjuïc. Zwiedzanie Palau de la Música 
+                                Catalana (z zewnątrz) oraz spacer po Poble Espanyol - miniaturowej 
+                                Hiszpanii, gdzie można zobaczyć repliki najważniejszych zabytków z całego kraju.
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Wieczorem przejazd kolejką linową na szczyt Montjuïc, skąd roztacza się 
+                                przepiękny widok na miasto i port. Możliwość obejrzenia fontann świetlnych 
+                                (w zależności od pory roku).
+                            </p>
+                            <p class="text-gray-700 mb-6">
+                                Powrót do hotelu. Kolacja i nocleg.
+                            </p>
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Nie przegap:</h4>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Zdjęcie przy mozaikowej salamandrze</li>
+                                    <li>• Panorama Barcelony z Parku Güell</li>
+                                    <li>• Przejazd kolejką linową na Montjuïc</li>
+                                    <li>• Poble Espanyol - miniatura Hiszpanii</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 4 -->
+            <div class="day-content hidden" id="day-4">
+                <div class="day-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
+                    <div class="relative h-64">
+                        <img src="https://readdy.ai/api/search-image?query=Costa%20Brava%20Mediterranean%20coastline%20with%20crystal%20clear%20turquoise%20water%2C%20rocky%20cliffs%2C%20pine%20trees%2C%20charming%20fishing%20village%20with%20white%20houses%2C%20boats%20in%20small%20harbor%2C%20sunny%20Spanish%20coastal%20landscape&width=800&height=300&seq=day4-costabrava&orientation=landscape" 
+                             alt="Costa Brava" class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <div class="flex items-center mb-2">
+                                <span class="bg-primary px-3 py-1 rounded-full text-sm font-medium">Dzień 4</span>
+                                <span class="ml-3 text-sm opacity-90">Wtorek, 30 września</span>
+                            </div>
+                            <h3 class="text-2xl font-bold">Costa Brava - Tossa de Mar i Lloret de Mar</h3>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="flex items-center text-gray-600">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-restaurant-line text-secondary"></i>
+                                </div>
+                                <span class="text-sm">Śniadanie</span>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-ship-line text-primary"></i>
+                                </div>
+                                <span class="text-sm">Wybrzeże</span>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-camera-line text-primary"></i>
+                                </div>
+                                <span class="text-sm">Widoki</span>
+                            </div>
+                        </div>
+                        <div class="prose max-w-none">
+                            <p class="text-gray-700 mb-4">
+                                Śniadanie w hotelu. Wyjazd na Costa Brava - jedno z najpiękniejszych 
+                                wybrzeży Morza Śródziemnego. Pierwszym przystankiem będzie Tossa de Mar - 
+                                malownicze miasteczko z średniowiecznymi murami obronnymi i przepiękną zatoką.
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Spacer po starówce Tossy, zwiedzanie ruin rzymskiej willi i kościoła 
+                                św. Wincentego. Z murów obronnych roztacza się wspaniały widok na zatokę 
+                                i Morze Śródziemne. Czas wolny na plażę lub zakupy w lokalnych sklepikach.
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Po południu przejazd do Lloret de Mar - największego kurortu Costa Brava. 
+                                Spacer po promenadzie nadmorskiej, zwiedzanie Ogrodu Botanicznego Santa Clotilde 
+                                z egzotycznymi roślinami i przepięknymi widokami na morze.
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Możliwość kąpieli w morzu (w zależności od pogody) lub spaceru po centrum 
+                                miasta z licznymi restauracjami i sklepami. Degustacja lokalnych owoców morza 
+                                w nadmorskiej restauracji.
+                            </p>
+                            <p class="text-gray-700 mb-6">
+                                Wieczorem powrót do hotelu. Kolacja i nocleg.
+                            </p>
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Costa Brava highlights:</h4>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Średniowieczne mury obronne w Tossa de Mar</li>
+                                    <li>• Panoramiczne widoki na Morze Śródziemne</li>
+                                    <li>• Ogród Botaniczny Santa Clotilde</li>
+                                    <li>• Możliwość kąpieli w morzu</li>
+                                    <li>• Degustacja owoców morza</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 5 -->
+            <div class="day-content hidden" id="day-5">
+                <div class="day-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
+                    <div class="relative h-64">
+                        <img src="https://readdy.ai/api/search-image?query=Girona%20medieval%20city%20with%20colorful%20houses%20along%20river%2C%20Gothic%20cathedral%2C%20ancient%20stone%20bridges%2C%20Jewish%20Quarter%20narrow%20streets%2C%20Catalonia%20Spain%2C%20historic%20architecture%2C%20warm%20afternoon%20light&width=800&height=300&seq=day5-girona&orientation=landscape" 
+                             alt="Girona" class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <div class="flex items-center mb-2">
+                                <span class="bg-primary px-3 py-1 rounded-full text-sm font-medium">Dzień 5</span>
+                                <span class="ml-3 text-sm opacity-90">Środa, 1 października</span>
+                            </div>
+                            <h3 class="text-2xl font-bold">Girona i Figueres - Muzeum Dalego</h3>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="flex items-center text-gray-600">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-restaurant-line text-secondary"></i>
+                                </div>
+                                <span class="text-sm">Śniadanie</span>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-building-2-line text-primary"></i>
+                                </div>
+                                <span class="text-sm">Muzeum</span>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-ancient-gate-line text-primary"></i>
+                                </div>
+                                <span class="text-sm">Starówka</span>
+                            </div>
+                        </div>
+                        <div class="prose max-w-none">
+                            <p class="text-gray-700 mb-4">
+                                Śniadanie w hotelu. Wyjazd do Girony - jednego z najpiękniejszych 
+                                średniowiecznych miast Katalonii. Spacer po starówce z przewodnikiem, 
+                                zwiedzanie gotyckiej katedry z najszerszą nawą gotycką na świecie.
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Przejście przez kolorowe domy nad rzeką Onyar - jeden z najbardziej 
+                                fotografowanych widoków w Katalonii. Spacer po Dzielnicy Żydowskiej 
+                                (Call Jueu) - jednej z najlepiej zachowanych w Europie.
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Po południu wyjazd do Figueres - rodzinnego miasta Salvadora Dalego. 
+                                Zwiedzanie Teatru-Muzeum Dalego, największego surrealistycznego obiektu 
+                                na świecie. Muzeum mieści się w dawnym teatrze miejskim, który artysta 
+                                osobiście zaprojektował i gdzie spoczywają jego szczątki.
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Zwiedzanie z przewodnikiem najważniejszych dzieł mistrza surrealizmu, 
+                                w tym słynnych "miękkich zegarów" i innych fantastycznych kreacji. 
+                                Czas wolny na zakupy pamiątek w muzealnym sklepie.
+                            </p>
+                            <p class="text-gray-700 mb-6">
+                                Wieczorem powrót do hotelu. Kolacja i nocleg.
+                            </p>
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Kulturalne skarby:</h4>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Katedra w Gironie z najszerszą nawą gotycką</li>
+                                    <li>• Kolorowe domy nad rzeką Onyar</li>
+                                    <li>• Dzielnica Żydowska w Gironie</li>
+                                    <li>• Teatr-Muzeum Dalego w Figueres</li>
+                                    <li>• Dzieła Salvadora Dalego</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 6 -->
+            <div class="day-content hidden" id="day-6">
+                <div class="day-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
+                    <div class="relative h-64">
+                        <img src="https://readdy.ai/api/search-image?query=Montserrat%20mountain%20monastery%20with%20dramatic%20rocky%20peaks%2C%20cable%20car%20ascending%2C%20Benedictine%20abbey%20buildings%2C%20pilgrims%20walking%2C%20Catalonia%20Spain%2C%20spiritual%20atmosphere%2C%20golden%20hour%20lighting&width=800&height=300&seq=day6-montserrat&orientation=landscape" 
+                             alt="Montserrat" class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <div class="flex items-center mb-2">
+                                <span class="bg-primary px-3 py-1 rounded-full text-sm font-medium">Dzień 6</span>
+                                <span class="ml-3 text-sm opacity-90">Czwartek, 2 października</span>
+                            </div>
+                            <h3 class="text-2xl font-bold">Montserrat - Święta Góra Katalonii</h3>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="flex items-center text-gray-600">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-restaurant-line text-secondary"></i>
+                                </div>
+                                <span class="text-sm">Śniadanie</span>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-mountain-line text-primary"></i>
+                                </div>
+                                <span class="text-sm">Góry</span>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-church-line text-primary"></i>
+                                </div>
+                                <span class="text-sm">Klasztor</span>
+                            </div>
+                        </div>
+                        <div class="prose max-w-none">
+                            <p class="text-gray-700 mb-4">
+                                Śniadanie w hotelu. Wyjazd do Montserrat - świętej góry Katalonii, 
+                                położonej około 50 km na północny zachód od Barcelony. Przejazd kolejką 
+                                zębatą na szczyt góry, skąd roztaczają się wspaniałe widoki na całą Katalonię.
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Zwiedzanie benedyktyńskiego klasztoru Santa Maria de Montserrat, 
+                                założonego w XI wieku. Klasztor słynie z cudownej figury Czarnej Madonny 
+                                (La Moreneta) - patronki Katalonii, którą według legendy wykuli aniołowie.
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Możliwość wysłuchania koncertu chóru chłopięcego Escolania - jednego 
+                                z najstarszych chórów chłopięcych w Europie (w zależności od harmonogramu). 
+                                Spacer po okolicy klasztoru z przewodnikiem, podziwianie niezwykłych 
+                                formacji skalnych przypominających gigantyczne figury.
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Czas wolny na kontemplację w tym wyjątkowym miejscu, zakupy pamiątek 
+                                w klasztornym sklepie lub spacer jedną ze szlaków górskich (dla chętnych). 
+                                Możliwość degustacji lokalnych produktów klasztornych.
+                            </p>
+                            <p class="text-gray-700 mb-6">
+                                Po południu powrót do Barcelony. Wieczorem czas wolny w centrum miasta. 
+                                Kolacja we własnym zakresie - możliwość spróbowania katalońskiej kuchni 
+                                w jednej z licznych restauracji.
+                            </p>
+                            <div class="bg-indigo-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Duchowe doświadczenia:</h4>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Przejazd kolejką zębatą na szczyt</li>
+                                    <li>• Benedyktyński klasztor z XI wieku</li>
+                                    <li>• Czarna Madonna - patronka Katalonii</li>
+                                    <li>• Koncert chóru chłopięcego Escolania</li>
+                                    <li>• Niezwykłe formacje skalne</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 7 -->
+            <div class="day-content hidden" id="day-7">
+                <div class="day-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
+                    <div class="relative h-64">
+                        <img src="https://readdy.ai/api/search-image?query=Casa%20Batll%C3%B3%20and%20Casa%20Mil%C3%A0%20La%20Pedrera%20by%20Antoni%20Gaud%C3%AD%20in%20Barcelona%2C%20modernist%20architecture%20with%20curved%20facades%2C%20colorful%20ceramic%20tiles%2C%20unique%20balconies%2C%20Passeig%20de%20Gr%C3%A0cia%20street%2C%20architectural%20masterpieces&width=800&height=300&seq=day7-gaudi&orientation=landscape" 
+                             alt="Dzieła Gaudiego" class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <div class="flex items-center mb-2">
+                                <span class="bg-primary px-3 py-1 rounded-full text-sm font-medium">Dzień 7</span>
+                                <span class="ml-3 text-sm opacity-90">Piątek, 3 października</span>
+                            </div>
+                            <h3 class="text-2xl font-bold">Barcelona - Dzieła Gaudiego i Czas Wolny</h3>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="flex items-center text-gray-600">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-restaurant-line text-secondary"></i>
+                                </div>
+                                <span class="text-sm">Śniadanie</span>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-building-line text-primary"></i>
+                                </div>
+                                <span class="text-sm">Architektura</span>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-time-line text-primary"></i>
+                                </div>
+                                <span class="text-sm">Czas wolny</span>
+                            </div>
+                        </div>
+                        <div class="prose max-w-none">
+                            <p class="text-gray-700 mb-4">
+                                Śniadanie w hotelu. Kontynuacja zwiedzania Barcelony - spacer po Passeig 
+                                de Gràcia, najelegantszej ulicy miasta. Podziwianie fasad Casa Batlló 
+                                i Casa Milà (La Pedrera) - kolejnych arcydzieł Antoniego Gaudiego.
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Wejście do Casa Batlló - jednego z najpiękniejszych budynków modernistycznych 
+                                na świecie. Zwiedzanie z audio przewodnikiem, podziwianie niezwykłych 
+                                wnętrz, kolorowych witraży i fantazyjnych form architektonicznych.
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Po południu czas wolny na indywidualne zwiedzanie miasta. Możliwość 
+                                odwiedzenia Muzeum Picassa, spaceru po Parku Ciutadella, zakupów 
+                                w El Corte Inglés lub relaksu w jednej z nadmorskich kawiarni.
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Dla chętnych fakultatywna wycieczka do Muzeum FC Barcelona i zwiedzanie 
+                                stadionu Camp Nou - świątyni światowego futbolu (za dodatkową opłatą). 
+                                Możliwość zakupu pamiątek klubowych.
+                            </p>
+                            <p class="text-gray-700 mb-6">
+                                Wieczorem wspólna kolacja pożegnalna w tradycyjnej katalońskiej restauracji 
+                                z degustacją lokalnych win i specialów regionalnych. Nocleg w hotelu.
+                            </p>
+                            <div class="bg-rose-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Ostatni dzień w Barcelonie:</h4>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Casa Batlló - wejście do wnętrza</li>
+                                    <li>• Passeig de Gràcia - elegancka promenada</li>
+                                    <li>• Czas wolny na indywidualne zwiedzanie</li>
+                                    <li>• Fakultatywnie: Camp Nou i Muzeum FC Barcelona</li>
+                                    <li>• Kolacja pożegnalna z degustacją win</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 8 -->
+            <div class="day-content hidden" id="day-8">
+                <div class="day-card bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
+                    <div class="relative h-64">
+                        <img src="https://readdy.ai/api/search-image?query=Airport%20departure%20terminal%20with%20airplane%20in%20background%2C%20passengers%20with%20luggage%20walking%20through%20modern%20terminal%2C%20departure%20gates%2C%20travel%20and%20journey%20end%20concept%2C%20warm%20lighting%2C%20professional%20photography&width=800&height=300&seq=day8-departure&orientation=landscape" 
+                             alt="Powrót do Polski" class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <div class="flex items-center mb-2">
+                                <span class="bg-primary px-3 py-1 rounded-full text-sm font-medium">Dzień 8</span>
+                                <span class="ml-3 text-sm opacity-90">Sobota, 4 października</span>
+                            </div>
+                            <h3 class="text-2xl font-bold">Powrót do Polski</h3>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="flex items-center text-gray-600">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-restaurant-line text-secondary"></i>
+                                </div>
+                                <span class="text-sm">Śniadanie</span>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-plane-line text-primary"></i>
+                                </div>
+                                <span class="text-sm">Lot powrotny</span>
+                            </div>
+                        </div>
+                        <div class="prose max-w-none">
+                            <p class="text-gray-700 mb-4">
+                                Śniadanie w hotelu. W zależności od godziny wylotu, możliwość ostatnich 
+                                zakupów lub spaceru po Barcelonie. Wymeldowanie z hotelu i transfer na lotnisko.
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                Wylot z Barcelony rejsowym samolotem do Warszawy. Po przylocie do Polski 
+                                transfer do miejsca wyjazdu lub możliwość indywidualnego powrotu do domu.
+                            </p>
+                            <p class="text-gray-700 mb-6">
+                                Koniec niezapomnianej podróży po Katalonii pełnej wrażeń, pięknych widoków, 
+                                smaków i zapachów tego wyjątkowego regionu Hiszpanii.
+                            </p>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Informacje praktyczne:</h4>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Wymeldowanie z hotelu według standardów</li>
+                                    <li>• Transfer na lotnisko w cenie wycieczki</li>
+                                    <li>• Lot powrotny do Warszawy</li>
+                                    <li>• Możliwość ostatnich zakupów</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practical Information -->
+    <section id="info" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Informacje praktyczne</h2>
+                <p class="text-xl text-gray-600">Wszystko co musisz wiedzieć przed wyjazdem</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Price and Includes -->
+                <div class="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Cena i co zawiera</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 flex items-center justify-center mr-3">
+                                <i class="ri-check-line text-green-600"></i>
+                            </div>
+                            <span class="text-gray-700">Przelot samolotem w obie strony</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 flex items-center justify-center mr-3">
+                                <i class="ri-check-line text-green-600"></i>
+                            </div>
+                            <span class="text-gray-700">Zakwaterowanie w hotelu 3* (pokoje 2-osobowe)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 flex items-center justify-center mr-3">
+                                <i class="ri-check-line text-green-600"></i>
+                            </div>
+                            <span class="text-gray-700">Śniadania w hotelu</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 flex items-center justify-center mr-3">
+                                <i class="ri-check-line text-green-600"></i>
+                            </div>
+                            <span class="text-gray-700">Transport klimatyzowanym autokarem</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 flex items-center justify-center mr-3">
+                                <i class="ri-check-line text-green-600"></i>
+                            </div>
+                            <span class="text-gray-700">Opieka polskiego przewodnika</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 flex items-center justify-center mr-3">
+                                <i class="ri-check-line text-green-600"></i>
+                            </div>
+                            <span class="text-gray-700">Ubezpieczenie turystyczne</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 flex items-center justify-center mr-3">
+                                <i class="ri-check-line text-green-600"></i>
+                            </div>
+                            <span class="text-gray-700">Wejściówki do zwiedzanych obiektów</span>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <div class="text-center">
+                            <span class="text-3xl font-bold text-primary">2,890 zł</span>
+                            <span class="text-gray-600 ml-2">/ osoba</span>
+                        </div>
+                        <p class="text-sm text-gray-500 text-center mt-2">Dopłata za pokój 1-osobowy: 350 zł</p>
+                    </div>
+                </div>
+
+                <!-- What to bring -->
+                <div class="space-y-8">
+                    <div class="bg-gray-50 rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Co zabrać ze sobą</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-3">
+                                    <i class="ri-passport-line text-primary"></i>
+                                </div>
+                                <span class="text-gray-700">Ważny paszport lub dowód osobisty</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-3">
+                                    <i class="ri-shirt-line text-primary"></i>
+                                </div>
+                                <span class="text-gray-700">Wygodne obuwie do chodzenia</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-3">
+                                    <i class="ri-sun-line text-primary"></i>
+                                </div>
+                                <span class="text-gray-700">Krem z filtrem UV i okulary słoneczne</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-3">
+                                    <i class="ri-camera-line text-primary"></i>
+                                </div>
+                                <span class="text-gray-700">Aparat fotograficzny</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-3">
+                                    <i class="ri-medicine-bottle-line text-primary"></i>
+                                </div>
+                                <span class="text-gray-700">Podstawowe leki (jeśli stosowane)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Warunki uczestnictwa</h3>
+                        <div class="space-y-3 text-sm text-gray-700">
+                            <p>• Minimalna liczba uczestników: 15 osób</p>
+                            <p>• Zaliczka: 500 zł przy rezerwacji</p>
+                            <p>• Dopłata za bagaż: według cennika linii lotniczej</p>
+                            <p>• Możliwość rezygnacji do 21 dni przed wyjazdem</p>
+                            <p>• Ubezpieczenie od kosztów rezygnacji: 89 zł (opcjonalnie)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Gotowy na przygodę?</h2>
+                <p class="text-xl text-gray-300">Skontaktuj się z nami i zarezerwuj swoje miejsce</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-8">Dane kontaktowe</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary rounded-lg mr-4">
+                                <i class="ri-phone-line text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Telefon</p>
+                                <p class="text-gray-300">+48 123 456 789</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary rounded-lg mr-4">
+                                <i class="ri-mail-line text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Email</p>
+                                <p class="text-gray-300">katalonia@piotrtravel.pl</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary rounded-lg mr-4">
+                                <i class="ri-map-pin-line text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Adres</p>
+                                <p class="text-gray-300">ul. Podróżnicza 123<br>00-001 Warszawa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold mb-6">Wyślij zapytanie</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <input type="text" placeholder="Imię i nazwisko" 
+                                   class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Adres email" 
+                                   class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+                        </div>
+                        <div>
+                            <input type="tel" placeholder="Numer telefonu" 
+                                   class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+                        </div>
+                        <div>
+                            <textarea rows="4" placeholder="Wiadomość" 
+                                      class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary resize-none"></textarea>
+                        </div>
+                        <button type="submit" 
+                                class="w-full bg-primary text-white px-6 py-3 !rounded-button hover:bg-blue-700 transition-colors font-semibold whitespace-nowrap">
+                            Wyślij zapytanie
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <span class="text-2xl font-pacifico text-primary">logo</span>
+                    <span class="text-gray-400 ml-4">© 2025 Wszystkie prawa zastrzeżone</span>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="ri-facebook-fill"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="ri-instagram-fill"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="ri-youtube-fill"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button class="bg-secondary text-white p-4 rounded-full shadow-lg hover:bg-amber-600 transition-colors">
+            <div class="w-6 h-6 flex items-center justify-center">
+                <i class="ri-phone-line text-xl"></i>
+            </div>
+        </button>
+    </div>
+
+    <script id="dayNavigation">
+        document.addEventListener('DOMContentLoaded', function() {
+            const dayButtons = document.querySelectorAll('.day-nav-btn');
+            const dayContents = document.querySelectorAll('.day-content');
+
+            dayButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const dayNumber = this.getAttribute('data-day');
+                    
+                    dayButtons.forEach(btn => {
+                        btn.classList.remove('bg-primary', 'text-white');
+                        btn.classList.add('bg-gray-200', 'text-gray-700');
+                    });
+                    
+                    this.classList.remove('bg-gray-200', 'text-gray-700');
+                    this.classList.add('bg-primary', 'text-white');
+                    
+                    dayContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    
+                    document.getElementById('day-' + dayNumber).classList.remove('hidden');
+                });
+            });
+        });
+    </script>
+
+    <script id="progressBar">
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressBar = document.getElementById('progressBar');
+            
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset;
+                const docHeight = document.body.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                
+                progressBar.style.width = scrollPercent + '%';
+            });
+        });
+    </script>
+
+    <script id="smoothScroll">
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
