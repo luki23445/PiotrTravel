@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piotr Travel - Odkryj świat z nami</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#3B82F6',
+secondary: '#10B981'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+<style>
+:where([class^="ri-"])::before {
+content: "\f3c2";
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Header -->
+<header class="bg-white shadow-sm fixed w-full top-0 z-50">
+<nav class="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
+<div class="flex items-center">
+<h1 class="text-2xl font-['Pacifico'] text-primary">Piotr Travel</h1>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a href="#" class="text-gray-700 hover:text-primary transition-colors">Strona główna</a>
+<a href="#" class="text-gray-700 hover:text-primary transition-colors">Oferty</a>
+<a href="#" class="text-gray-700 hover:text-primary transition-colors">O nas</a>
+<a href="#" class="text-gray-700 hover:text-primary transition-colors">Kontakt</a>
+<button class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-blue-600 transition-colors whitespace-nowrap">
+Zarezerwuj
+</button>
+</div>
+<button class="md:hidden w-8 h-8 flex items-center justify-center">
+<i class="ri-menu-line text-xl"></i>
+</button>
+</nav>
+</header>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center" style="background-image: url('https://readdy.ai/api/search-image?query=Stunning%20travel%20destination%20landscape%20with%20majestic%20mountains%2C%20crystal%20clear%20lake%2C%20lush%20forests%20and%20dramatic%20clouds%20during%20golden%20hour.%20Cinematic%20wide%20shot%20showing%20the%20beauty%20of%20nature.%20Professional%20travel%20photography%20with%20perfect%20composition%20and%20lighting&width=1920&height=1080&seq=hero1&orientation=landscape'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-transparent"></div>
+<div class="relative z-10 w-full max-w-7xl mx-auto px-6 py-32">
+<div class="max-w-2xl">
+<span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-6">Odkryj świat z nami</span>
+<h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+Twoja wymarzona <span class="text-primary">podróż</span> zaczyna się tutaj
+</h1>
+<p class="text-xl text-gray-700 mb-8 leading-relaxed">
+Pozwól nam zaplanować Twoją idealną podróż. Odkryj najpiękniejsze zakątki świata, poznaj nowe kultury i stwórz niezapomniane wspomnienia z Piotr Travel.
+</p>
+<div class="flex gap-4 items-center">
+<a href="#" class="bg-primary text-white px-8 py-4 !rounded-button hover:bg-blue-600 transition-colors text-lg font-semibold whitespace-nowrap flex items-center gap-2">
+Zaplanuj podróż
+<i class="ri-arrow-right-line"></i>
+</a>
+<a href="#" class="bg-white/90 backdrop-blur-sm text-gray-900 px-8 py-4 !rounded-button hover:bg-white transition-colors text-lg font-semibold whitespace-nowrap flex items-center gap-2">
+Zobacz oferty
+<i class="ri-price-tag-3-line"></i>
+</a>
+</div>
+</div>
+</div>
+</section>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Data wyjazdu</label>
+<input type="date" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary text-sm">
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Liczba osób</label>
+<div class="relative">
+<input type="number" min="1" value="2" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary text-sm">
+<div class="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center">
+<i class="ri-user-line text-gray-400"></i>
+</div>
+</div>
+</div>
+<div class="flex items-end">
+<button class="w-full bg-primary text-white py-3 px-6 !rounded-button hover:bg-blue-600 transition-colors whitespace-nowrap">
+Szukaj wycieczek
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Popular Destinations -->
+<section class="py-20 bg-gray-50">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold text-gray-900 mb-4">Popularne Kierunki</h2>
+<p class="text-xl text-gray-600">Wybierz spośród naszych najchętniej wybieranych destynacji</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl shadow-lg">
+<img src="https://readdy.ai/api/search-image?query=Beautiful%20Santorini%20Greece%20white%20buildings%20blue%20domes%20overlooking%20azure%20sea%20sunset%20golden%20hour%20travel%20destination%20photography&width=400&height=300&seq=dest1&orientation=landscape" alt="Santorini" class="w-full h-64 object-cover object-top group-hover:scale-110 transition-transform duration-500">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<h3 class="text-2xl font-bold mb-2">Santorini</h3>
+<p class="text-lg opacity-90">od 2 899 zł</p>
+</div>
+<div class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<div class="text-center text-white">
+<h3 class="text-2xl font-bold mb-2">Santorini</h3>
+<p class="mb-4">7 dni magicznych wakacji na greckiej wyspie</p>
+<button class="bg-white text-primary px-6 py-2 !rounded-button font-semibold whitespace-nowrap">
+Zobacz ofertę
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl shadow-lg">
+<img src="https://readdy.ai/api/search-image?query=Stunning%20Maldives%20overwater%20bungalows%20crystal%20clear%20turquoise%20water%20tropical%20paradise%20luxury%20resort%20aerial%20view&width=400&height=300&seq=dest2&orientation=landscape" alt="Malediwy" class="w-full h-64 object-cover object-top group-hover:scale-110 transition-transform duration-500">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<h3 class="text-2xl font-bold mb-2">Malediwy</h3>
+<p class="text-lg opacity-90">od 8 999 zł</p>
+</div>
+<div class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<div class="text-center text-white">
+<h3 class="text-2xl font-bold mb-2">Malediwy</h3>
+<p class="mb-4">Luksusowy wypoczynek w tropikalnym raju</p>
+<button class="bg-white text-primary px-6 py-2 !rounded-button font-semibold whitespace-nowrap">
+Zobacz ofertę
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl shadow-lg">
+<img src="https://readdy.ai/api/search-image?query=Majestic%20Bali%20rice%20terraces%20emerald%20green%20landscape%20traditional%20Indonesian%20culture%20temple%20silhouette%20golden%20sunset&width=400&height=300&seq=dest3&orientation=landscape" alt="Bali" class="w-full h-64 object-cover object-top group-hover:scale-110 transition-transform duration-500">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<h3 class="text-2xl font-bold mb-2">Bali</h3>
+<p class="text-lg opacity-90">od 3 499 zł</p>
+</div>
+<div class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<div class="text-center text-white">
+<h3 class="text-2xl font-bold mb-2">Bali</h3>
+<p class="mb-4">Egzotyczna przygoda na wyspie bogów</p>
+<button class="bg-white text-primary px-6 py-2 !rounded-button font-semibold whitespace-nowrap">
+Zobacz ofertę
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl shadow-lg">
+<img src="https://readdy.ai/api/search-image?query=Spectacular%20Dubai%20skyline%20modern%20skyscrapers%20Burj%20Khalifa%20luxury%20city%20lights%20desert%20oasis%20futuristic%20architecture&width=400&height=300&seq=dest4&orientation=landscape" alt="Dubaj" class="w-full h-64 object-cover object-top group-hover:scale-110 transition-transform duration-500">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<h3 class="text-2xl font-bold mb-2">Dubaj</h3>
+<p class="text-lg opacity-90">od 4 299 zł</p>
+</div>
+<div class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<div class="text-center text-white">
+<h3 class="text-2xl font-bold mb-2">Dubaj</h3>
+<p class="mb-4">Miasto przyszłości i luksusowych doznań</p>
+<button class="bg-white text-primary px-6 py-2 !rounded-button font-semibold whitespace-nowrap">
+Zobacz ofertę
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl shadow-lg">
+<img src="https://readdy.ai/api/search-image?query=Breathtaking%20Iceland%20Northern%20Lights%20aurora%20borealis%20dancing%20over%20dramatic%20landscape%20waterfalls%20glaciers%20magical%20winter%20scene&width=400&height=300&seq=dest5&orientation=landscape" alt="Islandia" class="w-full h-64 object-cover object-top group-hover:scale-110 transition-transform duration-500">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<h3 class="text-2xl font-bold mb-2">Islandia</h3>
+<p class="text-lg opacity-90">od 5 199 zł</p>
+</div>
+<div class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<div class="text-center text-white">
+<h3 class="text-2xl font-bold mb-2">Islandia</h3>
+<p class="mb-4">Kraina lodu, ognia i zorzy polarnej</p>
+<button class="bg-white text-primary px-6 py-2 !rounded-button font-semibold whitespace-nowrap">
+Zobacz ofertę
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl shadow-lg">
+<img src="https://readdy.ai/api/search-image?query=Enchanting%20Japan%20cherry%20blossoms%20sakura%20traditional%20temple%20pagoda%20Mount%20Fuji%20cultural%20heritage%20spring%20beauty%20serene%20landscape&width=400&height=300&seq=dest6&orientation=landscape" alt="Japonia" class="w-full h-64 object-cover object-top group-hover:scale-110 transition-transform duration-500">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<h3 class="text-2xl font-bold mb-2">Japonia</h3>
+<p class="text-lg opacity-90">od 6 799 zł</p>
+</div>
+<div class="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<div class="text-center text-white">
+<h3 class="text-2xl font-bold mb-2">Japonia</h3>
+<p class="mb-4">Fascynująca kultura Kraju Kwitnącej Wiśni</p>
+<button class="bg-white text-primary px-6 py-2 !rounded-button font-semibold whitespace-nowrap">
+Zobacz ofertę
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center">
+<button class="bg-primary text-white px-8 py-3 !rounded-button hover:bg-blue-600 transition-colors text-lg whitespace-nowrap">
+Zobacz więcej destynacji
+</button>
+</div>
+</div>
+</section>
+<!-- Why Choose Us -->
+<section class="py-20 bg-white">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold text-gray-900 mb-4">Dlaczego Piotr Travel?</h2>
+<p class="text-xl text-gray-600">Poznaj powody, dla których tysiące klientów wybiera nas co roku</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="text-center group">
+<div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors">
+<i class="ri-award-line text-3xl text-primary"></i>
+</div>
+<h3 class="text-2xl font-bold text-gray-900 mb-4">15 lat doświadczenia</h3>
+<p class="text-gray-600 leading-relaxed">
+Ponad dekada na rynku turystycznym pozwoliła nam wypracować najwyższe standardy obsługi i zbudować sieć zaufanych partnerów na całym świecie.
+</p>
+</div>
+<div class="text-center group">
+<div class="w-20 h-20 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary/20 transition-colors">
+<i class="ri-shield-check-line text-3xl text-secondary"></i>
+</div>
+<h3 class="text-2xl font-bold text-gray-900 mb-4">Bezpieczeństwo</h3>
+<p class="text-gray-600 leading-relaxed">
+Twoje bezpieczeństwo to nasz priorytet. Wszystkie wycieczki są ubezpieczone, a nasi przewodnicy przeszli specjalistyczne szkolenia.
+</p>
+</div>
+<div class="text-center group">
+<div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-200 transition-colors">
+<i class="ri-price-tag-3-line text-3xl text-yellow-600"></i>
+</div>
+<h3 class="text-2xl font-bold text-gray-900 mb-4">Najlepsze ceny</h3>
+<p class="text-gray-600 leading-relaxed">
+Dzięki długoletnim relacjom z hotelami i liniami lotniczymi oferujemy najbardziej konkurencyjne ceny na rynku bez ukrytych kosztów.
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Special Offers -->
+<section class="py-20 bg-gray-50">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold text-gray-900 mb-4">Aktualne Promocje</h2>
+<p class="text-xl text-gray-600">Nie przegap wyjątkowych ofert specjalnych</p>
+</div>
+<div class="relative">
+<div class="flex space-x-8 overflow-hidden" id="offersCarousel">
+<div class="min-w-full grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white rounded-xl shadow-lg overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Luxurious%20Thailand%20tropical%20beach%20resort%20crystal%20clear%20water%20palm%20trees%20white%20sand%20paradise%20vacation%20destination&width=400&height=250&seq=offer1&orientation=landscape" alt="Tajlandia" class="w-full h-48 object-cover object-top">
+<div class="p-6">
+<div class="flex items-center justify-between mb-3">
+<span class="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-semibold">-30%</span>
+<span class="text-gray-500 text-sm">7 dni</span>
+</div>
+<h3 class="text-xl font-bold text-gray-900 mb-2">Tajlandia - Phuket</h3>
+<div class="flex items-center gap-2 mb-3">
+<i class="ri-map-pin-line text-gray-400"></i>
+<p class="text-sm text-gray-600">Bangkok • Phuket • Phi Phi • Krabi</p>
+</div>
+<p class="text-gray-600 mb-4">All inclusive w luksusowym resorcie nad Morzem Andamańskim</p>
+<div class="flex items-center justify-between mb-3">
+<div>
+<div class="mb-1">
+<span class="text-gray-400 line-through text-sm">4 999 zł / 1 150 €</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-2xl font-bold text-primary">3 499 zł</span>
+<span class="text-lg text-gray-600">/ 799 €</span>
+</div>
+</div>
+<button class="bg-gray-100 text-gray-600 px-3 py-2 !rounded-button hover:bg-gray-200 transition-colors text-sm flex items-center gap-2 whitespace-nowrap">
+<i class="ri-file-pdf-line"></i>
+PDF
+</button>
+</div>
+<button class="w-full bg-primary text-white px-4 py-2 !rounded-button hover:bg-blue-600 transition-colors text-sm whitespace-nowrap">
+Rezerwuj
+</button>
+</div>
+</div>
+<div class="bg-white rounded-xl shadow-lg overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Romantic%20Paris%20Eiffel%20Tower%20Seine%20river%20cruise%20city%20lights%20evening%20atmosphere%20French%20culture%20elegant%20architecture&width=400&height=250&seq=offer2&orientation=landscape" alt="Paryż" class="w-full h-48 object-cover object-top">
+<div class="p-6">
+<div class="flex items-center justify-between mb-3">
+<span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-semibold">Last Minute</span>
+<span class="text-gray-500 text-sm">4 dni</span>
+</div>
+<h3 class="text-xl font-bold text-gray-900 mb-2">Paryż - Weekend</h3>
+<div class="flex items-center gap-2 mb-3">
+<i class="ri-map-pin-line text-gray-400"></i>
+<p class="text-sm text-gray-600">Paryż • Wersal • Disneyland • Giverny</p>
+</div>
+<p class="text-gray-600 mb-4">Romantyczny weekend w mieście miłości z przewodnikiem</p>
+<div class="flex items-center justify-between mb-3">
+<div>
+<div class="flex items-center gap-3">
+<span class="text-2xl font-bold text-primary">1 899 zł</span>
+<span class="text-lg text-gray-600">/ 429 €</span>
+</div>
+</div>
+<button class="bg-gray-100 text-gray-600 px-3 py-2 !rounded-button hover:bg-gray-200 transition-colors text-sm flex items-center gap-2 whitespace-nowrap">
+<i class="ri-file-pdf-line"></i>
+PDF
+</button>
+</div>
+<button class="w-full bg-primary text-white px-4 py-2 !rounded-button hover:bg-blue-600 transition-colors text-sm whitespace-nowrap">
+Rezerwuj
+</button>
+</div>
+</div>
+<div class="bg-white rounded-xl shadow-lg overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Spectacular%20Egypt%20pyramids%20Giza%20ancient%20civilization%20desert%20landscape%20camel%20caravan%20historical%20monuments%20archaeological%20wonder&width=400&height=250&seq=offer3&orientation=landscape" alt="Egipt" class="w-full h-48 object-cover object-top">
+<div class="p-6">
+<div class="flex items-center justify-between mb-3">
+<span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-semibold">Nowość</span>
+<span class="text-gray-500 text-sm">10 dni</span>
+</div>
+<h3 class="text-xl font-bold text-gray-900 mb-2">Egipt - Hurghada</h3>
+<div class="flex items-center gap-2 mb-3">
+<i class="ri-map-pin-line text-gray-400"></i>
+<p class="text-sm text-gray-600">Kair • Giza • Hurghada • Luxor</p>
+</div>
+<p class="text-gray-600 mb-4">Wycieczka z zwiedzaniem piramid i relaksem nad Morzem Czerwonym</p>
+<div class="flex items-center justify-between mb-3">
+<div>
+<div class="flex items-center gap-3">
+<span class="text-2xl font-bold text-primary">2 799 zł</span>
+<span class="text-lg text-gray-600">/ 639 €</span>
+</div>
+</div>
+<button class="bg-gray-100 text-gray-600 px-3 py-2 !rounded-button hover:bg-gray-200 transition-colors text-sm flex items-center gap-2 whitespace-nowrap">
+<i class="ri-file-pdf-line"></i>
+PDF
+</button>
+</div>
+<button class="w-full bg-primary text-white px-4 py-2 !rounded-button hover:bg-blue-600 transition-colors text-sm whitespace-nowrap">
+Rezerwuj
+</button>
+</div>
+</div>
+</div>
+</div>
+<button class="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors" id="prevOffer">
+<i class="ri-arrow-left-line text-xl text-gray-600"></i>
+</button>
+<button class="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors" id="nextOffer">
+<i class="ri-arrow-right-line text-xl text-gray-600"></i>
+</button>
+</div>
+</div>
+</section>
+<!-- Newsletter -->
+<section class="py-20 bg-primary">
+<div class="max-w-4xl mx-auto px-6 text-center">
+<h2 class="text-4xl font-bold text-white mb-4">Bądź na bieżąco</h2>
+<p class="text-xl text-blue-100 mb-8">
+Zapisz się do naszego newslettera i otrzymuj informacje o najnowszych ofertach i promocjach
+</p>
+<form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-6">
+<input type="email" placeholder="Twój adres email" class="flex-1 px-4 py-3 rounded-lg border-none focus:ring-2 focus:ring-white text-gray-900">
+<button type="submit" class="bg-white text-primary px-6 py-3 !rounded-button hover:bg-gray-100 transition-colors font-semibold whitespace-nowrap">
+Zapisz się
+</button>
+</form>
+<label class="flex items-center justify-center text-blue-100 text-sm cursor-pointer">
+<input type="checkbox" class="w-4 h-4 text-primary bg-white border-white rounded focus:ring-white mr-3">
+Zgadzam się na przetwarzanie danych osobowych zgodnie z
+<a href="#" class="underline hover:no-underline ml-1">polityką prywatności</a>
+</label>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-16">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div>
+<h3 class="text-2xl font-['Pacifico'] text-primary mb-6">Piotr Travel</h3>
+<p class="text-gray-300 mb-6 leading-relaxed">
+Tworzymy niezapomniane podróże od 2009 roku. Zaufało nam już ponad 50 000 zadowolonych klientów.
+</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-instagram-line"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-youtube-line"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<i class="ri-twitter-line"></i>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-6">Kontakt</h4>
+<div class="space-y-4 text-gray-300">
+<div class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center mr-3">
+<i class="ri-map-pin-line"></i>
+</div>
+<span>ul. Marszałkowska 126/134<br>00-008 Warszawa</span>
+</div>
+<div class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center mr-3">
+<i class="ri-phone-line"></i>
+</div>
+<span>+48 22 123 45 67</span>
+</div>
+<div class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center mr-3">
+<i class="ri-mail-line"></i>
+</div>
+<span>biuro@piotrtravel.pl</span>
+</div>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-6">Popularne kierunki</h4>
+<ul class="space-y-3 text-gray-300">
+<li><a href="#" class="hover:text-primary transition-colors">Grecja</a></li>
+<li><a href="#" class="hover:text-primary transition-colors">Hiszpania</a></li>
+<li><a href="#" class="hover:text-primary transition-colors">Włochy</a></li>
+<li><a href="#" class="hover:text-primary transition-colors">Chorwacja</a></li>
+<li><a href="#" class="hover:text-primary transition-colors">Turcja</a></li>
+<li><a href="#" class="hover:text-primary transition-colors">Egipt</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-6">Informacje</h4>
+<ul class="space-y-3 text-gray-300">
+<li><a href="#" class="hover:text-primary transition-colors">Regulamin</a></li>
+<li><a href="#" class="hover:text-primary transition-colors">Polityka prywatności</a></li>
+<li><a href="#" class="hover:text-primary transition-colors">Warunki podróży</a></li>
+<li><a href="#" class="hover:text-primary transition-colors">Ubezpieczenia</a></li>
+<li><a href="#" class="hover:text-primary transition-colors">FAQ</a></li>
+<li><a href="#" class="hover:text-primary transition-colors">Reklamacje</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8">
+<div class="flex flex-col md:flex-row items-center justify-between">
+<p class="text-gray-400 mb-4 md:mb-0">
+© 2024 Piotr Travel. Wszystkie prawa zastrzeżone.
+</p>
+<div class="flex items-center space-x-6 text-gray-400">
+<span>Licencja turystyczna nr: 1234/2009</span>
+<div class="flex items-center space-x-3">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-visa-fill text-xl"></i>
+</div>
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-mastercard-fill text-xl"></i>
+</div>
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-paypal-fill text-xl"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script id="carousel-functionality">
+document.addEventListener('DOMContentLoaded', function() {
+const carousel = document.getElementById('offersCarousel');
+const prevBtn = document.getElementById('prevOffer');
+const nextBtn = document.getElementById('nextOffer');
+let currentSlide = 0;
+const totalSlides = carousel.children.length;
+function updateCarousel() {
+const translateX = -currentSlide * 100;
+carousel.style.transform = `translateX(${translateX}%)`;
+}
+prevBtn.addEventListener('click', function() {
+currentSlide = currentSlide > 0 ? currentSlide - 1 : totalSlides - 1;
+updateCarousel();
+});
+nextBtn.addEventListener('click', function() {
+currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0;
+updateCarousel();
+});
+setInterval(function() {
+currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0;
+updateCarousel();
+}, 5000);
+});
+</script>
+<script id="smooth-scrolling">
+document.addEventListener('DOMContentLoaded', function() {
+const links = document.querySelectorAll('a[href^="#"]');
+links.forEach(link => {
+link.addEventListener('click', function(e) {
+e.preventDefault();
+const target = document.querySelector(this.getAttribute('href'));
+if (target) {
+target.scrollIntoView({
+behavior: 'smooth',
+block: 'start'
+});
+}
+});
+});
+});
+</script>
+<script id="mobile-menu">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuBtn = document.querySelector('.md\\:hidden button');
+const nav = document.querySelector('nav');
+if (mobileMenuBtn) {
+mobileMenuBtn.addEventListener('click', function() {
+const mobileMenu = nav.querySelector('.mobile-menu');
+if (mobileMenu) {
+mobileMenu.classList.toggle('hidden');
+}
+});
+}
+});
+</script>
+</body>
+</html>
