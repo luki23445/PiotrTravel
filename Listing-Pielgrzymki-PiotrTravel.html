@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pielgrzymki - PiotrTravel</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A6FB7',
+                        secondary: '#3BB3E6'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    },
+                    fontFamily: {
+                        'manrope': ['Manrope', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        .filter-panel { transform: translateX(-100%); transition: transform 0.3s ease-in-out; }
+        .filter-panel.active { transform: translateX(0); }
+        .range-slider { -webkit-appearance: none; appearance: none; height: 6px; background: #e2e8f0; border-radius: 3px; outline: none; }
+        .range-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; background: #0A6FB7; border-radius: 50%; cursor: pointer; }
+        .range-slider::-moz-range-thumb { width: 20px; height: 20px; background: #0A6FB7; border-radius: 50%; cursor: pointer; border: none; }
+        .custom-checkbox { display: none; }
+        .custom-checkbox + label { position: relative; padding-left: 2rem; cursor: pointer; }
+        .custom-checkbox + label::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 1.25rem; height: 1.25rem; border: 2px solid #cbd5e1; border-radius: 4px; background: white; }
+        .custom-checkbox:checked + label::before { background: #0A6FB7; border-color: #0A6FB7; }
+        .custom-checkbox:checked + label::after { content: '✓'; position: absolute; left: 0.25rem; top: 50%; transform: translateY(-50%); color: white; font-size: 0.75rem; }
+    </style>
+</head>
+<body class="bg-gray-50 font-inter">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="font-manrope font-bold text-2xl text-primary">PiotrTravel</div>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors">Strona główna</a>
+                    <a href="#" class="text-primary font-medium">Pielgrzymki</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors">Wycieczki</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors">O nas</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors">Kontakt</a>
+                </nav>
+                <button class="md:hidden w-8 h-8 flex items-center justify-center" id="mobile-menu-btn">
+                    <i class="ri-menu-line text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <nav class="text-sm text-gray-500 mb-6">
+            <a href="#" class="hover:text-primary">Strona główna</a>
+            <span class="mx-2">/</span>
+            <a href="#" class="hover:text-primary">Pielgrzymki</a>
+            <span class="mx-2">/</span>
+            <span class="text-gray-900">Wszystkie kierunki</span>
+        </nav>
+
+        <div class="flex flex-col lg:flex-row gap-8">
+            <aside class="lg:w-80 flex-shrink-0">
+                <div class="bg-white rounded-lg shadow-sm p-6 sticky top-24">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="font-manrope font-semibold text-lg text-gray-900">Filtry</h2>
+                        <button class="text-sm text-primary hover:underline" id="clear-filters">Wyczyść</button>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Kierunek / Sanktuarium</label>
+                            <div class="relative">
+                                <input type="text" placeholder="Wpisz nazwę miejsca..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
+                                <div class="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-search-line text-gray-400"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Termin wyjazdu</label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <input type="date" class="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
+                                <input type="date" class="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Długość (dni)</label>
+                            <div class="px-2">
+                                <input type="range" min="1" max="21" value="7" class="range-slider w-full">
+                                <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                    <span>1 dzień</span>
+                                    <span id="duration-value">7 dni</span>
+                                    <span>21 dni</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Budżet (PLN)</label>
+                            <div class="px-2">
+                                <input type="range" min="500" max="8000" value="2500" class="range-slider w-full">
+                                <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                    <span>500 zł</span>
+                                    <span id="budget-value">2 500 zł</span>
+                                    <span>8 000 zł</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-3">Rodzaj pielgrzymki</label>
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="medjugorje" class="custom-checkbox">
+                                    <label for="medjugorje" class="text-sm text-gray-700">Medjugorje</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="lourdes" class="custom-checkbox">
+                                    <label for="lourdes" class="text-sm text-gray-700">Lourdes / Fatima</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="ziemia-swieta" class="custom-checkbox">
+                                    <label for="ziemia-swieta" class="text-sm text-gray-700">Ziemia Święta</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="wlochy" class="custom-checkbox">
+                                    <label for="wlochy" class="text-sm text-gray-700">Włochy - sanktuaria</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="polska" class="custom-checkbox">
+                                    <label for="polska" class="text-sm text-gray-700">Polska</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-3">Transport</label>
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="samolot" class="custom-checkbox">
+                                    <label for="samolot" class="text-sm text-gray-700">Samolot</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="autokar" class="custom-checkbox">
+                                    <label for="autokar" class="text-sm text-gray-700">Autokar</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <input type="checkbox" id="opieka-kaplana" class="custom-checkbox">
+                            <label for="opieka-kaplana" class="text-sm text-gray-700">Opieka kapłana</label>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 space-y-3">
+                        <button class="w-full bg-primary text-white py-3 px-4 rounded-button font-medium hover:bg-blue-700 transition-colors !rounded-button whitespace-nowrap">
+                            Zastosuj filtry
+                        </button>
+                        <button class="w-full text-primary border border-primary py-3 px-4 rounded-button font-medium hover:bg-blue-50 transition-colors !rounded-button whitespace-nowrap">
+                            Pokaż 127 wyników
+                        </button>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="flex-1 min-w-0">
+                <div class="bg-white rounded-lg shadow-sm p-4 mb-6">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <span class="text-sm text-gray-600">Znaleziono <span class="font-semibold">127 ofert</span></span>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm text-gray-600">Sortuj:</span>
+                                <select class="text-sm border border-gray-300 rounded px-3 py-1 focus:ring-2 focus:ring-primary focus:border-transparent pr-8">
+                                    <option>Najbliższy termin</option>
+                                    <option>Cena rosnąco</option>
+                                    <option>Cena malejąco</option>
+                                    <option>Najwyżej oceniane</option>
+                                    <option>Najnowsze</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button class="p-2 rounded border border-gray-300 hover:bg-gray-50 transition-colors" id="grid-view">
+                                <div class="w-4 h-4 flex items-center justify-center">
+                                    <i class="ri-layout-grid-line"></i>
+                                </div>
+                            </button>
+                            <button class="p-2 rounded border border-gray-300 hover:bg-gray-50 transition-colors" id="list-view">
+                                <div class="w-4 h-4 flex items-center justify-center">
+                                    <i class="ri-list-check"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-8" id="trips-grid">
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="relative">
+                            <img src="https://readdy.ai/api/search-image?query=Beautiful%20sanctuary%20of%20Medjugorje%20with%20white%20church%20towers%20against%20blue%20sky%2C%20peaceful%20pilgrimage%20destination%2C%20clean%20white%20background%2C%20professional%20photography%2C%20serene%20atmosphere&width=400&height=267&seq=1&orientation=landscape" alt="Medjugorje" class="w-full h-48 object-cover object-top">
+                            <div class="absolute top-3 right-3">
+                                <span class="bg-white px-2 py-1 rounded text-xs font-medium text-gray-700">7 dni</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center gap-2 mb-2">
+                                <div class="w-4 h-4 flex items-center justify-center">
+                                    <i class="ri-map-pin-line text-gray-400 text-sm"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">Bośnia i Hercegowina</span>
+                            </div>
+                            <h3 class="font-manrope font-semibold text-lg text-gray-900 mb-2">Pielgrzymka do Medjugorje</h3>
+                            <p class="text-sm text-gray-600 mb-3">Duchowa podróż do miejsca objawień Matki Bożej. Program obejmuje udział we Mszach Świętych...</p>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">Autokar</span>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">Opieka kapłana</span>
+                            </div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <span class="text-sm text-gray-600">Najbliższy termin:</span>
+                                    <div class="font-semibold text-gray-900">15 marca 2025</div>
+                                    <button class="text-xs text-primary hover:underline">więcej terminów</button>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-sm text-gray-600">od</span>
+                                    <div class="font-bold text-xl text-gray-900">1 890 zł</div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="flex-1 bg-primary text-white py-2 px-3 rounded-button text-sm font-medium hover:bg-blue-700 transition-colors !rounded-button whitespace-nowrap">Szczegóły</button>
+                                <button class="flex-1 border border-primary text-primary py-2 px-3 rounded-button text-sm font-medium hover:bg-blue-50 transition-colors !rounded-button whitespace-nowrap">Rezerwuj</button>
+                                <button class="px-3 py-2 border border-gray-300 rounded-button hover:bg-gray-50 transition-colors !rounded-button">
+                                    <div class="w-4 h-4 flex items-center justify-center">
+                                        <i class="ri-file-pdf-line text-gray-600"></i>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="relative">
+                            <img src="https://readdy.ai/api/search-image?query=Sacred%20grotto%20of%20Lourdes%20with%20Virgin%20Mary%20statue%2C%20pilgrims%20praying%2C%20holy%20water%20spring%2C%20peaceful%20sanctuary%20atmosphere%2C%20clean%20white%20background%2C%20professional%20photography&width=400&height=267&seq=2&orientation=landscape" alt="Lourdes" class="w-full h-48 object-cover object-top">
+                            <div class="absolute top-3 right-3">
+                                <span class="bg-white px-2 py-1 rounded text-xs font-medium text-gray-700">5 dni</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center gap-2 mb-2">
+                                <div class="w-4 h-4 flex items-center justify-center">
+                                    <i class="ri-map-pin-line text-gray-400 text-sm"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">Francja</span>
+                            </div>
+                            <h3 class="font-manrope font-semibold text-lg text-gray-900 mb-2">Lourdes - Sanktuarium Matki Bożej</h3>
+                            <p class="text-sm text-gray-600 mb-3">Pielgrzymka do groty objawień św. Bernadecie. Udział w procesjach świetlnych...</p>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">Samolot</span>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">Opieka kapłana</span>
+                            </div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <span class="text-sm text-gray-600">Najbliższy termin:</span>
+                                    <div class="font-semibold text-gray-900">22 marca 2025</div>
+                                    <button class="text-xs text-primary hover:underline">więcej terminów</button>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-sm text-gray-600">od</span>
+                                    <div class="font-bold text-xl text-gray-900">2 450 zł</div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="flex-1 bg-primary text-white py-2 px-3 rounded-button text-sm font-medium hover:bg-blue-700 transition-colors !rounded-button whitespace-nowrap">Szczegóły</button>
+                                <button class="flex-1 border border-primary text-primary py-2 px-3 rounded-button text-sm font-medium hover:bg-blue-50 transition-colors !rounded-button whitespace-nowrap">Rezerwuj</button>
+                                <button class="px-3 py-2 border border-gray-300 rounded-button hover:bg-gray-50 transition-colors !rounded-button">
+                                    <div class="w-4 h-4 flex items-center justify-center">
+                                        <i class="ri-file-pdf-line text-gray-600"></i>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="relative">
+                            <img src="https://readdy.ai/api/search-image?query=Jerusalem%20old%20city%20with%20golden%20Dome%20of%20the%20Rock%2C%20ancient%20stone%20walls%2C%20holy%20land%20pilgrimage%20site%2C%20peaceful%20morning%20light%2C%20clean%20white%20background%2C%20professional%20photography&width=400&height=267&seq=3&orientation=landscape" alt="Ziemia Święta" class="w-full h-48 object-cover object-top">
+                            <div class="absolute top-3 right-3">
+                                <span class="bg-white px-2 py-1 rounded text-xs font-medium text-gray-700">10 dni</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center gap-2 mb-2">
+                                <div class="w-4 h-4 flex items-center justify-center">
+                                    <i class="ri-map-pin-line text-gray-400 text-sm"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">Izrael</span>
+                            </div>
+                            <h3 class="font-manrope font-semibold text-lg text-gray-900 mb-2">Ziemia Święta - Śladami Jezusa</h3>
+                            <p class="text-sm text-gray-600 mb-3">Pielgrzymka do Jerozolimy, Betlejem i Nazaretu. Zwiedzanie miejsc związanych z życiem Chrystusa...</p>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">Samolot</span>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">Opieka kapłana</span>
+                            </div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <span class="text-sm text-gray-600">Najbliższy termin:</span>
+                                    <div class="font-semibold text-gray-900">5 kwietnia 2025</div>
+                                    <button class="text-xs text-primary hover:underline">więcej terminów</button>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-sm text-gray-600">od</span>
+                                    <div class="font-bold text-xl text-gray-900">4 890 zł</div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="flex-1 bg-primary text-white py-2 px-3 rounded-button text-sm font-medium hover:bg-blue-700 transition-colors !rounded-button whitespace-nowrap">Szczegóły</button>
+                                <button class="flex-1 border border-primary text-primary py-2 px-3 rounded-button text-sm font-medium hover:bg-blue-50 transition-colors !rounded-button whitespace-nowrap">Rezerwuj</button>
+                                <button class="px-3 py-2 border border-gray-300 rounded-button hover:bg-gray-50 transition-colors !rounded-button">
+                                    <div class="w-4 h-4 flex items-center justify-center">
+                                        <i class="ri-file-pdf-line text-gray-600"></i>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="relative">
+                            <img src="https://readdy.ai/api/search-image?query=Vatican%20Saint%20Peter%20Basilica%20with%20magnificent%20dome%2C%20pilgrims%20gathering%20in%20square%2C%20sacred%20Catholic%20pilgrimage%20site%2C%20clean%20white%20background%2C%20professional%20photography&width=400&height=267&seq=4&orientation=landscape" alt="Watykan" class="w-full h-48 object-cover object-top">
+                            <div class="absolute top-3 right-3">
+                                <span class="bg-white px-2 py-1 rounded text-xs font-medium text-gray-700">6 dni</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center gap-2 mb-2">
+                                <div class="w-4 h-4 flex items-center justify-center">
+                                    <i class="ri-map-pin-line text-gray-400 text-sm"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">Watykan, Włochy</span>
+                            </div>
+                            <h3 class="font-manrope font-semibold text-lg text-gray-900 mb-2">Rzym i Watykan - Sanktuaria</h3>
+                            <p class="text-sm text-gray-600 mb-3">Pielgrzymka do Wiecznego Miasta. Zwiedzanie Bazyliki św. Piotra, Kaplic Sykstyńskiej...</p>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">Samolot</span>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">Opieka kapłana</span>
+                            </div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <span class="text-sm text-gray-600">Najbliższy termin:</span>
+                                    <div class="font-semibold text-gray-900">12 kwietnia 2025</div>
+                                    <button class="text-xs text-primary hover:underline">więcej terminów</button>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-sm text-gray-600">od</span>
+                                    <div class="font-bold text-xl text-gray-900">3 290 zł</div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="flex-1 bg-primary text-white py-2 px-3 rounded-button text-sm font-medium hover:bg-blue-700 transition-colors !rounded-button whitespace-nowrap">Szczegóły</button>
+                                <button class="flex-1 border border-primary text-primary py-2 px-3 rounded-button text-sm font-medium hover:bg-blue-50 transition-colors !rounded-button whitespace-nowrap">Rezerwuj</button>
+                                <button class="px-3 py-2 border border-gray-300 rounded-button hover:bg-gray-50 transition-colors !rounded-button">
+                                    <div class="w-4 h-4 flex items-center justify-center">
+                                        <i class="ri-file-pdf-line text-gray-600"></i>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="relative">
+                            <img src="https://readdy.ai/api/search-image?query=Fatima%20sanctuary%20with%20beautiful%20white%20basilica%2C%20pilgrims%20praying%20at%20sacred%20site%2C%20peaceful%20Portuguese%20pilgrimage%20destination%2C%20clean%20white%20background%2C%20professional%20photography&width=400&height=267&seq=5&orientation=landscape" alt="Fatima" class="w-full h-48 object-cover object-top">
+                            <div class="absolute top-3 right-3">
+                                <span class="bg-white px-2 py-1 rounded text-xs font-medium text-gray-700">4 dni</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center gap-2 mb-2">
+                                <div class="w-4 h-4 flex items-center justify-center">
+                                    <i class="ri-map-pin-line text-gray-400 text-sm"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">Portugalia</span>
+                            </div>
+                            <h3 class="font-manrope font-semibold text-lg text-gray-900 mb-2">Fatima - Sanktuarium Matki Bożej</h3>
+                            <p class="text-sm text-gray-600 mb-3">Pielgrzymka do miejsca objawień Matki Bożej Fatimskiej. Udział w nabożeństwach różańcowych...</p>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">Samolot</span>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">Opieka kapłana</span>
+                            </div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <span class="text-sm text-gray-600">Najbliższy termin:</span>
+                                    <div class="font-semibold text-gray-900">18 kwietnia 2025</div>
+                                    <button class="text-xs text-primary hover:underline">więcej terminów</button>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-sm text-gray-600">od</span>
+                                    <div class="font-bold text-xl text-gray-900">2 190 zł</div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="flex-1 bg-primary text-white py-2 px-3 rounded-button text-sm font-medium hover:bg-blue-700 transition-colors !rounded-button whitespace-nowrap">Szczegóły</button>
+                                <button class="flex-1 border border-primary text-primary py-2 px-3 rounded-button text-sm font-medium hover:bg-blue-50 transition-colors !rounded-button whitespace-nowrap">Rezerwuj</button>
+                                <button class="px-3 py-2 border border-gray-300 rounded-button hover:bg-gray-50 transition-colors !rounded-button">
+                                    <div class="w-4 h-4 flex items-center justify-center">
+                                        <i class="ri-file-pdf-line text-gray-600"></i>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="relative">
+                            <img src="https://readdy.ai/api/search-image?query=Czestochowa%20Jasna%20Gora%20monastery%20with%20sacred%20Black%20Madonna%20icon%2C%20Polish%20pilgrimage%20site%2C%20beautiful%20baroque%20architecture%2C%20clean%20white%20background%2C%20professional%20photography&width=400&height=267&seq=6&orientation=landscape" alt="Częstochowa" class="w-full h-48 object-cover object-top">
+                            <div class="absolute top-3 right-3">
+                                <span class="bg-white px-2 py-1 rounded text-xs font-medium text-gray-700">3 dni</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center gap-2 mb-2">
+                                <div class="w-4 h-4 flex items-center justify-center">
+                                    <i class="ri-map-pin-line text-gray-400 text-sm"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">Polska</span>
+                            </div>
+                            <h3 class="font-manrope font-semibold text-lg text-gray-900 mb-2">Częstochowa - Jasna Góra</h3>
+                            <p class="text-sm text-gray-600 mb-3">Pielgrzymka do Królowej Polski. Nawiedzenie cudownego obrazu Matki Bożej Częstochowskiej...</p>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">Autokar</span>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">Opieka kapłana</span>
+                            </div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <span class="text-sm text-gray-600">Najbliższy termin:</span>
+                                    <div class="font-semibold text-gray-900">25 kwietnia 2025</div>
+                                    <button class="text-xs text-primary hover:underline">więcej terminów</button>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-sm text-gray-600">od</span>
+                                    <div class="font-bold text-xl text-gray-900">890 zł</div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="flex-1 bg-primary text-white py-2 px-3 rounded-button text-sm font-medium hover:bg-blue-700 transition-colors !rounded-button whitespace-nowrap">Szczegóły</button>
+                                <button class="flex-1 border border-primary text-primary py-2 px-3 rounded-button text-sm font-medium hover:bg-blue-50 transition-colors !rounded-button whitespace-nowrap">Rezerwuj</button>
+                                <button class="px-3 py-2 border border-gray-300 rounded-button hover:bg-gray-50 transition-colors !rounded-button">
+                                    <div class="w-4 h-4 flex items-center justify-center">
+                                        <i class="ri-file-pdf-line text-gray-600"></i>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-center space-x-2 mb-8">
+                    <button class="px-3 py-2 text-gray-500 hover:text-gray-700 transition-colors">
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-arrow-left-line"></i>
+                        </div>
+                    </button>
+                    <button class="px-3 py-2 bg-primary text-white rounded font-medium">1</button>
+                    <button class="px-3 py-2 text-gray-700 hover:bg-gray-100 rounded transition-colors">2</button>
+                    <button class="px-3 py-2 text-gray-700 hover:bg-gray-100 rounded transition-colors">3</button>
+                    <span class="px-2 text-gray-500">...</span>
+                    <button class="px-3 py-2 text-gray-700 hover:bg-gray-100 rounded transition-colors">22</button>
+                    <button class="px-3 py-2 text-gray-500 hover:text-gray-700 transition-colors">
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-arrow-right-line"></i>
+                        </div>
+                    </button>
+                </div>
+
+                <section class="bg-white rounded-lg shadow-sm p-6 mb-8">
+                    <h2 class="font-manrope font-semibold text-xl text-gray-900 mb-4">Pielgrzymki - Duchowe podróże do świętych miejsc</h2>
+                    <p class="text-gray-600 mb-6">Odkryj najpiękniejsze sanktuaria świata z PiotrTravel. Nasze pielgrzymki łączą duchowy wymiar podróży z komfortem i bezpieczeństwem. Każda wycieczka jest prowadzona przez doświadczonych przewodników i kapłanów, którzy zapewnią Państwu niezapomniane przeżycia religijne.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="border border-gray-200 rounded-lg">
+                            <button class="w-full px-4 py-3 text-left flex items-center justify-between hover:bg-gray-50 transition-colors" onclick="toggleAccordion('faq1')">
+                                <span class="font-medium text-gray-900">Płatności i rezerwacje</span>
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-add-line accordion-icon" id="faq1-icon"></i>
+                                </div>
+                            </button>
+                            <div class="px-4 pb-3 text-gray-600 hidden" id="faq1-content">
+                                Akceptujemy płatności kartą, przelewem bankowym oraz ratalne. Możliwość wpłaty zadatku i rozłożenia pozostałej kwoty na raty. Wszystkie płatności są zabezpieczone i szyfrowane.
+                            </div>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg">
+                            <button class="w-full px-4 py-3 text-left flex items-center justify-between hover:bg-gray-50 transition-colors" onclick="toggleAccordion('faq2')">
+                                <span class="font-medium text-gray-900">Dokumenty potrzebne do wyjazdu</span>
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-add-line accordion-icon" id="faq2-icon"></i>
+                                </div>
+                            </button>
+                            <div class="px-4 pb-3 text-gray-600 hidden" id="faq2-content">
+                                W zależności od kierunku potrzebny jest paszport lub dowód osobisty. Dla niektórych krajów wymagana jest wiza. Szczegółowe informacje otrzymają Państwo po dokonaniu rezerwacji.
+                            </div>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg">
+                            <button class="w-full px-4 py-3 text-left flex items-center justify-between hover:bg-gray-50 transition-colors" onclick="toggleAccordion('faq3')">
+                                <span class="font-medium text-gray-900">Ubezpieczenie podróżne</span>
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-add-line accordion-icon" id="faq3-icon"></i>
+                                </div>
+                            </button>
+                            <div class="px-4 pb-3 text-gray-600 hidden" id="faq3-content">
+                                Wszystkie nasze pielgrzymki objęte są podstawowym ubezpieczeniem. Dodatkowo oferujemy rozszerzone pakiety ubezpieczeniowe dostosowane do potrzeb pielgrzymów.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script id="range-sliders">
+        document.addEventListener('DOMContentLoaded', function() {
+            const durationSlider = document.querySelector('input[type="range"][min="1"]');
+            const budgetSlider = document.querySelector('input[type="range"][min="500"]');
+            const durationValue = document.getElementById('duration-value');
+            const budgetValue = document.getElementById('budget-value');
+
+            durationSlider.addEventListener('input', function() {
+                durationValue.textContent = this.value + ' dni';
+            });
+
+            budgetSlider.addEventListener('input', function() {
+                budgetValue.textContent = new Intl.NumberFormat('pl-PL').format(this.value) + ' zł';
+            });
+        });
+    </script>
+
+    <script id="accordion-functionality">
+        function toggleAccordion(id) {
+            const content = document.getElementById(id + '-content');
+            const icon = document.getElementById(id + '-icon');
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.className = 'ri-subtract-line accordion-icon';
+            } else {
+                content.classList.add('hidden');
+                icon.className = 'ri-add-line accordion-icon';
+            }
+        }
+    </script>
+
+    <script id="filter-controls">
+        document.addEventListener('DOMContentLoaded', function() {
+            const clearFiltersBtn = document.getElementById('clear-filters');
+            
+            clearFiltersBtn.addEventListener('click', function() {
+                document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+                document.querySelectorAll('input[type="text"]').forEach(input => input.value = '');
+                document.querySelectorAll('input[type="date"]').forEach(input => input.value = '');
+                document.querySelectorAll('input[type="range"]').forEach(slider => {
+                    if (slider.min === '1') {
+                        slider.value = '7';
+                        document.getElementById('duration-value').textContent = '7 dni';
+                    } else {
+                        slider.value = '2500';
+                        document.getElementById('budget-value').textContent = '2 500 zł';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script id="view-toggle">
+        document.addEventListener('DOMContentLoaded', function() {
+            const gridViewBtn = document.getElementById('grid-view');
+            const listViewBtn = document.getElementById('list-view');
+            const tripsGrid = document.getElementById('trips-grid');
+            
+            gridViewBtn.addEventListener('click', function() {
+                tripsGrid.className = 'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-8';
+                gridViewBtn.classList.add('bg-gray-100');
+                listViewBtn.classList.remove('bg-gray-100');
+            });
+            
+            listViewBtn.addEventListener('click', function() {
+                tripsGrid.className = 'space-y-4 mb-8';
+                listViewBtn.classList.add('bg-gray-100');
+                gridViewBtn.classList.remove('bg-gray-100');
+            });
+        });
+    </script>
+</body>
+</html>
