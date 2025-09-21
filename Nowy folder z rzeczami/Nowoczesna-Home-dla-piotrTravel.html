@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PiotrTravel - Profesjonalne Wycieczki po Europie | Najlepsze Oferty 2025</title>
+    <meta name="description" content="Odkryj Europę z PiotrTravel! Organizujemy wycieczki do Włoch, Grecji, Hiszpanii. Profesjonalne usługi, konkurencyjne ceny w PLN i EUR. Sprawdź nasze oferty!">
+    
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#2563eb',secondary:'#7c3aed'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        .hero-bg {
+            background-image: linear-gradient(135deg, rgba(37, 99, 235, 0.8) 0%, rgba(124, 58, 237, 0.6) 100%), url('https://readdy.ai/api/search-image?query=stunning%20european%20travel%20destination%20with%20ancient%20architecture%20and%20beautiful%20landscapes%2C%20professional%20travel%20photography%2C%20bright%20daylight%2C%20clear%20blue%20sky%2C%20mediterranean%20coastline%20with%20historic%20buildings%2C%20vibrant%20colors%2C%20high%20quality%20tourism%20photo%2C%20inspiring%20wanderlust%20atmosphere&width=1920&height=1080&seq=hero001&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .country-filter.active {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .slider-container {
+            overflow: hidden;
+        }
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center relative">
+        <div class="container mx-auto px-6 text-center text-white">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    <span class="font-['Pacifico'] text-6xl md:text-8xl block mb-4">piotrTravel</span>
+                    Odkryj Magię Europy
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 leading-relaxed opacity-95">
+                    Profesjonalne wycieczki do najpiękniejszych zakątków Europy. 
+                    Doświadczenie, pasja i niezapomniane wspomnienia w jednej podróży.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <button class="bg-white text-primary px-8 py-4 !rounded-button text-lg font-semibold hover:bg-gray-100 transition-all duration-300 whitespace-nowrap">
+                        Sprawdź Oferty
+                    </button>
+                    <button class="border-2 border-white text-white px-8 py-4 !rounded-button text-lg font-semibold hover:bg-white hover:text-primary transition-all duration-300 whitespace-nowrap">
+                        Skontaktuj się z nami
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Country Filters -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Wybierz Swój Kierunek</h2>
+                <p class="text-xl text-gray-600">Filtruj wycieczki według krajów i znajdź idealną podróż dla siebie</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <div class="country-filter active cursor-pointer bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-6 text-center border-2 border-transparent hover:border-primary transition-all duration-300" data-country="all">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                        <i class="ri-global-line text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Wszystkie</h3>
+                    <p class="text-sm text-gray-600">3 wycieczki</p>
+                </div>
+                
+                <div class="country-filter cursor-pointer bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-6 text-center border-2 border-transparent hover:border-primary transition-all duration-300" data-country="italy">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=iconic%20italian%20landmarks%20including%20colosseum%20roman%20forum%20and%20vatican%20city%2C%20beautiful%20italian%20architecture%2C%20warm%20golden%20hour%20lighting%2C%20professional%20travel%20photography%2C%20classic%20italy%20tourism%20imagery&width=200&height=200&seq=italy001&orientation=squarish" alt="Włochy" class="w-full h-full object-cover object-top">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Włochy</h3>
+                    <p class="text-sm text-gray-600">1 wycieczka</p>
+                </div>
+                
+                <div class="country-filter cursor-pointer bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-6 text-center border-2 border-transparent hover:border-primary transition-all duration-300" data-country="greece">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=beautiful%20greek%20islands%20with%20white%20buildings%20and%20blue%20domes%2C%20santorini%20architecture%2C%20aegean%20sea%20views%2C%20classic%20greek%20tourism%20photography%2C%20bright%20mediterranean%20sunlight&width=200&height=200&seq=greece001&orientation=squarish" alt="Grecja" class="w-full h-full object-cover object-top">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Grecja</h3>
+                    <p class="text-sm text-gray-600">1 wycieczka</p>
+                </div>
+                
+                <div class="country-filter cursor-pointer bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-6 text-center border-2 border-transparent hover:border-primary transition-all duration-300" data-country="spain">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=stunning%20spanish%20architecture%20with%20sagrada%20familia%20and%20park%20guell%2C%20vibrant%20barcelona%20cityscape%2C%20spanish%20cultural%20landmarks%2C%20warm%20golden%20lighting%2C%20professional%20tourism%20photography&width=200&height=200&seq=spain001&orientation=squarish" alt="Hiszpania" class="w-full h-full object-cover object-top">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Hiszpania</h3>
+                    <p class="text-sm text-gray-600">1 wycieczka</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tours Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Nasze Wycieczki</h2>
+                <p class="text-xl text-gray-600">Starannie wyselekcjonowane destynacje z najlepszymi atrakcjami</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="tours-container">
+                <!-- Italy Tour -->
+                <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-lg card-hover" data-country="italy">
+                    <div class="relative h-64">
+                        <img src="https://readdy.ai/api/search-image?query=beautiful%20italian%20cities%20collage%20showing%20rome%20colosseum%20florence%20duomo%20and%20venice%20canals%2C%20stunning%20italian%20architecture%20and%20landmarks%2C%20professional%20travel%20photography%2C%20bright%20daylight%2C%20vibrant%20colors&width=400&height=300&seq=italy_tour001&orientation=landscape" alt="Włochy - Rzym, Florencja, Wenecja" class="w-full h-full object-cover object-top">
+                        <div class="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-sm font-semibold text-primary">
+                            20-26.09.2025
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Włochy - Klasyczne Trio</h3>
+                        <div class="mb-4">
+                            <p class="text-gray-600 mb-2 font-medium">Odwiedzane miasta:</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="inline-flex items-center bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm">
+                                    <i class="ri-map-pin-line w-4 h-4 flex items-center justify-center mr-1"></i>
+                                    Rzym
+                                </span>
+                                <span class="inline-flex items-center bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm">
+                                    <i class="ri-map-pin-line w-4 h-4 flex items-center justify-center mr-1"></i>
+                                    Florencja
+                                </span>
+                                <span class="inline-flex items-center bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm">
+                                    <i class="ri-map-pin-line w-4 h-4 flex items-center justify-center mr-1"></i>
+                                    Wenecja
+                                </span>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-2xl font-bold text-gray-900">2 890 zł</span>
+                                <span class="text-lg text-gray-600">/ 690 €</span>
+                            </div>
+                            <p class="text-sm text-gray-500">Cena za osobę w pokoju 2-osobowym</p>
+                        </div>
+                        <div class="flex gap-3">
+                            <button class="flex-1 bg-primary text-white px-4 py-3 !rounded-button font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap">
+                                Rezerwuj
+                            </button>
+                            <button class="px-4 py-3 border border-gray-300 text-gray-700 !rounded-button font-semibold hover:bg-gray-50 transition-colors whitespace-nowrap">
+                                Szczegóły
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Greece Tour -->
+                <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-lg card-hover" data-country="greece">
+                    <div class="relative h-64">
+                        <img src="https://readdy.ai/api/search-image?query=stunning%20greek%20destinations%20showing%20athens%20acropolis%20and%20beautiful%20aegean%20islands%2C%20white%20buildings%20with%20blue%20domes%2C%20crystal%20clear%20waters%2C%20professional%20travel%20photography%2C%20mediterranean%20atmosphere&width=400&height=300&seq=greece_tour001&orientation=landscape" alt="Grecja - Ateny i Wyspy" class="w-full h-full object-cover object-top">
+                        <div class="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-sm font-semibold text-primary">
+                            22.09-2.10.2025
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Grecja - Ateny i Wyspy</h3>
+                        <div class="mb-4">
+                            <p class="text-gray-600 mb-2 font-medium">Odwiedzane miejsca:</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="inline-flex items-center bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm">
+                                    <i class="ri-map-pin-line w-4 h-4 flex items-center justify-center mr-1"></i>
+                                    Ateny
+                                </span>
+                                <span class="inline-flex items-center bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm">
+                                    <i class="ri-map-pin-line w-4 h-4 flex items-center justify-center mr-1"></i>
+                                    Santorini
+                                </span>
+                                <span class="inline-flex items-center bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm">
+                                    <i class="ri-map-pin-line w-4 h-4 flex items-center justify-center mr-1"></i>
+                                    Mykonos
+                                </span>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-2xl font-bold text-gray-900">3 290 zł</span>
+                                <span class="text-lg text-gray-600">/ 785 €</span>
+                            </div>
+                            <p class="text-sm text-gray-500">Cena za osobę w pokoju 2-osobowym</p>
+                        </div>
+                        <div class="flex gap-3">
+                            <button class="flex-1 bg-primary text-white px-4 py-3 !rounded-button font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap">
+                                Rezerwuj
+                            </button>
+                            <button class="px-4 py-3 border border-gray-300 text-gray-700 !rounded-button font-semibold hover:bg-gray-50 transition-colors whitespace-nowrap">
+                                Szczegóły
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spain Tour -->
+                <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-lg card-hover" data-country="spain">
+                    <div class="relative h-64">
+                        <img src="https://readdy.ai/api/search-image?query=beautiful%20spanish%20cities%20showcasing%20barcelona%20sagrada%20familia%20madrid%20royal%20palace%20and%20seville%20cathedral%2C%20vibrant%20spanish%20architecture%2C%20warm%20golden%20lighting%2C%20professional%20tourism%20photography&width=400&height=300&seq=spain_tour001&orientation=landscape" alt="Hiszpania - Barcelona, Madryt, Sewilla" class="w-full h-full object-cover object-top">
+                        <div class="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-sm font-semibold text-primary">
+                            10-14.10.2025
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Hiszpania - Perły Iberyjskie</h3>
+                        <div class="mb-4">
+                            <p class="text-gray-600 mb-2 font-medium">Odwiedzane miasta:</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="inline-flex items-center bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm">
+                                    <i class="ri-map-pin-line w-4 h-4 flex items-center justify-center mr-1"></i>
+                                    Barcelona
+                                </span>
+                                <span class="inline-flex items-center bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm">
+                                    <i class="ri-map-pin-line w-4 h-4 flex items-center justify-center mr-1"></i>
+                                    Madryt
+                                </span>
+                                <span class="inline-flex items-center bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm">
+                                    <i class="ri-map-pin-line w-4 h-4 flex items-center justify-center mr-1"></i>
+                                    Sewilla
+                                </span>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-2xl font-bold text-gray-900">2 590 zł</span>
+                                <span class="text-lg text-gray-600">/ 620 €</span>
+                            </div>
+                            <p class="text-sm text-gray-500">Cena za osobę w pokoju 2-osobowym</p>
+                        </div>
+                        <div class="flex gap-3">
+                            <button class="flex-1 bg-primary text-white px-4 py-3 !rounded-button font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap">
+                                Rezerwuj
+                            </button>
+                            <button class="px-4 py-3 border border-gray-300 text-gray-700 !rounded-button font-semibold hover:bg-gray-50 transition-colors whitespace-nowrap">
+                                Szczegóły
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Dlaczego PiotrTravel?</h2>
+                <p class="text-xl text-gray-600">Profesjonalizm i doświadczenie w każdym szczególe</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="text-center p-6">
+                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center">
+                        <i class="ri-award-line text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">15 lat doświadczenia</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Organizujemy wycieczki od 2009 roku. Nasze doświadczenie to gwarancja 
+                        najwyższej jakości usług i niezapomnianych wrażeń.
+                    </p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center">
+                        <i class="ri-shield-check-line text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Pełne ubezpieczenie</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Wszystkie nasze wycieczki objęte są kompleksowym ubezpieczeniem. 
+                        Twoje bezpieczeństwo to nasz priorytet.
+                    </p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center">
+                        <i class="ri-customer-service-2-line text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Wsparcie 24/7</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Nasz zespół jest dostępny przez całą dobę podczas wycieczki. 
+                        Zawsze możesz liczyć na naszą pomoc i wsparcie.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Galeria Inspiracji</h2>
+                <p class="text-xl text-gray-600">Odkryj piękno Europy oczami naszych podróżników</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery">
+                <div class="gallery-item cursor-pointer group relative overflow-hidden rounded-xl" data-country="italy">
+                    <img src="https://readdy.ai/api/search-image?query=stunning%20colosseum%20in%20rome%20at%20golden%20hour%2C%20ancient%20roman%20architecture%2C%20professional%20travel%20photography%2C%20warm%20lighting%2C%20iconic%20italian%20landmark%2C%20tourists%20exploring%20historic%20site&width=300&height=400&seq=gallery001&orientation=portrait" alt="Koloseum, Rzym" class="w-full h-64 object-cover object-top group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="font-semibold">Koloseum</h4>
+                            <p class="text-sm opacity-90">Rzym, Włochy</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item cursor-pointer group relative overflow-hidden rounded-xl" data-country="greece">
+                    <img src="https://readdy.ai/api/search-image?query=beautiful%20santorini%20sunset%20with%20white%20buildings%20and%20blue%20domes%2C%20aegean%20sea%20view%2C%20classic%20greek%20island%20architecture%2C%20romantic%20evening%20atmosphere%2C%20professional%20travel%20photography&width=300&height=300&seq=gallery002&orientation=squarish" alt="Santorini, Grecja" class="w-full h-48 object-cover object-top group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="font-semibold">Santorini</h4>
+                            <p class="text-sm opacity-90">Grecja</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item cursor-pointer group relative overflow-hidden rounded-xl" data-country="spain">
+                    <img src="https://readdy.ai/api/search-image?query=sagrada%20familia%20barcelona%20at%20sunrise%2C%20gaudi%20architecture%20masterpiece%2C%20intricate%20gothic%20and%20art%20nouveau%20details%2C%20professional%20architectural%20photography%2C%20warm%20golden%20lighting&width=300&height=500&seq=gallery003&orientation=portrait" alt="Sagrada Familia, Barcelona" class="w-full h-80 object-cover object-top group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="font-semibold">Sagrada Familia</h4>
+                            <p class="text-sm opacity-90">Barcelona, Hiszpania</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item cursor-pointer group relative overflow-hidden rounded-xl" data-country="italy">
+                    <img src="https://readdy.ai/api/search-image?query=venice%20grand%20canal%20with%20gondolas%20and%20historic%20palaces%2C%20beautiful%20venetian%20architecture%2C%20romantic%20italian%20waterway%2C%20professional%20travel%20photography%2C%20soft%20morning%20light&width=300&height=300&seq=gallery004&orientation=squarish" alt="Wenecja, Włochy" class="w-full h-48 object-cover object-top group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="font-semibold">Kanał Grande</h4>
+                            <p class="text-sm opacity-90">Wenecja, Włochy</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item cursor-pointer group relative overflow-hidden rounded-xl" data-country="greece">
+                    <img src="https://readdy.ai/api/search-image?query=acropolis%20parthenon%20athens%20greece%20at%20golden%20hour%2C%20ancient%20greek%20temple%20architecture%2C%20historic%20landmark%2C%20professional%20archaeological%20photography%2C%20dramatic%20lighting&width=300&height=400&seq=gallery005&orientation=portrait" alt="Akropol, Ateny" class="w-full h-64 object-cover object-top group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="font-semibold">Akropol</h4>
+                            <p class="text-sm opacity-90">Ateny, Grecja</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item cursor-pointer group relative overflow-hidden rounded-xl" data-country="spain">
+                    <img src="https://readdy.ai/api/search-image?query=park%20guell%20barcelona%20colorful%20mosaic%20architecture%2C%20gaudi%20artistic%20design%2C%20vibrant%20ceramic%20tiles%2C%20whimsical%20architectural%20elements%2C%20professional%20travel%20photography&width=300&height=300&seq=gallery006&orientation=squarish" alt="Park Güell, Barcelona" class="w-full h-48 object-cover object-top group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="font-semibold">Park Güell</h4>
+                            <p class="text-sm opacity-90">Barcelona, Hiszpania</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Opinie Naszych Klientów</h2>
+                <p class="text-xl text-gray-600">Przekonaj się, co mówią o nas zadowoleni podróżnicy</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="slider-container relative">
+                    <div class="slider-track" id="reviews-slider">
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="bg-gray-50 rounded-2xl p-8 text-center">
+                                <div class="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden">
+                                    <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20satisfied%20female%20customer%2C%20middle%20aged%20woman%20smiling%2C%20business%20portrait%20style%2C%20clean%20background%2C%20friendly%20expression&width=200&height=200&seq=review001&orientation=squarish" alt="Anna Kowalska" class="w-full h-full object-cover object-top">
+                                </div>
+                                <p class="text-lg text-gray-700 mb-6 italic leading-relaxed">
+                                    "Wycieczka do Włoch była absolutnie fantastyczna! Organizacja na najwyższym poziomie, 
+                                    przewodnik bardzo kompetentny. Polecam PiotrTravel każdemu, kto szuka profesjonalnej obsługi."
+                                </p>
+                                <h4 class="font-semibold text-gray-900 mb-1">Anna Kowalska</h4>
+                                <p class="text-sm text-gray-600 mb-2">Wycieczka do Włoch</p>
+                                <div class="flex justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="bg-gray-50 rounded-2xl p-8 text-center">
+                                <div class="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden">
+                                    <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20satisfied%20male%20customer%2C%20middle%20aged%20man%20smiling%2C%20business%20portrait%20style%2C%20clean%20background%2C%20confident%20expression&width=200&height=200&seq=review002&orientation=squarish" alt="Marek Nowak" class="w-full h-full object-cover object-top">
+                                </div>
+                                <p class="text-lg text-gray-700 mb-6 italic leading-relaxed">
+                                    "Grecja to marzenie, które się spełniło dzięki PiotrTravel. Wszystko dopięte na ostatni guzik, 
+                                    hotele świetne, transport komfortowy. Na pewno skorzystamy ponownie!"
+                                </p>
+                                <h4 class="font-semibold text-gray-900 mb-1">Marek Nowak</h4>
+                                <p class="text-sm text-gray-600 mb-2">Wycieczka do Grecji</p>
+                                <div class="flex justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="bg-gray-50 rounded-2xl p-8 text-center">
+                                <div class="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden">
+                                    <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20satisfied%20female%20customer%2C%20young%20woman%20smiling%2C%20business%20portrait%20style%2C%20clean%20background%2C%20happy%20expression&width=200&height=200&seq=review003&orientation=squarish" alt="Katarzyna Wiśniewska" class="w-full h-full object-cover object-top">
+                                </div>
+                                <p class="text-lg text-gray-700 mb-6 italic leading-relaxed">
+                                    "Hiszpania zachwyciła nas od pierwszego dnia. Dzięki PiotrTravel mogliśmy zobaczyć 
+                                    najpiękniejsze miejsca bez stresu związanego z organizacją. Serdecznie polecam!"
+                                </p>
+                                <h4 class="font-semibold text-gray-900 mb-1">Katarzyna Wiśniewska</h4>
+                                <p class="text-sm text-gray-600 mb-2">Wycieczka do Hiszpanii</p>
+                                <div class="flex justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-center mt-8 gap-2">
+                        <button class="review-dot w-3 h-3 rounded-full bg-primary transition-all duration-300" data-slide="0"></button>
+                        <button class="review-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300" data-slide="1"></button>
+                        <button class="review-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300" data-slide="2"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-gradient-to-br from-primary to-secondary">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center text-white">
+                <h2 class="text-4xl font-bold mb-4">Bądź na bieżąco z naszymi ofertami</h2>
+                <p class="text-xl mb-8 opacity-90">
+                    Zapisz się do newslettera i otrzymuj informacje o najnowszych wycieczkach, 
+                    promocjach i inspirujących destynacjach.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                    <input 
+                        type="email" 
+                        placeholder="Twój adres e-mail" 
+                        class="flex-1 px-6 py-4 rounded-full text-gray-900 border-none focus:outline-none focus:ring-4 focus:ring-white/30 text-lg"
+                    >
+                    <button class="bg-white text-primary px-8 py-4 !rounded-button font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
+                        Zapisz się
+                    </button>
+                </div>
+                
+                <p class="text-sm mt-4 opacity-75">
+                    Nie wysyłamy spamu. Możesz zrezygnować w każdej chwili.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="relative max-w-4xl max-h-full">
+            <img id="lightbox-image" src="" alt="" class="max-w-full max-h-full object-contain">
+            <button class="absolute top-4 right-4 text-white text-3xl hover:text-gray-300 transition-colors" id="close-lightbox">
+                <i class="ri-close-line w-8 h-8 flex items-center justify-center"></i>
+            </button>
+        </div>
+    </div>
+
+    <script id="country-filter-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const countryFilters = document.querySelectorAll('.country-filter');
+            const tourCards = document.querySelectorAll('.tour-card');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            countryFilters.forEach(filter => {
+                filter.addEventListener('click', function() {
+                    const country = this.dataset.country;
+                    
+                    countryFilters.forEach(f => f.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    tourCards.forEach(card => {
+                        if (country === 'all' || card.dataset.country === country) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    
+                    galleryItems.forEach(item => {
+                        if (country === 'all' || item.dataset.country === country) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+    <script id="gallery-lightbox-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const closeLightbox = document.getElementById('close-lightbox');
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const img = this.querySelector('img');
+                    lightboxImage.src = img.src;
+                    lightboxImage.alt = img.alt;
+                    lightbox.classList.add('active');
+                });
+            });
+
+            closeLightbox.addEventListener('click', function() {
+                lightbox.classList.remove('active');
+            });
+
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    lightbox.classList.remove('active');
+                }
+            });
+        });
+    </script>
+
+    <script id="reviews-slider-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.getElementById('reviews-slider');
+            const dots = document.querySelectorAll('.review-dot');
+            let currentSlide = 0;
+
+            function goToSlide(slideIndex) {
+                currentSlide = slideIndex;
+                slider.style.transform = `translateX(-${slideIndex * 100}%)`;
+                
+                dots.forEach((dot, index) => {
+                    if (index === slideIndex) {
+                        dot.classList.remove('bg-gray-300');
+                        dot.classList.add('bg-primary');
+                    } else {
+                        dot.classList.remove('bg-primary');
+                        dot.classList.add('bg-gray-300');
+                    }
+                });
+            }
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => goToSlide(index));
+            });
+
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % 3;
+                goToSlide(currentSlide);
+            }, 5000);
+        });
+    </script>
+
+</body>
+</html>

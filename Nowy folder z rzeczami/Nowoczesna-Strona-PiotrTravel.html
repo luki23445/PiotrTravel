@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>piotrTravel - Odkryj Świat z Nami | Najlepsze Wycieczki po Europie</title>
+    <meta name="description" content="piotrTravel oferuje niezapomniane wycieczki po najpiękniejszych miastach Europy. Profesjonalne przewodnictwo, komfortowy transport, gwarancja najlepszej ceny.">
+    
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#7c3aed'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.8) 0%, rgba(124, 58, 237, 0.6) 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .price-badge {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+        
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 53%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40%, 43% {
+                transform: translateY(-10px);
+            }
+            70% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+        
+        .country-filter.active {
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .country-filter {
+            transition: all 0.3s ease;
+        }
+        
+        .country-filter:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=Beautiful%20European%20city%20panorama%20with%20historic%20architecture%2C%20cobblestone%20streets%2C%20and%20charming%20buildings%20during%20golden%20hour%2C%20travel%20destination%20atmosphere%2C%20professional%20photography%20style%2C%20high%20quality%2C%20cinematic%20lighting%2C%20wide%20landscape%20view%20perfect%20for%20travel%20website%20hero%20background&width=1920&height=1080&seq=hero001&orientation=landscape'); background-size: cover; background-position: center;">
+        <div class="hero-gradient absolute inset-0"></div>
+        
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-6 text-center text-white">
+            <h1 class="text-6xl font-bold mb-6 leading-tight">
+                Odkryj Świat z <span class="font-['Pacifico'] text-yellow-300">piotrTravel</span>
+            </h1>
+            <p class="text-xl mb-12 max-w-3xl mx-auto opacity-90">
+                Profesjonalne wycieczki po najpiękniejszych miastach Europy. Doświadczenie, komfort i niezapomniane wspomnienia w jednej podróży.
+            </p>
+            
+            <!-- Search Form -->
+            <div class="bg-white rounded-2xl p-8 max-w-4xl mx-auto shadow-2xl">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+                    <div class="text-left">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Destynacja</label>
+                        <div class="relative">
+                            <div class="w-6 h-6 flex items-center justify-center absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <input type="text" placeholder="Wybierz miasto" class="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-gray-900">
+                        </div>
+                    </div>
+                    <div class="text-left">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Data wyjazdu</label>
+                        <div class="relative">
+                            <div class="w-6 h-6 flex items-center justify-center absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                                <i class="ri-calendar-line"></i>
+                            </div>
+                            <input type="date" class="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-gray-900">
+                        </div>
+                    </div>
+                    <div class="text-left">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Budżet</label>
+                        <div class="relative">
+                            <div class="w-6 h-6 flex items-center justify-center absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                                <i class="ri-money-euro-circle-line"></i>
+                            </div>
+                            <input type="text" placeholder="Do 1000 PLN" class="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-gray-900">
+                        </div>
+                    </div>
+                    <button class="bg-primary text-white px-8 py-3 rounded-button font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap cursor-pointer">
+                        Szukaj wycieczek
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white scroll-indicator cursor-pointer">
+            <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-arrow-down-line ri-2x"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filtry po krajach -->
+    <section class="py-16 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Wybierz Swój Kierunek</h2>
+                <p class="text-lg text-gray-600">Przeglądaj oferty według krajów i znajdź idealną wycieczkę</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <div class="country-filter bg-white p-6 rounded-2xl text-center shadow-sm cursor-pointer" data-country="wszystkie">
+                    <div class="w-16 h-16 mx-auto mb-3 rounded-xl overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=Beautiful%20European%20map%20illustration%20with%20colorful%20countries%2C%20travel%20destinations%20overview%2C%20professional%20design%2C%20clean%20background&width=80&height=80&seq=europe-all&orientation=squarish'); background-size: cover; background-position: center;"></div>
+                    <h3 class="font-semibold text-gray-900">Wszystkie</h3>
+                    <p class="text-sm text-gray-600">47 wycieczek</p>
+                </div>
+                
+                <div class="country-filter bg-white p-6 rounded-2xl text-center shadow-sm cursor-pointer" data-country="wlochy">
+                    <div class="w-16 h-16 mx-auto mb-3 rounded-xl overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=Italian%20flag%20colors%20and%20iconic%20Italian%20landmarks%20silhouette%2C%20Rome%20Colosseum%2C%20Venice%20gondolas%2C%20travel%20destination%20symbol%2C%20clean%20design&width=80&height=80&seq=italy-flag&orientation=squarish'); background-size: cover; background-position: center;"></div>
+                    <h3 class="font-semibold text-gray-900">Włochy</h3>
+                    <p class="text-sm text-gray-600">12 wycieczek</p>
+                </div>
+                
+                <div class="country-filter bg-white p-6 rounded-2xl text-center shadow-sm cursor-pointer" data-country="grecja">
+                    <div class="w-16 h-16 mx-auto mb-3 rounded-xl overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=Greek%20flag%20colors%20with%20ancient%20Greek%20columns%20and%20Mediterranean%20sea%2C%20travel%20destination%20symbol%2C%20clean%20design%2C%20blue%20and%20white%20theme&width=80&height=80&seq=greece-flag&orientation=squarish'); background-size: cover; background-position: center;"></div>
+                    <h3 class="font-semibold text-gray-900">Grecja</h3>
+                    <p class="text-sm text-gray-600">8 wycieczek</p>
+                </div>
+                
+                <div class="country-filter bg-white p-6 rounded-2xl text-center shadow-sm cursor-pointer" data-country="hiszpania">
+                    <div class="w-16 h-16 mx-auto mb-3 rounded-xl overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=Spanish%20flag%20colors%20with%20flamenco%20dancer%20silhouette%20and%20Spanish%20architecture%2C%20travel%20destination%20symbol%2C%20clean%20design%2C%20red%20and%20yellow%20theme&width=80&height=80&seq=spain-flag&orientation=squarish'); background-size: cover; background-position: center;"></div>
+                    <h3 class="font-semibold text-gray-900">Hiszpania</h3>
+                    <p class="text-sm text-gray-600">9 wycieczek</p>
+                </div>
+                
+                <div class="country-filter bg-white p-6 rounded-2xl text-center shadow-sm cursor-pointer" data-country="czechy">
+                    <div class="w-16 h-16 mx-auto mb-3 rounded-xl overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=Czech%20Republic%20flag%20colors%20with%20Prague%20Castle%20silhouette%2C%20travel%20destination%20symbol%2C%20clean%20design%2C%20red%20white%20and%20blue%20theme&width=80&height=80&seq=czech-flag&orientation=squarish'); background-size: cover; background-position: center;"></div>
+                    <h3 class="font-semibold text-gray-900">Czechy</h3>
+                    <p class="text-sm text-gray-600">6 wycieczek</p>
+                </div>
+                
+                <div class="country-filter bg-white p-6 rounded-2xl text-center shadow-sm cursor-pointer" data-country="francja">
+                    <div class="w-16 h-16 mx-auto mb-3 rounded-xl overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=French%20flag%20colors%20with%20Eiffel%20Tower%20silhouette%2C%20travel%20destination%20symbol%2C%20clean%20design%2C%20blue%20white%20and%20red%20theme&width=80&height=80&seq=france-flag&orientation=squarish'); background-size: cover; background-position: center;"></div>
+                    <h3 class="font-semibold text-gray-900">Francja</h3>
+                    <p class="text-sm text-gray-600">5 wycieczek</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wyróżnione Oferty -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Najpopularniejsze Wycieczki</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Odkryj najpiękniejsze miasta Europy z naszymi starannie przygotowanymi programami
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Wycieczka 1 - Włochy -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <div class="relative h-64" style="background-image: url('https://readdy.ai/api/search-image?query=Beautiful%20Italian%20landscape%20with%20Rome%20Colosseum%2C%20Vatican%2C%20and%20Florence%20architecture%2C%20classic%20Italian%20travel%20destinations%2C%20golden%20hour%20lighting%2C%20professional%20photography&width=400&height=300&seq=italy001&orientation=landscape'); background-size: cover; background-position: center;">
+                        <div class="absolute top-4 right-4 price-badge text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            Samolot
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Włochy - Rzym, Watykan, Asyż</h3>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Rzym</span>
+                            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Watykan</span>
+                            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Asyż</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-500">
+                                    <i class="ri-time-line"></i>
+                                </div>
+                                <span class="text-gray-600">7 dni</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-500">
+                                    <i class="ri-calendar-line"></i>
+                                </div>
+                                <span class="text-gray-600">20-26.09.2025</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <div class="text-2xl font-bold text-gray-900">2,390 PLN</div>
+                                <div class="text-lg text-gray-600">567 EUR</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm text-gray-500">od osoby</div>
+                                <div class="text-sm text-gray-600">Transport: samolot</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <button class="flex-1 bg-gray-100 text-gray-700 py-3 rounded-button font-semibold hover:bg-gray-200 transition-colors whitespace-nowrap cursor-pointer">
+                                Szczegóły
+                            </button>
+                            <button class="flex-1 bg-primary text-white py-3 rounded-button font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap cursor-pointer">
+                                Rezerwuj
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wycieczka 2 - Grecja -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <div class="relative h-64" style="background-image: url('https://readdy.ai/api/search-image?query=Beautiful%20Greek%20islands%20with%20white%20buildings%2C%20blue%20domes%2C%20ancient%20Greek%20temples%2C%20Mediterranean%20sea%20landscape%2C%20travel%20destination%2C%20professional%20photography&width=400&height=300&seq=greece001&orientation=landscape'); background-size: cover; background-position: center;">
+                        <div class="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            Autokar
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Grecja - Ateny, Kalambaka, Delfiny</h3>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Ateny</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Kalambaka</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Meteora</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-500">
+                                    <i class="ri-time-line"></i>
+                                </div>
+                                <span class="text-gray-600">11 dni</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-500">
+                                    <i class="ri-calendar-line"></i>
+                                </div>
+                                <span class="text-gray-600">22.09-2.10.2025</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <div class="text-2xl font-bold text-gray-900">1,890 PLN</div>
+                                <div class="text-lg text-gray-600">448 EUR</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm text-gray-500">od osoby</div>
+                                <div class="text-sm text-gray-600">Transport: autokar</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <button class="flex-1 bg-gray-100 text-gray-700 py-3 rounded-button font-semibold hover:bg-gray-200 transition-colors whitespace-nowrap cursor-pointer">
+                                Szczegóły
+                            </button>
+                            <button class="flex-1 bg-primary text-white py-3 rounded-button font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap cursor-pointer">
+                                Rezerwuj
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wycieczka 3 - Hiszpania -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <div class="relative h-64" style="background-image: url('https://readdy.ai/api/search-image?query=Beautiful%20Spanish%20landscape%20with%20Madrid%20architecture%2C%20flamenco%20culture%2C%20Barcelona%20Sagrada%20Familia%2C%20Spanish%20travel%20destinations%2C%20professional%20photography&width=400&height=300&seq=spain001&orientation=landscape'); background-size: cover; background-position: center;">
+                        <div class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            Nowość
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Hiszpania - Madryt, Toledo, Segowia</h3>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Madryt</span>
+                            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Toledo</span>
+                            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Segowia</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-500">
+                                    <i class="ri-time-line"></i>
+                                </div>
+                                <span class="text-gray-600">5 dni</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-500">
+                                    <i class="ri-calendar-line"></i>
+                                </div>
+                                <span class="text-gray-600">10-14.10.2025</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <div class="text-2xl font-bold text-gray-900">1,650 PLN</div>
+                                <div class="text-lg text-gray-600">391 EUR</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm text-gray-500">od osoby</div>
+                                <div class="text-sm text-gray-600">Transport: autokar</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <button class="flex-1 bg-gray-100 text-gray-700 py-3 rounded-button font-semibold hover:bg-gray-200 transition-colors whitespace-nowrap cursor-pointer">
+                                Szczegóły
+                            </button>
+                            <button class="flex-1 bg-primary text-white py-3 rounded-button font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap cursor-pointer">
+                                Rezerwuj
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Galeria Naszych Wycieczek</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Zobacz najpiękniejsze chwile z naszych podróży i daj się zainspirować
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+                    <div class="h-64" style="background-image: url('https://readdy.ai/api/search-image?query=Happy%20tourists%20group%20photo%20in%20front%20of%20Prague%20Charles%20Bridge%2C%20smiling%20people%2C%20European%20travel%20memories%2C%20professional%20photography%2C%20warm%20lighting&width=300&height=300&seq=gallery001&orientation=squarish'); background-size: cover; background-position: center;"></div>
+                </div>
+                
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+                    <div class="h-64" style="background-image: url('https://readdy.ai/api/search-image?query=Beautiful%20sunset%20view%20from%20travel%20bus%20window%20showing%20European%20countryside%2C%20travel%20journey%20atmosphere%2C%20golden%20hour%20lighting%2C%20scenic%20landscape&width=300&height=300&seq=gallery002&orientation=squarish'); background-size: cover; background-position: center;"></div>
+                </div>
+                
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+                    <div class="h-64" style="background-image: url('https://readdy.ai/api/search-image?query=Elegant%20European%20restaurant%20interior%20with%20tourists%20dining%2C%20cultural%20food%20experience%2C%20warm%20atmosphere%2C%20travel%20dining%20memories&width=300&height=300&seq=gallery003&orientation=squarish'); background-size: cover; background-position: center;"></div>
+                </div>
+                
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+                    <div class="h-64" style="background-image: url('https://readdy.ai/api/search-image?query=Historic%20European%20castle%20with%20tourists%20walking%20in%20courtyard%2C%20sightseeing%20experience%2C%20cultural%20tourism%2C%20beautiful%20architecture&width=300&height=300&seq=gallery004&orientation=squarish'); background-size: cover; background-position: center;"></div>
+                </div>
+                
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+                    <div class="h-64" style="background-image: url('https://readdy.ai/api/search-image?query=Professional%20tour%20guide%20explaining%20history%20to%20interested%20tourists%2C%20educational%20travel%20experience%2C%20European%20city%20background%2C%20engaging%20presentation&width=300&height=300&seq=gallery005&orientation=squarish'); background-size: cover; background-position: center;"></div>
+                </div>
+                
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+                    <div class="h-64" style="background-image: url('https://readdy.ai/api/search-image?query=Comfortable%20travel%20bus%20interior%20with%20happy%20passengers%2C%20modern%20transport%2C%20travel%20comfort%2C%20smiling%20travelers%20during%20journey&width=300&height=300&seq=gallery006&orientation=squarish'); background-size: cover; background-position: center;"></div>
+                </div>
+                
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+                    <div class="h-64" style="background-image: url('https://readdy.ai/api/search-image?query=Beautiful%20European%20city%20market%20square%20with%20tourists%20shopping%2C%20local%20culture%20experience%2C%20colorful%20market%20stalls%2C%20travel%20memories&width=300&height=300&seq=gallery007&orientation=squarish'); background-size: cover; background-position: center;"></div>
+                </div>
+                
+                <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+                    <div class="h-64" style="background-image: url('https://readdy.ai/api/search-image?query=Group%20of%20friends%20taking%20selfie%20in%20front%20of%20famous%20European%20landmark%2C%20travel%20friendship%20memories%2C%20happy%20tourists%2C%20vacation%20photo&width=300&height=300&seq=gallery008&orientation=squarish'); background-size: cover; background-position: center;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dlaczego My -->
+    <section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Dlaczego piotrTravel?</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Ponad 15 lat doświadczenia w organizacji niezapomnianych podróży
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-2xl mx-auto mb-4">
+                        <i class="ri-award-line ri-2x text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">15+ Lat Doświadczenia</h3>
+                    <p class="text-gray-600">
+                        Organizujemy wycieczki od 2008 roku. Zaufało nam już ponad 50 000 zadowolonych klientów z całej Polski.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-green-100 rounded-2xl mx-auto mb-4">
+                        <i class="ri-price-tag-3-line ri-2x text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Gwarancja Najlepszej Ceny</h3>
+                    <p class="text-gray-600">
+                        Znajdziesz taniej? Zwrócimy różnicę! Gwarantujemy najlepsze ceny na rynku bez ukrytych kosztów.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-purple-100 rounded-2xl mx-auto mb-4">
+                        <i class="ri-user-star-line ri-2x text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Profesjonalni Przewodnicy</h3>
+                    <p class="text-gray-600">
+                        Nasi licencjonowani przewodnicy to pasjonaci historii i kultury odwiedzanych miejsc.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-yellow-100 rounded-2xl mx-auto mb-4">
+                        <i class="ri-bus-line ri-2x text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Komfortowy Transport</h3>
+                    <p class="text-gray-600">
+                        Nowoczesne, klimatyzowane autobusy z Wi-Fi i wygodnymi fotelami dla maksymalnego komfortu podróży.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-red-100 rounded-2xl mx-auto mb-4">
+                        <i class="ri-shield-check-line ri-2x text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Pełne Bezpieczeństwo</h3>
+                    <p class="text-gray-600">
+                        Kompleksowe ubezpieczenie, certyfikowani kierowcy i stała opieka podczas całej podróży.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-indigo-100 rounded-2xl mx-auto mb-4">
+                        <i class="ri-customer-service-2-line ri-2x text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Wsparcie 24/7</h3>
+                    <p class="text-gray-600">
+                        Jesteśmy dostępni dla naszych klientów przez całą dobę, 7 dni w tygodniu podczas wycieczek.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popularne Kierunki -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Popularne Kierunki</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Odkryj najchętniej wybierane przez naszych klientów destynacje
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="relative h-96 rounded-2xl overflow-hidden" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png'); background-size: cover; background-position: center;">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <h3 class="text-2xl font-bold mb-2">Interaktywna Mapa Destynacji</h3>
+                        <p class="text-lg opacity-90">Kliknij na znaczniki, aby poznać szczegóły</p>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+                        <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0" style="background-image: url('https://readdy.ai/api/search-image?query=Beautiful%20Prague%20Old%20Town%20Square%20with%20colorful%20baroque%20buildings%20and%20historic%20architecture%2C%20European%20city%20center%2C%20travel%20destination%2C%20professional%20photography&width=80&height=80&seq=prague-thumb&orientation=squarish'); background-size: cover; background-position: center;"></div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-gray-900">Praga</h4>
+                            <p class="text-gray-600 text-sm">Złote miasto nad Wełtawą</p>
+                            <div class="flex items-center gap-2 mt-1">
+                                <span class="text-primary font-semibold">od 299 PLN</span>
+                                <span class="text-gray-500">/ 71 EUR</span>
+                            </div>
+                        </div>
+                        <div class="w-6 h-6 flex items-center justify-center text-gray-400">
+                            <i class="ri-arrow-right-line"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+                        <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0" style="background-image: url('https://readdy.ai/api/search-image?query=Beautiful%20Vienna%20Sch%C3%B6nbrunn%20Palace%20with%20baroque%20architecture%20and%20gardens%2C%20Austrian%20imperial%20architecture%2C%20European%20travel%20destination%2C%20professional%20photography&width=80&height=80&seq=vienna-thumb&orientation=squarish'); background-size: cover; background-position: center;"></div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-gray-900">Wiedeń</h4>
+                            <p class="text-gray-600 text-sm">Cesarska stolica muzyki</p>
+                            <div class="flex items-center gap-2 mt-1">
+                                <span class="text-primary font-semibold">od 399 PLN</span>
+                                <span class="text-gray-500">/ 95 EUR</span>
+                            </div>
+                        </div>
+                        <div class="w-6 h-6 flex items-center justify-center text-gray-400">
+                            <i class="ri-arrow-right-line"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+                        <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0" style="background-image: url('https://readdy.ai/api/search-image?query=Beautiful%20Budapest%20Parliament%20building%20at%20night%20with%20Danube%20river%20reflections%2C%20Hungarian%20architecture%2C%20European%20capital%20city%2C%20professional%20photography&width=80&height=80&seq=budapest-thumb&orientation=squarish'); background-size: cover; background-position: center;"></div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-gray-900">Budapeszt</h4>
+                            <p class="text-gray-600 text-sm">Perła nad Dunajem</p>
+                            <div class="flex items-center gap-2 mt-1">
+                                <span class="text-primary font-semibold">od 349 PLN</span>
+                                <span class="text-gray-500">/ 83 EUR</span>
+                            </div>
+                        </div>
+                        <div class="w-6 h-6 flex items-center justify-center text-gray-400">
+                            <i class="ri-arrow-right-line"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+                        <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0" style="background-image: url('https://readdy.ai/api/search-image?query=Beautiful%20Rome%20Colosseum%20ancient%20architecture%20with%20historic%20Roman%20ruins%2C%20Italian%20landmark%2C%20European%20travel%20destination%2C%20professional%20photography&width=80&height=80&seq=rome-thumb&orientation=squarish'); background-size: cover; background-position: center;"></div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-gray-900">Rzym</h4>
+                            <p class="text-gray-600 text-sm">Wieczne miasto</p>
+                            <div class="flex items-center gap-2 mt-1">
+                                <span class="text-primary font-semibold">od 599 PLN</span>
+                                <span class="text-gray-500">/ 142 EUR</span>
+                            </div>
+                        </div>
+                        <div class="w-6 h-6 flex items-center justify-center text-gray-400">
+                            <i class="ri-arrow-right-line"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statystyki -->
+    <section class="py-20 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">piotrTravel w Liczbach</h2>
+                <p class="text-xl opacity-90">Nasza historia w faktach i osiągnięciach</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-4xl font-bold mb-2">50,000+</div>
+                    <div class="text-lg opacity-90">Zadowolonych klientów</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold mb-2">15</div>
+                    <div class="text-lg opacity-90">Lat doświadczenia</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold mb-2">120+</div>
+                    <div class="text-lg opacity-90">Destynacji</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold mb-2">98%</div>
+                    <div class="text-lg opacity-90">Pozytywnych opinii</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opinie Klientów -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Co Mówią Nasi Klienci</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Przeczytaj opinie zadowolonych uczestników naszych wycieczek
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card p-6 rounded-2xl">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-fill text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">
+                        "Fantastyczna wycieczka do Grecji! Przewodnik był bardzo kompetentny, a organizacja na najwyższym poziomie. Meteora to coś niesamowitego!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-white font-bold">
+                            AM
+                        </div>
+                        <div>
+                            <div class="font-semibold text-gray-900">Anna Makowska</div>
+                            <div class="text-sm text-gray-600">Wycieczka: Grecja - Ateny</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card p-6 rounded-2xl">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-fill text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">
+                        "Włochy z piotrTravel to był strzał w dziesiątkę. Watykan, Rzym, Asyż - każde miejsce zachwycało. Polecam z całego serca!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center text-white font-bold">
+                            MK
+                        </div>
+                        <div>
+                            <div class="font-semibold text-gray-900">Marcin Kowalski</div>
+                            <div class="text-sm text-gray-600">Wycieczka: Włochy - Rzym</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card p-6 rounded-2xl">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-fill text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">
+                        "Hiszpania była niesamowita! Madryt, Toledo - każde miasto miało swój urok. Organizacja perfekcyjna, już planujemy kolejną podróż."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-red-500 rounded-full flex items-center justify-center text-white font-bold">
+                            KN
+                        </div>
+                        <div>
+                            <div class="font-semibold text-gray-900">Katarzyna Nowak</div>
+                            <div class="text-sm text-gray-600">Wycieczka: Hiszpania - Madryt</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-20 relative overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=Beautiful%20European%20landscape%20with%20mountains%20and%20historic%20cities%20in%20distance%2C%20travel%20newsletter%20background%2C%20soft%20lighting%2C%20professional%20photography%2C%20wide%20panoramic%20view%2C%20inspiring%20travel%20atmosphere&width=1920&height=600&seq=newsletter001&orientation=landscape'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-secondary/80"></div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center text-white">
+            <h2 class="text-4xl font-bold mb-4">Bądź Na Bieżąco z Najlepszymi Ofertami</h2>
+            <p class="text-xl mb-8 opacity-90">
+                Zapisz się do naszego newslettera i otrzymuj ekskluzywne promocje oraz informacje o nowych wycieczkach
+            </p>
+            
+            <div class="bg-white rounded-2xl p-8 max-w-2xl mx-auto">
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="flex-1">
+                        <input type="email" placeholder="Twój adres e-mail" class="w-full px-6 py-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-gray-900">
+                    </div>
+                    <button class="bg-primary text-white px-8 py-4 rounded-button font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap cursor-pointer">
+                        Zapisz się
+                    </button>
+                </div>
+                <div class="flex items-center justify-center gap-6 mt-6 text-sm text-gray-600">
+                    <div class="flex items-center gap-2">
+                        <div class="w-4 h-4 flex items-center justify-center text-green-600">
+                            <i class="ri-check-line"></i>
+                        </div>
+                        <span>Ekskluzywne promocje</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="w-4 h-4 flex items-center justify-center text-green-600">
+                            <i class="ri-check-line"></i>
+                        </div>
+                        <span>Nowe destynacje</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="w-4 h-4 flex items-center justify-center text-green-600">
+                            <i class="ri-check-line"></i>
+                        </div>
+                        <span>Porady podróżnicze</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script id="scroll-animation">
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            
+            scrollIndicator.addEventListener('click', function() {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+    <script id="card-interactions">
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card-hover');
+            
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+
+    <script id="destination-interactions">
+        document.addEventListener('DOMContentLoaded', function() {
+            const destinationItems = document.querySelectorAll('section:nth-of-type(6) .space-y-6 > div');
+            
+            destinationItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const cityName = this.querySelector('h4').textContent;
+                    console.log(`Clicked on ${cityName}`);
+                });
+            });
+        });
+    </script>
+
+    <script id="country-filter-interactions">
+        document.addEventListener('DOMContentLoaded', function() {
+            const countryFilters = document.querySelectorAll('.country-filter');
+            
+            countryFilters.forEach(filter => {
+                filter.addEventListener('click', function() {
+                    countryFilters.forEach(f => f.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const country = this.getAttribute('data-country');
+                    console.log(`Selected country filter: ${country}`);
+                });
+            });
+        });
+    </script>
+
+    <script id="gallery-interactions">
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    console.log('Gallery item clicked');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
