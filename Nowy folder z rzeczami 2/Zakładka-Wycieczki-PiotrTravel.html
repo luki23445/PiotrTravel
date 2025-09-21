@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wycieczki - PiotrTravel | Najlepsze oferty wyjazdów po Europie</title>
+    <meta name="description" content="Odkryj najpiękniejsze miasta Europy z PiotrTravel. Wycieczki objazdowe i pobytowe z profesjonalną obsługą. Ceny w PLN i EUR. Rezerwuj już dziś!">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#1e40af'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-poppins">
+    <div class="min-h-screen">
+        <div class="container mx-auto px-4 py-8 max-w-7xl">
+            <div class="mb-8">
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">Nasze Wycieczki</h1>
+                <p class="text-lg text-gray-600 max-w-2xl">Odkryj najpiękniejsze zakątki Europy z naszymi starannie przygotowanymi wycieczkami. Profesjonalna obsługa, komfortowe podróże i niezapomniane wrażenia.</p>
+            </div>
+
+            <div class="flex gap-8">
+                <aside class="w-80 flex-shrink-0">
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 sticky top-8">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-6">Filtry</h2>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-3">Zakres cenowy</label>
+                                <div class="space-y-3">
+                                    <div>
+                                        <div class="flex justify-between text-sm text-gray-600 mb-2">
+                                            <span>PLN</span>
+                                            <span id="price-pln-display">500 - 3000 zł</span>
+                                        </div>
+                                        <div class="relative">
+                                            <input type="range" id="price-pln" min="500" max="5000" value="3000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-pln">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between text-sm text-gray-600 mb-2">
+                                            <span>EUR</span>
+                                            <span id="price-eur-display">120 - 720 €</span>
+                                        </div>
+                                        <div class="relative">
+                                            <input type="range" id="price-eur" min="120" max="1200" value="720" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-eur">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-3">Długość wycieczki</label>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <button class="duration-btn px-3 py-2 text-sm border border-gray-300 rounded-button text-gray-700 hover:border-primary hover:text-primary transition-colors whitespace-nowrap" data-duration="3-5">3-5 dni</button>
+                                    <button class="duration-btn px-3 py-2 text-sm border border-gray-300 rounded-button text-gray-700 hover:border-primary hover:text-primary transition-colors whitespace-nowrap" data-duration="6-8">6-8 dni</button>
+                                    <button class="duration-btn px-3 py-2 text-sm border border-gray-300 rounded-button text-gray-700 hover:border-primary hover:text-primary transition-colors whitespace-nowrap" data-duration="9-12">9-12 dni</button>
+                                    <button class="duration-btn px-3 py-2 text-sm border border-gray-300 rounded-button text-gray-700 hover:border-primary hover:text-primary transition-colors whitespace-nowrap" data-duration="13+">13+ dni</button>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-3">Destynacje</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="destination-checkbox rounded border-gray-300 text-primary focus:ring-primary" value="włochy">
+                                        <span class="ml-2 text-sm text-gray-700">Włochy</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="destination-checkbox rounded border-gray-300 text-primary focus:ring-primary" value="francja">
+                                        <span class="ml-2 text-sm text-gray-700">Francja</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="destination-checkbox rounded border-gray-300 text-primary focus:ring-primary" value="hiszpania">
+                                        <span class="ml-2 text-sm text-gray-700">Hiszpania</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="destination-checkbox rounded border-gray-300 text-primary focus:ring-primary" value="niemcy">
+                                        <span class="ml-2 text-sm text-gray-700">Niemcy</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="destination-checkbox rounded border-gray-300 text-primary focus:ring-primary" value="austria">
+                                        <span class="ml-2 text-sm text-gray-700">Austria</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-3">Typ wycieczki</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="radio" name="trip-type" class="text-primary focus:ring-primary" value="objazdowa">
+                                        <span class="ml-2 text-sm text-gray-700">Objazdowa</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="trip-type" class="text-primary focus:ring-primary" value="pobytowa">
+                                        <span class="ml-2 text-sm text-gray-700">Pobytowa</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="trip-type" class="text-primary focus:ring-primary" value="mieszana">
+                                        <span class="ml-2 text-sm text-gray-700">Mieszana</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-3">Poziom komfortu</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="comfort-checkbox rounded border-gray-300 text-primary focus:ring-primary" value="standard">
+                                        <span class="ml-2 text-sm text-gray-700">Standard</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="comfort-checkbox rounded border-gray-300 text-primary focus:ring-primary" value="premium">
+                                        <span class="ml-2 text-sm text-gray-700">Premium</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="comfort-checkbox rounded border-gray-300 text-primary focus:ring-primary" value="luxury">
+                                        <span class="ml-2 text-sm text-gray-700">Luxury</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button id="apply-filters" class="w-full bg-primary text-white py-3 px-4 rounded-button font-medium hover:bg-secondary transition-colors whitespace-nowrap">
+                                Zastosuj filtry
+                            </button>
+
+                            <button id="reset-filters" class="w-full border border-gray-300 text-gray-700 py-3 px-4 rounded-button font-medium hover:border-gray-400 transition-colors whitespace-nowrap">
+                                Wyczyść filtry
+                            </button>
+                        </div>
+                    </div>
+                </aside>
+
+                <main class="flex-1">
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="text-sm text-gray-600">
+                            Znaleziono <span id="results-count">12</span> wycieczek
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <label class="text-sm text-gray-700">Sortuj:</label>
+                            <select id="sort-select" class="border border-gray-300 rounded-button px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent pr-8">
+                                <option value="price-asc">Cena: od najniższej</option>
+                                <option value="price-desc">Cena: od najwyższej</option>
+                                <option value="duration-asc">Długość: najkrótsze</option>
+                                <option value="duration-desc">Długość: najdłuższe</option>
+                                <option value="name">Nazwa A-Z</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="trips-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <article class="trip-card bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow" data-price-pln="1890" data-price-eur="450" data-duration="7" data-destination="włochy" data-type="objazdowa" data-comfort="premium">
+                            <div class="relative h-64 overflow-hidden">
+                                <img src="https://readdy.ai/api/search-image?query=Beautiful%20Italian%20countryside%20with%20rolling%20hills%2C%20vineyards%2C%20and%20charming%20medieval%20towns%2C%20golden%20hour%20lighting%2C%20professional%20travel%20photography%2C%20high%20quality%2C%20detailed%20landscape&width=400&height=256&seq=italy1&orientation=landscape" alt="Toskania i Rzym - malownicze krajobrazy" class="w-full h-full object-cover object-top">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-3">Toskania i Rzym - Perły Włoch</h3>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                        <div class="w-3 h-3 flex items-center justify-center mr-1">
+                                            <i class="ri-map-pin-line text-xs"></i>
+                                        </div>
+                                        Rzym
+                                    </span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                        <div class="w-3 h-3 flex items-center justify-center mr-1">
+                                            <i class="ri-map-pin-line text-xs"></i>
+                                        </div>
+                                        Florencja
+                                    </span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                                        <div class="w-3 h-3 flex items-center justify-center mr-1">
+                                            <i class="ri-map-pin-line text-xs"></i>
+                                        </div>
+                                        Siena
+                                    </span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                                        <div class="w-3 h-3 flex items-center justify-center mr-1">
+                                            <i class="ri-map-pin-line text-xs"></i>
+                                        </div>
+                                        Piza
+                                    </span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600 mb-4">
+                                    <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                        <i class="ri-calendar-line"></i>
+                                    </div>
+                                    <span>7 dni | Najbliższe terminy: 15.04, 22.04, 29.04</span>
+                                </div>
+                                <div class="flex justify-between items-end">
+                                    <div>
+                                        <div class="text-2xl font-bold text-gray-900">1 890 zł</div>
+                                        <div class="text-lg text-gray-600">450 €</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <button class="px-4 py-2 border border-primary text-primary rounded-button hover:bg-primary hover:text-white transition-colors whitespace-nowrap">Szczegóły</button>
+                                        <button class="px-4 py-2 bg-primary text-white rounded-button hover:bg-secondary transition-colors whitespace-nowrap">Zarezerwuj</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="trip-card bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow" data-price-pln="2340" data-price-eur="560" data-duration="8" data-destination="francja" data-type="objazdowa" data-comfort="luxury">
+                            <div class="relative h-64 overflow-hidden">
+                                <img src="https://readdy.ai/api/search-image?query=Elegant%20French%20countryside%20with%20lavender%20fields%2C%20charming%20villages%2C%20and%20historic%20ch%C3%A2teaux%2C%20soft%20morning%20light%2C%20professional%20travel%20photography%2C%20luxury%20tourism%20style&width=400&height=256&seq=france1&orientation=landscape" alt="Prowansja i Lazurowe Wybrzeże" class="w-full h-full object-cover object-top">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-3">Prowansja i Lazurowe Wybrzeże</h3>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                        <div class="w-3 h-3 flex items-center justify-center mr-1">
+                                            <i class="ri-map-pin-line text-xs"></i>
+                                        </div>
+                                        Nicea
+                                    </span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                        <div class="w-3 h-3 flex items-center justify-center mr-1">
+                                            <i class="ri-map-pin-line text-xs"></i>
+                                        </div>
+                                        Cannes
+                                    </span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                                        <div class="w-3 h-3 flex items-center justify-center mr-1">
+                                            <i class="ri-map-pin-line text-xs"></i>
+                                        </div>
+                                        Awinion
+                                    </span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                                        <div class="w-3 h-3 flex items-center justify-center mr-1">
+                                            <i class="ri-map-pin-line text-xs"></i>
+                                        </div>
+                                        Marsylia
+                                    </span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600 mb-4">
+                                    <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                        <i class="ri-calendar-line"></i>
+                                    </div>
+                                    <span>8 dni | Najbliższe terminy: 18.04, 25.04, 02.05</span>
+                                </div>
+                                <div class="flex justify-between items-end">
+                                    <div>
+                                        <div class="text-2xl font-bold text-gray-900">2 340 zł</div>
+                                        <div class="text-lg text-gray-600">560 €</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <button class="px-4 py-2 border border-primary text-primary rounded-button hover:bg-primary hover:text-white transition-colors whitespace-nowrap">Szczegóły</button>
+                                        <button class="px-4 py-2 bg-primary text-white rounded-button hover:bg-secondary transition-colors whitespace-nowrap">Zarezerwuj</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="trip-card bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow" data-price-pln="1650" data-price-eur="395" data-duration="6" data-destination="hiszpania" data-type="mieszana" data-comfort="standard">
+                            <div class="relative h-64 overflow-hidden">
+                                <img src="https://readdy.ai/api/search-image?query=Vibrant%20Spanish%20architecture%20with%20colorful%20buildings%2C%20historic%20plazas%2C%20and%20Mediterranean%20coastline%2C%20warm%20golden%20lighting%2C%20professional%20travel%20photography&width=400&height=256&seq=spain1&orientation=landscape" alt="Barcelona i Costa Brava" class="w-full h-full object-cover object-top">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-3">Barcelona i Costa Brava</h3>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                        <div class="w-3 h-3 flex items-center justify-center mr-1">
+                                            <i class="ri-map-pin-line text-xs"></i>
+                                        </div>
+                                        Barcelona
+                                    </span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                        <div class="w-3 h-3 flex items-center justify-center mr-1">
+                                            <i class="ri-map-pin-line text-xs"></i>
+                                        </div>
+                                        Girona
+                                    </span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                                        <div class="w-3 h-3 flex items-center justify-center mr-1">
+                                            <i class="ri-map-pin-line text-xs"></i>
+                                        </div>
+                                        Lloret de Mar
+                                    </span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600 mb-4">
+                                    <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                        <i class="ri-calendar-line"></i>
+                                    </div>
+                                    <span>6 dni | Najbliższe terminy: 20.04, 27.04, 04.05</span>
+                                </div>
+                                <div class="flex justify-between items-end">
+                                    <div>
+                                        <div class="text-2xl font-bold text-gray-900">1 650 zł</div>
+                                        <div class="text-lg text-gray-600">395 €</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <button class="px-4 py-2 border border-primary text-primary rounded-button hover:bg-primary hover:text-white transition-colors whitespace-nowrap">Szczegóły</button>
+                                        <button class="px-4 py-2 bg-primary text-white rounded-button hover:bg-secondary transition-colors whitespace-nowrap">Zarezerwuj</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="trip-card bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow" data-price-pln="2180" data-price-eur="520" data-duration="9" data-destination="niemcy" data-type="objazdowa" data-comfort="premium">
+                            <div class="relative h-64 overflow-hidden">
+                                <img src="https://readdy.ai/api/search-image?query=German%20romantic%20road%20with%20medieval%20castles%2C%20charming%20half-timbered%20houses%2C%20and%20scenic%20countryside%2C%20soft%20autumn%20lighting%2C%20professional%20travel%20photography&width=400&height=256&seq=germany1&orientation=landscape" alt="Romantyczna Droga Niemiec" class="w-full h-full object-cover object-top">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-3">Romantyczna Droga Niemiec</h3>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                        <div class="w-3 h-3 flex items-center justify-center mr-1">
+                                            <i class="ri-map-pin-line text-xs"></i>
+                                        </div>
+                                        Monachium
+                                    </span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                        <div class="w-3 h-3 flex items-center justify-center mr-1">
+                                            <i class="ri-map-pin-line text-xs"></i>
+                                        </div>
+                                        Rothenburg
+                                    </span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                                        <div class="w-3 h-3 flex items-center justify-center mr-1">
+                                            <i class="ri-map-pin-line text-xs"></i>
+                                        </div>
+                                        Würzburg
+                                    </span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                                        <div class="w-3 h-3 flex items-center justify-center mr-1">
+                                            <i class="ri-map-pin-line text-xs"></i>
+                                        </div>
+                                        Neuschwanstein
+                                    </span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600 mb-4">
+                                    <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                        <i class="ri-calendar-line"></i>
+                                    </div>
+                                    <span>9 dni | Najbliższe terminy: 16.04, 23.04, 30.04</span>
+                                </div>
+                                <div class="flex justify-between items-end">
+                                    <div>
+                                        <div class="text-2xl font-bold text-gray-900">2 180 zł</div>
+                                        <div class="text-lg text-gray-600">520 €</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <button class="px-4 py-2 border border-primary text-primary rounded-button hover:bg-primary hover:text-white transition-colors whitespace-nowrap">Szczegóły</button>
+                                        <button class="px-4 py-2 bg-primary text-white rounded-button hover:bg-secondary transition-colors whitespace-nowrap">Zarezerwuj</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="trip-card bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow" data-price-pln="1980" data-price-eur="475" data-duration="7" data-destination="austria" data-type="pobytowa" data-comfort="luxury">
+                            <div class="relative h-64 overflow-hidden">
+                                <img src="https://readdy.ai/api/search-image?query=Austrian%20alpine%20landscape%20with%20crystal%20clear%20lakes%2C%20snow-capped%20mountains%2C%20and%20elegant%20baroque%20architecture%2C%20pristine%20mountain%20scenery%2C%20luxury%20travel%20photography&width=400&height=256&seq=austria1&orientation=landscape" alt="Salzburg i Jeziora Alpejskie" class="w-full h-full object-cover object-top">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-3">Salzburg i Jeziora Alpejskie</h3>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                        <div class="w-3 h-3 flex items-center justify-center mr-1">
+                                            <i class="ri-map-pin-line text-xs"></i>
+                                        </div>
+                                        Salzburg
+                                    </span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                        <div class="w-3 h-3 flex items-center justify-center mr-1">
+                                            <i class="ri-map-pin-line text-xs"></i>
+                                        </div>
+                                        Hallstatt
+                                    </span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                                        <div class="w-3 h-3 flex items-center justify-center mr-1">
+                                            <i class="ri-map-pin-line text-xs"></i>
+                                        </div>
+                                        Innsbruck
+                                    </span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600 mb-4">
+                                    <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                        <i class="ri-calendar-line"></i>
+                                    </div>
+                                    <span>7 dni | Najbliższe terminy: 19.04, 26.04, 03.05</span>
+                                </div>
+                                <div class="flex justify-between items-end">
+                                    <div>
+                                        <div class="text-2xl font-bold text-gray-900">1 980 zł</div>
+                                        <div class="text-lg text-gray-600">475 €</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <button class="px-4 py-2 border border-primary text-primary rounded-button hover:bg-primary hover:text-white transition-colors whitespace-nowrap">Szczegóły</button>
+                                        <button class="px-4 py-2 bg-primary text-white rounded-button hover:bg-secondary transition-colors whitespace-nowrap">Zarezerwuj</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="trip-card bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow" data-price-pln="2890" data-price-eur="690" data-duration="12" data-destination="włochy" data-type="objazdowa" data-comfort="luxury">
+                            <div class="relative h-64 overflow-hidden">
+                                <img src="https://readdy.ai/api/search-image?query=Grand%20tour%20of%20Italy%20showcasing%20ancient%20Roman%20ruins%2C%20Renaissance%20art%2C%20and%20stunning%20coastal%20views%2C%20luxury%20travel%20experience%2C%20golden%20hour%20photography&width=400&height=256&seq=italy2&orientation=landscape" alt="Wielka Podróż po Włoszech" class="w-full h-full object-cover object-top">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-3">Wielka Podróż po Włoszech</h3>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                        <div class="w-3 h-3 flex items-center justify-center mr-1">
+                                            <i class="ri-map-pin-line text-xs"></i>
+                                        </div>
+                                        Rzym
+                                    </span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                        <div class="w-3 h-3 flex items-center justify-center mr-1">
+                                            <i class="ri-map-pin-line text-xs"></i>
+                                        </div>
+                                        Wenecja
+                                    </span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                                        <div class="w-3 h-3 flex items-center justify-center mr-1">
+                                            <i class="ri-map-pin-line text-xs"></i>
+                                        </div>
+                                        Mediolan
+                                    </span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                                        <div class="w-3 h-3 flex items-center justify-center mr-1">
+                                            <i class="ri-map-pin-line text-xs"></i>
+                                        </div>
+                                        Neapol
+                                    </span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                                        <div class="w-3 h-3 flex items-center justify-center mr-1">
+                                            <i class="ri-map-pin-line text-xs"></i>
+                                        </div>
+                                        Capri
+                                    </span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600 mb-4">
+                                    <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                        <i class="ri-calendar-line"></i>
+                                    </div>
+                                    <span>12 dni | Najbliższe terminy: 17.04, 01.05, 15.05</span>
+                                </div>
+                                <div class="flex justify-between items-end">
+                                    <div>
+                                        <div class="text-2xl font-bold text-gray-900">2 890 zł</div>
+                                        <div class="text-lg text-gray-600">690 €</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <button class="px-4 py-2 border border-primary text-primary rounded-button hover:bg-primary hover:text-white transition-colors whitespace-nowrap">Szczegóły</button>
+                                        <button class="px-4 py-2 bg-primary text-white rounded-button hover:bg-secondary transition-colors whitespace-nowrap">Zarezerwuj</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="mt-12 text-center">
+                        <button class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-secondary transition-colors whitespace-nowrap">
+                            Załaduj więcej wycieczek
+                        </button>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <script id="price-slider-functionality">
+        document.addEventListener('DOMContentLoaded', function() {
+            const pricePlnSlider = document.getElementById('price-pln');
+            const priceEurSlider = document.getElementById('price-eur');
+            const pricePlnDisplay = document.getElementById('price-pln-display');
+            const priceEurDisplay = document.getElementById('price-eur-display');
+
+            function updatePriceDisplay() {
+                pricePlnDisplay.textContent = `500 - ${pricePlnSlider.value} zł`;
+                priceEurDisplay.textContent = `120 - ${priceEurSlider.value} €`;
+            }
+
+            pricePlnSlider.addEventListener('input', updatePriceDisplay);
+            priceEurSlider.addEventListener('input', updatePriceDisplay);
+        });
+    </script>
+
+    <script id="filter-functionality">
+        document.addEventListener('DOMContentLoaded', function() {
+            const durationButtons = document.querySelectorAll('.duration-btn');
+            const applyFiltersBtn = document.getElementById('apply-filters');
+            const resetFiltersBtn = document.getElementById('reset-filters');
+            const resultsCount = document.getElementById('results-count');
+
+            durationButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    durationButtons.forEach(btn => btn.classList.remove('bg-primary', 'text-white', 'border-primary'));
+                    durationButtons.forEach(btn => btn.classList.add('border-gray-300', 'text-gray-700'));
+                    
+                    this.classList.remove('border-gray-300', 'text-gray-700');
+                    this.classList.add('bg-primary', 'text-white', 'border-primary');
+                });
+            });
+
+            applyFiltersBtn.addEventListener('click', function() {
+                const tripCards = document.querySelectorAll('.trip-card');
+                let visibleCount = 0;
+
+                tripCards.forEach(card => {
+                    card.style.display = 'block';
+                    visibleCount++;
+                });
+
+                resultsCount.textContent = visibleCount;
+            });
+
+            resetFiltersBtn.addEventListener('click', function() {
+                document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+                document.querySelectorAll('input[type="radio"]').forEach(rb => rb.checked = false);
+                durationButtons.forEach(btn => {
+                    btn.classList.remove('bg-primary', 'text-white', 'border-primary');
+                    btn.classList.add('border-gray-300', 'text-gray-700');
+                });
+                
+                document.getElementById('price-pln').value = 3000;
+                document.getElementById('price-eur').value = 720;
+                document.getElementById('price-pln-display').textContent = '500 - 3000 zł';
+                document.getElementById('price-eur-display').textContent = '120 - 720 €';
+                
+                resultsCount.textContent = '12';
+            });
+        });
+    </script>
+
+    <script id="sort-functionality">
+        document.addEventListener('DOMContentLoaded', function() {
+            const sortSelect = document.getElementById('sort-select');
+            const tripsGrid = document.getElementById('trips-grid');
+
+            sortSelect.addEventListener('change', function() {
+                const sortValue = this.value;
+                const tripCards = Array.from(tripsGrid.children);
+
+                tripCards.sort((a, b) => {
+                    switch(sortValue) {
+                        case 'price-asc':
+                            return parseInt(a.dataset.pricePln) - parseInt(b.dataset.pricePln);
+                        case 'price-desc':
+                            return parseInt(b.dataset.pricePln) - parseInt(a.dataset.pricePln);
+                        case 'duration-asc':
+                            return parseInt(a.dataset.duration) - parseInt(b.dataset.duration);
+                        case 'duration-desc':
+                            return parseInt(b.dataset.duration) - parseInt(a.dataset.duration);
+                        case 'name':
+                            return a.querySelector('h3').textContent.localeCompare(b.querySelector('h3').textContent);
+                        default:
+                            return 0;
+                    }
+                });
+
+                tripCards.forEach(card => tripsGrid.appendChild(card));
+            });
+        });
+    </script>
+</body>
+</html>
