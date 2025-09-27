@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIOTRTRAVEL - Pielgrzymki</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#1e40af'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Hero Section -->
+    <section class="relative h-screen w-full flex items-center justify-center text-white overflow-hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
+        <div class="absolute inset-0 z-0">
+            <img src="https://readdy.ai/api/search-image?query=Beautiful%20ancient%20church%20with%20golden%20dome%20and%20stone%20architecture%20in%20Jerusalem%2C%20holy%20land%20pilgrimage%20destination%2C%20warm%20golden%20hour%20lighting%2C%20peaceful%20spiritual%20atmosphere%2C%20clear%20blue%20sky%2C%20traditional%20religious%20architecture%2C%20sacred%20place%20of%20worship%2C%20pilgrimage%20site%2C%20detailed%20stone%20work%20and%20religious%20symbols&width=1920&height=1080&seq=hero001&orientation=landscape" 
+                 alt="Miejsce pielgrzymkowe" 
+                 class="w-full h-full object-cover object-center">
+        </div>
+        <div class="relative z-20 text-center max-w-4xl mx-auto px-6">
+            <h1 class="text-6xl md:text-7xl font-bold mb-6 tracking-wide">PIOTRTRAVEL</h1>
+            <p class="text-xl md:text-2xl mb-8 font-light leading-relaxed">Wyrusz z nami w drogę wiary i odkryć</p>
+            <button class="bg-primary hover:bg-secondary text-white px-8 py-4 text-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg !rounded-button whitespace-nowrap">
+                Zobacz więcej
+            </button>
+        </div>
+    </section>
+
+    <!-- Wyjazdy pielgrzymkowe -->
+    <section class="py-20 px-6 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Wyjazdy pielgrzymkowe</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Odkryj nasze starannie zaplanowane pielgrzymki do najważniejszych miejsc kultu religijnego na całym świecie
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://readdy.ai/api/search-image?query=Holy%20Land%20Jerusalem%20old%20city%20with%20ancient%20stone%20walls%2C%20religious%20pilgrimage%20destination%2C%20golden%20dome%20mosque%2C%20traditional%20Middle%20Eastern%20architecture%2C%20warm%20sunlight%2C%20spiritual%20atmosphere%2C%20historical%20sacred%20place%2C%20pilgrimage%20tour%20destination&width=400&height=250&seq=trip001&orientation=landscape" 
+                         alt="Ziemia Święta" 
+                         class="w-full h-48 object-cover object-top">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Ziemia Święta</h3>
+                        <p class="text-gray-600 mb-4">8-dniowa pielgrzymka po najświętszych miejscach chrześcijaństwa w Izraelu i Palestynie</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-primary">od 3,200 zł</span>
+                            <button class="text-primary hover:text-secondary font-medium !rounded-button whitespace-nowrap">
+                                Szczegóły
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://readdy.ai/api/search-image?query=Vatican%20City%20St%20Peters%20Basilica%20with%20magnificent%20dome%2C%20papal%20architecture%2C%20religious%20pilgrimage%20destination%2C%20golden%20hour%20lighting%2C%20sacred%20Catholic%20church%2C%20ornate%20baroque%20design%2C%20spiritual%20journey%20location%2C%20Rome%20pilgrimage%20site&width=400&height=250&seq=trip002&orientation=landscape" 
+                         alt="Rzym i Watykan" 
+                         class="w-full h-48 object-cover object-top">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Rzym i Watykan</h3>
+                        <p class="text-gray-600 mb-4">6-dniowa pielgrzymka do Wiecznego Miasta z audiencją u Ojca Świętego</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-primary">od 2,800 zł</span>
+                            <button class="text-primary hover:text-secondary font-medium !rounded-button whitespace-nowrap">
+                                Szczegóły
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://readdy.ai/api/search-image?query=Fatima%20sanctuary%20Portugal%20with%20beautiful%20white%20basilica%2C%20religious%20pilgrimage%20site%2C%20peaceful%20spiritual%20atmosphere%2C%20blue%20sky%2C%20Catholic%20shrine%2C%20devotional%20place%2C%20sacred%20religious%20architecture%2C%20pilgrimage%20destination&width=400&height=250&seq=trip003&orientation=landscape" 
+                         alt="Fatima" 
+                         class="w-full h-48 object-cover object-top">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Fatima</h3>
+                        <p class="text-gray-600 mb-4">5-dniowa pielgrzymka do sanktuarium Matki Bożej Fatimskiej w Portugalii</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-primary">od 2,400 zł</span>
+                            <button class="text-primary hover:text-secondary font-medium !rounded-button whitespace-nowrap">
+                                Szczegóły
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- O nas -->
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-8">O nas</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                        PiotrTravel to biuro podróży specjalizujące się w organizacji pielgrzymek do najważniejszych miejsc kultu religijnego na świecie. Od 15 lat pomagamy naszym klientom przeżywać niezapomniane duchowe podróże w atmosferze modlitwy i refleksji.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                        Nasz zespół doświadczonych przewodników i opiekunów duchowych dba o każdy aspekt pielgrzymki, zapewniając komfort i bezpieczeństwo.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Organizujemy wyjazdy do takich miejsc jak Ziemia Święta, Rzym, Fatima, Lourdes, Medjugorje i wielu innych. Każda nasza pielgrzymka to starannie zaplanowana podróż, która łączy aspekt duchowy z poznawaniem lokalnej kultury i historii.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 gap-8">
+                    <div class="text-center bg-gray-50 rounded-xl p-8">
+                        <div class="text-4xl font-bold text-primary mb-2">15</div>
+                        <div class="text-lg text-gray-600">lat doświadczenia</div>
+                    </div>
+                    <div class="text-center bg-gray-50 rounded-xl p-8">
+                        <div class="text-4xl font-bold text-primary mb-2">1000+</div>
+                        <div class="text-lg text-gray-600">zadowolonych pielgrzymów</div>
+                    </div>
+                    <div class="text-center bg-gray-50 rounded-xl p-8">
+                        <div class="text-4xl font-bold text-primary mb-2">50+</div>
+                        <div class="text-lg text-gray-600">zorganizowanych wyjazdów</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dlaczego warto z nami jechać -->
+    <section class="py-20 px-6 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Dlaczego warto z nami jechać</h2>
+                <p class="text-xl text-gray-600">Poznaj powody, dla których tysiące pielgrzymów wybiera PiotrTravel</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center bg-white rounded-xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="ri-heart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Opieka duchowa</h3>
+                    <p class="text-gray-600">Każdą pielgrzymkę prowadzi doświadczony kapłan, który zapewnia opiekę duchową i prowadzi modlitwy w najświętszych miejscach</p>
+                </div>
+                <div class="text-center bg-white rounded-xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="ri-shield-check-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Bezpieczeństwo</h3>
+                    <p class="text-gray-600">Zapewniamy pełne ubezpieczenie, stały kontakt z rodziną oraz 24-godzinną opiekę medyczną podczas całej podróży</p>
+                </div>
+                <div class="text-center bg-white rounded-xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="ri-group-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Wspólnota</h3>
+                    <p class="text-gray-600">Tworzymy atmosferę prawdziwej wspólnoty wiary, gdzie każdy uczestnik może przeżyć głębokie duchowe doświadczenie</p>
+                </div>
+                <div class="text-center bg-white rounded-xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="ri-star-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Doświadczenie</h3>
+                    <p class="text-gray-600">15 lat doświadczenia w organizacji pielgrzymek pozwala nam zapewnić najwyższą jakość usług i niezapomniane przeżycia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Referencje uczestników -->
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Referencje uczestników</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-xl p-8">
+                    <div class="flex items-center mb-6">
+                        <img src="https://readdy.ai/api/search-image?query=Professional%20portrait%20of%20middle%20aged%20Polish%20woman%20with%20kind%20smile%2C%20warm%20lighting%2C%20simple%20background%2C%20trustworthy%20appearance%2C%20pilgrimage%20participant%2C%20friendly%20expression%2C%20natural%20look&width=80&height=80&seq=testimonial001&orientation=squarish" 
+                             alt="Anna Kowalska" 
+                             class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <div class="font-semibold text-gray-900">Anna Kowalska</div>
+                            <div class="text-gray-600 text-sm">Pielgrzymka do Ziemi Świętej</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"To była najpiękniejsza podróż w moim życiu. Profesjonalna organizacja, wspaniała atmosfera i niezapomniane przeżycia duchowe. Polecam z całego serca!"</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-8">
+                    <div class="flex items-center mb-6">
+                        <img src="https://readdy.ai/api/search-image?query=Professional%20portrait%20of%20elderly%20Polish%20man%20with%20gentle%20smile%2C%20warm%20lighting%2C%20simple%20background%2C%20trustworthy%20appearance%2C%20pilgrimage%20participant%2C%20kind%20expression%2C%20natural%20look&width=80&height=80&seq=testimonial002&orientation=squarish" 
+                             alt="Józef Nowak" 
+                             class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <div class="font-semibold text-gray-900">Józef Nowak</div>
+                            <div class="text-gray-600 text-sm">Pielgrzymka do Rzymu</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Dziękuję za zorganizowanie tak pięknej pielgrzymki. Opieka duchowa księdza i profesjonalizm przewodników sprawiły, że czułem się bezpiecznie przez cały czas."</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-8">
+                    <div class="flex items-center mb-6">
+                        <img src="https://readdy.ai/api/search-image?query=Professional%20portrait%20of%20middle%20aged%20Polish%20woman%20with%20peaceful%20smile%2C%20warm%20lighting%2C%20simple%20background%2C%20trustworthy%20appearance%2C%20pilgrimage%20participant%2C%20serene%20expression%2C%20natural%20look&width=80&height=80&seq=testimonial003&orientation=squarish" 
+                             alt="Maria Wiśniewska" 
+                             class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <div class="font-semibold text-gray-900">Maria Wiśniewska</div>
+                            <div class="text-gray-600 text-sm">Pielgrzymka do Fatimy</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Fantastyczna organizacja i cudowna atmosfera. To była moja pierwsza pielgrzymka i na pewno nie ostatnia z PiotrTravel. Serdecznie polecam!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria zdjęć -->
+    <section class="py-20 px-6 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Galeria zdjęć</h2>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <img src="https://readdy.ai/api/search-image?query=Group%20of%20pilgrims%20praying%20together%20at%20holy%20site%2C%20peaceful%20spiritual%20moment%2C%20diverse%20ages%2C%20traditional%20religious%20atmosphere%2C%20warm%20lighting%2C%20sacred%20place%2C%20pilgrimage%20experience%2C%20community%20worship&width=300&height=400&seq=gallery001&orientation=portrait" 
+                     alt="Pielgrzymi w modlitwie" 
+                     class="w-full h-64 object-cover object-top rounded-lg hover:scale-105 transition-transform duration-300">
+                <img src="https://readdy.ai/api/search-image?query=Beautiful%20ancient%20church%20interior%20with%20golden%20altar%2C%20religious%20architecture%2C%20sacred%20space%2C%20warm%20candlelight%2C%20ornate%20decorations%2C%20pilgrimage%20destination%2C%20spiritual%20atmosphere&width=300&height=300&seq=gallery002&orientation=squarish" 
+                     alt="Wnętrze świątyni" 
+                     class="w-full h-64 object-cover object-top rounded-lg hover:scale-105 transition-transform duration-300">
+                <img src="https://readdy.ai/api/search-image?query=Pilgrimage%20group%20walking%20together%20on%20ancient%20stone%20path%2C%20holy%20land%20journey%2C%20spiritual%20walk%2C%20traditional%20pilgrimage%20route%2C%20peaceful%20atmosphere%2C%20religious%20travel%20experience&width=300&height=400&seq=gallery003&orientation=portrait" 
+                     alt="Droga pielgrzymkowa" 
+                     class="w-full h-64 object-cover object-top rounded-lg hover:scale-105 transition-transform duration-300">
+                <img src="https://readdy.ai/api/search-image?query=Sacred%20religious%20ceremony%20with%20priest%20and%20pilgrims%2C%20holy%20mass%20celebration%2C%20spiritual%20gathering%2C%20traditional%20Catholic%20service%2C%20peaceful%20worship%2C%20pilgrimage%20religious%20experience&width=300&height=300&seq=gallery004&orientation=squarish" 
+                     alt="Msza święta" 
+                     class="w-full h-64 object-cover object-top rounded-lg hover:scale-105 transition-transform duration-300">
+                <img src="https://readdy.ai/api/search-image?query=Panoramic%20view%20of%20holy%20city%20Jerusalem%20with%20ancient%20walls%2C%20religious%20pilgrimage%20destination%2C%20golden%20dome%2C%20sacred%20landscape%2C%20spiritual%20journey%20location%2C%20historical%20religious%20site&width=300&height=300&seq=gallery005&orientation=squarish" 
+                     alt="Panorama Jerozolimy" 
+                     class="w-full h-64 object-cover object-top rounded-lg hover:scale-105 transition-transform duration-300">
+                <img src="https://readdy.ai/api/search-image?query=Happy%20pilgrims%20group%20photo%20at%20famous%20religious%20site%2C%20joyful%20spiritual%20journey%2C%20diverse%20ages%2C%20traditional%20pilgrimage%20experience%2C%20sacred%20destination%20background&width=300&height=400&seq=gallery006&orientation=portrait" 
+                     alt="Grupa pielgrzymów" 
+                     class="w-full h-64 object-cover object-top rounded-lg hover:scale-105 transition-transform duration-300">
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog i aktualności -->
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Blog i aktualności</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://readdy.ai/api/search-image?query=Beautiful%20sunset%20over%20holy%20land%20landscape%2C%20spiritual%20pilgrimage%20destination%2C%20golden%20hour%20lighting%2C%20peaceful%20religious%20atmosphere%2C%20sacred%20place%2C%20biblical%20landscape%2C%20pilgrimage%20journey%20inspiration&width=400&height=250&seq=blog001&orientation=landscape" 
+                         alt="Przygotowanie do pielgrzymki" 
+                         class="w-full h-48 object-cover object-top">
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500 mb-2">15 grudnia 2024</div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Jak przygotować się do pielgrzymki do Ziemi Świętej</h3>
+                        <p class="text-gray-600 mb-4">Praktyczne wskazówki dotyczące przygotowania duchowego i praktycznego przed wyjazdem do najświętszych miejsc chrześcijaństwa...</p>
+                        <button class="text-primary hover:text-secondary font-medium !rounded-button whitespace-nowrap">
+                            Czytaj więcej
+                        </button>
+                    </div>
+                </article>
+                <article class="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://readdy.ai/api/search-image?query=Pope%20Francis%20at%20Vatican%20blessing%20pilgrims%2C%20papal%20audience%2C%20St%20Peters%20Square%2C%20Catholic%20pilgrimage%20experience%2C%20religious%20ceremony%2C%20spiritual%20blessing%20moment%2C%20Vatican%20pilgrimage&width=400&height=250&seq=blog002&orientation=landscape" 
+                         alt="Audiencja u Papieża" 
+                         class="w-full h-48 object-cover object-top">
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500 mb-2">10 grudnia 2024</div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Relacja z audiencji u Ojca Świętego</h3>
+                        <p class="text-gray-600 mb-4">Niezapomniane chwile podczas ostatniej pielgrzymki do Rzymu, gdzie nasi pielgrzymi mieli możliwość uczestnictwa w audiencji...</p>
+                        <button class="text-primary hover:text-secondary font-medium !rounded-button whitespace-nowrap">
+                            Czytaj więcej
+                        </button>
+                    </div>
+                </article>
+                <article class="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://readdy.ai/api/search-image?query=New%20pilgrimage%20destinations%20announcement%2C%20travel%20planning%20concept%2C%20religious%20sites%20around%20world%2C%20spiritual%20journey%20planning%2C%20pilgrimage%20travel%20brochures%2C%20sacred%20destinations%20map&width=400&height=250&seq=blog003&orientation=landscape" 
+                         alt="Nowe kierunki" 
+                         class="w-full h-48 object-cover object-top">
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500 mb-2">5 grudnia 2024</div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Nowe kierunki pielgrzymkowe na 2025 rok</h3>
+                        <p class="text-gray-600 mb-4">Z radością informujemy o rozszerzeniu naszej oferty o nowe, fascynujące kierunki pielgrzymkowe na nadchodzący rok...</p>
+                        <button class="text-primary hover:text-secondary font-medium !rounded-button whitespace-nowrap">
+                            Czytaj więcej
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <script id="hero-interaction">
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroButton = document.querySelector('section button');
+            if (heroButton) {
+                heroButton.addEventListener('click', function() {
+                    document.querySelector('section:nth-child(2)').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    </script>
+
+    <script id="gallery-interaction">
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryImages = document.querySelectorAll('[alt*="Pielgrzymi"], [alt*="Wnętrze"], [alt*="Droga"], [alt*="Msza"], [alt*="Panorama"], [alt*="Grupa"]');
+            galleryImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    this.classList.toggle('scale-110');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
