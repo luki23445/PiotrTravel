@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PiotrTravel - Odkryj świat z nami</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#2563eb',secondary:'#0ea5e9'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+</style>
+</head>
+<body class="bg-white">
+<header class="bg-white shadow-sm sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center">
+<h1 class="text-2xl font-['Pacifico'] text-primary">PiotrTravel</h1>
+</div>
+<nav class="flex space-x-8">
+<a href="#oferta" class="text-gray-700 hover:text-primary transition-colors">Oferta</a>
+<a href="#o-nas" class="text-gray-700 hover:text-primary transition-colors">O nas</a>
+<a href="#kontakt" class="text-gray-700 hover:text-primary transition-colors">Kontakt</a>
+<button class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-blue-700 transition-colors whitespace-nowrap">Rezerwacje</button>
+</nav>
+</div>
+</div>
+</header>
+<section class="relative h-screen flex items-center justify-center overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=Beautiful%20mountain%20landscape%20with%20crystal%20clear%20lake%20reflecting%20snow-capped%20peaks%2C%20serene%20alpine%20scenery%20with%20pristine%20nature%2C%20professional%20travel%20photography%2C%20soft%20natural%20lighting%2C%20peaceful%20atmosphere%2C%20left%20side%20with%20subtle%20gradient%20overlay%20for%20text%20readability%2C%20modern%20minimalist%20composition&width=1920&height=1080&seq=hero-travel-1&orientation=landscape'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"></div>
+<div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="max-w-2xl">
+<h2 class="text-5xl font-bold text-white mb-6 leading-tight">Odkryj świat z PiotrTravel</h2>
+<p class="text-xl text-white/90 mb-8 leading-relaxed">Niezapomniane podróże, wyjątkowe miejsca i profesjonalna obsługa. Tworzymy wspomnienia, które zostają na całe życie.</p>
+<button class="bg-primary text-white px-8 py-4 text-lg !rounded-button hover:bg-blue-700 transition-colors whitespace-nowrap">Znajdź swoją wycieczkę</button>
+</div>
+</div>
+</section>
+<section class="bg-white py-8 -mt-16 relative z-20">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-white rounded-2xl shadow-xl p-8">
+<h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Wyszukaj idealną wycieczkę</h3>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Kierunek</label>
+<div class="relative">
+<button class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-left hover:bg-gray-100 transition-colors">
+<span class="text-gray-500">Wybierz kierunek</span>
+<div class="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center">
+<i class="ri-arrow-down-s-line text-gray-400"></i>
+</div>
+</button>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Data wyjazdu</label>
+<input type="date" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Liczba osób</label>
+<div class="relative">
+<button class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-left hover:bg-gray-100 transition-colors">
+<span class="text-gray-500">2 osoby</span>
+<div class="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center">
+<i class="ri-arrow-down-s-line text-gray-400"></i>
+</div>
+</button>
+</div>
+</div>
+<div class="flex items-end">
+<button class="w-full bg-primary text-white py-3 !rounded-button hover:bg-blue-700 transition-colors whitespace-nowrap">
+<div class="flex items-center justify-center">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-search-line"></i>
+</div>
+Szukaj
+</div>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="oferta" class="py-20 bg-gray-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h3 class="text-4xl font-bold text-gray-900 mb-4">Popularne kierunki</h3>
+<p class="text-xl text-gray-600">Odkryj najpiękniejsze miejsca na świecie z naszymi wyjątkowymi ofertami</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
+<div class="relative h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Beautiful%20Greek%20island%20Santorini%20with%20white%20buildings%20and%20blue%20domes%20overlooking%20azure%20sea%2C%20iconic%20Mediterranean%20architecture%2C%20stunning%20sunset%20lighting%2C%20professional%20travel%20photography%2C%20vibrant%20colors&width=400&height=300&seq=destination-1&orientation=landscape" alt="Grecja" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-primary">od 2,499 zł</div>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-bold text-gray-900 mb-2">Grecja - Santorini</h4>
+<p class="text-gray-600 mb-4">Magiczne zachody słońca, białe domki i błękitne kopuły. Odkryj urok greckiej wyspy.</p>
+<button class="text-primary font-semibold hover:text-blue-700 transition-colors">Zobacz szczegóły →</button>
+</div>
+</div>
+<div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
+<div class="relative h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Stunning%20Italian%20Tuscany%20countryside%20with%20rolling%20hills%20covered%20in%20vineyards%2C%20cypress%20trees%20lining%20winding%20roads%2C%20golden%20hour%20lighting%2C%20picturesque%20rural%20landscape%2C%20professional%20travel%20photography&width=400&height=300&seq=destination-2&orientation=landscape" alt="Włochy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-primary">od 1,899 zł</div>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-bold text-gray-900 mb-2">Włochy - Toskania</h4>
+<p class="text-gray-600 mb-4">Wzgórza pokryte winnicami, średniowieczne miasteczka i wyśmienita kuchnia.</p>
+<button class="text-primary font-semibold hover:text-blue-700 transition-colors">Zobacz szczegóły →</button>
+</div>
+</div>
+<div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
+<div class="relative h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Breathtaking%20Norwegian%20fjords%20with%20steep%20cliffs%20rising%20from%20deep%20blue%20waters%2C%20dramatic%20mountain%20peaks%2C%20pristine%20Nordic%20landscape%2C%20professional%20travel%20photography%2C%20epic%20natural%20scenery&width=400&height=300&seq=destination-3&orientation=landscape" alt="Norwegia" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-primary">od 3,299 zł</div>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-bold text-gray-900 mb-2">Norwegia - Fiordy</h4>
+<p class="text-gray-600 mb-4">Spektakularne krajobrazy fiordów, wodospady i niesamowite zjawiska natury.</p>
+<button class="text-primary font-semibold hover:text-blue-700 transition-colors">Zobacz szczegóły →</button>
+</div>
+</div>
+<div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
+<div class="relative h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Exotic%20tropical%20Maldives%20beach%20with%20crystal%20clear%20turquoise%20water%2C%20white%20sand%2C%20palm%20trees%2C%20luxury%20overwater%20bungalows%2C%20paradise%20island%20setting%2C%20professional%20travel%20photography&width=400&height=300&seq=destination-4&orientation=landscape" alt="Malediwy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-primary">od 8,999 zł</div>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-bold text-gray-900 mb-2">Malediwy</h4>
+<p class="text-gray-600 mb-4">Rajskie plaże, turkusowa woda i luksusowe resorty na prywatnych wyspach.</p>
+<button class="text-primary font-semibold hover:text-blue-700 transition-colors">Zobacz szczegóły →</button>
+</div>
+</div>
+<div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
+<div class="relative h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Majestic%20Japanese%20cherry%20blossoms%20in%20full%20bloom%20with%20traditional%20pagoda%20temple%2C%20pink%20sakura%20petals%20falling%2C%20serene%20zen%20garden%2C%20spring%20in%20Japan%2C%20professional%20travel%20photography&width=400&height=300&seq=destination-5&orientation=landscape" alt="Japonia" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-primary">od 5,499 zł</div>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-bold text-gray-900 mb-2">Japonia - Kioto</h4>
+<p class="text-gray-600 mb-4">Tradycyjne świątynie, kwitnące wiśnie i fascynująca kultura Kraju Kwitnącej Wiśni.</p>
+<button class="text-primary font-semibold hover:text-blue-700 transition-colors">Zobacz szczegóły →</button>
+</div>
+</div>
+<div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
+<div class="relative h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Stunning%20Icelandic%20landscape%20with%20Northern%20Lights%20aurora%20borealis%20dancing%20over%20snowy%20mountains%2C%20dramatic%20winter%20scenery%2C%20professional%20travel%20photography%2C%20magical%20natural%20phenomenon&width=400&height=300&seq=destination-6&orientation=landscape" alt="Islandia" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-primary">od 4,199 zł</div>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-bold text-gray-900 mb-2">Islandia - Zorza Polarna</h4>
+<p class="text-gray-600 mb-4">Niesamowite zjawiska natury, gejzery, wodospady i tańcząca na niebie zorza.</p>
+<button class="text-primary font-semibold hover:text-blue-700 transition-colors">Zobacz szczegóły →</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h3 class="text-4xl font-bold text-gray-900 mb-4">Dlaczego PiotrTravel?</h3>
+<p class="text-xl text-gray-600">Zaufało nam już ponad 15 000 zadowolonych klientów</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="text-center">
+<div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-award-line text-primary text-2xl"></i>
+</div>
+</div>
+<h4 class="text-xl font-bold text-gray-900 mb-3">20 lat doświadczenia</h4>
+<p class="text-gray-600">Organizujemy niezapomniane podróże od 2004 roku. Nasze doświadczenie to gwarancja jakości.</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-shield-check-line text-primary text-2xl"></i>
+</div>
+</div>
+<h4 class="text-xl font-bold text-gray-900 mb-3">Bezpieczeństwo</h4>
+<p class="text-gray-600">Pełne ubezpieczenie, licencjonowani przewodnicy i stała opieka podczas całej podróży.</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-user-heart-line text-primary text-2xl"></i>
+</div>
+</div>
+<h4 class="text-xl font-bold text-gray-900 mb-3">Indywidualne podejście</h4>
+<p class="text-gray-600">Każda wycieczka jest dopasowana do Twoich potrzeb i oczekiwań. Tworzymy wyjątkowe wspomnienia.</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-price-tag-3-line text-primary text-2xl"></i>
+</div>
+</div>
+<h4 class="text-xl font-bold text-gray-900 mb-3">Konkurencyjne ceny</h4>
+<p class="text-gray-600">Najlepsze ceny na rynku bez ukrytych kosztów. Gwarantujemy przejrzystość cenową.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-gray-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h3 class="text-4xl font-bold text-gray-900 mb-4">Najnowsze oferty</h3>
+<p class="text-xl text-gray-600">Specjalne promocje i last minute</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=Beautiful%20Croatian%20coastline%20with%20crystal%20clear%20Adriatic%20sea%2C%20historic%20Dubrovnik%20old%20town%20walls%2C%20red%20tile%20roofs%2C%20Mediterranean%20charm%2C%20professional%20travel%20photography&width=400&height=250&seq=offer-1&orientation=landscape" alt="Chorwacja" class="w-full h-48 object-cover object-top">
+<div class="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">-25%</div>
+</div>
+<div class="p-6">
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm text-gray-500">15-22 lipca 2024</span>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-star-fill text-yellow-400 text-sm"></i>
+</div>
+<span class="text-sm text-gray-600">4.8</span>
+</div>
+</div>
+<h4 class="text-xl font-bold text-gray-900 mb-2">Chorwacja - Dubrownik</h4>
+<p class="text-gray-600 mb-4">7 dni w perle Adriatyku z wyżywieniem i zwiedzaniem</p>
+<div class="flex items-center justify-between">
+<div>
+<span class="text-sm text-gray-500 line-through">2,399 zł</span>
+<span class="text-2xl font-bold text-primary ml-2">1,799 zł</span>
+</div>
+<button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-blue-700 transition-colors whitespace-nowrap">Rezerwuj</button>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=Magnificent%20Prague%20castle%20and%20Charles%20Bridge%20at%20golden%20hour%2C%20historic%20Czech%20architecture%2C%20Vltava%20river%2C%20romantic%20European%20cityscape%2C%20professional%20travel%20photography&width=400&height=250&seq=offer-2&orientation=landscape" alt="Praga" class="w-full h-48 object-cover object-top">
+<div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Last Minute</div>
+</div>
+<div class="p-6">
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm text-gray-500">28 czerwca - 1 lipca</span>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-star-fill text-yellow-400 text-sm"></i>
+</div>
+<span class="text-sm text-gray-600">4.9</span>
+</div>
+</div>
+<h4 class="text-xl font-bold text-gray-900 mb-2">Praga - Weekend</h4>
+<p class="text-gray-600 mb-4">4 dni w złotej Pradze z noclegiem w centrum</p>
+<div class="flex items-center justify-between">
+<div>
+<span class="text-2xl font-bold text-primary">899 zł</span>
+</div>
+<button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-blue-700 transition-colors whitespace-nowrap">Rezerwuj</button>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=Stunning%20Turkish%20Cappadocia%20landscape%20with%20fairy%20chimneys%20and%20hot%20air%20balloons%20floating%20in%20sunrise%20sky%2C%20unique%20rock%20formations%2C%20magical%20travel%20destination%2C%20professional%20photography&width=400&height=250&seq=offer-3&orientation=landscape" alt="Turcja" class="w-full h-48 object-cover object-top">
+<div class="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Nowość</div>
+</div>
+<div class="p-6">
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm text-gray-500">10-17 sierpnia 2024</span>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-star-fill text-yellow-400 text-sm"></i>
+</div>
+<span class="text-sm text-gray-600">4.7</span>
+</div>
+</div>
+<h4 class="text-xl font-bold text-gray-900 mb-2">Turcja - Kapadocja</h4>
+<p class="text-gray-600 mb-4">8 dni w krainie kominów wróżek z lotem balonem</p>
+<div class="flex items-center justify-between">
+<div>
+<span class="text-2xl font-bold text-primary">2,999 zł</span>
+</div>
+<button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-blue-700 transition-colors whitespace-nowrap">Rezerwuj</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="o-nas" class="py-20 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+<div>
+<h3 class="text-4xl font-bold text-gray-900 mb-6">O nas</h3>
+<p class="text-lg text-gray-600 mb-6">PiotrTravel to rodzinna firma działająca na rynku turystycznym od ponad 20 lat. Nasza pasja do podróżowania i chęć dzielenia się nią z innymi sprawiła, że staliśmy się jednym z najbardziej zaufanych organizatorów wycieczek w Polsce.</p>
+<p class="text-lg text-gray-600 mb-6">Specjalizujemy się w tworzeniu wyjątkowych doświadczeń podróżniczych - od romantycznych weekendów w europejskich stolicach, przez egzotyczne wyprawy do odległych zakątków świata, aż po relaksujące wakacje na najpiękniejszych plażach.</p>
+<p class="text-lg text-gray-600 mb-8">Nasz zespół składa się z doświadczonych przewodników, lokalnych ekspertów i pasjonatów podróży, którzy dbają o każdy szczegół Twojej wyprawy.</p>
+<div class="grid grid-cols-3 gap-8 text-center">
+<div>
+<div class="text-3xl font-bold text-primary mb-2">15,000+</div>
+<div class="text-gray-600">Zadowolonych klientów</div>
+</div>
+<div>
+<div class="text-3xl font-bold text-primary mb-2">120+</div>
+<div class="text-gray-600">Kierunków</div>
+</div>
+<div>
+<div class="text-3xl font-bold text-primary mb-2">20</div>
+<div class="text-gray-600">Lat doświadczenia</div>
+</div>
+</div>
+</div>
+<div>
+<img src="https://readdy.ai/api/search-image?query=Professional%20travel%20agency%20team%20with%20diverse%20group%20of%20friendly%20travel%20consultants%20and%20guides%20in%20modern%20office%20setting%2C%20warm%20welcoming%20atmosphere%2C%20professional%20business%20environment%2C%20natural%20lighting&width=600&height=500&seq=about-us-1&orientation=landscape" alt="Zespół PiotrTravel" class="w-full rounded-2xl shadow-lg object-cover object-top">
+</div>
+</div>
+<div class="text-center mb-16">
+<h3 class="text-4xl font-bold text-gray-900 mb-4">Co mówią nasi klienci</h3>
+<p class="text-xl text-gray-600">Opinie prawdziwych podróżników</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-gray-50 rounded-2xl p-8">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-semibold mr-4">AK</div>
+<div>
+<h4 class="font-semibold text-gray-900">Anna Kowalska</h4>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-star-fill text-yellow-400 text-sm"></i>
+</div>
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-star-fill text-yellow-400 text-sm"></i>
+</div>
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-star-fill text-yellow-400 text-sm"></i>
+</div>
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-star-fill text-yellow-400 text-sm"></i>
+</div>
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-star-fill text-yellow-400 text-sm"></i>
+</div>
+</div>
+</div>
+</div>
+<p class="text-gray-600">"Fantastyczna wycieczka do Grecji! Wszystko było perfekcyjnie zorganizowane. Przewodnik był bardzo kompetentny, a hotele na najwyższym poziomie. Zdecydowanie polecam PiotrTravel!"</p>
+</div>
+<div class="bg-gray-50 rounded-2xl p-8">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-semibold mr-4">MN</div>
+<div>
+<h4 class="font-semibold text-gray-900">Marek Nowak</h4>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-star-fill text-yellow-400 text-sm"></i>
+</div>
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-star-fill text-yellow-400 text-sm"></i>
+</div>
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-star-fill text-yellow-400 text-sm"></i>
+</div>
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-star-fill text-yellow-400 text-sm"></i>
+</div>
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-star-fill text-yellow-400 text-sm"></i>
+</div>
+</div>
+</div>
+</div>
+<p class="text-gray-600">"Już trzeci raz korzystam z usług PiotrTravel i za każdym razem jestem zachwycony. Profesjonalna obsługa, świetne ceny i niezapomniane wspomnienia. Dziękuję!"</p>
+</div>
+<div class="bg-gray-50 rounded-2xl p-8">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-semibold mr-4">EW</div>
+<div>
+<h4 class="font-semibold text-gray-900">Ewa Wiśniewska</h4>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-star-fill text-yellow-400 text-sm"></i>
+</div>
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-star-fill text-yellow-400 text-sm"></i>
+</div>
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-star-fill text-yellow-400 text-sm"></i>
+</div>
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-star-fill text-yellow-400 text-sm"></i>
+</div>
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-star-fill text-yellow-400 text-sm"></i>
+</div>
+</div>
+</div>
+</div>
+<p class="text-gray-600">"Wycieczka do Norwegii była jak z bajki! Fiordy zapierały dech w piersiach, a organizacja na najwyższym poziomie. Gorąco polecam wszystkim miłośnikom przygód!"</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-gray-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h3 class="text-4xl font-bold text-gray-900 mb-4">Galeria wspomnień</h3>
+<p class="text-xl text-gray-600">Wspaniałe chwile uchwycone podczas naszych wycieczek</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="col-span-1 md:col-span-2 lg:col-span-2 lg:row-span-2">
+<div class="relative h-96 rounded-2xl overflow-hidden group cursor-pointer">
+<img src="https://readdy.ai/api/search-image?query=Happy%20travelers%20group%20enjoying%20sunset%20on%20beautiful%20Greek%20island%20terrace%20with%20white%20architecture%2C%20friends%20laughing%20and%20celebrating%20vacation%20moments%2C%20warm%20golden%20hour%20lighting%2C%20joyful%20travel%20memories&width=600&height=400&seq=gallery-1&orientation=landscape" alt="Zachód słońca w Grecji" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute bottom-4 left-4 text-white">
+<h4 class="text-lg font-semibold">Zachód słońca w Santorini</h4>
+<p class="text-sm opacity-90">Grecja 2024</p>
+</div>
+</div>
+</div>
+<div class="relative h-44 rounded-2xl overflow-hidden group cursor-pointer">
+<img src="https://readdy.ai/api/search-image?query=Travelers%20exploring%20magnificent%20Norwegian%20fjord%20landscape%20from%20cruise%20ship%20deck%2C%20dramatic%20mountain%20cliffs%20and%20waterfalls%2C%20adventure%20tourism%2C%20breathtaking%20natural%20scenery&width=300&height=200&seq=gallery-2&orientation=landscape" alt="Fiordy Norwegii" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute bottom-2 left-2 text-white">
+<p class="text-sm font-medium">Fiordy Norwegii</p>
+</div>
+</div>
+<div class="relative h-44 rounded-2xl overflow-hidden group cursor-pointer">
+<img src="https://readdy.ai/api/search-image?query=Tourist%20group%20walking%20through%20historic%20Italian%20Tuscany%20village%20with%20medieval%20stone%20buildings%2C%20cobblestone%20streets%2C%20guided%20tour%20experience%2C%20charming%20European%20atmosphere&width=300&height=200&seq=gallery-3&orientation=landscape" alt="Toskania" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute bottom-2 left-2 text-white">
+<p class="text-sm font-medium">Toskania</p>
+</div>
+</div>
+<div class="relative h-44 rounded-2xl overflow-hidden group cursor-pointer">
+<img src="https://readdy.ai/api/search-image?query=Couple%20enjoying%20romantic%20dinner%20on%20luxury%20Maldives%20overwater%20bungalow%20terrace%20at%20sunset%2C%20crystal%20clear%20turquoise%20lagoon%2C%20tropical%20paradise%2C%20intimate%20travel%20moments&width=300&height=200&seq=gallery-4&orientation=landscape" alt="Malediwy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute bottom-2 left-2 text-white">
+<p class="text-sm font-medium">Malediwy</p>
+</div>
+</div>
+<div class="relative h-44 rounded-2xl overflow-hidden group cursor-pointer">
+<img src="https://readdy.ai/api/search-image?query=Travel%20group%20experiencing%20traditional%20Japanese%20tea%20ceremony%20in%20authentic%20Kyoto%20temple%20with%20cherry%20blossoms%2C%20cultural%20immersion%2C%20serene%20zen%20atmosphere%2C%20spring%20season&width=300&height=200&seq=gallery-5&orientation=landscape" alt="Japonia" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute bottom-2 left-2 text-white">
+<p class="text-sm font-medium">Japonia - Kioto</p>
+</div>
+</div>
+<div class="col-span-1 md:col-span-2 lg:col-span-1">
+<div class="relative h-44 rounded-2xl overflow-hidden group cursor-pointer">
+<img src="https://readdy.ai/api/search-image?query=Adventure%20travelers%20watching%20spectacular%20Northern%20Lights%20aurora%20borealis%20in%20Iceland%2C%20silhouettes%20against%20green%20dancing%20lights%2C%20winter%20night%20magic%2C%20unforgettable%20natural%20phenomenon&width=300&height=200&seq=gallery-6&orientation=landscape" alt="Zorza Polarna" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute bottom-2 left-2 text-white">
+<p class="text-sm font-medium">Zorza Polarna</p>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center mt-12">
+<button class="bg-primary text-white px-8 py-3 !rounded-button hover:bg-blue-700 transition-colors whitespace-nowrap">Zobacz więcej zdjęć</button>
+</div>
+</div>
+</section>
+<section class="py-20 bg-primary">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<h3 class="text-4xl font-bold text-white mb-4">Bądź na bieżąco z najlepszymi ofertami</h3>
+<p class="text-xl text-blue-100 mb-8">Zapisz się do naszego newslettera i otrzymuj ekskluzywne promocje oraz inspiracje podróżnicze</p>
+<div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+<input type="email" placeholder="Twój adres e-mail" class="flex-1 px-6 py-4 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-white text-gray-900">
+<button class="bg-white text-primary px-8 py-4 !rounded-button font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">Zapisz się</button>
+</div>
+<div class="flex justify-center space-x-6 mt-12">
+<a href="#" class="text-white hover:text-blue-200 transition-colors">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-facebook-fill text-2xl"></i>
+</div>
+</a>
+<a href="#" class="text-white hover:text-blue-200 transition-colors">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-instagram-line text-2xl"></i>
+</div>
+</a>
+<a href="#" class="text-white hover:text-blue-200 transition-colors">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-youtube-line text-2xl"></i>
+</div>
+</a>
+<a href="#" class="text-white hover:text-blue-200 transition-colors">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-twitter-line text-2xl"></i>
+</div>
+</a>
+</div>
+</div>
+</section>
+<section id="kontakt" class="py-20 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h3 class="text-4xl font-bold text-gray-900 mb-4">Skontaktuj się z nami</h3>
+<p class="text-xl text-gray-600">Masz pytania? Chętnie pomożemy w zaplanowaniu Twojej wymarzonej podróży</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+<div>
+<h4 class="text-2xl font-bold text-gray-900 mb-8">Napisz do nas</h4>
+<form id="contact-form" class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">Imię</label>
+<input type="text" id="firstName" name="firstName" required class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+</div>
+<div>
+<label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Nazwisko</label>
+<input type="text" id="lastName" name="lastName" required class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+</div>
+</div>
+<div>
+<label for="email" class="block text-sm font-medium text-gray-700 mb-2">Adres e-mail</label>
+<input type="email" id="email" name="email" required class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+</div>
+<div>
+<label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Telefon</label>
+<input type="tel" id="phone" name="phone" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+</div>
+<div>
+<label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Temat</label>
+<div class="relative">
+<button type="button" id="subject-dropdown" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-left hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+<span id="subject-selected" class="text-gray-500">Wybierz temat</span>
+<div class="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center">
+<i class="ri-arrow-down-s-line text-gray-400"></i>
+</div>
+</button>
+<div id="subject-options" class="absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg mt-1 z-10 hidden">
+<button type="button" class="w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors" data-value="informacja-ogolna">Informacja ogólna</button>
+<button type="button" class="w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors" data-value="rezerwacja">Rezerwacja wycieczki</button>
+<button type="button" class="w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors" data-value="wycena">Wycena indywidualna</button>
+<button type="button" class="w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors" data-value="reklamacja">Reklamacja</button>
+<button type="button" class="w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors" data-value="inne">Inne</button>
+</div>
+<input type="hidden" id="subject" name="subject" required>
+</div>
+</div>
+<div>
+<label for="message" class="block text-sm font-medium text-gray-700 mb-2">Wiadomość</label>
+<textarea id="message" name="message" rows="6" maxlength="500" required class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none" placeholder="Opisz szczegóły swojego zapytania..."></textarea>
+<div class="text-right text-sm text-gray-500 mt-1">
+<span id="char-count">0</span>/500 znaków
+</div>
+</div>
+<div class="flex items-start">
+<input type="checkbox" id="consent" name="consent" required class="opacity-0 absolute">
+<div class="w-5 h-5 border-2 border-gray-300 rounded flex items-center justify-center mr-3 cursor-pointer" id="consent-checkbox">
+<i class="ri-check-line text-white text-sm hidden" id="consent-check"></i>
+</div>
+<label for="consent" class="text-sm text-gray-600 cursor-pointer">Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z <a href="#" class="text-primary hover:underline">polityką prywatności</a></label>
+</div>
+<button type="submit" class="w-full bg-primary text-white py-3 !rounded-button hover:bg-blue-700 transition-colors whitespace-nowrap font-semibold">
+Wyślij wiadomość
+</button>
+</form>
+<div id="form-message" class="hidden mt-4 p-4 rounded-lg"></div>
+</div>
+<div>
+<h4 class="text-2xl font-bold text-gray-900 mb-8">Dane kontaktowe</h4>
+<div class="space-y-6 mb-8">
+<div class="flex items-start">
+<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-phone-line text-primary text-xl"></i>
+</div>
+</div>
+<div>
+<h5 class="font-semibold text-gray-900 mb-1">Telefon</h5>
+<p class="text-gray-600">+48 123 456 789</p>
+<p class="text-sm text-gray-500">Pon-Pt: 9:00-18:00, Sob: 9:00-14:00</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-mail-line text-primary text-xl"></i>
+</div>
+</div>
+<div>
+<h5 class="font-semibold text-gray-900 mb-1">E-mail</h5>
+<p class="text-gray-600">info@piotrtravel.pl</p>
+<p class="text-sm text-gray-500">Odpowiadamy w ciągu 24 godzin</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-map-pin-line text-primary text-xl"></i>
+</div>
+</div>
+<div>
+<h5 class="font-semibold text-gray-900 mb-1">Adres</h5>
+<p class="text-gray-600">ul. Podróżnicza 123<br>00-001 Warszawa</p>
+<p class="text-sm text-gray-500">Biuro czynne: Pon-Pt 9:00-17:00</p>
+</div>
+</div>
+</div>
+<div class="bg-gray-50 rounded-2xl p-6">
+<h5 class="font-semibold text-gray-900 mb-4">Szybki kontakt</h5>
+<div class="space-y-3">
+<a href="tel:+48123456789" class="flex items-center p-3 bg-white rounded-lg hover:bg-gray-100 transition-colors">
+<div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-phone-fill text-green-600"></i>
+</div>
+</div>
+<span class="font-medium text-gray-900">Zadzwoń teraz</span>
+</a>
+<a href="mailto:info@piotrtravel.pl" class="flex items-center p-3 bg-white rounded-lg hover:bg-gray-100 transition-colors">
+<div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-mail-fill text-blue-600"></i>
+</div>
+</div>
+<span class="font-medium text-gray-900">Napisz e-mail</span>
+</a>
+<a href="#" class="flex items-center p-3 bg-white rounded-lg hover:bg-gray-100 transition-colors">
+<div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-whatsapp-fill text-green-600"></i>
+</div>
+</div>
+<span class="font-medium text-gray-900">WhatsApp</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="bg-gray-900 text-white py-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<h3 class="text-2xl font-['Pacifico'] text-primary mb-6">PiotrTravel</h3>
+<p class="text-gray-300 mb-6">Tworzymy niezapomniane podróże od 2004 roku. Zaufało nam już ponad 15 000 zadowolonych klientów z całej Polski.</p>
+<div class="flex items-center mb-3">
+<div class="w-5 h-5 flex items-center justify-center mr-3">
+<i class="ri-phone-line text-primary"></i>
+</div>
+<span>+48 123 456 789</span>
+</div>
+<div class="flex items-center mb-3">
+<div class="w-5 h-5 flex items-center justify-center mr-3">
+<i class="ri-mail-line text-primary"></i>
+</div>
+<span>info@piotrtravel.pl</span>
+</div>
+<div class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center mr-3">
+<i class="ri-map-pin-line text-primary"></i>
+</div>
+<span>ul. Podróżnicza 123, 00-001 Warszawa</span>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-6">Popularne kierunki</h4>
+<ul class="space-y-3 text-gray-300">
+<li><a href="#" class="hover:text-primary transition-colors">Grecja</a></li>
+<li><a href="#" class="hover:text-primary transition-colors">Włochy</a></li>
+<li><a href="#" class="hover:text-primary transition-colors">Hiszpania</a></li>
+<li><a href="#" class="hover:text-primary transition-colors">Chorwacja</a></li>
+<li><a href="#" class="hover:text-primary transition-colors">Turcja</a></li>
+<li><a href="#" class="hover:text-primary transition-colors">Norwegia</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-6">Informacje</h4>
+<ul class="space-y-3 text-gray-300">
+<li><a href="#" class="hover:text-primary transition-colors">O nas</a></li>
+<li><a href="#" class="hover:text-primary transition-colors">Regulamin</a></li>
+<li><a href="#" class="hover:text-primary transition-colors">Polityka prywatności</a></li>
+<li><a href="#" class="hover:text-primary transition-colors">Warunki podróży</a></li>
+<li><a href="#" class="hover:text-primary transition-colors">Ubezpieczenia</a></li>
+<li><a href="#" class="hover:text-primary transition-colors">Kontakt</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-6">Certyfikaty</h4>
+<div class="space-y-4">
+<div class="flex items-center">
+<div class="w-8 h-8 flex items-center justify-center mr-3">
+<i class="ri-shield-check-line text-primary text-xl"></i>
+</div>
+<span class="text-gray-300">Licencja organizatora turystyki</span>
+</div>
+<div class="flex items-center">
+<div class="w-8 h-8 flex items-center justify-center mr-3">
+<i class="ri-award-line text-primary text-xl"></i>
+</div>
+<span class="text-gray-300">Certyfikat jakości ISO</span>
+</div>
+<div class="flex items-center">
+<div class="w-8 h-8 flex items-center justify-center mr-3">
+<i class="ri-bank-card-line text-primary text-xl"></i>
+</div>
+<span class="text-gray-300">Gwarancja ubezpieczeniowa</span>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 mb-4 md:mb-0">© 2024 PiotrTravel. Wszelkie prawa zastrzeżone.</p>
+<div class="flex items-center space-x-4">
+<span class="text-gray-400 text-sm">Akceptujemy płatności:</span>
+<div class="flex items-center space-x-2">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-visa-fill text-blue-400"></i>
+</div>
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-mastercard-fill text-red-400"></i>
+</div>
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-paypal-fill text-blue-600"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script id="smooth-scroll">
+document.addEventListener('DOMContentLoaded', function() {
+const links = document.querySelectorAll('a[href^="#"]');
+links.forEach(link => {
+link.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+targetElement.scrollIntoView({
+behavior: 'smooth'
+});
+}
+});
+});
+});
+</script>
+<script id="dropdown-interactions">
+document.addEventListener('DOMContentLoaded', function() {
+const dropdownButtons = document.querySelectorAll('button[class*="border-gray-200"]');
+dropdownButtons.forEach(button => {
+button.addEventListener('click', function() {
+console.log('Dropdown clicked');
+});
+});
+});
+</script>
+<script id="newsletter-form">
+document.addEventListener('DOMContentLoaded', function() {
+const newsletterForm = document.querySelector('input[type="email"]');
+const subscribeButton = newsletterForm?.nextElementSibling;
+if (subscribeButton) {
+subscribeButton.addEventListener('click', function() {
+const email = newsletterForm.value;
+if (email) {
+alert('Dziękujemy za zapisanie się do newslettera!');
+newsletterForm.value = '';
+} else {
+alert('Proszę wprowadzić adres e-mail');
+}
+});
+}
+});
+</script>
+<script id="gallery-interactions">
+document.addEventListener('DOMContentLoaded', function() {
+const galleryItems = document.querySelectorAll('.grid img[alt*="Zachód"], .grid img[alt*="Fiordy"], .grid img[alt*="Toskania"], .grid img[alt*="Malediwy"], .grid img[alt*="Japonia"], .grid img[alt*="Zorza"]');
+galleryItems.forEach(item => {
+item.addEventListener('click', function() {
+const alt = this.getAttribute('alt');
+console.log('Clicked gallery item:', alt);
+});
+});
+const galleryButton = document.querySelector('button:contains("Zobacz więcej zdjęć")');
+if (galleryButton) {
+galleryButton.addEventListener('click', function() {
+console.log('Show more photos clicked');
+});
+}
+});
+</script>
+
+<script id="contact-form-interactions">
+document.addEventListener('DOMContentLoaded', function() {
+const subjectDropdown = document.getElementById('subject-dropdown');
+const subjectOptions = document.getElementById('subject-options');
+const subjectSelected = document.getElementById('subject-selected');
+const subjectInput = document.getElementById('subject');
+const messageTextarea = document.getElementById('message');
+const charCount = document.getElementById('char-count');
+const consentCheckbox = document.getElementById('consent');
+const consentCheckboxVisual = document.getElementById('consent-checkbox');
+const consentCheck = document.getElementById('consent-check');
+const contactForm = document.getElementById('contact-form');
+const formMessage = document.getElementById('form-message');
+
+if (subjectDropdown && subjectOptions) {
+subjectDropdown.addEventListener('click', function() {
+subjectOptions.classList.toggle('hidden');
+});
+
+document.addEventListener('click', function(e) {
+if (!subjectDropdown.contains(e.target) && !subjectOptions.contains(e.target)) {
+subjectOptions.classList.add('hidden');
+}
+});
+
+const optionButtons = subjectOptions.querySelectorAll('button');
+optionButtons.forEach(button => {
+button.addEventListener('click', function() {
+const value = this.dataset.value;
+const text = this.textContent;
+subjectSelected.textContent = text;
+subjectSelected.classList.remove('text-gray-500');
+subjectSelected.classList.add('text-gray-900');
+subjectInput.value = value;
+subjectOptions.classList.add('hidden');
+});
+});
+}
+
+if (messageTextarea && charCount) {
+messageTextarea.addEventListener('input', function() {
+const length = this.value.length;
+charCount.textContent = length;
+if (length > 500) {
+this.value = this.value.substring(0, 500);
+charCount.textContent = 500;
+}
+});
+}
+
+if (consentCheckbox && consentCheckboxVisual) {
+consentCheckboxVisual.addEventListener('click', function() {
+consentCheckbox.checked = !consentCheckbox.checked;
+updateConsentVisual();
+});
+
+function updateConsentVisual() {
+if (consentCheckbox.checked) {
+consentCheckboxVisual.classList.add('bg-primary', 'border-primary');
+consentCheckboxVisual.classList.remove('border-gray-300');
+consentCheck.classList.remove('hidden');
+} else {
+consentCheckboxVisual.classList.remove('bg-primary', 'border-primary');
+consentCheckboxVisual.classList.add('border-gray-300');
+consentCheck.classList.add('hidden');
+}
+}
+}
+
+if (contactForm) {
+contactForm.addEventListener('submit', function(e) {
+e.preventDefault();
+
+const formData = new FormData(contactForm);
+const firstName = formData.get('firstName');
+const lastName = formData.get('lastName');
+const email = formData.get('email');
+const subject = formData.get('subject');
+const message = formData.get('message');
+const consent = formData.get('consent');
+
+if (!firstName || !lastName || !email || !subject || !message || !consent) {
+showFormMessage('Wszystkie pola są wymagane.', 'error');
+return;
+}
+
+showFormMessage('Wysyłanie wiadomości...', 'info');
+
+setTimeout(() => {
+showFormMessage('Dziękujemy za wiadomość! Odpowiemy w ciągu 24 godzin.', 'success');
+contactForm.reset();
+subjectSelected.textContent = 'Wybierz temat';
+subjectSelected.classList.add('text-gray-500');
+subjectSelected.classList.remove('text-gray-900');
+charCount.textContent = '0';
+consentCheckbox.checked = false;
+updateConsentVisual();
+}, 1000);
+});
+}
+
+function showFormMessage(message, type) {
+if (formMessage) {
+formMessage.textContent = message;
+formMessage.classList.remove('hidden', 'bg-red-100', 'text-red-700', 'bg-green-100', 'text-green-700', 'bg-blue-100', 'text-blue-700');
+
+if (type === 'error') {
+formMessage.classList.add('bg-red-100', 'text-red-700');
+} else if (type === 'success') {
+formMessage.classList.add('bg-green-100', 'text-green-700');
+} else {
+formMessage.classList.add('bg-blue-100', 'text-blue-700');
+}
+}
+}
+});
+</script>
+</body>
+</html>
